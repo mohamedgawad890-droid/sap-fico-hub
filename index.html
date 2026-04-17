@@ -191,6 +191,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <button class="nav-tab active" onclick="showPage('overview')">Overview</button>
     <button class="nav-tab" onclick="showPage('fi')">FI – Financial Accounting</button>
     <button class="nav-tab soon">CO – Coming Soon</button>
+    <button class="nav-tab" onclick="showPage('mycourse')">My Course</button>
   </div>
 </nav>
 
@@ -602,6 +603,221 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
   </div>
 </div>
 
+<!-- PAGE 3: MY COURSE -->
+<div id="page-mycourse" class="page">
+
+  <div class="unit-header">
+    <div class="breadcrumb">My Course › <span>SAP FICO Consultant</span></div>
+    <h1>SAP FICO Consultant Course</h1>
+    <p>My personal lecture notes — exactly as covered in class, lecture by lecture</p>
+    <div class="unit-meta">
+      <div class="meta-tag">📖 <b>Lecture 1</b> covered</div>
+      <div class="meta-tag">✍️ <b>Personal Notes</b></div>
+    </div>
+  </div>
+
+  <div class="content-layout">
+    <div class="sidebar">
+      <div class="sidebar-title">Lectures</div>
+      <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
+      <div class="sidebar-item" style="opacity:.4;cursor:default"><span class="sidebar-num">L2</span>Coming Soon</div>
+      <div class="sidebar-item" style="opacity:.4;cursor:default"><span class="sidebar-num">L3</span>Coming Soon</div>
+    </div>
+
+    <div class="lesson-content">
+      <div class="lesson-section active" id="lecture-0">
+
+        <div class="lesson-title"><span class="lesson-num">Lecture 1</span>Introduction to SAP</div>
+        <div class="lesson-sub">ERP concepts, SAP history, products, roles, and system navigation</div>
+
+        <!-- ERP -->
+        <div class="content-block">
+          <h3>1. What is ERP?</h3>
+          <p>ERP stands for <strong style="color:var(--text)">Enterprise Resource Planning</strong> — a software system that integrates all core business processes (finance, procurement, sales, HR, production) into one unified platform.</p>
+          <ul class="key-points">
+            <li>All departments work on the same system and share the same data in real time</li>
+            <li>Eliminates data silos and manual re-entry between departments</li>
+            <li>Provides a single source of truth for management reporting and decision making</li>
+            <li>Examples of ERP systems: SAP, Oracle, Microsoft Dynamics, Odoo</li>
+          </ul>
+        </div>
+
+        <!-- SAP -->
+        <div class="content-block">
+          <h3>2. What is SAP?</h3>
+          <p>SAP is the world's leading ERP software, founded in <strong style="color:var(--text)">1972 in Walldorf, Germany</strong> by five former IBM engineers: Dietmar Hopp, Hans-Werner Hector, Hasso Plattner, Klaus Tschira, and Claus Wellenreuther.</p>
+          <ul class="key-points">
+            <li>SAP = <strong>Systems, Applications & Products in Data Processing</strong></li>
+            <li>Used by over <strong style="color:var(--accent)">440,000 customers</strong> in more than 180 countries</li>
+            <li>Runs in <strong style="color:var(--accent)">77% of Fortune 500 companies</strong></li>
+            <li>Headquartered in Walldorf, Germany — listed on the Frankfurt Stock Exchange</li>
+          </ul>
+        </div>
+
+        <!-- VERSION HISTORY -->
+        <div class="content-block">
+          <h3>3. SAP Version History</h3>
+          <div class="tcode-grid">
+            <div class="tcode-item">
+              <span class="tcode" style="color:var(--dim)">R/1</span>
+              <span class="tcode-desc">1972 — First version, financial accounting only</span>
+            </div>
+            <div class="tcode-item">
+              <span class="tcode" style="color:var(--dim)">R/2</span>
+              <span class="tcode-desc">1979 — Mainframe-based, multi-currency support</span>
+            </div>
+            <div class="tcode-item">
+              <span class="tcode" style="color:var(--accent2)">R/3</span>
+              <span class="tcode-desc">1992 — Client-server architecture, global success</span>
+            </div>
+            <div class="tcode-item">
+              <span class="tcode" style="color:var(--accent2)">ECC 6.0</span>
+              <span class="tcode-desc">2005 — Enhanced R/3, still most widely used today</span>
+            </div>
+            <div class="tcode-item">
+              <span class="tcode" style="color:var(--green)">S/4HANA</span>
+              <span class="tcode-desc">2015 — Latest generation, in-memory HANA database</span>
+            </div>
+          </div>
+          <div class="hbox warn" style="margin-top:14px">⚠️ SAP will end support for ECC in <strong>2027</strong>. All companies are expected to migrate to S/4HANA.</div>
+        </div>
+
+        <!-- CUSTOMERS -->
+        <div class="content-block">
+          <h3>4. SAP Customers</h3>
+          <p>SAP customers are the companies and organizations that purchase and use SAP software to run their business operations.</p>
+          <ul class="key-points">
+            <li>Examples: Siemens, Nestlé, Toyota, Shell, Unilever, Coca-Cola, BMW</li>
+            <li>In Egypt & Arab region: Aramco, telecom companies, banks, government entities, manufacturing groups</li>
+            <li>Customers can implement SAP directly or through a partner</li>
+            <li>After go-live, the customer's internal team manages the system day-to-day</li>
+          </ul>
+        </div>
+
+        <!-- SAP PARTNERS -->
+        <div class="content-block">
+          <h3>5. SAP Partners</h3>
+          <p>SAP Partners are certified companies that help customers implement, customize, and support SAP. They do not use SAP for their own business — they <strong style="color:var(--text)">sell it and implement it</strong> for others.</p>
+          <ul class="key-points">
+            <li><strong>Gold Partners / Platinum Partners</strong> — highest certification level, handle large enterprises</li>
+            <li>Examples: Deloitte, Accenture, IBM, PwC, Capgemini, HCL</li>
+            <li>Partners provide consultants who configure and deploy SAP at customer sites</li>
+            <li>Regional partners in Egypt and the Arab world handle local implementations</li>
+          </ul>
+          <div class="hbox info">💡 As an SAP FICO Consultant, you would typically work for a <strong>partner company</strong> and be deployed to customer projects — or work directly in a customer's internal SAP team.</div>
+        </div>
+
+        <!-- S4HANA -->
+        <div class="content-block">
+          <h3>6. SAP S/4HANA</h3>
+          <p>S/4HANA is SAP's latest-generation ERP platform, launched in 2015. The "S/4" stands for <strong style="color:var(--text)">Suite for HANA</strong>.</p>
+          <ul class="key-points">
+            <li><strong>Built on HANA</strong> — SAP's own in-memory database, significantly faster than traditional databases</li>
+            <li><strong>Universal Journal</strong> — FI and CO are merged into one single table (ACDOCA), eliminating reconciliation</li>
+            <li><strong>Simplified data model</strong> — fewer tables, faster processing, real-time reporting</li>
+            <li><strong>SAP Fiori</strong> — modern web-based UI replacing the old SAP GUI (works on mobile and tablet)</li>
+            <li>Available as <strong>On-Premise</strong> (installed at company), <strong>Cloud</strong>, or <strong>Hybrid</strong></li>
+          </ul>
+        </div>
+
+        <!-- PRODUCTS BY SIZE -->
+        <div class="content-block">
+          <h3>7. SAP Products by Company Size</h3>
+          <p>SAP offers different products depending on the size of the business:</p>
+          <div class="org-tree">
+            <div class="org-node l2">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">SAP Business One</div>
+                <div class="org-sub">Small businesses (up to ~100 employees) — simplified, affordable, fast to implement</div>
+              </div>
+            </div>
+            <div class="org-node l3">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">SAP ByDesign</div>
+                <div class="org-sub">Mid-size companies — cloud-based, pre-configured, subscription model</div>
+              </div>
+            </div>
+            <div class="org-node l1">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">SAP S/4HANA</div>
+                <div class="org-sub">Large enterprises — full functionality, highly customizable, complex implementation</div>
+              </div>
+            </div>
+          </div>
+          <div class="hbox info" style="margin-top:14px">💡 S/4HANA can be sold and implemented by both <strong>Partners</strong> (for customers) and purchased directly from <strong>SAP</strong>. Business One and ByDesign are sold primarily through partners.</div>
+        </div>
+
+        <!-- GUI vs FIORI -->
+        <div class="content-block">
+          <h3>8. SAP GUI vs SAP Fiori</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+              <div style="font-weight:600;color:var(--dim);margin-bottom:10px;font-size:13px">SAP GUI</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Traditional desktop application</li>
+                <li>Used in SAP ECC and still in S/4HANA</li>
+                <li>Requires installation on each PC</li>
+                <li>Not mobile-friendly</li>
+                <li>T-Code based navigation</li>
+              </ul>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:600;color:var(--accent2);margin-bottom:10px;font-size:13px">SAP Fiori</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Modern web-based interface</li>
+                <li>Works on browser, tablet, mobile</li>
+                <li>No installation needed</li>
+                <li>Role-based — shows only what you need</li>
+                <li>Tile-based navigation (like a smartphone)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULES -->
+        <div class="content-block">
+          <h3>9. SAP Modules Overview</h3>
+          <ul class="key-points">
+            <li><strong>FI — Financial Accounting:</strong> GL, AP, AR, Asset Accounting, Bank</li>
+            <li><strong>CO — Controlling:</strong> Cost Centers, Profit Centers, Internal Orders, Product Costing</li>
+            <li><strong>MM — Materials Management:</strong> Purchasing, Goods Receipt, Inventory, Invoice Verification</li>
+            <li><strong>SD — Sales & Distribution:</strong> Sales Orders, Delivery, Billing, Customer Management</li>
+            <li><strong>PP — Production Planning:</strong> MRP, Work Orders, Bill of Materials, Capacity Planning</li>
+            <li><strong>HR / HCM — Human Capital Management:</strong> Payroll, Time Management, Org Management</li>
+            <li><strong>PM — Plant Maintenance:</strong> Equipment, Maintenance Orders, Breakdown Management</li>
+            <li><strong>PS — Project System:</strong> WBS, Project Budgets, Milestone Billing</li>
+            <li><strong>QM — Quality Management:</strong> Inspection Plans, Quality Certificates, Non-conformance</li>
+          </ul>
+          <div class="hbox info" style="margin-top:14px">💡 All modules are integrated. Every transaction in MM, SD, or PP automatically generates a financial posting in <strong>FI</strong> — that's why FI is considered the backbone of SAP.</div>
+        </div>
+
+        <!-- ROLES -->
+        <div class="content-block">
+          <h3>10. Consultant vs Key User vs End User</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--accent);margin-bottom:6px">SAP Consultant</div>
+              <p style="font-size:13px;color:var(--dim);line-height:1.7">The technical and functional expert. Configures the system (SPRO), designs business processes, maps company requirements to SAP, trains key users, and supports go-live. Works for a partner company or as a freelancer. Needs deep SAP knowledge.</p>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--gold);margin-bottom:6px">Key User</div>
+              <p style="font-size:13px;color:var(--dim);line-height:1.7">An experienced employee from the customer's side who knows both the business process and SAP well. Acts as the bridge between consultants and end users. Trains colleagues, handles basic issues, and communicates change requests to the IT/consultant team.</p>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--green);margin-bottom:6px">End User</div>
+              <p style="font-size:13px;color:var(--dim);line-height:1.7">A regular employee who uses SAP daily to do their job — posting invoices, creating purchase orders, entering timesheets, etc. Uses only the transactions relevant to their role. Does not configure or change anything in the system.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end lecture-0 -->
+    </div>
+  </div>
+</div>
+
 <script>
 function showPage(p){
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
@@ -610,7 +826,14 @@ function showPage(p){
   const tabs=document.querySelectorAll('.nav-tab');
   if(p==='overview')tabs[0].classList.add('active');
   else if(p==='fi')tabs[1].classList.add('active');
+  else if(p==='mycourse')tabs[3].classList.add('active');
   window.scrollTo(0,0);
+}
+function showLecture(i){
+  document.querySelectorAll('[id^="lecture-"]').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#page-mycourse .sidebar-item').forEach(x=>x.classList.remove('active'));
+  document.getElementById('lecture-'+i).classList.add('active');
+  document.querySelectorAll('#page-mycourse .sidebar-item')[i].classList.add('active');
 }
 function showLesson(i){
   document.querySelectorAll('.lesson-section').forEach(x=>x.classList.remove('active'));
