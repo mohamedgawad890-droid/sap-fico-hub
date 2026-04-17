@@ -189,9 +189,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
   <div class="nav-brand">SAP <span>FICO</span> Hub</div>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showPage('overview')">Overview</button>
+    <button class="nav-tab" onclick="showPage('mycourse')">My Course</button>
     <button class="nav-tab" onclick="showPage('fi')">FI – Financial Accounting</button>
     <button class="nav-tab soon">CO – Coming Soon</button>
-    <button class="nav-tab" onclick="showPage('mycourse')">My Course</button>
   </div>
 </nav>
 
@@ -620,7 +620,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <div class="sidebar">
       <div class="sidebar-title">Lectures</div>
       <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
-      <div class="sidebar-item" style="opacity:.4;cursor:default"><span class="sidebar-num">L2</span>Coming Soon</div>
+      <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Methodology</div>
       <div class="sidebar-item" style="opacity:.4;cursor:default"><span class="sidebar-num">L3</span>Coming Soon</div>
     </div>
 
@@ -814,6 +814,339 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         </div>
 
       </div><!-- end lecture-0 -->
+
+      <!-- LECTURE 2 -->
+      <div class="lesson-section" id="lecture-1">
+        <div class="lesson-title"><span class="lesson-num">Lecture 2</span>SAP Landscape & Implementation Methodology</div>
+        <div class="lesson-sub">Servers, SAP Activate, Blueprint, Org Structure, Master Data, Business Processes, WRICEF, FI & CO sub-modules</div>
+
+        <!-- 1. SAP MODULES: FUNCTIONAL vs TECHNICAL -->
+        <div class="content-block">
+          <h3>1. SAP Modules: Functional vs Technical</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--accent);margin-bottom:10px;font-size:13px">Functional Modules</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Business-oriented modules</li>
+                <li><strong>FI</strong> — Financial Accounting</li>
+                <li><strong>CO</strong> — Controlling</li>
+                <li><strong>MM</strong> — Materials Management</li>
+                <li><strong>SD</strong> — Sales & Distribution</li>
+                <li><strong>PP</strong> — Production Planning</li>
+                <li><strong>HR</strong> — Human Resources</li>
+              </ul>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--purple);margin-bottom:10px;font-size:13px">Technical Modules</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>IT & development oriented</li>
+                <li><strong>ABAP</strong> — SAP's programming language (custom development, reports, enhancements)</li>
+                <li><strong>Basis</strong> — System administration, servers, transport management, user access</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. SAP SERVERS -->
+        <div class="content-block">
+          <h3>2. SAP System Landscape — Three Servers</h3>
+          <p>Every SAP implementation has at least three separate environments (servers) to ensure safe development and testing before anything reaches the live system.</p>
+          <div class="org-tree" style="margin-top:12px">
+            <div class="org-node l2">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">DEV — Development Server</div>
+                <div class="org-sub">Where consultants configure and build. All changes start here.</div>
+              </div>
+            </div>
+            <div class="org-node l3">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">QAS — Quality Assurance / Testing Server</div>
+                <div class="org-sub">Testing environment. Key users and consultants test all configurations here before go-live.</div>
+              </div>
+            </div>
+            <div class="org-node l1">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">PRD — Production Server</div>
+                <div class="org-sub">The live system. Real company data. Only tested and approved changes are moved here.</div>
+              </div>
+            </div>
+            <div class="org-node l4">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">Sandbox</div>
+                <div class="org-sub">Free training environment — used for learning and experimentation. No rules, no consequences.</div>
+              </div>
+            </div>
+          </div>
+          <div class="hbox info" style="margin-top:14px">💡 Changes always flow in one direction: <strong>DEV → QAS → PRD</strong>. You never make direct changes in PRD.</div>
+        </div>
+
+        <!-- 3. ON-PREMISE vs CLOUD -->
+        <div class="content-block">
+          <h3>3. On-Premise vs Cloud</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--gold);margin-bottom:8px;font-size:13px">On-Premise</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Physical servers located at the client's site</li>
+                <li>Company owns and manages the hardware</li>
+                <li>Higher upfront cost, more control</li>
+                <li>Common in large enterprises and government</li>
+              </ul>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--accent2);margin-bottom:8px;font-size:13px">Cloud</div>
+              <ul class="key-points" style="font-size:13px">
+                <li><strong>Private Cloud</strong> — dedicated servers for one company, hosted externally</li>
+                <li><strong>Public Cloud</strong> — shared infrastructure (e.g. SAP BTP, AWS)</li>
+                <li>Subscription-based, lower upfront cost</li>
+                <li>SAP S/4HANA Cloud is the main cloud offering</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. SAP ACTIVATE -->
+        <div class="content-block">
+          <h3>4. SAP Activate Methodology — 6 Phases</h3>
+          <p>SAP Activate is the <strong style="color:var(--text)">current official implementation methodology</strong> used for SAP projects (replaced the older ASAP methodology). It follows 6 sequential phases.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--accent);color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">1</span>
+              <div><div style="font-weight:600;color:var(--text);margin-bottom:4px;font-size:14px">Discover</div><div style="font-size:13px;color:var(--dim)">Sales team presents SAP to the potential customer. Demos, proposals, and scope definition. Project is sold and approved.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--accent);color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">2</span>
+              <div><div style="font-weight:600;color:var(--text);margin-bottom:4px;font-size:14px">Prepare</div><div style="font-size:13px;color:var(--dim)">Project kick-off. Teams are formed, infrastructure is set up, project plan is created, and access to systems is granted.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.25);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--accent);color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">3</span>
+              <div><div style="font-weight:600;color:var(--accent2);margin-bottom:4px;font-size:14px">Explore <span style="font-size:11px;color:var(--muted)">→ Blueprint</span></div><div style="font-size:13px;color:var(--dim)">Workshops with the client to gather all requirements. Consultants document everything in the <strong style="color:var(--text)">Blueprint</strong>. Phase ends with client <strong style="color:var(--gold)">sign-off</strong> on the blueprint.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.25);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--purple);color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">4</span>
+              <div><div style="font-weight:600;color:var(--purple);margin-bottom:4px;font-size:14px">Realize</div><div style="font-size:13px;color:var(--dim)">Starts only after blueprint sign-off. Consultants configure the system, build WRICEF objects, run testing cycles, and train the client's team.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.25);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--gold);color:black;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">5</span>
+              <div><div style="font-weight:600;color:var(--gold);margin-bottom:4px;font-size:14px">Deploy</div><div style="font-size:13px;color:var(--dim)">Final preparation for go-live. Opening balances are loaded, final master data is migrated to PRD, and cutover plan is executed.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.25);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--green);color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">6</span>
+              <div><div style="font-weight:600;color:var(--green);margin-bottom:4px;font-size:14px">Run</div><div style="font-size:13px;color:var(--dim)">Go-live. The system is now live. Consultants provide <strong style="color:var(--text)">Hyper Care</strong> support (first few weeks). After stabilization, a support team takes over ongoing maintenance.</div></div>
+            </div>
+          </div>
+          <div class="hbox warn" style="margin-top:14px">📌 SAP Activate replaced the old <strong>ASAP Methodology</strong>. If you see ASAP referenced, it is the legacy approach — Activate is the current standard.</div>
+        </div>
+
+        <!-- 5. BLUEPRINT -->
+        <div class="content-block">
+          <h3>5. The Blueprint Document</h3>
+          <p>The Blueprint is <strong style="color:var(--text)">the most important document in any SAP project</strong>. It is created during the Explore phase and describes every aspect of the implementation.</p>
+          <ul class="key-points">
+            <li>Documents all client requirements and how SAP will fulfill them</li>
+            <li>Serves as the contract between the partner (consultant) and the customer</li>
+            <li>Must be signed off by the client before Realize phase can begin</li>
+          </ul>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px">Blueprint Contents:</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="background:var(--surface2);border-right:3px solid var(--accent);padding:12px 16px;border-radius:6px;font-size:13px;color:var(--dim)"><strong style="color:var(--text)">1. Organizational Structure</strong> — How the company's legal and operational structure maps to SAP</div>
+            <div style="background:var(--surface2);border-right:3px solid var(--green);padding:12px 16px;border-radius:6px;font-size:13px;color:var(--dim)"><strong style="color:var(--text)">2. Master Data</strong> — All reference data: GL accounts, customers, vendors, cost centers, etc.</div>
+            <div style="background:var(--surface2);border-right:3px solid var(--purple);padding:12px 16px;border-radius:6px;font-size:13px;color:var(--dim)"><strong style="color:var(--text)">3. Business Processes</strong> — Every transaction flow documented end-to-end</div>
+          </div>
+        </div>
+
+        <!-- 6. ORG STRUCTURE -->
+        <div class="content-block">
+          <h3>6. SAP Organizational Structure (Full Hierarchy)</h3>
+          <div class="org-tree" style="margin-top:12px">
+            <div class="org-node l1">
+              <div class="org-dot"></div>
+              <div><div class="org-label">Client</div><div class="org-sub">The entire SAP system instance (e.g. Client 710 used in training)</div></div>
+            </div>
+            <div class="org-node l2">
+              <div class="org-dot"></div>
+              <div><div class="org-label">Operating Concern (CO-PA)</div><div class="org-sub">Highest level in CO — used for Profitability Analysis (COPA). Groups multiple Controlling Areas.</div></div>
+            </div>
+            <div class="org-node l3">
+              <div class="org-dot"></div>
+              <div><div class="org-label">Controlling Area</div><div class="org-sub">The CO management unit. Can contain one or multiple Company Codes. All cost centers and profit centers belong to a Controlling Area.</div></div>
+            </div>
+            <div class="org-node l4">
+              <div class="org-dot"></div>
+              <div><div class="org-label">Company Code (e.g. 1000, 2000)</div><div class="org-sub">The legal entity — produces independent financial statements (Balance Sheet & P&L)</div></div>
+            </div>
+          </div>
+          <div class="hbox warn" style="margin-top:14px">⚠️ <strong>Two reasons a Company Code may need a separate Controlling Area:</strong><br>1. Different Fiscal Year (e.g. Jan–Dec vs Jul–Jun)<br>2. Different Chart of Accounts</div>
+          <div style="margin-top:14px">
+            <div style="font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px">Functional Area:</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7">Used to classify costs and revenues by business function for segment reporting. Examples: Operations, G&A (General & Administrative), Sales. Enables reporting on revenue and expenses per functional area.</p>
+          </div>
+        </div>
+
+        <!-- 7. MASTER DATA -->
+        <div class="content-block">
+          <h3>7. Master Data</h3>
+          <p>Master Data is the core reference data that is created once and reused in all transactions. Unlike transactional data (invoices, payments), master data is stable and doesn't change often.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.2);border-radius:8px;padding:14px">
+              <div style="font-weight:600;color:var(--accent2);font-size:12px;margin-bottom:8px">FI Master Data</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Chart of Accounts (CoA) → G/L Accounts</li>
+                <li>Trial Balance accounts</li>
+                <li>Bank Accounts</li>
+                <li>Customer Master</li>
+                <li>Vendor / Supplier Master</li>
+              </ul>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.2);border-radius:8px;padding:14px">
+              <div style="font-weight:600;color:var(--purple);font-size:12px;margin-bottom:8px">CO Master Data</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Cost Centers</li>
+                <li>Profit Centers</li>
+                <li>Internal Orders</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hbox info" style="margin-top:14px">💡 <strong>Reporting Structure Example:</strong> A company can be organized as Segments → Profit Centers → Cost Centers. Each Profit Center can have multiple Cost Centers beneath it, enabling layered reporting.</div>
+        </div>
+
+        <!-- 8. BUSINESS PROCESSES -->
+        <div class="content-block">
+          <h3>8. Core Business Processes in SAP</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+            <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--gold);margin-bottom:8px">① Procure to Pay (P2P)</div>
+              <p style="font-size:13px;color:var(--dim);margin-bottom:10px">The end-to-end purchasing process — from buying goods/services to paying the vendor.</p>
+              <ul class="key-points" style="font-size:13px">
+                <li>Purchase Requisition → Purchase Order</li>
+                <li>Goods Receipt (inventory updated)</li>
+                <li>Invoice Verification</li>
+                <li>Payment to Vendor</li>
+              </ul>
+              <div style="margin-top:8px;font-size:12px;color:var(--muted)">Modules involved: MM (procurement cycle + inventory) → FI (payment posting)</div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--green);margin-bottom:8px">② Order to Cash (O2C)</div>
+              <p style="font-size:13px;color:var(--dim);margin-bottom:10px">The end-to-end sales process — from receiving a customer order to collecting payment.</p>
+              <ul class="key-points" style="font-size:13px">
+                <li>Pre-sales activities (inquiry, quotation)</li>
+                <li>Sales Order creation</li>
+                <li>Delivery & Shipping</li>
+                <li>Billing (customer invoice)</li>
+                <li>Payment collection</li>
+              </ul>
+              <div style="margin-top:8px;font-size:12px;color:var(--muted)">Modules involved: SD (sales process) → FI (invoice & collection posting)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. WRICEF -->
+        <div class="content-block">
+          <h3>9. WRICEF — Custom Development Objects</h3>
+          <p>During the Realize phase, consultants identify and build all custom objects needed beyond standard SAP. These are classified under the <strong style="color:var(--text)">WRICEF</strong> framework.</p>
+          <div class="tcode-grid" style="margin-top:12px">
+            <div class="tcode-item"><span class="tcode" style="color:var(--accent)">W</span><span class="tcode-desc"><strong>Workflow</strong> — Automated approval processes and notifications</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--green)">R</span><span class="tcode-desc"><strong>Report</strong> — Custom reports built in ABAP beyond standard SAP reports</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--purple)">I</span><span class="tcode-desc"><strong>Interface</strong> — Data exchange between SAP and external systems</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--gold)">C</span><span class="tcode-desc"><strong>Conversion</strong> — Data migration from old system into SAP</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--accent2)">E</span><span class="tcode-desc"><strong>Enhancement</strong> — Extending standard SAP functionality without modifying core code</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--red)">F</span><span class="tcode-desc"><strong>Forms</strong> — Custom printed output: invoices, POs, statements</span></div>
+          </div>
+          <div class="hbox info" style="margin-top:14px">💡 A typical SAP project has around <strong>20 WRICEF objects</strong>. The number and complexity of WRICEF directly impacts project cost and timeline.</div>
+        </div>
+
+        <!-- 10. REALIZE PHASE DETAIL -->
+        <div class="content-block">
+          <h3>10. Realize Phase — In Detail</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+            <div style="background:var(--surface2);padding:12px 16px;border-radius:8px;border:1px solid var(--border);font-size:13px;color:var(--dim)">
+              <strong style="color:var(--text)">Step 1 — Configuration:</strong> Consultants configure SAP in DEV using SPRO (IMG). All system settings, org structure, master data rules are set up.
+            </div>
+            <div style="background:var(--surface2);padding:12px 16px;border-radius:8px;border:1px solid var(--border);font-size:13px;color:var(--dim)">
+              <strong style="color:var(--text)">Step 2 — Unit Test (Internal):</strong> Each consultant tests their own module independently. This is internal — done by the consulting team without the client.
+            </div>
+            <div style="background:var(--surface2);padding:12px 16px;border-radius:8px;border:1px solid var(--border);font-size:13px;color:var(--dim)">
+              <strong style="color:var(--text)">Step 3 — Integration Test (External):</strong> All modules are tested together end-to-end. Done with the client's key users present. Tests cross-module flows (e.g. P2P: MM → FI).
+            </div>
+            <div style="background:var(--surface2);padding:12px 16px;border-radius:8px;border:1px solid var(--border);font-size:13px;color:var(--dim)">
+              <strong style="color:var(--text)">Step 4 — Cycle Test:</strong> Full business cycle tested across all modules simultaneously to simulate real operations.
+            </div>
+            <div style="background:var(--surface2);padding:12px 16px;border-radius:8px;border:1px solid var(--border);font-size:13px;color:var(--dim)">
+              <strong style="color:var(--text)">Step 5 — Training:</strong> Consultants train the client's key users on how to use the system.
+            </div>
+            <div style="background:var(--surface2);padding:12px 16px;border-radius:8px;border:1px solid rgba(16,185,129,.3);font-size:13px;color:var(--dim)">
+              <strong style="color:var(--green)">Step 6 — UAT (User Acceptance Test):</strong> The client's team tests the full system themselves. All tested cycles are documented. Client provides final <strong style="color:var(--gold)">sign-off</strong> before go-live.
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. DEPLOY & RUN -->
+        <div class="content-block">
+          <h3>11. Deploy & Run Phases</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+            <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--gold);margin-bottom:8px">Deploy</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Load <strong>opening balances</strong> into PRD (trial balance, AR/AP balances)</li>
+                <li>Migrate final master data to the live system</li>
+                <li>Cutover from old system to SAP</li>
+                <li>System is ready for go-live</li>
+              </ul>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--green);margin-bottom:8px">Run</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>System goes live — real transactions begin</li>
+                <li><strong>Hyper Care period:</strong> consultants on standby for immediate support (first 4–8 weeks)</li>
+                <li>Go-live team handles any errors urgently</li>
+                <li>After stabilization → <strong>Support Team</strong> (consultants) takes over long-term</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. FI SUB-MODULES -->
+        <div class="content-block">
+          <h3>12. FI Sub-Modules</h3>
+          <ul class="key-points">
+            <li><strong>GL — General Ledger:</strong> Core of FI. All postings flow here. Produces Trial Balance and financial statements.</li>
+            <li><strong>AP — Accounts Payable:</strong> Manages vendor invoices, payment runs, and vendor balances.</li>
+            <li><strong>AR — Accounts Receivable:</strong> Manages customer invoices, collections, and customer balances.</li>
+            <li><strong>Bank:</strong> House bank management, cash journal, and bank reconciliation.</li>
+            <li><strong>Asset Accounting (AA):</strong> Fixed assets, depreciation runs, asset acquisitions and disposals.</li>
+          </ul>
+        </div>
+
+        <!-- 13. CO SUB-MODULES -->
+        <div class="content-block">
+          <h3>13. CO Sub-Modules</h3>
+          <ul class="key-points">
+            <li><strong>Cost Center Accounting (CCA):</strong> Tracks costs by department or function. Answers: "How much did each department spend?"</li>
+            <li><strong>Profit Center Accounting (PCA):</strong> Tracks revenues and costs by business unit. Answers: "Which segment is profitable?"</li>
+            <li><strong>Internal Orders:</strong> Tracks costs for specific short-term activities or projects (events, campaigns, small capex).</li>
+            <li><strong>Product Costing (CO-PC):</strong> Calculates the cost of manufactured products. Used with PP module.</li>
+            <li><strong>Profitability Analysis (CO-PA):</strong> Analyzes profitability by customer, product, region, or sales channel.</li>
+          </ul>
+        </div>
+
+        <!-- 14. DOCUMENT TYPE -->
+        <div class="content-block">
+          <h3>14. Document Type</h3>
+          <p>SAP stores each type of financial transaction in a <strong style="color:var(--text)">separate document</strong>. Every journal entry is assigned a Document Type that identifies what kind of transaction it is.</p>
+          <ul class="key-points">
+            <li>Each Document Type has a unique 2-character key (e.g. <strong style="color:var(--gold)">KR</strong> = Vendor Invoice, <strong style="color:var(--gold)">DR</strong> = Customer Invoice, <strong style="color:var(--gold)">SA</strong> = G/L Account Document)</li>
+            <li>Controls the number range for document numbering</li>
+            <li>Every journal entry is assigned a <strong>unique document number</strong> linked to its document type</li>
+            <li>Examples: Customer invoices are stored separately from vendor invoices, which are stored separately from G/L entries</li>
+          </ul>
+          <div class="hbox info" style="margin-top:12px">💡 Document Types make it easy to filter, search, and report on specific transaction types. You can pull all vendor invoices or all customer invoices separately.</div>
+        </div>
+
+      </div><!-- end lecture-1 -->
     </div>
   </div>
 </div>
@@ -825,8 +1158,8 @@ function showPage(p){
   document.getElementById('page-'+p).classList.add('active');
   const tabs=document.querySelectorAll('.nav-tab');
   if(p==='overview')tabs[0].classList.add('active');
-  else if(p==='fi')tabs[1].classList.add('active');
-  else if(p==='mycourse')tabs[3].classList.add('active');
+  else if(p==='mycourse')tabs[1].classList.add('active');
+  else if(p==='fi')tabs[2].classList.add('active');
   window.scrollTo(0,0);
 }
 function showLecture(i){
