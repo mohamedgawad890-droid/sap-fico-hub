@@ -628,7 +628,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-title">Lectures</div>
       <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
       <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Methodology</div>
-      <div class="sidebar-item" style="opacity:.4;cursor:default"><span class="sidebar-num">L3</span>Coming Soon</div>
+      <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
     </div>
 
     <div class="lesson-content">
@@ -1154,6 +1154,291 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         </div>
 
       </div><!-- end lecture-1 -->
+
+      <!-- ═══════════════════════════════════════════════════════ LECTURE 3 -->
+      <div class="lesson-section" id="lecture-2">
+        <div class="lesson-title"><span class="lesson-num">Lecture 3</span>GL Account Master Data</div>
+        <div class="lesson-sub">Fiori vs GUI hands-on · Authorization Matrix · Chart of Accounts · GL Account Creation (FS00) · Account Types · Reconciliation Accounts</div>
+
+        <!-- 1. FIORI vs GUI — PRACTICAL -->
+        <div class="content-block">
+          <h3>1. Fiori vs GUI — Practical Comparison (24/4/2026)</h3>
+          <p>The lecture started with a hands-on comparison between SAP Fiori and SAP GUI by opening the same transaction in both interfaces.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--accent);margin-bottom:10px;font-size:13px">SAP Fiori</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Modern web-based UI — runs in any browser</li>
+                <li>Open <strong>New Supplier Invoice</strong> app to see the difference in layout vs GUI</li>
+                <li>Edit the <strong>Home Page</strong> to add favourite apps (tiles)</li>
+                <li>Use the <strong>Fiori Library</strong> to search by T-Code and find the Fiori app name — e.g. search <code>FB60</code> to get the equivalent Fiori app</li>
+              </ul>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:16px">
+              <div style="font-weight:700;color:var(--purple);margin-bottom:10px;font-size:13px">SAP GUI</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Classic desktop client — Windows-based</li>
+                <li>All transactions accessed via <strong>T-Codes</strong></li>
+                <li>Investigate the <strong>Accounting Folder</strong> structure</li>
+                <li>User roles and authorizations managed via GUI</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hbox info" style="margin-top:12px">💡 <strong>T-Code tip:</strong> You can search any T-Code in Fiori Launchpad to find its equivalent Fiori app. For example, <code>FB60</code> (Enter Vendor Invoice in GUI) maps to the "Create Supplier Invoice" tile in Fiori.</div>
+        </div>
+
+        <!-- 2. AUTHORIZATION MATRIX -->
+        <div class="content-block">
+          <h3>2. Authorization Matrix (FI)</h3>
+          <p>SAP controls what each user can do through a structured <strong>Authorization Matrix</strong>. This is set up during the Blueprint phase and maintained by the Basis team.</p>
+          <div class="org-tree" style="margin-top:10px">
+            <div class="org-node l1">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">Step 1 — Define FI Roles</div>
+                <div class="org-sub">Each role maps to a set of FI functions (e.g. post invoices, view reports, approve payments)</div>
+              </div>
+            </div>
+            <div class="org-node l2">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">Step 2 — Assign Users to Roles</div>
+                <div class="org-sub">Each user is added to the relevant role(s) — done in GUI</div>
+              </div>
+            </div>
+            <div class="org-node l2">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">Step 3 — Control by Function &amp; Company</div>
+                <div class="org-sub">We can restrict each user within a specific function AND a specific company code</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <div class="hbox" style="background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.2);border-radius:8px;padding:14px">
+              <div style="font-weight:700;color:var(--accent);font-size:13px;margin-bottom:6px">FI → External Reporting</div>
+              <p style="font-size:13px;margin:0;color:var(--dim)">Financial Accounting produces reports for external stakeholders — balance sheet, P&amp;L, tax authorities</p>
+            </div>
+            <div class="hbox" style="background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.2);border-radius:8px;padding:14px">
+              <div style="font-weight:700;color:var(--purple);font-size:13px;margin-bottom:6px">CO → Internal Reporting</div>
+              <p style="font-size:13px;margin:0;color:var(--dim)">Controlling produces reports for internal management — cost centers, profit centers, budgets</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. GL POSTING — FB50 -->
+        <div class="content-block">
+          <h3>3. GL Posting — T-Code FB50</h3>
+          <p>FI contains sub-modules: <strong>GL</strong> (General Ledger), <strong>AR</strong> (Accounts Receivable), <strong>AP</strong> (Accounts Payable), and more. We opened GL in GUI using FB50 to post a journal entry.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:12px 0">
+            <div style="background:var(--surface2);border-radius:8px;padding:14px;border:1px solid var(--border)">
+              <div style="font-size:11px;color:var(--dim);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em">Document Date</div>
+              <div style="font-weight:700;font-size:14px;color:var(--text)">The original document date</div>
+              <div style="font-size:12px;color:var(--dim);margin-top:4px">Example: 20/4/2026 (invoice date)</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:14px;border:1px solid var(--border)">
+              <div style="font-size:11px;color:var(--dim);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em">Posting Date</div>
+              <div style="font-weight:700;font-size:14px;color:var(--text)">When we need to post it</div>
+              <div style="font-size:12px;color:var(--dim);margin-top:4px">The period it will affect in FI</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:14px;border:1px solid var(--border)">
+              <div style="font-size:11px;color:var(--dim);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em">Entry Date</div>
+              <div style="font-weight:700;font-size:14px;color:var(--text)">System date auto-filled</div>
+              <div style="font-size:12px;color:var(--dim);margin-top:4px">The date we physically logged the entry</div>
+            </div>
+          </div>
+          <ul class="key-points">
+            <li>Enter <strong>Debit and Credit lines</strong>, Amount, and Currency</li>
+            <li>Any <strong>expense account</strong> must include a <strong>Cost Center</strong> — mandatory field</li>
+            <li>After posting, <strong>display the document</strong> to verify the entry was saved correctly</li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 FB50 is used for direct GL journal entries. For vendor invoices use FB60, for customer invoices use FB70.</div>
+        </div>
+
+        <!-- 4. CHART OF ACCOUNTS -->
+        <div class="content-block">
+          <h3>4. Chart of Accounts (CoA)</h3>
+          <p>The Chart of Accounts is the master list of all GL accounts in SAP. SAP uses a numeric coding structure — each account type has a defined range.</p>
+          <div style="overflow-x:auto;margin-top:10px">
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="background:rgba(14,165,233,.12)">
+                  <th style="text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Account Type</th>
+                  <th style="text-align:center;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Range From</th>
+                  <th style="text-align:center;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Range To</th>
+                  <th style="text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Sub-accounts Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)">
+                  <td style="padding:9px 12px;font-weight:600">Assets</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">100000</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">199999</td>
+                  <td style="padding:9px 12px;color:var(--dim)">Current Asset (111xxx), Fixed Asset (122xxx)</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)">
+                  <td style="padding:9px 12px;font-weight:600">Liabilities</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">200000</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">299999</td>
+                  <td style="padding:9px 12px;color:var(--dim)">—</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border)">
+                  <td style="padding:9px 12px;font-weight:600">General / Equity</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">300000</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">399999</td>
+                  <td style="padding:9px 12px;color:var(--dim)">—</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)">
+                  <td style="padding:9px 12px;font-weight:600">Revenue</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">400000</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">499999</td>
+                  <td style="padding:9px 12px;color:var(--dim)">—</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border)">
+                  <td style="padding:9px 12px;font-weight:600">Expenses</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">500000</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace">599999</td>
+                  <td style="padding:9px 12px;color:var(--dim)">—</td>
+                </tr>
+                <tr style="background:rgba(245,158,11,.08)">
+                  <td style="padding:9px 12px;font-weight:600;color:var(--gold)">SAP Secondary Group</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace;color:var(--gold)">99999</td>
+                  <td style="padding:9px 12px;text-align:center;font-family:monospace;color:var(--gold)">—</td>
+                  <td style="padding:9px 12px;color:var(--dim)">Internal SAP use only — not visible to company team</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="key-points" style="margin-top:12px">
+            <li>SAP team uploads the full CoA via a <strong>Cockpit file</strong> during implementation</li>
+            <li>Alternatively, use <strong>FS00</strong> to create GL accounts manually one by one</li>
+            <li>In FS00, the left panel shows the CoA of the company — e.g. Fixed Asset → Land</li>
+          </ul>
+        </div>
+
+        <!-- 5. GL ACCOUNT TYPES -->
+        <div class="content-block">
+          <h3>5. GL Account Types</h3>
+          <p>When creating a GL account in FS00, you must define the <strong>GL Account Type</strong>. This determines how the account behaves in postings.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+            <div style="background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.25);border-radius:8px;padding:14px">
+              <div style="font-weight:700;color:var(--accent);font-size:13px;margin-bottom:8px">Balance Sheet Account</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Assets, Liabilities, Equity accounts</li>
+                <li>Balances carry forward to next fiscal year</li>
+              </ul>
+            </div>
+            <div style="background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.25);border-radius:8px;padding:14px">
+              <div style="font-weight:700;color:var(--purple);font-size:13px;margin-bottom:8px">Primary Cost / Revenue</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>P&amp;L accounts linked to CO cost elements</li>
+                <li>Requires <strong>Cost Center</strong> on every posting</li>
+              </ul>
+            </div>
+            <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.25);border-radius:8px;padding:14px">
+              <div style="font-weight:700;color:var(--gold);font-size:13px;margin-bottom:8px">Non-Operating Expense / Income</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Other income/expenses not part of core operations</li>
+                <li><strong>No Cost Center required</strong></li>
+              </ul>
+            </div>
+            <div style="background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.25);border-radius:8px;padding:14px">
+              <div style="font-weight:700;color:#10b981;font-size:13px;margin-bottom:8px">Cash Accounts &amp; Secondary Costs</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>Cash accounts: related to bank accounts</li>
+                <li>Secondary costs: internal SAP allocations only (99999 range)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. BANK GL ACCOUNTS -->
+        <div class="content-block">
+          <h3>6. Bank GL Accounts — Cash Account Type</h3>
+          <p>Cash Account type is used for bank-related GL accounts. In SAP, GL bank accounts work with <strong>currency</strong> — each currency gets its own set of GL accounts.</p>
+          <div style="background:var(--surface2);border-radius:8px;padding:16px;margin-top:10px;border:1px solid var(--border)">
+            <div style="font-weight:700;color:var(--accent);font-size:13px;margin-bottom:10px">Example — EGP Bank GL Structure</div>
+            <div class="org-tree">
+              <div class="org-node l1"><div class="org-dot"></div><div><div class="org-label">EGP Currency</div></div></div>
+              <div class="org-node l2"><div class="org-dot"></div><div><div class="org-label">GL Main — Bank main account</div></div></div>
+              <div class="org-node l2"><div class="org-dot"></div><div><div class="org-label">Check In / Check Out</div></div></div>
+              <div class="org-node l2"><div class="org-dot"></div><div><div class="org-label">Transfer In / Transfer Out</div></div></div>
+            </div>
+          </div>
+          <ul class="key-points" style="margin-top:12px">
+            <li>We select the bank account together with the currency</li>
+            <li>Each currency creates its own GL accounts — e.g. EGP has its own set, USD has its own set</li>
+            <li><strong>Important:</strong> We do NOT create a separate GL for every individual bank account — we create GL accounts per currency</li>
+          </ul>
+        </div>
+
+        <!-- 7. CREATING A GL ACCOUNT — FS00 FIELDS -->
+        <div class="content-block">
+          <h3>7. Creating a GL Account in FS00 — Key Fields</h3>
+          <p>When creating a new GL account, FS00 has three main pages (tabs). Here are the essential fields on each page.</p>
+
+          <!-- Type/Description Page -->
+          <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:12px">
+            <div style="background:rgba(14,165,233,.12);padding:10px 16px;font-weight:700;font-size:13px;color:var(--accent)">Page 1 — Type/Description</div>
+            <div style="padding:14px 16px">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px">
+                <div><span style="color:var(--dim)">GL Account Type</span><br><strong>Balance Sheet / P&amp;L / Cash / Secondary</strong></div>
+                <div><span style="color:var(--dim)">Account Group</span><br><strong>Select from CoA — e.g. Fixed Asset, Revenue</strong></div>
+                <div><span style="color:var(--dim)">Short Text</span><br><strong>Brief account name (shown in lists)</strong></div>
+                <div><span style="color:var(--dim)">Long Text</span><br><strong>Full description of the account</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Control Data Page -->
+          <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:10px">
+            <div style="background:rgba(139,92,246,.12);padding:10px 16px;font-weight:700;font-size:13px;color:var(--purple)">Page 2 — Control Data</div>
+            <div style="padding:14px 16px">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px">
+                <div><span style="color:var(--dim)">Account Currency</span><br><strong>The currency this GL will post in</strong></div>
+                <div><span style="color:var(--dim)">Tax Category</span><br><strong>Which tax types are allowed (e.g. "All types" or "Post without tax")</strong></div>
+                <div><span style="color:var(--dim)">Posting Without Tax Allowed</span><br><strong>Checkbox — allows posting with no tax code</strong></div>
+                <div><span style="color:var(--dim)">C.Elem Category (CO Element)</span><br><strong>1=Expense, 11=Revenue, 12=Sales Deduction</strong></div>
+                <div style="grid-column:1/-1"><span style="color:var(--dim)">Recon. Account for Account Type</span><br><strong>Links this GL to a sub-ledger (e.g. Customers, Vendors). When selected — direct journal entries are blocked; you MUST post via the sub-ledger (e.g. must select a Vendor when posting to a Vendor recon. account)</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Create/Bank/Interest Page -->
+          <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:10px">
+            <div style="background:rgba(245,158,11,.12);padding:10px 16px;font-weight:700;font-size:13px;color:var(--gold)">Page 3 — Create/Bank/Interest</div>
+            <div style="padding:14px 16px">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px">
+                <div><span style="color:var(--dim)">Field Status Group</span><br><strong>Defines which fields are mandatory / optional / hidden when posting to this account (e.g. Text, Value Date)</strong></div>
+                <div><span style="color:var(--dim)">Post Automatically Only</span><br><strong>Checkbox — account can only be posted by system automatically (e.g. bank clearing accounts)</strong></div>
+                <div><span style="color:var(--dim)">Planning Level</span><br><strong>Related to Cash Flow Forecasting in SAP</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hbox info" style="margin-top:12px">💡 <strong>Tip:</strong> Instead of creating a GL account from scratch, you can <strong>copy from an existing account</strong> and edit it — faster and avoids missing fields.</div>
+        </div>
+
+        <!-- 8. RECONCILIATION ACCOUNTS -->
+        <div class="content-block">
+          <h3>8. Reconciliation Accounts — Key Concept</h3>
+          <p>A <strong>Reconciliation Account</strong> is a GL account that is linked to a sub-ledger (AR, AP, Asset Accounting). This is one of the most important concepts in FI.</p>
+          <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:16px;margin-top:10px">
+            <div style="font-weight:700;color:#ef4444;margin-bottom:8px;font-size:13px">⚠️ Rule: No direct posting to Recon. Accounts</div>
+            <p style="font-size:13px;margin:0">If a GL account is flagged as a Reconciliation Account → you <strong>cannot</strong> post a manual debit/credit journal entry directly to it. You must post through the sub-ledger transaction.</p>
+          </div>
+          <div style="background:var(--surface2);border-radius:8px;padding:14px;margin-top:10px;border:1px solid var(--border)">
+            <div style="font-weight:700;font-size:13px;margin-bottom:8px">Example:</div>
+            <ul class="key-points" style="font-size:13px">
+              <li>GL account is a <strong>Vendor Reconciliation Account</strong></li>
+              <li>You <strong>cannot</strong> post a direct journal entry to it (Dr / Cr)</li>
+              <li>You <strong>must</strong> use FB60 (Enter Vendor Invoice) and select a specific Vendor</li>
+              <li>SAP then automatically posts to the Recon. account behind the scenes</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- end lecture-2 -->
     </div>
   </div>
 </div>
