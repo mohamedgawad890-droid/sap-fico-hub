@@ -1240,24 +1240,10 @@ function resetQuiz(){
   const icon192=makeIcon(192);
   const icon512=makeIcon(512);
 
-  // 2. Inline Web App Manifest via blob URL
-  const manifest={
-    name:'SAP FICO Learning Hub',
-    short_name:'SAP FICO',
-    description:'Structured SAP FICO learning — fundamentals to consultant level',
-    start_url:'./',
-    display:'standalone',
-    background_color:'#0a0e1a',
-    theme_color:'#0a0e1a',
-    icons:[
-      {src:icon192,sizes:'192x192',type:'image/png',purpose:'any maskable'},
-      {src:icon512,sizes:'512x512',type:'image/png',purpose:'any maskable'}
-    ]
-  };
-  const mBlob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
+  // 2. Link to static manifest.json (uploaded to GitHub alongside this file)
   const mLink=document.createElement('link');
   mLink.rel='manifest';
-  mLink.href=URL.createObjectURL(mBlob);
+  mLink.href='./manifest.json';
   document.head.appendChild(mLink);
 
   // 3. Register ./sw.js (must be uploaded alongside this file to GitHub)
