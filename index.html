@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAP FICO Learning Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SAP FICO Hub">
+<link id="pwa-manifest" rel="manifest">
 <style>
 :root {
   --bg:#0a0e1a; --surface:#111827; --surface2:#1a2332; --border:#1e3a5f;
@@ -23,6 +28,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 .nav-tab:hover{background:var(--surface2);color:var(--text);}
 .nav-tab.active{background:var(--accent);color:white;}
 .nav-tab.soon{opacity:0.4;cursor:default;}
+.install-btn{display:none;align-items:center;gap:6px;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--purple));color:white;border:none;font-family:inherit;transition:all .2s;}
+.install-btn:hover{opacity:.85;transform:scale(1.03);}
+.install-btn svg{width:14px;height:14px;}
 
 /* PAGES */
 .page{display:none;padding-top:60px;min-height:100vh;}
@@ -193,6 +201,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <button class="nav-tab" onclick="showPage('fi')">FI – Financial Accounting</button>
     <button class="nav-tab soon">CO – Coming Soon</button>
   </div>
+  <button class="install-btn" id="installBtn" onclick="installApp()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 3v13M7 11l5 5 5-5"/><path d="M5 21h14" stroke-linecap="round"/></svg>
+    Install App
+  </button>
 </nav>
 
 <!-- PAGE 1: OVERVIEW -->
@@ -1152,6 +1164,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 </div>
 
 <script>
+/* ── Navigation ── */
 function showPage(p){
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(x=>x.classList.remove('active'));
@@ -1198,6 +1211,111 @@ function resetQuiz(){
   document.querySelectorAll('.explanation').forEach(e=>e.style.display='none');
   document.getElementById('quizScore').style.display='none';
 }
+
+/* ── PWA ── */
+(function(){
+  // 1. Generate app icon via Canvas (192×192 and 512×512)
+  function makeIcon(size){
+    const c=document.createElement('canvas');
+    c.width=c.height=size;
+    const ctx=c.getContext('2d');
+    const r=size*0.12;
+    // Background
+    ctx.fillStyle='#0a0e1a';
+    ctx.beginPath();
+    ctx.roundRect(0,0,size,size,r);
+    ctx.fill();
+    // Gradient accent border
+    const grad=ctx.createLinearGradient(0,0,size,size);
+    grad.addColorStop(0,'#0ea5e9');
+    grad.addColorStop(0.5,'#8b5cf6');
+    grad.addColorStop(1,'#f59e0b');
+    ctx.strokeStyle=grad;
+    ctx.lineWidth=size*0.04;
+    ctx.beginPath();
+    ctx.roundRect(size*0.04,size*0.04,size*0.92,size*0.92,r*0.8);
+    ctx.stroke();
+    // "FICO" text
+    ctx.fillStyle='#e2e8f0';
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    ctx.font=`bold ${size*0.28}px "IBM Plex Sans",Arial,sans-serif`;
+    ctx.fillText('FICO',size/2,size*0.42);
+    // "SAP" sub-text
+    ctx.font=`600 ${size*0.13}px "IBM Plex Sans",Arial,sans-serif`;
+    ctx.fillStyle='#0ea5e9';
+    ctx.fillText('SAP HUB',size/2,size*0.67);
+    return c.toDataURL('image/png');
+  }
+
+  const icon192=makeIcon(192);
+  const icon512=makeIcon(512);
+
+  // 2. Inline Web App Manifest
+  const manifest={
+    name:'SAP FICO Learning Hub',
+    short_name:'SAP FICO',
+    description:'Structured SAP FICO learning — from ERP fundamentals to consultant level',
+    start_url:'.',
+    display:'standalone',
+    background_color:'#0a0e1a',
+    theme_color:'#0a0e1a',
+    orientation:'portrait-primary',
+    icons:[
+      {src:icon192,sizes:'192x192',type:'image/png',purpose:'any maskable'},
+      {src:icon512,sizes:'512x512',type:'image/png',purpose:'any maskable'}
+    ]
+  };
+  const mBlob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
+  document.getElementById('pwa-manifest').href=URL.createObjectURL(mBlob);
+
+  // 3. Inline Service Worker (cache-first for offline)
+  const swCode=`
+    const CACHE='sap-fico-v1';
+    self.addEventListener('install',e=>{
+      e.waitUntil(caches.open(CACHE).then(c=>c.add('/')).catch(()=>{}));
+      self.skipWaiting();
+    });
+    self.addEventListener('activate',e=>{
+      e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));
+      self.clients.claim();
+    });
+    self.addEventListener('fetch',e=>{
+      e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{
+        const clone=res.clone();
+        caches.open(CACHE).then(c=>c.put(e.request,clone));
+        return res;
+      }).catch(()=>caches.match('/')))||fetch(e.request));
+    });
+  `;
+  if('serviceWorker' in navigator){
+    const swBlob=new Blob([swCode],{type:'application/javascript'});
+    const swURL=URL.createObjectURL(swBlob);
+    navigator.serviceWorker.register(swURL).catch(()=>{});
+  }
+
+  // 4. Install prompt
+  let deferredPrompt=null;
+  window.addEventListener('beforeinstallprompt',e=>{
+    e.preventDefault();
+    deferredPrompt=e;
+    const btn=document.getElementById('installBtn');
+    if(btn) btn.style.display='flex';
+  });
+  window.installApp=function(){
+    if(!deferredPrompt)return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(()=>{
+      deferredPrompt=null;
+      const btn=document.getElementById('installBtn');
+      if(btn) btn.style.display='none';
+    });
+  };
+  window.addEventListener('appinstalled',()=>{
+    const btn=document.getElementById('installBtn');
+    if(btn) btn.style.display='none';
+  });
+})();
 </script>
 </body>
 </html>
