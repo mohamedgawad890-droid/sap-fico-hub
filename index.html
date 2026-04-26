@@ -183,7 +183,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
   .content-layout{grid-template-columns:1fr;}
   .sidebar{display:none;}
   .hero h1{font-size:30px;}
+  .lesson-content{padding:20px;}
 }
+
+/* MOBILE LESSON/LECTURE PICKER */
+.mobile-picker{display:none;padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:50;}
+.mobile-picker select{width:100%;padding:10px 36px 10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.mobile-picker select:focus{outline:none;border-color:var(--accent);}
+@media(max-width:768px){.mobile-picker{display:block;}}
 </style>
 </head>
 <body>
@@ -389,6 +396,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <div class="unit-list-item">○ Unit 7 – Reporting</div>
         <div class="unit-list-item">○ Unit 8 – Financial Closing</div>
       </div>
+    </div>
+
+    <div class="mobile-picker" id="fi-mobile-picker">
+      <select onchange="showLesson(parseInt(this.value)); window.scrollTo(0,120)">
+        <option value="0">01 — What is SAP FI?</option>
+        <option value="1">02 — Organizational Structure</option>
+        <option value="2">03 — SAP Navigation</option>
+        <option value="3">04 — Essential T-Codes</option>
+        <option value="4">05 — Review &amp; Quiz</option>
+      </select>
     </div>
 
     <div class="lesson-content">
@@ -629,6 +646,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
       <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Methodology</div>
       <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
+    </div>
+
+    <div class="mobile-picker">
+      <select onchange="showLecture(parseInt(this.value)); window.scrollTo(0,120)">
+        <option value="0">L1 — Introduction to SAP</option>
+        <option value="1">L2 — SAP Landscape &amp; Methodology</option>
+        <option value="2">L3 — GL Account Master Data</option>
+      </select>
     </div>
 
     <div class="lesson-content">
@@ -1459,12 +1484,16 @@ function showLecture(i){
   document.querySelectorAll('#page-mycourse .sidebar-item').forEach(x=>x.classList.remove('active'));
   document.getElementById('lecture-'+i).classList.add('active');
   document.querySelectorAll('#page-mycourse .sidebar-item')[i].classList.add('active');
+  const sel=document.querySelector('#page-mycourse .mobile-picker select');
+  if(sel) sel.value=i;
 }
 function showLesson(i){
   document.querySelectorAll('.lesson-section').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.sidebar-item').forEach(x=>x.classList.remove('active'));
   document.getElementById('lesson-'+i).classList.add('active');
   document.querySelectorAll('.sidebar-item')[i].classList.add('active');
+  const sel=document.querySelector('#fi-mobile-picker select');
+  if(sel) sel.value=i;
 }
 let answers={};
 function answer(btn,r,q){
