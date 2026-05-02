@@ -646,6 +646,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
       <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Methodology</div>
       <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
+      <div class="sidebar-item" onclick="showLecture(3)"><span class="sidebar-num">L4</span>GL Posting & Document Entry</div>
     </div>
 
     <div class="mobile-picker">
@@ -653,6 +654,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="0">L1 — Introduction to SAP</option>
         <option value="1">L2 — SAP Landscape &amp; Methodology</option>
         <option value="2">L3 — GL Account Master Data</option>
+        <option value="3">L4 — GL Posting &amp; Document Entry</option>
       </select>
     </div>
 
@@ -1464,6 +1466,330 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         </div>
 
       </div><!-- end lecture-2 -->
+
+      <!-- ═══════════════════════════════════════════════════════ LECTURE 4 -->
+      <div class="lesson-section" id="lecture-3">
+        <div class="lesson-title"><span class="lesson-num">Lecture 4</span>GL Account Posting &amp; Document Entry</div>
+        <div class="lesson-sub">CoA review · FS00 hands-on examples · Account functions · FB50 &amp; F-02 posting · Posting Keys · Practical exercise</div>
+
+        <!-- 1. COA REVIEW -->
+        <div class="content-block">
+          <h3>1. Chart of Accounts — Quick Review</h3>
+          <p>SAP supports three types of Chart of Accounts assigned at different levels. All three may exist in a single system simultaneously.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+            <div style="background:var(--surface2);border-left:3px solid var(--accent);border-radius:6px;padding:12px 16px">
+              <div style="font-weight:700;color:var(--accent);font-size:13px;margin-bottom:4px">Operating CoA</div>
+              <p style="font-size:13px;color:var(--dim);margin:0">The main chart used for all daily postings — mandatory. Every Company Code must have one Operating CoA assigned.</p>
+            </div>
+            <div style="background:var(--surface2);border-left:3px solid var(--gold);border-radius:6px;padding:12px 16px">
+              <div style="font-weight:700;color:var(--gold);font-size:13px;margin-bottom:4px">Country CoA</div>
+              <p style="font-size:13px;color:var(--dim);margin:0">Maps accounts to local legal reporting requirements (e.g. Egyptian tax authority chart of accounts). Optional — used when local laws require a different numbering structure.</p>
+            </div>
+            <div style="background:var(--surface2);border-left:3px solid var(--purple);border-radius:6px;padding:12px 16px">
+              <div style="font-weight:700;color:var(--purple);font-size:13px;margin-bottom:4px">Group CoA</div>
+              <p style="font-size:13px;color:var(--dim);margin:0">Used for consolidated financial reporting across multiple Company Codes or legal entities within a group. Optional — used by holding companies.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. FS00 HANDS-ON — REVENUE -->
+        <div class="content-block">
+          <h3>2. FS00 — Creating a GL Account (Hands-On)</h3>
+          <p><strong style="color:var(--gold)">T-Code: FS00</strong> → Create, Change, Display GL Account Master Data</p>
+          <div class="hbox info">💡 <strong>Workflow:</strong> Enter T-Code FS00 → Enter account number → Enter Company Code → Click <strong>Create</strong> → Fill in all required fields → Save</div>
+
+          <div style="margin-top:18px;font-weight:700;color:var(--accent2);font-size:13px;margin-bottom:10px">★ Example 1 — Create a Revenue Account</div>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="background:rgba(14,165,233,.1)">
+                  <th style="text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Field</th>
+                  <th style="text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Value</th>
+                  <th style="text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">GL Account</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">480001</td><td style="padding:8px 12px;color:var(--dim)">Account number (range 400000–499999 = Revenue)</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Company Code</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">BEV1</td><td style="padding:8px 12px;color:var(--dim)">The company this account belongs to</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Account Type</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">P</td><td style="padding:8px 12px;color:var(--dim)">Primary Costs or Revenue (P&amp;L account)</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Account Group</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">PL</td><td style="padding:8px 12px;color:var(--dim)">P&amp;L Statement Accounts group</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Short Text</td><td style="padding:8px 12px">Cash Revenue</td><td style="padding:8px 12px;color:var(--dim)">Shown in search lists and reports</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Long Text</td><td style="padding:8px 12px">Cash Revenue</td><td style="padding:8px 12px;color:var(--dim)">Full description</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Account Currency</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">EGP</td><td style="padding:8px 12px;color:var(--dim)">Main posting currency</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Tax Category</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">*</td><td style="padding:8px 12px;color:var(--dim)">Asterisk = All tax types allowed</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Posting w/o Tax Allowed</td><td style="padding:8px 12px;color:var(--green)">✓ Checked</td><td style="padding:8px 12px;color:var(--dim)">Allows posting without a tax code</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">CE Element Category</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">11</td><td style="padding:8px 12px;color:var(--dim)">11 = Revenue (CO integration)</td></tr>
+                <tr><td style="padding:8px 12px;font-weight:600">Field Status Group</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">G001</td><td style="padding:8px 12px;color:var(--dim)">General — standard field layout for posting</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:20px;font-weight:700;color:var(--accent2);font-size:13px;margin-bottom:10px">★ Example 2 — Create a Fixed Asset Account</div>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="background:rgba(245,158,11,.1)">
+                  <th style="text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);color:var(--gold)">Field</th>
+                  <th style="text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);color:var(--gold)">Value</th>
+                  <th style="text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);color:var(--gold)">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">GL Account</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">122224</td><td style="padding:8px 12px;color:var(--dim)">Range 120000–129999 = Fixed Assets</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Company Code</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">BEV1</td><td style="padding:8px 12px;color:var(--dim)">The company this account belongs to</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Account Type</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">X</td><td style="padding:8px 12px;color:var(--dim)">X = Balance Sheet Account</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Account Group</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">AS</td><td style="padding:8px 12px;color:var(--dim)">Fixed Asset Accounts group</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Short / Long Text</td><td style="padding:8px 12px">Cars 2</td><td style="padding:8px 12px;color:var(--dim)">Account description</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Currency</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">EGP</td><td style="padding:8px 12px;color:var(--dim)">Main posting currency</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Tax Category</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">*</td><td style="padding:8px 12px;color:var(--dim)">All tax types allowed</td></tr>
+                <tr><td style="padding:8px 12px;font-weight:600">Field Status Group</td><td style="padding:8px 12px;font-family:monospace;color:var(--gold)">G001</td><td style="padding:8px 12px;color:var(--dim)">General field status</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. COMMON ERROR -->
+        <div class="content-block">
+          <h3>3. ⚠️ Common Error — "Post Auto Only" + Reconciliation Account</h3>
+          <p>During practice in FS00, a common error appears when two conflicting settings are activated simultaneously on the same GL account.</p>
+          <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.25);border-radius:8px;padding:16px;margin-top:10px">
+            <div style="font-weight:700;color:var(--red);margin-bottom:8px">❌ The Conflict:</div>
+            <ul class="key-points" style="font-size:13px">
+              <li><strong>Post Automatically Only</strong> — prevents manual journal entries; only the system can post to this account</li>
+              <li><strong>Reconciliation Account for Account Type</strong> — also prevents direct manual posting (by definition)</li>
+              <li>SAP issues an error because both settings block direct posting — they are <strong>redundant and contradictory</strong> when used together</li>
+            </ul>
+          </div>
+          <div style="background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.25);border-radius:8px;padding:16px;margin-top:12px">
+            <div style="font-weight:700;color:var(--green);margin-bottom:10px">✅ How to Fix It:</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px">
+              <div style="background:var(--surface2);border-radius:6px;padding:12px">
+                <div style="font-weight:600;color:var(--text);margin-bottom:6px">Case 1: You want a Reconciliation Account</div>
+                <p style="color:var(--dim);margin:0">Remove <strong>"Post Auto Only"</strong> — the Recon. Account already blocks direct posting automatically. No need to add Post Auto Only.</p>
+              </div>
+              <div style="background:var(--surface2);border-radius:6px;padding:12px">
+                <div style="font-weight:600;color:var(--text);margin-bottom:6px">Case 2: You want system-only posting</div>
+                <p style="color:var(--dim);margin:0">Use <strong>"Post Auto Only"</strong> only — do NOT set Reconciliation Account type. Used for clearing accounts (e.g. GR/IR account).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. GL ACCOUNT FUNCTIONS -->
+        <div class="content-block">
+          <h3>4. GL Account Management Functions</h3>
+          <p>From within <strong>FS00</strong>, the following management actions are available on any GL account:</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+            <div style="background:var(--surface2);border-radius:8px;padding:12px 16px;border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--red);color:white;border-radius:6px;padding:3px 10px;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px">Block</span>
+              <div style="font-size:13px;color:var(--dim)">Temporarily freezes the account. No new postings can be made to a blocked account. Used when an account needs to be reviewed or is no longer in use. <strong style="color:var(--text)">Reversible at any time.</strong></div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px 16px;border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--gold);color:black;border-radius:6px;padding:3px 10px;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px">Select for Deletion</span>
+              <div style="font-size:13px;color:var(--dim)">Marks the account for deletion. The account is <strong style="color:var(--text)">not deleted immediately</strong> — it is flagged and physically removed later by a separate archiving run. The account must have zero balance and no open items.</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px 16px;border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start">
+              <span style="background:var(--purple);color:white;border-radius:6px;padding:3px 10px;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px">Change Company Code</span>
+              <div style="font-size:13px;color:var(--dim)">Transfer or update the Company Code-level settings for this GL account. Useful when extending an account to a new Company Code without recreating it from scratch.</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;background:var(--surface2);border-radius:8px;padding:14px;border:1px solid rgba(14,165,233,.25)">
+            <div style="font-weight:700;color:var(--accent);font-size:13px;margin-bottom:6px">T-Code: FS15 — Copy GL Account Master Data</div>
+            <p style="font-size:13px;color:var(--dim);margin:0">Use FS15 to copy an existing GL account's master data to a new account number. This saves time and ensures consistency — instead of entering all fields manually, you copy from a similar account and adjust only what needs to change.</p>
+          </div>
+        </div>
+
+        <!-- 5. FB50 POSTING -->
+        <div class="content-block">
+          <h3>5. GL Document Posting — T-Code FB50</h3>
+          <p><strong style="color:var(--gold)">T-Code: FB50</strong> → Enter G/L Account Document (modern interface)</p>
+          <p style="font-size:14px;color:var(--dim);line-height:1.7;margin-top:4px">FB50 is the standard transaction for posting manual journal entries directly to GL accounts. It consists of two parts: Header Data and Line Items.</p>
+
+          <div style="font-weight:700;color:var(--accent2);font-size:13px;margin:16px 0 8px">Part A — Document Header</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px">
+            <div style="background:var(--surface2);border-radius:8px;padding:12px;border:1px solid var(--border)">
+              <div style="color:var(--dim);font-size:11px;text-transform:uppercase;margin-bottom:4px">Document Date</div>
+              <div style="font-weight:600">Date of the original source document</div>
+              <div style="color:var(--muted);font-size:12px;margin-top:2px">e.g. invoice date, receipt date</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px;border:1px solid var(--border)">
+              <div style="color:var(--dim);font-size:11px;text-transform:uppercase;margin-bottom:4px">Posting Date</div>
+              <div style="font-weight:600">The date posted to the accounting period</div>
+              <div style="color:var(--muted);font-size:12px;margin-top:2px">Determines which fiscal period is affected</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px;border:1px solid var(--border)">
+              <div style="color:var(--dim);font-size:11px;text-transform:uppercase;margin-bottom:4px">Reference</div>
+              <div style="font-weight:600">External reference number</div>
+              <div style="color:var(--muted);font-size:12px;margin-top:2px">e.g. invoice number, contract number</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px;border:1px solid var(--border)">
+              <div style="color:var(--dim);font-size:11px;text-transform:uppercase;margin-bottom:4px">Document Header Text</div>
+              <div style="font-weight:600">Free-text description of the document</div>
+              <div style="color:var(--muted);font-size:12px;margin-top:2px">e.g. "Monthly rent payment — May 2026"</div>
+            </div>
+          </div>
+
+          <div style="font-weight:700;color:var(--accent2);font-size:13px;margin:16px 0 8px">Part B — GL Account Field (Line Items)</div>
+          <p style="font-size:13px;color:var(--dim)">In the line items area, you search for the GL Account by description or account number. SAP allows multiple search methods (F4 help): by account number, short text, or long text.</p>
+
+          <div style="font-weight:700;color:var(--accent2);font-size:13px;margin:16px 0 8px">Part C — Action Buttons (Top of Screen)</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="background:var(--surface2);border-radius:8px;padding:12px 16px;border:1px solid var(--border);display:flex;align-items:center;gap:14px">
+              <span style="background:rgba(14,165,233,.2);color:var(--accent2);border-radius:6px;padding:3px 12px;font-size:12px;font-weight:700;min-width:110px;text-align:center">Simulate</span>
+              <div style="font-size:13px;color:var(--dim)">Preview the journal entry (Debit = Credit check) <strong style="color:var(--text)">before</strong> posting. No document is created. Use this to verify the entry is correct.</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px 16px;border:1px solid var(--border);display:flex;align-items:center;gap:14px">
+              <span style="background:rgba(245,158,11,.2);color:var(--gold);border-radius:6px;padding:3px 12px;font-size:12px;font-weight:700;min-width:110px;text-align:center">Hold</span>
+              <div style="font-size:13px;color:var(--dim)">Save the entry as a personal draft <strong style="color:var(--text)">without posting</strong>. Only the same user can retrieve and continue it. Does <strong>not</strong> appear in any reports or balances.</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px 16px;border:1px solid var(--border);display:flex;align-items:center;gap:14px">
+              <span style="background:rgba(139,92,246,.2);color:var(--purple);border-radius:6px;padding:3px 12px;font-size:12px;font-weight:700;min-width:110px;text-align:center">Park</span>
+              <div style="font-size:13px;color:var(--dim)">Save the document in a <strong style="color:var(--text)">shared draft</strong> state. Other users (e.g. supervisor) can open, review, and complete it. Appears in parked document reports but does <strong>not</strong> update GL balances yet.</div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px 16px;border:1px solid rgba(16,185,129,.3);display:flex;align-items:center;gap:14px">
+              <span style="background:rgba(16,185,129,.2);color:var(--green);border-radius:6px;padding:3px 12px;font-size:12px;font-weight:700;min-width:110px;text-align:center">Post</span>
+              <div style="font-size:13px;color:var(--dim)">Final, irreversible posting. Creates a permanent <strong style="color:var(--text)">Document Number</strong>, updates all GL balances, and the entry becomes part of the audit trail. <strong>Cannot be deleted — only reversed.</strong></div>
+            </div>
+            <div style="background:var(--surface2);border-radius:8px;padding:12px 16px;border:1px solid rgba(16,185,129,.3);display:flex;align-items:center;gap:14px">
+              <span style="background:rgba(16,185,129,.2);color:var(--green);border-radius:6px;padding:3px 12px;font-size:12px;font-weight:700;min-width:110px;text-align:center">Save as Completed</span>
+              <div style="font-size:13px;color:var(--dim)">Equivalent to Post — saves and posts the document as final. Used when the entry is complete and ready for immediate posting.</div>
+            </div>
+          </div>
+          <div class="hbox warn" style="margin-top:14px">⚠️ <strong>Hold vs Park — Key Difference:</strong> Hold = private draft (only you can open it). Park = shared draft (any authorized user can open, edit, and post it). Both do NOT update GL balances.</div>
+        </div>
+
+        <!-- 6. F-02 -->
+        <div class="content-block">
+          <h3>6. T-Code F-02 — Classic GL Posting Interface</h3>
+          <p>F-02 is the <strong>classic (legacy) interface</strong> for GL postings. It is equivalent to FB50 but provides additional options — particularly manual entry of Posting Keys, which gives more control over the document line items.</p>
+          <div class="hbox info" style="margin-bottom:14px">💡 <strong>F-02 = FB50 + manual Posting Key entry + extra options.</strong> Most consultants use FB50 for standard entries and F-02 when specific Posting Key control is needed.</div>
+
+          <div style="font-weight:700;color:var(--accent2);font-size:13px;margin-bottom:10px">Header Data in F-02:</div>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="background:rgba(14,165,233,.08)">
+                  <th style="text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Field</th>
+                  <th style="text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);color:var(--accent)">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Document Date</td><td style="padding:8px 12px;color:var(--dim)">Date of the original source document</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Posting Date</td><td style="padding:8px 12px;color:var(--dim)">Date the entry affects the accounting period</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Document Type</td><td style="padding:8px 12px;color:var(--dim)">Defines the transaction type — e.g. <strong>SA</strong> = General G/L posting, <strong>KR</strong> = Vendor Invoice, <strong>DR</strong> = Customer Invoice</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Company Code</td><td style="padding:8px 12px;color:var(--dim)">The Company Code to post under</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Period</td><td style="padding:8px 12px;color:var(--dim)">Auto-calculated from Posting Date (e.g. May 2026 = Period 5)</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Currency</td><td style="padding:8px 12px;color:var(--dim)">Currency of the transaction</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:600">Document Number</td><td style="padding:8px 12px;color:var(--dim)">Can be entered manually or auto-assigned by SAP based on Document Type number range</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:var(--surface2)"><td style="padding:8px 12px;font-weight:600">Reference</td><td style="padding:8px 12px;color:var(--dim)">External reference (invoice number, PO number)</td></tr>
+                <tr><td style="padding:8px 12px;font-weight:600">Document Header Text</td><td style="padding:8px 12px;color:var(--dim)">Free description of the document</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 7. POSTING KEYS -->
+        <div class="content-block">
+          <h3>7. Posting Keys (PstKy)</h3>
+          <p>A Posting Key is a 2-digit code entered in the line item of a document. It defines:</p>
+          <ul class="key-points">
+            <li><strong>Account Type</strong> — which sub-ledger (Customer, Vendor, GL, Asset)</li>
+            <li><strong>Debit or Credit</strong> — the direction of the posting</li>
+            <li><strong>Transaction type</strong> — the business context (invoice, payment, etc.)</li>
+          </ul>
+          <div class="hbox info" style="margin:12px 0">💡 <strong>Memory tip:</strong> Customer keys start with 0 (01, 05, 09, 11, 15) · Vendor keys start with 2–3 (21, 25, 29, 31, 35) · GL keys are 40/50 · Asset keys are 70/75</div>
+          <div style="overflow-x:auto;margin-top:10px">
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="background:rgba(14,165,233,.1)">
+                  <th style="padding:9px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--accent);font-family:monospace">PstKy</th>
+                  <th style="padding:9px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent)">Account Type</th>
+                  <th style="padding:9px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--accent)">Dr / Cr</th>
+                  <th style="padding:9px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent)">Transaction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Customer -->
+                <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">01</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Invoice — enter Customer Code; SAP auto-adds Recon. GL account</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">05</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Outgoing Payment</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">09</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Special G/L — Debit</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">11</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Credit Memo</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">15</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Incoming Payment</td></tr>
+                <!-- Vendor -->
+                <tr style="border-bottom:1px solid var(--border);background:rgba(245,158,11,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--gold)">21</td><td style="padding:8px 12px">Vendor</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Credit Memo</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--gold)">25</td><td style="padding:8px 12px">Vendor</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Outgoing Payment</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:rgba(245,158,11,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--gold)">29</td><td style="padding:8px 12px">Vendor</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Special G/L — Debit</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--gold)">31</td><td style="padding:8px 12px">Vendor</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Invoice</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:rgba(245,158,11,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--gold)">35</td><td style="padding:8px 12px">Vendor</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Incoming Payment</td></tr>
+                <!-- GL -->
+                <tr style="border-bottom:1px solid var(--border);background:rgba(16,185,129,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--green)">40</td><td style="padding:8px 12px">G/L Account</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Debit Entry</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--green)">50</td><td style="padding:8px 12px">G/L Account</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Credit Entry</td></tr>
+                <!-- Asset -->
+                <tr style="border-bottom:1px solid var(--border);background:rgba(139,92,246,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--purple)">70</td><td style="padding:8px 12px">Asset</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Debit Asset (Acquisition / Addition)</td></tr>
+                <tr><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--purple)">75</td><td style="padding:8px 12px">Asset</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Credit Asset (Disposal / Depreciation)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 8. PRACTICAL EXERCISE -->
+        <div class="content-block">
+          <h3>8. Practical Exercise — Post a Complete Journal Entry</h3>
+          <p>Using FB50, post a cash revenue transaction of <strong style="color:var(--accent)">EGP 1,000</strong>.</p>
+          <div style="background:var(--surface2);border-radius:10px;padding:16px;margin-top:10px;border:1px solid var(--border)">
+            <div style="font-weight:700;font-size:13px;margin-bottom:10px;color:var(--accent2)">Step 1 — Enter Document Header (FB50)</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px">
+              <div><span style="color:var(--dim)">Document Date:</span> <strong>1/5/2026</strong></div>
+              <div><span style="color:var(--dim)">Posting Date:</span> <strong>1/5/2026</strong></div>
+              <div><span style="color:var(--dim)">Reference:</span> <strong>Test</strong></div>
+              <div><span style="color:var(--dim)">Doc Header Text:</span> <strong>Test Revenue Entry</strong></div>
+            </div>
+          </div>
+          <div style="background:var(--surface2);border-radius:10px;padding:16px;margin-top:10px;border:1px solid var(--border)">
+            <div style="font-weight:700;font-size:13px;margin-bottom:12px;color:var(--accent2)">Step 2 — Enter Line Items</div>
+            <div style="overflow-x:auto">
+              <table style="width:100%;border-collapse:collapse;font-size:13px">
+                <thead>
+                  <tr style="background:rgba(14,165,233,.08)">
+                    <th style="padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--accent)">PstKy</th>
+                    <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent)">Account</th>
+                    <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent)">Description</th>
+                    <th style="padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--accent)">Amount</th>
+                    <th style="padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);color:var(--accent)">Dr / Cr</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--border)">
+                    <td style="padding:10px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">01</td>
+                    <td style="padding:10px 12px;font-family:monospace">Customer</td>
+                    <td style="padding:10px 12px;color:var(--dim)">AR sub-ledger — SAP auto-adds Recon. GL</td>
+                    <td style="padding:10px 12px;text-align:center;font-weight:700">1,000</td>
+                    <td style="padding:10px 12px;text-align:center;color:var(--red);font-weight:700">Dr</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:10px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--green)">50</td>
+                    <td style="padding:10px 12px;font-family:monospace">480001</td>
+                    <td style="padding:10px 12px;color:var(--dim)">Cash Revenue</td>
+                    <td style="padding:10px 12px;text-align:center;font-weight:700">1,000</td>
+                    <td style="padding:10px 12px;text-align:center;color:var(--green);font-weight:700">Cr</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div style="background:var(--surface2);border-radius:10px;padding:16px;margin-top:10px;border:1px solid rgba(16,185,129,.25)">
+            <div style="font-weight:700;font-size:13px;margin-bottom:8px;color:var(--green)">Step 3 — Simulate then Post</div>
+            <ul class="key-points" style="font-size:13px">
+              <li>Click <strong>Simulate</strong> → verify the entry is balanced (Dr 1,000 = Cr 1,000)</li>
+              <li>Review the simulated document — check accounts, amounts, and directions</li>
+              <li>Click <strong>Post</strong> → SAP generates a <strong>Document Number</strong></li>
+              <li>Use <strong>FB03</strong> (Display Document) to verify the posted entry</li>
+            </ul>
+          </div>
+          <div class="hbox ok" style="margin-top:14px">✅ <strong>Golden Rule of SAP Posting:</strong> Every document must be <strong>balanced — Total Debits must equal Total Credits</strong>. SAP will not allow posting if the entry is unbalanced.</div>
+        </div>
+
+      </div><!-- end lecture-3 -->
     </div>
   </div>
 </div>
