@@ -1797,6 +1797,82 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="hbox ok" style="margin-top:20px">✅ <strong>Account Created!</strong> After clicking Save, SAP confirms that GL Account 480002 — Credit Revenue has been created under Company Code BEV1. You can now use this account in journal entries.</div>
         </div>
 
+        <!-- PRACTICAL EXERCISE FB50 -->
+        <div class="content-block" style="margin-top:30px">
+          <h3>🖥️ Practical Exercise — Post a GL Document in FB50</h3>
+          <p>Follow these steps to post a journal entry in <strong style="color:var(--gold)">T-Code FB50</strong> — Expense 1,000 EGP debited to Buffet Expenses, credited from CIB Bank account.</p>
+          <div style="display:flex;flex-direction:column;gap:20px;margin-top:20px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">1</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">FB50 — الشاشة الرئيسية فاضية</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">Open T-Code <strong>FB50</strong> → The screen title shows <strong>"Enter G/L Account Document: Company Code BEV1"</strong><br><br>
+Notice the top toolbar buttons: <strong>Hold · Simulate · Park</strong> — these are the action options we discussed.<br>
+The screen has two parts:<br>
+• <strong>Header area</strong> (top-left): Document Date, Posting Date, Reference, Doc Header Text<br>
+• <strong>Line items grid</strong> (bottom): G/L acct, D/C (Debit/Credit), Amount<br>
+• <strong>Amount Information</strong> (top-right): Live tracker — Total Dr. and Total Cr. both = 0</div>
+              <div style="padding:12px">
+                <img src="./images/fb50-step1-empty-screen.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="Step 1" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">2</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">FB50 — ملء بيانات الـ Header</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">Fill in the Document Header fields:<br><br>
+• <strong>Document Date:</strong> 02/05/2026 — date of the original transaction<br>
+• <strong>Posting Date:</strong> 05/02/2026 — auto-filled by SAP (today's date)<br>
+• <strong>Reference:</strong> TEST — external reference number<br>
+• <strong>Doc. Header Text:</strong> Test — description of the document<br>
+• <strong>Currency:</strong> EGP — auto-filled from Company Code settings<br><br>
+Notice the 3 small indicators (top-right) changed from <span style="color:var(--red)">●▲○</span> to <span style="color:var(--green)">●●■</span> — SAP is validating the header data in real-time.</div>
+              <div style="padding:12px">
+                <img src="./images/fb50-step2-header-filled.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="Step 2" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--green);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">3</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">FB50 — إضافة Line Items (القيد مكتمل)</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">Enter the two line items in the grid:<br><br>
+<strong>Line 1 (Debit):</strong><br>
+• G/L Acct: <strong>501303</strong> — Buffet EXP (Expense account)<br>
+• D/C: <strong>S Deb.</strong> (Debit)<br>
+• Amount: <strong>1,000</strong><br><br>
+<strong>Line 2 (Credit):</strong><br>
+• G/L Acct: <strong>122223</strong> — CIB Bank (Bank account)<br>
+• D/C: <strong>H Cre.</strong> (Credit)<br>
+• Amount: <strong>1,000</strong><br><br>
+✅ Notice on the right: <strong>Total Dr. = 1,000</strong> and <strong>Total Cr. = 1,000</strong> — the entry is <strong>balanced</strong> and SAP will allow posting.</div>
+              <div style="padding:12px">
+                <img src="./images/fb50-step3-line-items.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="Step 3" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(239,68,68,.3);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(239,68,68,.3)">
+                <span style="background:var(--gold);color:black;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">4</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">⚠️ Tax Check Screen — خطأ ضريبي مهم</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid rgba(239,68,68,.3)">After clicking <strong>Post</strong>, SAP opens the <strong>"Check Tax Data"</strong> screen instead of posting directly.<br><br>
+<strong>Why did this happen?</strong><br>
+The GL account 501303 has Tax Category <strong>*</strong> (all tax types allowed) — so SAP requires tax validation before posting.<br><br>
+<strong>The error message:</strong> <span style="color:var(--red)">"Tax entered incorrect (code 29, amount 0), correct 140 EGP"</span><br>
+This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>140 EGP</strong> (14% VAT), but 0 was entered.<br><br>
+<strong>How to fix it — 2 options:</strong><br>
+• <strong>Option 1:</strong> Enter the correct tax amount (140 EGP) if the transaction is taxable<br>
+• <strong>Option 2:</strong> Go back and change the GL account to one that allows "Posting without tax" ✓ — which we set in FS00</div>
+              <div style="padding:12px">
+                <img src="./images/fb50-step4-tax-check.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="Step 4" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="hbox warn" style="margin-top:20px">💡 <strong>Key Learning:</strong> The Tax Check screen is SAP's built-in validation. Always check your GL account's Tax Category setting in FS00 — if set to <strong>*</strong>, SAP will require tax data on every posting to that account.</div>
+        </div>
+
         <!-- QUIZ L4 -->
         <div class="content-block" style="margin-top:30px">
           <h3>🧪 Quiz — Lecture 4</h3>
