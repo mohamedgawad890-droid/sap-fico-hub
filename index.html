@@ -1873,6 +1873,123 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           <div class="hbox warn" style="margin-top:20px">💡 <strong>Key Learning:</strong> The Tax Check screen is SAP's built-in validation. Always check your GL account's Tax Category setting in FS00 — if set to <strong>*</strong>, SAP will require tax data on every posting to that account.</div>
         </div>
 
+        <!-- PRACTICAL EXERCISE F-02 -->
+        <div class="content-block" style="margin-top:30px">
+          <h3>🖥️ Practical Exercise — Post a GL Document in F-02</h3>
+          <p>Follow these steps to post a journal entry using <strong style="color:var(--gold)">T-Code F-02</strong> — the classic interface. Expense 1,000 EGP debited to Cleaning Expenses, credited from BANK account.</p>
+          <div class="hbox info" style="margin-bottom:16px">💡 <strong>F-02 vs FB50:</strong> F-02 uses a <strong>line-by-line entry</strong> approach with separate screens for each item and requires manual Posting Key entry. FB50 uses a single screen with a grid. Both produce the same accounting document.</div>
+          <div style="display:flex;flex-direction:column;gap:20px;margin-top:20px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">1</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">F-02 — الشاشة الرئيسية فاضية</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">Open T-Code <strong>F-02</strong> → The screen title is <strong>"Enter G/L Account Posting: Header Data"</strong><br><br>
+<strong>الفرق الواضح عن FB50:</strong><br>
+• F-02 يبدأ بـ <strong>Header screen منفصلة</strong> — تملأها أولاً وتضغط Enter للانتقال لـ Line Items<br>
+• الـ Header يحتوي على <strong>Type</strong> (Document Type) كحقل منفصل — هنا <strong>SA</strong><br>
+• <strong>Period: 5</strong> — SAP احتسبها تلقائياً من Posting Date (مايو = Period 5)<br>
+• مفيش Line Items grid في نفس الشاشة — كل سطر بيتدخل في شاشة مستقلة</div>
+              <div style="padding:12px">
+                <img src="./images/f02-step1-empty-header.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="F-02 Step 1" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">2</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">F-02 — ملء بيانات الـ Header</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">Fill in the Header fields ثم اضغط <strong>Enter</strong>:<br><br>
+• <strong>Document Date:</strong> 2/5/2026<br>
+• <strong>Type:</strong> SA — General G/L Document<br>
+• <strong>Company Code:</strong> BEV1<br>
+• <strong>Posting Date:</strong> 05/02/2026<br>
+• <strong>Period:</strong> 5 — auto-calculated by SAP<br>
+• <strong>Currency:</strong> EGP<br>
+• <strong>Reference:</strong> TEST<br>
+• <strong>Doc. Header Text:</strong> Test<br><br>
+بعد الضغط على Enter، SAP بينقلك لشاشة إدخال أول Line Item.</div>
+              <div style="padding:12px">
+                <img src="./images/f02-step2-header-filled.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="F-02 Step 2" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--purple);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">3</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">F-02 — إدخال Line Items خطوة بخطوة</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">هذه هي <strong>أهم نقطة في F-02</strong> — كل Line Item بيتدخل في شاشة منفصلة:<br><br>
+<strong>السطر الأول (Debit):</strong><br>
+• PstKy: <strong>40</strong> → Enter → Account: <strong>500005</strong> (Cleanning exp) → Enter<br>
+• Amount: <strong>1,000</strong> EGP<br>
+• SAP يعرض تفاصيل الحساب: <strong>Item 1 / Debit entry / 40</strong><br>
+• Notice: Profit Center <strong>ASSPC02</strong> — auto-filled from account settings<br><br>
+<strong>السطر التاني (Credit):</strong><br>
+في أسفل الشاشة قسم <strong>"Next Line Item"</strong>:<br>
+• PstKy: <strong>50</strong> → Account: <strong>122225</strong> (BANK) → Enter<br>
+• Amount: <strong>1,000</strong> EGP<br><br>
+💡 الرسالة في الأسفل: <em>"Specify account number"</em> — SAP بيطلب رقم الحساب للسطر التالي</div>
+              <div style="padding:12px">
+                <img src="./images/f02-step3-first-line-item.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="F-02 Step 3" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--gold);color:black;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">4</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">F-02 — شاشة Simulate (Display Overview)</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">بعد إدخال كل الـ Line Items، اضغط على <strong>Simulate</strong> من القائمة العلوية → تظهر شاشة <strong>"Display Overview"</strong><br><br>
+<strong>ما تشوفه في الـ Overview:</strong><br>
+• Document Number: <strong>INTERNAL</strong> — لسه ما اتحفظش، بس SAP بيتحقق من البيانات<br>
+• <strong>Items in document currency:</strong><br>
+  — Item 001 | PK 40 | 500005 Cleanning exp | <strong>1,000 Dr</strong><br>
+  — Item 002 | PK 50 | 122225 BANK | <strong>1,000- Cr</strong><br>
+• في الأسفل: <strong>D 1,000 = C 1,000</strong> ✅ — القيد متوازن<br>
+• <strong>2 Line Items</strong> — كل الأرقام صح<br><br>
+لو كل حاجة تمام → اضغط <strong>Post</strong></div>
+              <div style="padding:12px">
+                <img src="./images/f02-step4-simulate-overview.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="F-02 Step 4" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--green);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">5</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">F-02 — تأكيد الـ Posting ✅</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">بعد الضغط على <strong>Post</strong> — SAP يرجع لشاشة الـ Header فاضية من جديد، ويظهر في الأسفل:<br><br>
+<div style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:6px;padding:10px 14px;font-family:monospace;font-size:14px;color:var(--green);margin:8px 0">✅ Document 100000047 was posted in company code BEV1</div><br>
+<strong>ده يعني:</strong><br>
+• القيد اتحفظ بشكل نهائي في SAP<br>
+• رقم المستند: <strong>100000047</strong><br>
+• مش ممكن يتحذف — لو في غلط لازم تعمل <strong>Reversal</strong><br>
+• SAP فاضي وجاهز لقيد جديد</div>
+              <div style="padding:12px">
+                <img src="./images/f02-step5-posted-confirmation.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="F-02 Step 5" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+              <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)">
+                <span style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">6</span>
+                <div style="font-weight:700;font-size:14px;color:var(--text)">FB03 — عرض المستند بعد الـ Post</div>
+              </div>
+              <div style="padding:14px 18px;font-size:13px;color:var(--dim);line-height:1.9;border-bottom:1px solid var(--border)">استخدم T-Code <strong>FB03</strong> لعرض المستند اللي اتحفظ:<br><br>
+<strong>Document Number: 100000047</strong><br><br>
+<strong>تفاصيل المستند:</strong><br>
+• Company Code: BEV1 | Fiscal Year: 2026 | Period: 5<br>
+• Document Date: 02/05/2026 | Posting Date: 05/02/2026<br>
+• Currency: EGP<br><br>
+<strong>Line Items:</strong><br>
+• Item 1 | <strong>S 40</strong> | 500005 | Cleanning exp | <strong>1,000 Dr</strong> EGP<br>
+• Item 2 | <strong>H 50</strong> | 122225 | BANK | <strong>1,000- Cr</strong> EGP<br><br>
+💡 <strong>Key Codes:</strong> S = Soll (Debit in German) | H = Haben (Credit in German) — SAP uses German accounting terminology internally</div>
+              <div style="padding:12px">
+                <img src="./images/f02-step6-display-document.png" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block" alt="F-02 Step 6" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="hbox ok" style="margin-top:20px">✅ <strong>Document 100000047 posted successfully!</strong> The journal entry is now permanent in SAP — Cleaning Expenses Dr 1,000 / BANK Cr 1,000. Use FB03 anytime to display and verify posted documents.</div>
+        </div>
+
         <!-- QUIZ L4 -->
         <div class="content-block" style="margin-top:30px">
           <h3>🧪 Quiz — Lecture 4</h3>
