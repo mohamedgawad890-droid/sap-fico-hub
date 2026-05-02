@@ -587,6 +587,68 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
 
+        <!-- QUIZ L1 -->
+        <div class="content-block" style="margin-top:30px">
+          <h3>🧪 Quiz — Lecture 1</h3>
+          <div id="quiz-l1">
+            <div class="question-card">
+              <div class="question-text">1. What does ERP stand for?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l1','q1',this,'wrong')">Enterprise Reporting Program</button>
+                <button class="option" onclick="answerQ('l1','q1',this,'correct')">Enterprise Resource Planning</button>
+                <button class="option" onclick="answerQ('l1','q1',this,'wrong')">Electronic Resource Processing</button>
+                <button class="option" onclick="answerQ('l1','q1',this,'wrong')">Extended Resource Program</button>
+              </div>
+              <div class="explanation" id="exp-l1-q1">ERP = Enterprise Resource Planning — a system that integrates all core business processes (finance, procurement, HR, sales) into one unified platform with shared data.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">2. In what year was SAP founded, and in which country?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l1','q2',this,'wrong')">1982 — USA</button>
+                <button class="option" onclick="answerQ('l1','q2',this,'wrong')">1969 — Switzerland</button>
+                <button class="option" onclick="answerQ('l1','q2',this,'correct')">1972 — Germany</button>
+                <button class="option" onclick="answerQ('l1','q2',this,'wrong')">1975 — Germany</button>
+              </div>
+              <div class="explanation" id="exp-l1-q2">SAP was founded in 1972 in Walldorf, Germany by five former IBM engineers. SAP stands for Systems, Applications & Products in Data Processing.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">3. What percentage of Fortune 500 companies use SAP?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l1','q3',this,'wrong')">50%</button>
+                <button class="option" onclick="answerQ('l1','q3',this,'wrong')">65%</button>
+                <button class="option" onclick="answerQ('l1','q3',this,'correct')">77%</button>
+                <button class="option" onclick="answerQ('l1','q3',this,'wrong')">90%</button>
+              </div>
+              <div class="explanation" id="exp-l1-q3">SAP runs in 77% of Fortune 500 companies, making it the dominant ERP platform globally with over 440,000 customers in more than 180 countries.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">4. What is the role of a Key User in an SAP project?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l1','q4',this,'wrong')">Configures the SAP system using SPRO</button>
+                <button class="option" onclick="answerQ('l1','q4',this,'correct')">Acts as the bridge between consultants and end users within the client's organization</button>
+                <button class="option" onclick="answerQ('l1','q4',this,'wrong')">Only uses SAP to enter daily transactions</button>
+                <button class="option" onclick="answerQ('l1','q4',this,'wrong')">Manages the SAP server infrastructure</button>
+              </div>
+              <div class="explanation" id="exp-l1-q4">Key Users are experienced client employees who know both the business process and SAP. They train colleagues, handle basic issues, and communicate change requests to the consultant team.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">5. Which SAP version introduced the client-server architecture and became a global success?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l1','q5',this,'wrong')">SAP R/1</button>
+                <button class="option" onclick="answerQ('l1','q5',this,'wrong')">SAP R/2</button>
+                <button class="option" onclick="answerQ('l1','q5',this,'correct')">SAP R/3</button>
+                <button class="option" onclick="answerQ('l1','q5',this,'wrong')">SAP ECC 6.0</button>
+              </div>
+              <div class="explanation" id="exp-l1-q5">SAP R/3 (1992) introduced the three-tier client-server architecture and became SAP's first global success. R/1 (1972) covered only finance, R/2 (1979) was mainframe-based.</div>
+            </div>
+            <div class="q-score" id="score-l1">
+              <div class="snum" id="scorenum-l1">0/5</div>
+              <p id="scoremsg-l1"></p>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l1',5)">Try Again</button>
+            </div>
+          </div>
+        </div>
+
       </div><!-- end lecture-0 -->
 
       <!-- LECTURE 2 -->
@@ -920,6 +982,68 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="hbox info" style="margin-top:12px">💡 Document Types make it easy to filter, search, and report on specific transaction types. You can pull all vendor invoices or all customer invoices separately.</div>
         </div>
 
+        <!-- QUIZ L2 -->
+        <div class="content-block" style="margin-top:30px">
+          <h3>🧪 Quiz — Lecture 2</h3>
+          <div id="quiz-l2">
+            <div class="question-card">
+              <div class="question-text">1. What is the correct order of the SAP System Landscape for transporting changes?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l2','q1',this,'wrong')">PRD → QAS → DEV</button>
+                <button class="option" onclick="answerQ('l2','q1',this,'wrong')">QAS → DEV → PRD</button>
+                <button class="option" onclick="answerQ('l2','q1',this,'correct')">DEV → QAS → PRD</button>
+                <button class="option" onclick="answerQ('l2','q1',this,'wrong')">DEV → PRD → QAS</button>
+              </div>
+              <div class="explanation" id="exp-l2-q1">Changes always flow: DEV (Development) → QAS (Quality Assurance / Testing) → PRD (Production). You never make direct changes in the live PRD system.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">2. In SAP Activate methodology, during which phase is the Blueprint document created?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l2','q2',this,'wrong')">Prepare</button>
+                <button class="option" onclick="answerQ('l2','q2',this,'correct')">Explore</button>
+                <button class="option" onclick="answerQ('l2','q2',this,'wrong')">Realize</button>
+                <button class="option" onclick="answerQ('l2','q2',this,'wrong')">Deploy</button>
+              </div>
+              <div class="explanation" id="exp-l2-q2">The Blueprint is created during the Explore phase (Phase 3). Consultants hold workshops with the client to gather all requirements and document them. The client must sign off before the Realize phase begins.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">3. What does WRICEF stand for in SAP projects?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l2','q3',this,'wrong')">Workflow, Reports, Integration, Conversion, Extensions, Functions</button>
+                <button class="option" onclick="answerQ('l2','q3',this,'correct')">Workflow, Reports, Interfaces, Conversion, Enhancements, Forms</button>
+                <button class="option" onclick="answerQ('l2','q3',this,'wrong')">Workflow, Releases, Interfaces, Cutover, Enhancements, Forms</button>
+                <button class="option" onclick="answerQ('l2','q3',this,'wrong')">Workflow, Reports, Interfaces, Configuration, Enhancements, Forms</button>
+              </div>
+              <div class="explanation" id="exp-l2-q3">WRICEF = Workflow, Reports, Interfaces, Conversion, Enhancements, Forms. These are all custom development objects built during the Realize phase to extend standard SAP functionality.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">4. What is the purpose of the Controlling Area in SAP organizational structure?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l2','q4',this,'wrong')">It produces independent financial statements for each legal entity</button>
+                <button class="option" onclick="answerQ('l2','q4',this,'wrong')">It manages the SAP system server configuration</button>
+                <button class="option" onclick="answerQ('l2','q4',this,'correct')">It is the CO management unit that groups Company Codes and contains all cost and profit centers</button>
+                <button class="option" onclick="answerQ('l2','q4',this,'wrong')">It controls which posting periods are open or closed</button>
+              </div>
+              <div class="explanation" id="exp-l2-q4">The Controlling Area is the highest organizational unit in CO. It can contain one or multiple Company Codes and is the umbrella for all cost centers, profit centers, and internal orders.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">5. What is the difference between FI and CO in terms of reporting purpose?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l2','q5',this,'wrong')">FI is for internal reporting, CO is for external reporting</button>
+                <button class="option" onclick="answerQ('l2','q5',this,'correct')">FI is for external reporting (balance sheet, P&L), CO is for internal management reporting</button>
+                <button class="option" onclick="answerQ('l2','q5',this,'wrong')">Both FI and CO produce the same reports</button>
+                <button class="option" onclick="answerQ('l2','q5',this,'wrong')">FI is only used by auditors, CO is used by accountants</button>
+              </div>
+              <div class="explanation" id="exp-l2-q5">FI produces external reports for shareholders, tax authorities, and regulators (balance sheet, P&L). CO produces internal reports for management decisions — cost centers, profit centers, budgets vs actuals.</div>
+            </div>
+            <div class="q-score" id="score-l2">
+              <div class="snum" id="scorenum-l2">0/5</div>
+              <p id="scoremsg-l2"></p>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l2',5)">Try Again</button>
+            </div>
+          </div>
+        </div>
+
       </div><!-- end lecture-1 -->
 
       <!-- ═══════════════════════════════════════════════════════ LECTURE 3 -->
@@ -1202,6 +1326,68 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <li>You <strong>must</strong> use FB60 (Enter Vendor Invoice) and select a specific Vendor</li>
               <li>SAP then automatically posts to the Recon. account behind the scenes</li>
             </ul>
+          </div>
+        </div>
+
+        <!-- QUIZ L3 -->
+        <div class="content-block" style="margin-top:30px">
+          <h3>🧪 Quiz — Lecture 3</h3>
+          <div id="quiz-l3">
+            <div class="question-card">
+              <div class="question-text">1. Which Chart of Accounts type is used for all daily postings and is mandatory for every Company Code?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l3','q1',this,'wrong')">Group CoA</button>
+                <button class="option" onclick="answerQ('l3','q1',this,'wrong')">Country CoA</button>
+                <button class="option" onclick="answerQ('l3','q1',this,'correct')">Operating CoA</button>
+                <button class="option" onclick="answerQ('l3','q1',this,'wrong')">Secondary CoA</button>
+              </div>
+              <div class="explanation" id="exp-l3-q1">The Operating CoA is mandatory — it is the main chart used for all daily postings. Country CoA maps to local legal requirements (optional). Group CoA is for consolidated reporting (optional).</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">2. In SAP's GL account number ranges, which range is typically used for Revenue accounts?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l3','q2',this,'wrong')">100000 – 199999</button>
+                <button class="option" onclick="answerQ('l3','q2',this,'wrong')">200000 – 299999</button>
+                <button class="option" onclick="answerQ('l3','q2',this,'wrong')">300000 – 399999</button>
+                <button class="option" onclick="answerQ('l3','q2',this,'correct')">400000 – 499999</button>
+              </div>
+              <div class="explanation" id="exp-l3-q2">In a standard SAP CoA: 100000–199999 = Assets, 200000–299999 = Liabilities, 300000–399999 = Equity, 400000–499999 = Revenue / P&L accounts.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">3. What happens when a GL account is set as a Reconciliation Account?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l3','q3',this,'wrong')">You can post directly to it using any T-Code</button>
+                <button class="option" onclick="answerQ('l3','q3',this,'correct')">You cannot post directly to it — you must post through the sub-ledger (e.g. vendor or customer)</button>
+                <button class="option" onclick="answerQ('l3','q3',this,'wrong')">It is automatically deleted after each posting period</button>
+                <button class="option" onclick="answerQ('l3','q3',this,'wrong')">It can only be used for asset accounts</button>
+              </div>
+              <div class="explanation" id="exp-l3-q3">A Reconciliation Account is linked to a sub-ledger (AR, AP, AA). Direct manual journal entries are blocked. You must post via the sub-ledger transaction (e.g. FB60 for vendors), and SAP automatically updates the Recon. Account.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">4. What is the T-Code used to create or edit a GL Account Master Data?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l3','q4',this,'wrong')">FB50</button>
+                <button class="option" onclick="answerQ('l3','q4',this,'wrong')">SPRO</button>
+                <button class="option" onclick="answerQ('l3','q4',this,'correct')">FS00</button>
+                <button class="option" onclick="answerQ('l3','q4',this,'wrong')">FB03</button>
+              </div>
+              <div class="explanation" id="exp-l3-q4">FS00 is the main transaction for GL Account Master Data — Create, Change, and Display. FB50 is for posting journal entries. SPRO is for configuration. FB03 is for displaying documents.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">5. In the GL Account Master Data, what does the Field Status Group control?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l3','q5',this,'wrong')">Which users are allowed to post to this account</button>
+                <button class="option" onclick="answerQ('l3','q5',this,'wrong')">The currency of the account</button>
+                <button class="option" onclick="answerQ('l3','q5',this,'correct')">Which fields are mandatory, optional, or hidden when posting to this account</button>
+                <button class="option" onclick="answerQ('l3','q5',this,'wrong')">The account number range for this group</button>
+              </div>
+              <div class="explanation" id="exp-l3-q5">The Field Status Group defines the field layout during posting. For example, G001 (General) makes certain fields like Text and Cost Center optional or mandatory. This controls what the accountant must fill in when posting to this GL account.</div>
+            </div>
+            <div class="q-score" id="score-l3">
+              <div class="snum" id="scorenum-l3">0/5</div>
+              <p id="scoremsg-l3"></p>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l3',5)">Try Again</button>
+            </div>
           </div>
         </div>
 
@@ -1529,6 +1715,68 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="hbox ok" style="margin-top:14px">✅ <strong>Golden Rule of SAP Posting:</strong> Every document must be <strong>balanced — Total Debits must equal Total Credits</strong>. SAP will not allow posting if the entry is unbalanced.</div>
         </div>
 
+        <!-- QUIZ L4 -->
+        <div class="content-block" style="margin-top:30px">
+          <h3>🧪 Quiz — Lecture 4</h3>
+          <div id="quiz-l4">
+            <div class="question-card">
+              <div class="question-text">1. What is the Posting Key used for a GL Credit entry (e.g. crediting a revenue account)?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l4','q1',this,'wrong')">40</button>
+                <button class="option" onclick="answerQ('l4','q1',this,'correct')">50</button>
+                <button class="option" onclick="answerQ('l4','q1',this,'wrong')">31</button>
+                <button class="option" onclick="answerQ('l4','q1',this,'wrong')">01</button>
+              </div>
+              <div class="explanation" id="exp-l4-q1">Posting Key 50 = GL Account Credit entry. Posting Key 40 = GL Account Debit entry. PstKy 31 = Vendor Invoice (Credit). PstKy 01 = Customer Invoice (Debit).</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">2. What is the difference between Hold and Park in FB50?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l4','q2',this,'wrong')">Hold posts the document, Park saves it as a draft</button>
+                <button class="option" onclick="answerQ('l4','q2',this,'wrong')">Both Hold and Park update the GL balances immediately</button>
+                <button class="option" onclick="answerQ('l4','q2',this,'correct')">Hold is a private draft (same user only), Park is a shared draft (any authorized user can complete it)</button>
+                <button class="option" onclick="answerQ('l4','q2',this,'wrong')">Park is only used for asset accounts</button>
+              </div>
+              <div class="explanation" id="exp-l4-q2">Hold = private draft, only retrievable by the same user. Park = shared draft, visible and editable by other authorized users. Neither updates GL balances — only Post creates the final accounting entry.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">3. When creating a GL account in FS00, you activate both "Post Automatically Only" and "Reconciliation Account". What happens?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l4','q3',this,'wrong')">The account is created successfully with both features active</button>
+                <button class="option" onclick="answerQ('l4','q3',this,'wrong')">SAP automatically removes the Reconciliation Account flag</button>
+                <button class="option" onclick="answerQ('l4','q3',this,'correct')">SAP issues an error because both settings block direct posting — they are contradictory and cannot be used together</button>
+                <button class="option" onclick="answerQ('l4','q3',this,'wrong')">The account becomes a bank clearing account automatically</button>
+              </div>
+              <div class="explanation" id="exp-l4-q3">Both settings block direct manual posting, making them redundant and contradictory. Fix: if you want a Recon. Account, remove "Post Auto Only". If you want system-only posting (e.g. clearing account), use only "Post Auto Only".</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">4. Which T-Code allows you to copy an existing GL Account Master Data to create a new account?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l4','q4',this,'wrong')">FS00</button>
+                <button class="option" onclick="answerQ('l4','q4',this,'correct')">FS15</button>
+                <button class="option" onclick="answerQ('l4','q4',this,'wrong')">FB50</button>
+                <button class="option" onclick="answerQ('l4','q4',this,'wrong')">F-02</button>
+              </div>
+              <div class="explanation" id="exp-l4-q4">FS15 = Copy GL Account Master Data. It copies all settings from an existing account to a new account number, saving time and ensuring consistency. FS00 is for creating/editing from scratch.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">5. What Posting Key would you use when posting a Vendor Invoice line item?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l4','q5',this,'wrong')">01</button>
+                <button class="option" onclick="answerQ('l4','q5',this,'wrong')">40</button>
+                <button class="option" onclick="answerQ('l4','q5',this,'wrong')">50</button>
+                <button class="option" onclick="answerQ('l4','q5',this,'correct')">31</button>
+              </div>
+              <div class="explanation" id="exp-l4-q5">PstKy 31 = Vendor Credit Invoice. When posting a vendor invoice, the vendor account is credited (liability increases). PstKy 01 = Customer Debit Invoice. PstKy 40/50 = GL Debit/Credit entries.</div>
+            </div>
+            <div class="q-score" id="score-l4">
+              <div class="snum" id="scorenum-l4">0/5</div>
+              <p id="scoremsg-l4"></p>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l4',5)">Try Again</button>
+            </div>
+          </div>
+        </div>
+
       </div><!-- end lecture-3 -->
     </div>
   </div>
@@ -1560,29 +1808,34 @@ function showLesson(i){
   const sel=document.querySelector('#fi-mobile-picker select');
   if(sel) sel.value=i;
 }
-let answers={};
-function answer(btn,r,q){
-  if(answers[q])return;
-  answers[q]=r;
+/* ── Quiz System (multi-lecture) ── */
+let quizState={};
+function answerQ(lec,q,btn,result){
+  const key=lec+'_'+q;
+  if(quizState[key])return;
+  quizState[key]=result;
   btn.parentElement.querySelectorAll('.option').forEach(o=>o.disabled=true);
-  btn.classList.add(r);
-  document.getElementById('exp-'+q).style.display='block';
-  const total=5,done=Object.keys(answers).length;
+  btn.classList.add(result);
+  document.getElementById('exp-'+lec+'-'+q).style.display='block';
+  // check if all questions in this lecture answered
+  const total=5;
+  const done=Object.keys(quizState).filter(k=>k.startsWith(lec+'_')).length;
   if(done===total){
-    const c=Object.values(answers).filter(a=>a==='correct').length;
-    const sc=document.getElementById('quizScore');
-    sc.style.display='block';
-    document.getElementById('scoreNum').textContent=c+'/'+total;
-    document.getElementById('scoreNum').style.color=c>=4?'var(--green)':c>=3?'var(--gold)':'var(--red)';
-    const msgs=['Keep studying — review the material 📚','Good effort! Review the topics you missed','Solid! Almost there 🎯','Great work! 🌟','Perfect score! You nailed it ✨'];
-    document.getElementById('scoreMsg').textContent=msgs[c]||msgs[4];
+    const correct=Object.entries(quizState).filter(([k,v])=>k.startsWith(lec+'_')&&v==='correct').length;
+    const scoreEl=document.getElementById('score-'+lec);
+    scoreEl.style.display='block';
+    document.getElementById('scorenum-'+lec).textContent=correct+'/'+total;
+    document.getElementById('scorenum-'+lec).style.color=correct>=4?'var(--green)':correct>=3?'var(--gold)':'var(--red)';
+    const msgs=['Keep reviewing — go back through the lecture 📚','Good effort! Review the topics you missed','Solid progress! Almost there 🎯','Great work! 🌟','Perfect score! Excellent! ✨'];
+    document.getElementById('scoremsg-'+lec).textContent=msgs[correct]||msgs[4];
   }
 }
-function resetQuiz(){
-  answers={};
-  document.querySelectorAll('.option').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong');});
-  document.querySelectorAll('.explanation').forEach(e=>e.style.display='none');
-  document.getElementById('quizScore').style.display='none';
+function resetQuizL(lec,total){
+  for(let i=1;i<=total;i++) delete quizState[lec+'_q'+i];
+  const quiz=document.getElementById('quiz-'+lec);
+  quiz.querySelectorAll('.option').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong');});
+  quiz.querySelectorAll('.explanation').forEach(e=>e.style.display='none');
+  document.getElementById('score-'+lec).style.display='none';
 }
 
 /* ── PWA ── */
