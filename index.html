@@ -2116,9 +2116,9 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
               <div class="ex-step-title">Open FS00 — Initial Screen</div>
             </div>
             <div class="ex-step-body">
-              <div class="ex-step-desc">Enter T-Code <strong>FS00</strong> in the SAP command field and press Enter. The "Edit G/L Account Centrally" screen opens with a left-panel chart of accounts tree and empty fields on the right. The G/L Account and Company Code fields are empty and ready for input.</div>
-              <div class="ex-step-note">📌 FS00 opens in <em>Edit</em> mode by default. To create a new account, click the <strong>Create</strong> icon (blank page icon) in the toolbar.</div>
-              <img src="./images/fs00-step1-open-screen.png" class="ex-img" alt="FS00 Step 1 — Initial Screen" loading="lazy">
+              <div class="ex-step-desc">Enter T-Code <strong>FS00</strong> in the SAP command field and press Enter. The "Edit G/L Account Centrally" screen opens with a left-panel chart of accounts tree and empty fields on the right. The G/L Account and Company Code fields are empty and ready for input.<br><br>Click the <strong>Create</strong> icon (blank page 📄) in the toolbar — a <strong>Create G/L Account</strong> popup appears with two empty fields: G/L Account and Company Code.</div>
+              <div class="ex-step-note">📌 FS00 opens in <em>Edit</em> mode by default. Use the Create icon in the toolbar to start a new account — do not type the account number in the top field before clicking Create.</div>
+              <img src="./images/fs00-step2-enter-account.png" class="ex-img" alt="FS00 Step 1 — Open Screen with Create Popup" loading="lazy">
             </div>
           </div>
 
@@ -2131,7 +2131,7 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             <div class="ex-step-body">
               <div class="ex-step-desc">A <strong>Create G/L Account</strong> popup appears. Enter:<br><br>• <strong>G/L Account:</strong> <code>480002</code><br>• <strong>Company Code:</strong> <code>BEV1</code><br><br>Click the green checkmark ✔ to confirm. SAP opens the full account creation screen.</div>
               <div class="ex-step-note">💡 Account 480002 falls in the 400000–499999 Revenue range in this Chart of Accounts.</div>
-              <img src="./images/fs00-step2-enter-account.png" class="ex-img" alt="FS00 Step 2 — Enter Account Number" loading="lazy">
+              <img src="./images/fs00-step3-type-desc-empty.png" class="ex-img" alt="FS00 Step 2 — Enter Account Number" loading="lazy">
             </div>
           </div>
 
@@ -2143,7 +2143,7 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             </div>
             <div class="ex-step-body">
               <div class="ex-step-desc">The <strong>Type/Description</strong> tab is now active and all fields are empty. Notice on the left panel: the P&L Statement Accounts folder is expanded, showing existing accounts (480001 Cash Revenue visible). The <strong>G/L Account Type</strong> and <strong>Account Group</strong> dropdowns are required fields.</div>
-              <img src="./images/fs00-step3-type-desc-empty.png" class="ex-img" alt="FS00 Step 3 — Type/Description Empty" loading="lazy">
+              <img src="./images/fs00-step4-type-desc-filled.png" class="ex-img" alt="FS00 Step 3 — Type/Description Empty" loading="lazy">
             </div>
           </div>
 
@@ -2156,7 +2156,7 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             <div class="ex-step-body">
               <div class="ex-step-desc">Fill in all required fields on the Type/Description tab:<br><br>• <strong>G/L Account Type:</strong> <code>P — Primary Costs or Revenue</code><br>• <strong>Account Group:</strong> <code>PL — P&L Statement Accounts</code><br>• <strong>Short Text:</strong> <code>Credit Revenue</code><br>• <strong>G/L Acct Long Text:</strong> <code>Credit Revenue</code></div>
               <div class="ex-step-note">💡 Account Type "P" creates a P&L account linked to CO (Controlling). This requires a Cost Element Category setting later on the Control Data tab.</div>
-              <img src="./images/fs00-step4-type-desc-filled.png" class="ex-img" alt="FS00 Step 4 — Type/Description Filled" loading="lazy">
+              <img src="./images/fs00-step5-control-data-top.png" class="ex-img" alt="FS00 Step 4 — Type/Description Filled" loading="lazy">
             </div>
           </div>
 
@@ -2168,7 +2168,7 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             </div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Click the <strong>Control Data</strong> tab. Fill in the top section:<br><br>• <strong>Account Currency:</strong> <code>EGP</code> (Egyptian Pound)<br>• <strong>Tax Category:</strong> <code>*</code> (All tax types allowed)<br>• <strong>Posting without tax allowed:</strong> ✓ Checked<br><br>Leave Alternative Account No. and Tolerance Group empty.</div>
-              <img src="./images/fs00-step5-control-data-top.png" class="ex-img" alt="FS00 Step 5 — Control Data Top" loading="lazy">
+              <img src="./images/fs00-step6-control-data-co.png" class="ex-img" alt="FS00 Step 5 — Control Data Top" loading="lazy">
             </div>
           </div>
 
@@ -2176,12 +2176,12 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           <div class="ex-step">
             <div class="ex-step-header">
               <span class="ex-step-num" style="background:var(--gold);color:black">6</span>
-              <div class="ex-step-title">Tab 2: Control Data — CO Settings (Scroll Down)</div>
+              <div class="ex-step-title">Tab 2: Control Data — CO Settings → Save</div>
             </div>
             <div class="ex-step-body">
-              <div class="ex-step-desc">Scroll down on the Control Data tab to see <strong>Account Settings in Controlling Area</strong>. Fill in:<br><br>• <strong>CElem Category:</strong> <code>11</code> — Revenue<br><br>Leave Record Quantity and Internal UoM unchecked/empty. This links the GL account to Controlling as a Revenue Cost Element.</div>
-              <div class="ex-step-note">⚠️ CElem Category is mandatory for Account Type "P". 1 = Primary Costs, 11 = Revenue, 12 = Sales Deduction.</div>
-              <img src="./images/fs00-step6-control-data-co.png" class="ex-img" alt="FS00 Step 6 — Control Data CO Settings" loading="lazy">
+              <div class="ex-step-desc">Scroll down on the Control Data tab to see <strong>Account Settings in Controlling Area</strong>. Fill in:<br><br>• <strong>CElem Category:</strong> <code>11</code> — Revenue<br><br>Leave Record Quantity and Internal UoM unchecked/empty. Then click <strong>Save</strong> (bottom right). SAP creates account 480002 and it appears in the left-panel tree under P&L Statement Accounts.</div>
+              <div class="ex-step-note">⚠️ CElem Category is mandatory for Account Type "P". 1 = Primary Costs, 11 = Revenue, 12 = Sales Deduction. After saving, verify the account appears alongside 480001 in the left panel.</div>
+              <img src="./images/fs00-step6-control-data-co.png" class="ex-img" alt="FS00 Step 6 — CO Settings" loading="lazy">
             </div>
           </div>
 
@@ -2189,10 +2189,10 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           <div class="ex-step">
             <div class="ex-step-header">
               <span class="ex-step-num" style="background:var(--green)">7</span>
-              <div class="ex-step-title">Tab 3: Create/Bank/Interest — Save the Account</div>
+              <div class="ex-step-title">Tab 3: Create/Bank/Interest — Final Save</div>
             </div>
             <div class="ex-step-body">
-              <div class="ex-step-desc">Click the <strong>Create/bank/interest</strong> tab. Set the <strong>Field Status Group</strong> (e.g. G001 — General). Then click <strong>Save</strong> (bottom right). SAP creates account 480002 "Credit Revenue" and it now appears in the left-panel account tree.</div>
+              <div class="ex-step-desc">Click the <strong>Create/bank/interest</strong> tab. Set the <strong>Field Status Group</strong> (e.g. G001 — General). Then click <strong>Save</strong>. SAP creates account 480002 "Credit Revenue" and it now appears in the left-panel account tree under P&L Statement Accounts.</div>
               <div class="ex-step-note">✅ After saving, you can verify by navigating to the account in the left panel — it appears under P&L Statement Accounts alongside 480001.</div>
               <img src="./images/fs00-step7-create-bank-interest.png" class="ex-img" alt="FS00 Step 7 — Create Bank Interest Tab" loading="lazy">
             </div>
