@@ -2089,6 +2089,25 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             </div>
           </div>
           <div class="hbox info" style="margin-top:14px">💡 <strong>Quick tip:</strong> You can type any T-Code directly in the command field (e.g. <code>fb03</code>) and press Enter to open it in the same window — no prefix needed for basic navigation.</div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden">
+              <div style="padding:8px 12px;font-size:11px;font-weight:700;color:var(--gold);border-bottom:1px solid var(--border);font-family:'IBM Plex Mono',monospace">/o — Typing the command</div>
+              <img src="./images/o.png" style="width:100%;display:block;border:0" alt="/o in command field" loading="lazy">
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden">
+              <div style="padding:8px 12px;font-size:11px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border);font-family:'IBM Plex Mono',monospace">/o — ABAP Sessions popup opens</div>
+              <img src="./images/oo.png" style="width:100%;display:block;border:0" alt="ABAP Sessions" loading="lazy">
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden">
+              <div style="padding:8px 12px;font-size:11px;font-weight:700;color:var(--gold);border-bottom:1px solid var(--border);font-family:'IBM Plex Mono',monospace">/of-03 — Open F-03 in new window</div>
+              <img src="./images/ooo.png" style="width:100%;display:block;border:0" alt="/of-03 typed" loading="lazy">
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden">
+              <div style="padding:8px 12px;font-size:11px;font-weight:700;color:var(--purple);border-bottom:1px solid var(--border);font-family:'IBM Plex Mono',monospace">/nf-03 — Replace current with F-03</div>
+              <img src="./images/ooooo.png" style="width:100%;display:block;border:0" alt="/nf-03 typed" loading="lazy">
+            </div>
+          </div>
         </div>
 
         <!-- 2. FB03 -->
@@ -2129,6 +2148,52 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             <li>Profitability Analysis document (CO-PA)</li>
           </ul>
           <div class="hbox warn">📌 Example: when you sell an asset and post the entry, SAP automatically creates an additional Accumulated Depreciation entry for that asset. You can see this automatic entry via Environment → Accounting Documents.</div>
+
+          <!-- FB03 Screenshots -->
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:18px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px">Document List — Initial Selection Screen</div>
+              <img src="./images/fb03__.png" style="width:100%;display:block" alt="FB03 Document List" loading="lazy">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border)">Dynamic Selection — Search by User</div>
+                <img src="./images/fb03____Dynamic_selection__.png" style="width:100%;display:block" alt="FB03 Dynamic Selection" loading="lazy">
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--green);border-bottom:1px solid var(--border)">Result: 3 Documents by FI.MAMA</div>
+                <img src="./images/FB03_DYNAMIC_SELECTION___TRY_TO_SEARCH_BY_USER.png" style="width:100%;display:block" alt="Dynamic Selection result" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px">Display Document — Data Entry View (with customer names)</div>
+              <img src="./images/FB03____________________________.png" style="width:100%;display:block" alt="FB03 Data Entry View" loading="lazy">
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px">General Ledger View (shows GL accounts instead of customer codes)</div>
+              <img src="./images/GENERAL_LEDGER_VIEW.png" style="width:100%;display:block" alt="General Ledger View" loading="lazy">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border)">Change Layout — Column Selection</div>
+                <img src="./images/FB03______________________.png" style="width:100%;display:block" alt="Change Layout" loading="lazy">
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--green);border-bottom:1px solid var(--border)">Export → Select Spreadsheet Format</div>
+                <img src="./images/EXPORT___.png" style="width:100%;display:block" alt="Export to Spreadsheet" loading="lazy">
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--gold);border-bottom:1px solid var(--border)">Document Header Popup</div>
+                <img src="./images/Document_Header.png" style="width:100%;display:block" alt="Document Header" loading="lazy">
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--purple);border-bottom:1px solid var(--border)">Environment → Accounting Documents</div>
+                <img src="./images/Document_enviremont.png" style="width:100%;display:block" alt="Document Environment" loading="lazy">
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- 3. FB08 -->
@@ -2160,9 +2225,11 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
               </ul>
             </div>
           </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:14px">
+            <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px">FB08 — Reverse Document: Header Data Screen</div>
+            <img src="./images/fb08.png" style="width:100%;display:block" alt="FB08 Reverse Document" loading="lazy">
+          </div>
         </div>
-
-        <!-- 4. FBV0 -->
         <div class="content-block">
           <h3>4. FBV0 — List of Parked Documents</h3>
           <p>FBV0 is used to <strong style="color:var(--text)">search for and manage parked documents</strong>. A parked document is an entry that has been saved as a draft but <strong>not yet posted</strong> — it does not update GL balances.</p>
@@ -2176,6 +2243,10 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             <p style="font-size:13px;color:var(--dim);line-height:1.7">When you open a parked document and click <strong>Save as Completed</strong>, the document enters the <strong>approval workflow</strong>. It is now visible to authorized approvers who can review and post it. This is the standard process in companies with multi-level approval controls.</p>
           </div>
           <div class="hbox info" style="margin-top:10px">💡 <strong>Park vs Hold:</strong> Park (FBV0) = shared draft, visible to other authorized users. Hold = private draft, only accessible by the user who created it.</div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:14px">
+            <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px">FBV0 — List of Parked Documents Screen</div>
+            <img src="./images/fbv0.png" style="width:100%;display:block" alt="FBV0 List of Parked Documents" loading="lazy">
+          </div>
         </div>
 
         <!-- 5. FBL3N & FAGLL03 -->
@@ -2192,6 +2263,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             <div style="font-weight:600;color:var(--purple);font-size:13px;margin-bottom:6px">Alternative T-Code: FAGLL03 — GL Account Line Item Display (GL View)</div>
             <p style="font-size:13px;color:var(--dim);line-height:1.7">FAGLL03 provides the same line item display as FBL3N but from the <strong>General Ledger (GL) perspective</strong>. It shows additional GL-level fields and is the preferred T-code in S/4HANA environments. Both T-codes serve the same core purpose.</p>
           </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border)">FBL3N — Selection Screen</div>
+              <img src="./images/fbl3n.png" style="width:100%;display:block" alt="FBL3N Selection" loading="lazy">
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--green);border-bottom:1px solid var(--border)">FBL3N — Line Item Results</div>
+              <img src="./images/fbl3n__.png" style="width:100%;display:block" alt="FBL3N Results" loading="lazy">
+            </div>
+          </div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:10px">
+            <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--purple);border-bottom:1px solid var(--border)">FAGLL03 — GL Account Line Item Display (GL View)</div>
+            <img src="./images/fagll03.png" style="width:100%;display:block" alt="FAGLL03" loading="lazy">
+          </div>
         </div>
 
         <!-- 6. FAGLB03 -->
@@ -2205,6 +2290,16 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           </ul>
           <p style="font-size:16px;color:var(--dim);line-height:1.8;margin-top:12px">The result shows a table with one row per fiscal period (1–16), displaying: <strong>Debit, Credit, Balance</strong> (net for the period), and <strong>Cumulative Balance</strong> (running total from period 1). The opening balance (carryforward from prior year) is shown at the top.</p>
           <div class="hbox ok" style="margin-top:10px">✅ <strong>Use case:</strong> FAGLB03 is ideal for quickly reviewing how a GL account's balance has moved across the year — e.g. checking if revenue or expense accounts are tracking correctly month by month.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border)">FAGLB03 — Input Screen</div>
+              <img src="./images/faglb03.png" style="width:100%;display:block" alt="FAGLB03 Input" loading="lazy">
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--green);border-bottom:1px solid var(--border)">FAGLB03 — Period Balance Results</div>
+              <img src="./images/faglb03__.png" style="width:100%;display:block" alt="FAGLB03 Balance Results" loading="lazy">
+            </div>
+          </div>
         </div>
 
         <!-- 7. SU01 -->
@@ -2242,6 +2337,22 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             </div>
           </div>
           <div class="hbox info" style="margin-top:14px">💡 Role names in SAP follow a naming convention. <strong>SAP_BR_</strong> prefix = SAP Best Practice Business Roles. Examples seen in class: SAP_BR_CASH_MANAGER, SAP_BR_CASH_SPECIALIST, SAP_BR_INVENTORY_MANAGER, SAP_BR_GL_ACCOUNTANT.</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border)">SU01 — Initial Screen</div>
+                <img src="./images/SU01.png" style="width:100%;display:block" alt="SU01 Initial" loading="lazy">
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border)">SU01 — Address Tab</div>
+                <img src="./images/SU01___.png" style="width:100%;display:block" alt="SU01 Address" loading="lazy">
+              </div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--green);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px">SU01 — Roles Tab (adding SAP_BR_GL_ACCOUNTANT role)</div>
+              <img src="./images/SU01______.png" style="width:100%;display:block" alt="SU01 Roles Tab" loading="lazy">
+            </div>
+          </div>
         </div>
 
         <!-- 8. FIORI UPLOAD -->
@@ -2267,6 +2378,22 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             </div>
           </div>
           <div class="hbox warn" style="margin-top:14px">📌 <strong>Template key fields:</strong> BUKRS = Company Code, BLART = Journal Entry Type, BLDAT = Journal Entry Date, BUDAT = Posting Date, HKONT = G/L Account, WRSOL = Debit Amount, WRHAB = Credit Amount.</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px">Fiori — Upload General Journal Entries (main screen)</div>
+              <img src="./images/UPLOAD_GL_FROM_FUIRI.png" style="width:100%;display:block" alt="Upload GL Fiori Main" loading="lazy">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--gold);border-bottom:1px solid var(--border)">Template Download Dialog</div>
+                <img src="./images/UPLOAD_GL______.png" style="width:100%;display:block" alt="Template Download" loading="lazy">
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+                <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--green);border-bottom:1px solid var(--border)">Excel Template Structure</div>
+                <img src="./images/UPLOAD_GL_______________.png" style="width:100%;display:block" alt="Journal Entry Template" loading="lazy">
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- 9. FBCJ -->
@@ -2281,6 +2408,16 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
             <li>Toolbar includes: <strong>Print Cash Journal</strong> and <strong>Change Cash Journal</strong></li>
           </ul>
           <div class="hbox info" style="margin-top:10px">💡 The Cash Journal in SAP is a real-time view of petty cash. Every transaction posted here updates the GL immediately — no separate reconciliation needed.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--accent2);border-bottom:1px solid var(--border)">FBCJ — Initial Popup (select Cash Journal)</div>
+              <img src="./images/FBCJ.png" style="width:100%;display:block" alt="FBCJ Initial" loading="lazy">
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+              <div style="padding:10px 14px;font-size:12px;font-weight:700;color:var(--green);border-bottom:1px solid var(--border)">FBCJ — Cash Journal Main Screen</div>
+              <img src="./images/FBCJ___.png" style="width:100%;display:block" alt="FBCJ Main Screen" loading="lazy">
+            </div>
+          </div>
         </div>
 
         <!-- T-CODE SUMMARY TABLE -->
@@ -2394,6 +2531,119 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
         <div style="font-size:13px;color:var(--dim);line-height:1.7">Open each card, follow the numbered steps, and replicate each action in your SAP system. Screenshots show exactly what you should see at each stage. Expand a card by clicking on it.</div>
       </div>
     </div>
+
+    <!-- ======= FB03 CARD ======= -->
+    <div class="ex-card" id="ex-fb03">
+      <div class="ex-card-header" onclick="toggleEx('fb03')">
+        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
+          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">FB03</div>
+          <div>
+            <div class="ex-title">Display & Analyze a Posted Document</div>
+            <div class="ex-subtitle">Search documents · Dynamic Selection by user · GL View · Export · Document Header · Environment</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <span class="ex-badge ex-badge-beginner">Beginner</span>
+          <span class="ex-steps-count">6 Steps</span>
+          <span class="ex-chevron" id="chev-fb03">▼</span>
+        </div>
+      </div>
+
+      <div class="ex-body" id="body-fb03" style="display:none">
+        <div class="ex-scenario">
+          <div class="ex-scenario-title">📋 Scenario</div>
+          <div class="ex-scenario-text">Use FB03 to find all documents posted by user <strong style="color:var(--gold)">FI.MAMA</strong> in Company Code <strong>BEV1</strong>. Open a document, switch to General Ledger View, change the layout, export to Excel, view the Document Header, and explore the related Accounting Documents via the Environment menu.</div>
+        </div>
+
+        <div class="ex-steps">
+
+          <!-- Step 1 -->
+          <div class="ex-step">
+            <div class="ex-step-header">
+              <span class="ex-step-num" style="background:var(--accent)">1</span>
+              <div class="ex-step-title">Open FB03 — Document List</div>
+            </div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Type <strong>FB03</strong> in the SAP command field and press Enter. The initial screen opens — click the <strong>Document List</strong> button in the toolbar. The Document List selection screen appears with fields: Company Code, Document Number, Fiscal Year, Ledger, and General Selections (Document Type, Posting Date, Entry Date).</div>
+              <div class="ex-step-note">📌 Leave all fields empty for a broad search — or pre-fill Company Code BEV1 and Fiscal Year 2026. The more filters you apply, the faster results load on large systems.</div>
+              <img src="./images/fb03__.png" class="ex-img" alt="FB03 Document List Initial Screen" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="ex-step">
+            <div class="ex-step-header">
+              <span class="ex-step-num" style="background:var(--accent)">2</span>
+              <div class="ex-step-title">Use Dynamic Selection to Filter by User</div>
+            </div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Click the <strong>Dynamic Selection</strong> button (left side of the toolbar). A panel expands on the left side showing additional filterable fields under <strong>Document header</strong>. Check the box next to <strong>User Name</strong> — this adds it to the right-side filter panel. Enter <code>FI.MAMA</code> in the User Name field, then click <strong>Execute</strong>.</div>
+              <div class="ex-step-note">💡 Dynamic Selection is the way to search by any field not shown on the standard screen — including User Name, Transaction Code, Changed On date, and more.</div>
+              <img src="./images/fb03____Dynamic_selection__.png" class="ex-img" alt="FB03 Dynamic Selection" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="ex-step">
+            <div class="ex-step-header">
+              <span class="ex-step-num" style="background:var(--purple)">3</span>
+              <div class="ex-step-title">View Results & Open a Document</div>
+            </div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">SAP returns the <strong>Document List</strong> showing all documents posted by FI.MAMA — in our example, 3 documents are displayed (100000084, 100000047, 100000015), all type SA (Financial Accounting), currency EGP. Double-click any document to open it. The <strong>Display Document: Data Entry View</strong> opens showing the document header and all line items.</div>
+              <div class="ex-step-note">📌 The columns shown are: CoCode, DocumentNo, Year, Type, Currency, Doc.Date, Posting Date, Entered On, User.</div>
+              <img src="./images/FB03_DYNAMIC_SELECTION___TRY_TO_SEARCH_BY_USER.png" class="ex-img" alt="Document List Results" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="ex-step">
+            <div class="ex-step-header">
+              <span class="ex-step-num" style="background:var(--purple)">4</span>
+              <div class="ex-step-title">Switch to General Ledger View & Change Layout</div>
+            </div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">From the Data Entry View, click <strong>General Ledger View</strong> in the toolbar. The document now shows GL account numbers instead of customer/vendor codes — useful for verifying the underlying accounting impact. To customize the columns, click <strong>Settings → Change Layout</strong>. The layout popup lets you add or remove columns (e.g. add Company Code, remove unused columns). Click the green checkmark to apply.</div>
+              <div class="ex-step-note">💡 S = Soll (Debit in German) | H = Haben (Credit in German) — SAP uses German notation for debit/credit indicators in document displays.</div>
+              <img src="./images/GENERAL_LEDGER_VIEW.png" class="ex-img" alt="General Ledger View" loading="lazy">
+              <img src="./images/FB03______________________.png" class="ex-img" style="margin-top:10px" alt="Change Layout" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="ex-step">
+            <div class="ex-step-header">
+              <span class="ex-step-num" style="background:var(--gold);color:black">5</span>
+              <div class="ex-step-title">View Document Header & Export to Excel</div>
+            </div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">To see full document metadata: go to <strong>Document → Display Document Header</strong>. The popup shows Document Type, Reference, Posting Date, Created By, Entry Time, T-Code used to post (FB01), and Logical System.<br><br>To export: click the <strong>Spreadsheet</strong> export icon in the toolbar → a <strong>Select Spreadsheet</strong> dialog appears → choose <strong>Excel (XLSX)</strong> format → click the green checkmark. SAP exports all line items to an Excel file.</div>
+              <div class="ex-step-note">📌 The Document Header is key for audit purposes — it tells you exactly who posted, when, and from which T-code.</div>
+              <img src="./images/Document_Header.png" class="ex-img" alt="Document Header" loading="lazy">
+              <img src="./images/EXPORT___.png" class="ex-img" style="margin-top:10px" alt="Export to Spreadsheet" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="ex-step">
+            <div class="ex-step-header">
+              <span class="ex-step-num" style="background:var(--green)">6</span>
+              <div class="ex-step-title">Explore Document Environment — Accounting Documents</div>
+            </div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">From the GL View, go to <strong>Environment → Document Environment → Accounting Documents</strong>. A popup appears listing all documents that SAP automatically created alongside the original entry. In the example, you can see: Accounting document (the main FI entry), Profit center document, Controlling document, and Profitability Analysis document — all generated automatically from one posting.</div>
+              <div class="ex-step-note">✅ This is very useful for understanding the full financial impact of a posting across FI, CO, and CO-PA modules — all linked to the same original document number.</div>
+              <img src="./images/Document_enviremont.png" class="ex-img" alt="Document Environment - Accounting Documents" loading="lazy">
+            </div>
+          </div>
+
+        </div><!-- end ex-steps -->
+
+        <div class="ex-result-box">
+          ✅ <strong>Result:</strong> Successfully searched documents by user via Dynamic Selection, opened a posted document, viewed GL accounts in GL View, customized the layout, exported to Excel, inspected the Document Header, and explored the full set of automatically generated accounting documents via Environment.
+        </div>
+      </div>
+    </div><!-- end FB03 card -->
 
     <!-- ======= FS00 CARD ======= -->
     <div class="ex-card" id="ex-fs00">
