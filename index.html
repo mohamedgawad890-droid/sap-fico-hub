@@ -2515,8 +2515,8 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
     <h1>Practical Exercises — Hands-On T-Codes</h1>
     <p>Step-by-step exercises with real SAP screenshots — follow along in your system</p>
     <div class="unit-meta">
-      <div class="meta-tag">🖥️ <b>3 T-Codes</b></div>
-      <div class="meta-tag">📸 <b>17 Screenshots</b></div>
+      <div class="meta-tag">🖥️ <b>11 T-Codes</b></div>
+      <div class="meta-tag">📸 <b>Real Screenshots</b></div>
       <div class="meta-tag">✅ <b>Real System</b></div>
     </div>
   </div>
@@ -2644,6 +2644,382 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
         </div>
       </div>
     </div><!-- end FB03 card -->
+
+    <!-- ======= FB08 CARD ======= -->
+    <div class="ex-card" id="ex-fb08">
+      <div class="ex-card-header" onclick="toggleEx('fb08')">
+        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
+          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#ef4444,#b91c1c)">FB08</div>
+          <div>
+            <div class="ex-title">Reverse a Posted Document</div>
+            <div class="ex-subtitle">Reverse a wrong entry · Reversal reason · Why deletion is not allowed in SAP</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <span class="ex-badge ex-badge-beginner">Beginner</span>
+          <span class="ex-steps-count">4 Steps</span>
+          <span class="ex-chevron" id="chev-fb08">▼</span>
+        </div>
+      </div>
+      <div class="ex-body" id="body-fb08" style="display:none">
+        <div class="ex-scenario">
+          <div class="ex-scenario-title">📋 Scenario</div>
+          <div class="ex-scenario-text">A journal entry was posted with the wrong amount in Company Code <strong style="color:var(--gold)">BEV1</strong>, Fiscal Year <strong>2026</strong>. Use FB08 to reverse it. You cannot delete it — SAP requires a reversal document instead.</div>
+        </div>
+        <div class="ex-steps">
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FB08</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Type <strong>FB08</strong> in the command field and press Enter. The <strong>Reverse Document: Header Data</strong> screen opens with fields for Document Number, Company Code, Fiscal Year, Reversal Reason, Posting Date, and Posting Period.</div>
+              <div class="ex-step-note">⚠️ SAP rule: You can never delete a posted document. FB08 creates a mirror-image reversal entry that cancels the original — both remain permanently in the system for audit purposes.</div>
+              <img src="./images/fb08.png" class="ex-img" alt="FB08 Reverse Document" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">2</span><div class="ex-step-title">Enter Document Details</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Fill in:<br>• <strong>Document Number:</strong> the number of the wrong document (from FB03)<br>• <strong>Company Code:</strong> <code>BEV1</code><br>• <strong>Fiscal Year:</strong> <code>2026</code><br><br>You can also click <strong>Document List</strong> in the toolbar to search and select the document from a list instead of typing the number manually.</div>
+              <div class="ex-step-note">💡 Use <strong>Display Before Reversal</strong> button first to confirm you have the right document before posting the reversal.</div>
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">3</span><div class="ex-step-title">Enter Reversal Reason & Posting Date</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Fill in the <strong>Specifications for Reverse Posting</strong> section:<br>• <strong>Reversal Reason:</strong> <code>01</code> (Reversal in current period — the most common reason)<br>• <strong>Posting Date:</strong> today's date or the date the reversal should be effective<br>• <strong>Posting Period:</strong> leave blank (SAP will auto-fill from the posting date)</div>
+              <div class="ex-step-note">📌 Reversal Reason 01 = reversal in the current period. Other codes exist for prior-period reversals or specific correction types.</div>
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">4</span><div class="ex-step-title">Post the Reversal</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Click <strong>Post</strong>. SAP creates a new reversal document — a mirror image of the original with all debits and credits swapped. SAP shows the new document number in the status bar at the bottom. Use <strong>FB03</strong> to verify both documents (the original and the reversal) are now in the system.</div>
+              <div class="ex-step-note">✅ After reversal: the original document and the reversal document both remain in SAP permanently. The net accounting effect is zero — they cancel each other out.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ex-result-box">✅ <strong>Result:</strong> The wrong document is reversed. A new reversal document is created with all amounts mirrored. The GL balances are corrected. Both documents remain in SAP's permanent audit trail.</div>
+      </div>
+    </div><!-- end FB08 card -->
+
+    <!-- ======= FBV0 CARD ======= -->
+    <div class="ex-card" id="ex-fbv0">
+      <div class="ex-card-header" onclick="toggleEx('fbv0')">
+        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
+          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#f59e0b,#d97706)">FBV0</div>
+          <div>
+            <div class="ex-title">Find & Complete a Parked Document</div>
+            <div class="ex-subtitle">Search parked documents · Processing status · Save as Completed → Approval workflow</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <span class="ex-badge ex-badge-beginner">Beginner</span>
+          <span class="ex-steps-count">4 Steps</span>
+          <span class="ex-chevron" id="chev-fbv0">▼</span>
+        </div>
+      </div>
+      <div class="ex-body" id="body-fbv0" style="display:none">
+        <div class="ex-scenario">
+          <div class="ex-scenario-title">📋 Scenario</div>
+          <div class="ex-scenario-text">A junior accountant parked a document in Company Code <strong style="color:var(--gold)">BEV1</strong> for review. Use FBV0 to find it, review it, and submit it for approval by clicking <strong>Save as Completed</strong>.</div>
+        </div>
+        <div class="ex-steps">
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FBV0</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Type <strong>FBV0</strong> in the command field. The <strong>List of Parked Documents</strong> screen opens. Notice it has sections for: Company Code range, Document Number, Fiscal Year, General Selections (posting date, document date, document type, reference, entered by), and <strong>Processing Status</strong>.</div>
+              <div class="ex-step-note">💡 Parked documents have NOT updated GL balances yet. They are drafts awaiting review or approval before final posting.</div>
+              <img src="./images/fbv0.png" class="ex-img" alt="FBV0 List of Parked Documents" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">2</span><div class="ex-step-title">Enter Search Filters & Execute</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Enter:<br>• <strong>Company Code:</strong> <code>BEV1</code><br>• <strong>Entered by:</strong> the user who parked the document (e.g. <code>FI.MAMA</code>)<br><br>In the <strong>Processing Status</strong> section, you can filter by: Enter Release, Complete, or Released. Leave blank to see all parked documents. Click <strong>Execute</strong>.</div>
+              <div class="ex-step-note">📌 Processing Status: blank = not yet completed. "Complete" = submitted for approval. "Released" = approved and ready to post.</div>
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">3</span><div class="ex-step-title">Open the Parked Document</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">SAP shows the list of matching parked documents. Double-click on a document to open it. Review the line items, amounts, and accounts. You can edit any field while it is still in parked status — it behaves like a draft.</div>
+              <div class="ex-step-note">💡 Anyone with the correct authorization can open and edit a parked document — unlike a Held document, which only the original user can retrieve.</div>
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">4</span><div class="ex-step-title">Save as Completed → Enters Approval Workflow</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">After reviewing the document, click <strong>Save as Completed</strong> (found in the Document menu or toolbar). The document is now flagged as Complete and enters the <strong>approval workflow</strong>. An authorized approver will see it in their workflow queue and can release it for final posting.</div>
+              <div class="ex-step-note">✅ Save as Completed ≠ Post. The document is NOT yet posted — it still needs to go through the approval chain before it updates GL balances.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ex-result-box">✅ <strong>Result:</strong> The parked document was found, reviewed, and submitted into the approval workflow via Save as Completed. It now awaits release by an authorized approver before final posting.</div>
+      </div>
+    </div><!-- end FBV0 card -->
+
+    <!-- ======= FBL3N CARD ======= -->
+    <div class="ex-card" id="ex-fbl3n">
+      <div class="ex-card-header" onclick="toggleEx('fbl3n')">
+        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
+          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#10b981,#059669)">FBL3N</div>
+          <div>
+            <div class="ex-title">Display GL Account Line Items</div>
+            <div class="ex-subtitle">View all transactions on a GL account · Open items · Cleared items · FAGLL03 alternative</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <span class="ex-badge ex-badge-beginner">Beginner</span>
+          <span class="ex-steps-count">3 Steps</span>
+          <span class="ex-chevron" id="chev-fbl3n">▼</span>
+        </div>
+      </div>
+      <div class="ex-body" id="body-fbl3n" style="display:none">
+        <div class="ex-scenario">
+          <div class="ex-scenario-title">📋 Scenario</div>
+          <div class="ex-scenario-text">Review all transactions posted to GL account <strong style="color:var(--gold)">110010 (Petty Cash A/C)</strong> in Company Code <strong>BEV1</strong>. Display open items and analyze the individual postings using FBL3N.</div>
+        </div>
+        <div class="ex-steps">
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FBL3N — Selection Screen</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Type <strong>FBL3N</strong> in the command field. The <strong>G/L Account Line Item Display</strong> screen opens. Enter:<br>• <strong>G/L account:</strong> <code>110010</code> (or any account you want to review)<br>• <strong>Company code:</strong> <code>BEV1</code><br>• Under <strong>Line item selection — Status</strong>, select <strong>Open Items</strong> and set an <strong>Open at Key Date</strong> (e.g. today's date)</div>
+              <div class="ex-step-note">📌 You can also select "Cleared Items" (already matched/closed) or "All Items" to see the complete history of postings to the account.</div>
+              <img src="./images/fbl3n.png" class="ex-img" alt="FBL3N Selection Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">2</span><div class="ex-step-title">Execute & Read the Results</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Click <strong>Execute</strong>. SAP displays all line items for the selected account showing: Status (✓ = open), Assignment, Document Number, Business Area, Document Type, Document Date, Posting Key, Amount in Local Currency, Currency, Clearing Document, and Text. The total at the bottom shows the sum of all displayed items.</div>
+              <div class="ex-step-note">💡 Each row is one line item from one document. Click on any document number to drill into the original posted document in FB03.</div>
+              <img src="./images/fbl3n__.png" class="ex-img" alt="FBL3N Results" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">3</span><div class="ex-step-title">Try FAGLL03 — Same Report, GL View</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Now type <strong>FAGLL03</strong> in the command field. You get the same line item display but from the <strong>General Ledger view</strong> — with additional columns like G/L Account, Ledger, and Ledger-specific amounts. The selection screen and layout are similar to FBL3N. FAGLL03 is the preferred T-code in S/4HANA environments.</div>
+              <div class="ex-step-note">📌 FBL3N = classic view (ECC). FAGLL03 = GL view (S/4HANA preferred). Both give you line items — FAGLL03 adds ledger-level detail.</div>
+              <img src="./images/fagll03.png" class="ex-img" alt="FAGLL03 GL View" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="ex-result-box">✅ <strong>Result:</strong> All line items for GL account 110010 (Petty Cash) displayed. Each individual posting is visible with document number, date, type, and amount. Drilldown to original documents available. Same data viewed in both FBL3N and FAGLL03.</div>
+      </div>
+    </div><!-- end FBL3N card -->
+
+    <!-- ======= FAGLB03 CARD ======= -->
+    <div class="ex-card" id="ex-faglb03">
+      <div class="ex-card-header" onclick="toggleEx('faglb03')">
+        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
+          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">FAGLB03</div>
+          <div>
+            <div class="ex-title">Display GL Account Period Balances</div>
+            <div class="ex-subtitle">Period-by-period balance · Debit · Credit · Cumulative balance per fiscal period</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <span class="ex-badge ex-badge-beginner">Beginner</span>
+          <span class="ex-steps-count">3 Steps</span>
+          <span class="ex-chevron" id="chev-faglb03">▼</span>
+        </div>
+      </div>
+      <div class="ex-body" id="body-faglb03" style="display:none">
+        <div class="ex-scenario">
+          <div class="ex-scenario-title">📋 Scenario</div>
+          <div class="ex-scenario-text">Review the monthly balance movement of GL account <strong style="color:var(--gold)">122225 (BANK)</strong> in Company Code <strong>BEV1</strong> for Fiscal Year <strong>2026</strong> using FAGLB03.</div>
+        </div>
+        <div class="ex-steps">
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FAGLB03 — Input Screen</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Type <strong>FAGLB03</strong> in the command field. The <strong>G/L Account Balance Display</strong> screen opens. Enter:<br>• <strong>Account Number:</strong> <code>122225</code><br>• <strong>Company Code:</strong> <code>BEV1</code><br>• <strong>Fiscal Year:</strong> <code>2026</code><br>• <strong>Ledger:</strong> <code>0L</code> (Leading Ledger — the main accounting ledger)</div>
+              <div class="ex-step-note">📌 Ledger 0L = the Leading Ledger in SAP. This is the standard ledger used for financial statements. Other ledgers may exist for parallel accounting (e.g. IFRS vs local GAAP).</div>
+              <img src="./images/faglb03.png" class="ex-img" alt="FAGLB03 Input Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">2</span><div class="ex-step-title">Execute & Read the Balance Table</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Click <strong>Execute</strong>. SAP displays the <strong>Balance Display: G/L Accounts For the Ledger 0L</strong> screen. The table shows one row per fiscal period (1–16) with columns: <strong>Period, Debit, Credit, Balance</strong> (net for that period), and <strong>Cumulative Balance</strong> (running total from period 1). The first row shows the <strong>Bal.Carryforward</strong> (opening balance from prior year).</div>
+              <div class="ex-step-note">💡 A negative balance shown without brackets means credit balance (normal for bank/asset accounts that are credit-heavy). Click on any period row to drill down to the individual line items for that period.</div>
+              <img src="./images/faglb03__.png" class="ex-img" alt="FAGLB03 Balance Results" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">3</span><div class="ex-step-title">Analyze the Results</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">In the example for account 122225 (BANK): Periods 1–4 show a Credit of 200 each period, with the cumulative balance increasing to 800- by period 4. Period 5 shows a Debit of 72,583 and Credit of 965,911 — resulting in a large movement. Periods 6–12 show no new activity (balance carries forward). This view immediately tells you <em>when</em> account activity happened during the year.</div>
+              <div class="ex-step-note">✅ FAGLB03 is the go-to report for monthly account reconciliation — quickly spot which periods had unexpected activity or large movements.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ex-result-box">✅ <strong>Result:</strong> Period-by-period balance for GL account 122225 (BANK) displayed. Debit, Credit, Balance, and Cumulative Balance shown for each fiscal period. Drill-down to line items available per period.</div>
+      </div>
+    </div><!-- end FAGLB03 card -->
+
+    <!-- ======= SU01 CARD ======= -->
+    <div class="ex-card" id="ex-su01">
+      <div class="ex-card-header" onclick="toggleEx('su01')">
+        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
+          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">SU01</div>
+          <div>
+            <div class="ex-title">User Maintenance — Add a Role</div>
+            <div class="ex-subtitle">Open user record · Address tab · Roles tab · Assign SAP_BR_GL_ACCOUNTANT role</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <span class="ex-badge ex-badge-intermediate">Intermediate</span>
+          <span class="ex-steps-count">4 Steps</span>
+          <span class="ex-chevron" id="chev-su01">▼</span>
+        </div>
+      </div>
+      <div class="ex-body" id="body-su01" style="display:none">
+        <div class="ex-scenario">
+          <div class="ex-scenario-title">📋 Scenario</div>
+          <div class="ex-scenario-text">Add the role <strong style="color:var(--gold)">SAP_BR_GL_ACCOUNTANT</strong> to user <strong>FI.MAMA</strong>. This will give the user access to all GL Accountant functions in SAP. Use SU01 to open the user record and assign the role.</div>
+        </div>
+        <div class="ex-steps">
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open SU01 — Initial Screen</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Type <strong>SU01</strong> in the command field. The <strong>User Maintenance: Initial Screen</strong> opens with a <strong>User</strong> field. Type <code>FI.MAMA</code> in the User field. The Alias field auto-fills with the user's full name (MOHAMED AHMED MAHMOUD ABDELGAWAD). Click the <strong>Edit (pencil)</strong> icon in the toolbar to open the user record for editing.</div>
+              <div class="ex-step-note">📌 SU01 is typically used by the SAP Basis team or security administrators. FI consultants use it to define which roles each user needs — based on the Authorization Matrix defined in the Blueprint.</div>
+              <img src="./images/SU01.png" class="ex-img" alt="SU01 Initial Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">2</span><div class="ex-step-title">Review Address Tab</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">The user record opens on the <strong>Address</strong> tab by default. You can see the user's personal details: Last Name, First Name, Full Name, Language, Department, Function. Verify this is the correct user before making any changes.</div>
+              <img src="./images/SU01___.png" class="ex-img" alt="SU01 Address Tab" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">3</span><div class="ex-step-title">Navigate to Roles Tab & Add Role</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Click the <strong>Roles</strong> tab. The <strong>Role Assignments</strong> section shows all roles currently assigned to this user. The existing roles are shown with green indicators and start/end dates. To add a new role: click in the empty <strong>Role</strong> field at the bottom of the list → type <code>SAP_BR_GL_ACCOUNTANT</code> → press Enter or use the search icon to find it.</div>
+              <div class="ex-step-note">💡 Role naming convention: SAP_BR_ = SAP Best Practice Business Role. Each role gives access to a specific set of T-codes and functions. Always set an appropriate end date (use 12/31/9999 for no expiry).</div>
+              <img src="./images/SU01______.png" class="ex-img" alt="SU01 Roles Tab" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">4</span><div class="ex-step-title">Save the User Record</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">After adding the role, click <strong>Save</strong> (bottom right). SAP saves the user record with the new role assignment. The user FI.MAMA can now access all GL Accountant functions in the system. The role will be active from the Start Date you set until the End Date.</div>
+              <div class="ex-step-note">✅ The change takes effect immediately after saving. The user does not need to log out and back in — the new role is active on their next transaction.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ex-result-box">✅ <strong>Result:</strong> Role SAP_BR_GL_ACCOUNTANT successfully assigned to user FI.MAMA. The user now has GL Accountant access permissions in SAP. Role visible in the Roles tab with start/end dates.</div>
+      </div>
+    </div><!-- end SU01 card -->
+
+    <!-- ======= FBCJ CARD ======= -->
+    <div class="ex-card" id="ex-fbcj">
+      <div class="ex-card-header" onclick="toggleEx('fbcj')">
+        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
+          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#f59e0b,#b45309)">FBCJ</div>
+          <div>
+            <div class="ex-title">Cash Journal — View Cash Transactions</div>
+            <div class="ex-subtitle">Open cash journal · Balance display · Cash Payments · Cash Receipts · Check Receipts</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <span class="ex-badge ex-badge-beginner">Beginner</span>
+          <span class="ex-steps-count">3 Steps</span>
+          <span class="ex-chevron" id="chev-fbcj">▼</span>
+        </div>
+      </div>
+      <div class="ex-body" id="body-fbcj" style="display:none">
+        <div class="ex-scenario">
+          <div class="ex-scenario-title">📋 Scenario</div>
+          <div class="ex-scenario-text">Open the Cash Journal for Company Code <strong style="color:var(--gold)">BEV1</strong> and review the Opening Balance, total cash movements, Closing Balance, and individual cash transactions for the current period.</div>
+        </div>
+        <div class="ex-steps">
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FBCJ — Initial Popup</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Type <strong>FBCJ</strong> in the command field. A <strong>Cash Journal: Initial</strong> popup appears asking for:<br>• <strong>Company Code:</strong> <code>BEV1</code><br>• <strong>Cash Journal:</strong> the cash journal number (e.g. <code>TEST</code> for the training journal)<br><br>Enter both values and click the green checkmark ✔ to open the journal.</div>
+              <div class="ex-step-note">📌 A company can have multiple cash journals (e.g. one per branch or department). Each has its own journal number and is linked to a specific GL Petty Cash account.</div>
+              <img src="./images/FBCJ.png" class="ex-img" alt="FBCJ Initial Popup" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">2</span><div class="ex-step-title">Review the Balance Display</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">The <strong>Cash Journal</strong> main screen opens. On the right, the <strong>Balance Display for Display Period</strong> section shows:<br>• <strong>Opening Balance:</strong> cash on hand at the start of the period (e.g. 999,000 EGP)<br>• <strong>+ Total Cash Receipts</strong> and <strong>+ Total Check Receipts</strong><br>• <strong>- Total Cash Payments</strong><br>• <strong>= Closing Balance:</strong> current cash on hand<br>• <strong>Cash Thereof:</strong> physical cash amount<br><br>Use the shortcuts <strong>Today / This Week / Current Period</strong> to change the display range.</div>
+              <img src="./images/FBCJ___.png" class="ex-img" alt="FBCJ Main Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">3</span><div class="ex-step-title">Browse Transaction Tabs</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">At the bottom, three tabs show individual transactions:<br>• <strong>Cash Payments</strong> — all outgoing cash entries (expenses paid in cash)<br>• <strong>Cash Receipts</strong> — all incoming cash entries (cash received)<br>• <strong>Check Receipts</strong> — checks received<br><br>Each tab shows: Business Transaction, Amount, Document Number, G/L Account, Text, Supplier/Customer, Posting Date. Use <strong>Print Cash Journal</strong> to generate a printable petty cash report.</div>
+              <div class="ex-step-note">✅ Every transaction posted in FBCJ immediately updates the corresponding GL account — no separate journal entry needed. SAP handles it automatically.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ex-result-box">✅ <strong>Result:</strong> Cash Journal for BEV1 opened successfully. Opening and Closing Balances reviewed. Individual cash payment and receipt transactions visible. Ready to post new cash transactions or print the journal report.</div>
+      </div>
+    </div><!-- end FBCJ card -->
+
+    <!-- ======= FIORI UPLOAD CARD ======= -->
+    <div class="ex-card" id="ex-fioriupload">
+      <div class="ex-card-header" onclick="toggleEx('fioriupload')">
+        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
+          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);font-size:12px">FIORI</div>
+          <div>
+            <div class="ex-title">Upload General Journal Entries (Fiori)</div>
+            <div class="ex-subtitle">Download template · Fill header & line items · Upload XLSX · Post batch entries</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <span class="ex-badge ex-badge-intermediate">Intermediate</span>
+          <span class="ex-steps-count">4 Steps</span>
+          <span class="ex-chevron" id="chev-fioriupload">▼</span>
+        </div>
+      </div>
+      <div class="ex-body" id="body-fioriupload" style="display:none">
+        <div class="ex-scenario">
+          <div class="ex-scenario-title">📋 Scenario</div>
+          <div class="ex-scenario-text">Post multiple journal entries at once using SAP Fiori's <strong style="color:var(--gold)">Upload General Journal Entries</strong> app. Download the template, fill in entries for Company Code <strong>BEV1</strong>, upload, and post — all without using the SAP GUI.</div>
+        </div>
+        <div class="ex-steps">
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open the Fiori App</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Log into the SAP Fiori Launchpad. In the search bar, type <strong>"Upload General Journal Entries"</strong> and open the app. The main screen shows a <strong>Browse</strong> button to upload a file, and below it a list of previous uploads (Temporary ID, Batch ID, Status, Posting Date). At the bottom: <strong>Post</strong>, <strong>Show Log</strong>, and <strong>Download Template</strong> buttons.</div>
+              <img src="./images/UPLOAD_GL_FROM_FUIRI.png" class="ex-img" alt="Upload GL Fiori Main Screen" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">2</span><div class="ex-step-title">Download the Template</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Click <strong>Download Template</strong> (bottom right). A <strong>Template Download</strong> dialog appears:<br>• <strong>Template Language:</strong> English<br>• <strong>Format:</strong> choose <strong>Spreadsheet (.xlsx)</strong> (recommended)<br><br>Click <strong>Download</strong>. The file <code>JournalEntry_Template.xlsx</code> is saved to your computer.</div>
+              <div class="ex-step-note">📌 Always use the template downloaded from the system — it contains the exact column structure SAP expects. Using a custom or outdated template will cause upload errors.</div>
+              <img src="./images/UPLOAD_GL______.png" class="ex-img" alt="Template Download Dialog" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">3</span><div class="ex-step-title">Fill in the Template</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Open the template in Excel. It has two sections per journal entry:<br><br><strong>Header section:</strong> BUKRS (Company Code), BLART (Document Type), BLDAT (Document Date), BUDAT (Posting Date), BKTXT (Header Text), WAERS (Currency)<br><br><strong>Line Items section:</strong> BUKRS, HKONT (G/L Account), SGTXT (Item Text), WRSOL (Debit amount), WRHAB (Credit amount)<br><br>Fill in one header row and at least two line item rows per journal entry. Debits = WRSOL, Credits = WRHAB. Save the file.</div>
+              <div class="ex-step-note">⚠️ Every journal entry must balance: Total WRSOL must equal Total WRHAB. SAP will reject unbalanced entries during the upload validation.</div>
+              <img src="./images/UPLOAD_GL_______________.png" class="ex-img" alt="Journal Entry Template Excel" loading="lazy">
+            </div>
+          </div>
+          <div class="ex-step">
+            <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">4</span><div class="ex-step-title">Upload & Post</div></div>
+            <div class="ex-step-body">
+              <div class="ex-step-desc">Back in the Fiori app, click <strong>Browse</strong> → select your completed Excel file → it appears in the upload list. Click <strong>Post</strong>. SAP processes all entries in the file and assigns document numbers. Click <strong>Show Log</strong> to see the result — successful postings show a green status with the document number; errors show a red status with the reason for failure.</div>
+              <div class="ex-step-note">✅ Use Show Log after every upload to confirm all entries posted correctly. If errors occurred, fix the template and re-upload only the failed entries.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ex-result-box">✅ <strong>Result:</strong> Multiple journal entries uploaded and posted in one batch via Fiori. No need to enter each one individually in FB01 or F-02. Document numbers assigned for all successful entries. Full audit trail maintained in SAP.</div>
+      </div>
+    </div><!-- end Fiori Upload card -->
 
     <!-- ======= FS00 CARD ======= -->
     <div class="ex-card" id="ex-fs00">
