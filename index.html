@@ -376,7 +376,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <h1>SAP FICO Consultant Course</h1>
     <p>My personal lecture notes — exactly as covered in class, lecture by lecture</p>
     <div class="unit-meta">
-      <div class="meta-tag">📖 <b>Lectures 1–4</b> covered</div>
+      <div class="meta-tag">📖 <b>Lectures 1–5</b> covered</div>
       <div class="meta-tag">✍️ <b>Personal Notes</b></div>
     </div>
   </div>
@@ -388,6 +388,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Methodology</div>
       <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
       <div class="sidebar-item" onclick="showLecture(3)"><span class="sidebar-num">L4</span>GL Posting & Document Entry</div>
+      <div class="sidebar-item" onclick="showLecture(4)"><span class="sidebar-num">L5</span>Document Management & Reporting</div>
     </div>
 
     <div class="mobile-picker">
@@ -396,6 +397,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="1">L2 — SAP Landscape &amp; Methodology</option>
         <option value="2">L3 — GL Account Master Data</option>
         <option value="3">L4 — GL Posting &amp; Document Entry</option>
+        <option value="4">L5 — Document Management &amp; Reporting</option>
       </select>
     </div>
 
@@ -2054,9 +2056,319 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
         </div>
 
       </div><!-- end lecture-3 -->
-    </div>
-  </div>
-</div>
+
+      <!-- ═══════════════════════════════════════════════════════ LECTURE 5 -->
+      <div class="lesson-section" id="lecture-4">
+        <div class="lesson-title"><span class="lesson-num">Lecture 5</span>Document Management & Reporting</div>
+        <div class="lesson-sub">Command field navigation · FB03 · FB08 · FBV0 · FBL3N · FAGLB03 · SU01 · Fiori Upload · FBCJ</div>
+
+        <!-- 1. COMMAND FIELD NAVIGATION -->
+        <div class="content-block">
+          <h3>1. SAP Command Field Navigation</h3>
+          <p>The <strong style="color:var(--text)">Command Field</strong> (the input box at the top-left of every SAP screen) is the fastest way to navigate. You can type a T-Code directly, or use special prefix commands to control <em>how</em> the next screen opens.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <code style="background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:4px 10px;border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;flex-shrink:0">/o + T-Code</code>
+              <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:4px">Open in a New Session Window</div><div style="font-size:13px;color:var(--dim)">Opens the T-code in a brand-new window alongside the current one. Both stay open. Example: <code style="color:var(--accent2)">/of-03</code> opens F-03 in a new window without closing FB01.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <code style="background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:4px 10px;border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;flex-shrink:0">/n + T-Code</code>
+              <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:4px">Replace the Current Window</div><div style="font-size:13px;color:var(--dim)">Closes the current screen and opens the new T-code in the same window. Example: <code style="color:var(--accent2)">/nf-03</code> closes FB01 and opens F-03 in its place.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.2);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <code style="background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.25);color:var(--accent2);padding:4px 10px;border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;flex-shrink:0">/o</code>
+              <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:4px">Open a New Empty Session</div><div style="font-size:13px;color:var(--dim)">Opens the ABAP Sessions dialog showing all open sessions. You can create a new blank session or delete an existing one. SAP allows multiple sessions at the same time.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <code style="background:rgba(30,58,95,.4);border:1px solid var(--border);color:var(--dim);padding:4px 10px;border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;flex-shrink:0">/n</code>
+              <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:4px">Close the Current Window</div><div style="font-size:13px;color:var(--dim)">Closes the currently open transaction and returns to the SAP Easy Access home screen. No data is saved.</div></div>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(239,68,68,.25);border-radius:8px;padding:14px;display:flex;gap:14px;align-items:flex-start">
+              <code style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);color:var(--red);padding:4px 10px;border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;flex-shrink:0">/nex</code>
+              <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:4px">Exit / Close the SAP System</div><div style="font-size:13px;color:var(--dim)">Logs out and closes the entire SAP session completely.</div></div>
+            </div>
+          </div>
+          <div class="hbox info" style="margin-top:14px">💡 <strong>Quick tip:</strong> You can type any T-Code directly in the command field (e.g. <code>fb03</code>) and press Enter to open it in the same window — no prefix needed for basic navigation.</div>
+        </div>
+
+        <!-- 2. FB03 -->
+        <div class="content-block">
+          <h3>2. FB03 — Display Document</h3>
+          <p>FB03 is the main T-code for <strong style="color:var(--text)">finding and displaying posted accounting documents</strong>. It is one of the most frequently used T-codes for any FI consultant or accountant in SAP.</p>
+
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">A. Document Search (Document List)</div>
+          <p style="font-size:16px;color:var(--dim);line-height:1.8">From the FB03 initial screen, press the <strong style="color:var(--text)">Document List</strong> button to search across all documents. The standard search filters include: <strong>Fiscal Year, Document Type, Posting Date, Entry Date</strong>, and Company Code.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Search results show: Company Code, Document Number, Year, Type, Currency, Doc Date, Posting Date, Entered On, User</li>
+            <li>Results can span hundreds of documents — use filters to narrow down</li>
+            <li>Click any document in the list to open and display it</li>
+          </ul>
+
+          <div style="margin-top:16px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">B. Dynamic Selection — Search by User</div>
+          <p style="font-size:16px;color:var(--dim);line-height:1.8">The standard search screen does not show a User field. To search by user (or other additional fields), click the <strong style="color:var(--text)">Dynamic Selection</strong> button. A panel appears on the left with extra filterable fields including <strong>User Name, Transaction Code, Changed On</strong>, and more.</p>
+          <div class="hbox info">💡 Example: tick <strong>User Name</strong> in the Dynamic Selection panel, enter <code>FI.MAMA</code>, and execute — the result shows only the 3 documents posted by that user.</div>
+
+          <div style="margin-top:16px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">C. Display Document — Data Entry View</div>
+          <p style="font-size:16px;color:var(--dim);line-height:1.8">After selecting a document, SAP opens the <strong style="color:var(--text)">Data Entry View</strong> — showing the document header (number, date, reference, currency) and all line items with accounts and amounts. The toolbar includes:</p>
+          <ul class="key-points">
+            <li><strong style="color:var(--text)">General Ledger View</strong> button — switches the display to show GL accounts instead of customer/vendor account codes. Useful to see the underlying GL impact of the document.</li>
+            <li><strong style="color:var(--text)">Change Layout</strong> — customize which columns are visible in the line items table (add/remove Company Code, Posting Key, Tax Code, Clearing Doc, etc.)</li>
+            <li><strong style="color:var(--text)">Ctrl+Y</strong> — selects a specific cell in the document line item table</li>
+            <li><strong style="color:var(--text)">Export</strong> — exports the document data to Excel (.xlsx) or Word. SAP shows a "Select Spreadsheet" dialog before exporting.</li>
+          </ul>
+
+          <div style="margin-top:16px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">D. Display Document Header</div>
+          <p style="font-size:16px;color:var(--dim);line-height:1.8">To view the full header information of a document, go to <strong style="color:var(--text)">Document → Display Document Header</strong> (or press the header info button). The popup shows: Document Type, Reference, Document Date, Posting Date, Currency, Created By, Entry Date & Time, T-Code used to post, Logical System.</p>
+
+          <div style="margin-top:16px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">E. Document Environment — Accounting Documents</div>
+          <p style="font-size:16px;color:var(--dim);line-height:1.8">From the GL View, go to <strong style="color:var(--text)">Environment → Document Environment → Accounting Documents</strong>. This shows a list of all related documents that were automatically generated when the original entry was posted — for example:</p>
+          <ul class="key-points">
+            <li>Accounting document (the main FI entry)</li>
+            <li>Profit center document</li>
+            <li>Controlling document</li>
+            <li>Profitability Analysis document (CO-PA)</li>
+          </ul>
+          <div class="hbox warn">📌 Example: when you sell an asset and post the entry, SAP automatically creates an additional Accumulated Depreciation entry for that asset. You can see this automatic entry via Environment → Accounting Documents.</div>
+        </div>
+
+        <!-- 3. FB08 -->
+        <div class="content-block">
+          <h3>3. FB08 — Reverse Document</h3>
+          <p>FB08 is used to <strong style="color:var(--text)">reverse (cancel) a posted document</strong>. In SAP, you cannot delete a document once it has been posted — the audit trail must remain intact.</p>
+          <div class="hbox warn" style="margin-bottom:14px">⚠️ <strong>SAP Rule:</strong> You can never delete a posted accounting document. Instead, you record a <strong>reversal</strong> of the wrong document, which creates a mirror-image entry that cancels it out — then you post a new correct document.</div>
+          <ul class="key-points">
+            <li>Enter the <strong>Document Number</strong>, <strong>Company Code</strong>, and <strong>Fiscal Year</strong> of the document to be reversed</li>
+            <li>Enter a <strong>Reversal Reason</strong> (e.g. 01 = Reversal in current period) — this field is mandatory</li>
+            <li>Enter the <strong>Posting Date</strong> for the reversal entry</li>
+            <li>Click <strong>Post</strong> — SAP creates a new document that is the exact mirror of the original, effectively cancelling it</li>
+          </ul>
+          <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.2);border-radius:8px;padding:12px">
+              <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px">Additional Options in FB08</div>
+              <ul class="key-points" style="font-size:13px">
+                <li><strong>Display Before Reversal</strong> — view the document first before executing the reversal</li>
+                <li><strong>Document List</strong> — view a list of documents to select for reversal</li>
+                <li><strong>Mass Reversal</strong> — reverse multiple documents at once</li>
+              </ul>
+            </div>
+            <div style="background:var(--surface2);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:12px">
+              <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Why This Matters</div>
+              <ul class="key-points" style="font-size:13px">
+                <li>SAP maintains a complete, unbroken audit trail for compliance and reporting</li>
+                <li>Every reversal creates a traceable paper trail — both the original and the reversal remain in the system</li>
+                <li>Auditors can see the full history of corrections</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. FBV0 -->
+        <div class="content-block">
+          <h3>4. FBV0 — List of Parked Documents</h3>
+          <p>FBV0 is used to <strong style="color:var(--text)">search for and manage parked documents</strong>. A parked document is an entry that has been saved as a draft but <strong>not yet posted</strong> — it does not update GL balances.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Search by Company Code, Document Number, Fiscal Year, Posting Date, Document Type, or Entered By user</li>
+            <li>The <strong>Processing Status</strong> section lets you filter by: Enter Release, Complete, or Released status</li>
+            <li>Open a parked document to review, edit, or complete it</li>
+          </ul>
+          <div style="margin-top:14px;background:var(--surface2);border:1px solid rgba(16,185,129,.25);border-radius:8px;padding:14px">
+            <div style="font-weight:600;color:var(--green);font-size:13px;margin-bottom:8px">Save as Completed → Approval Workflow</div>
+            <p style="font-size:13px;color:var(--dim);line-height:1.7">When you open a parked document and click <strong>Save as Completed</strong>, the document enters the <strong>approval workflow</strong>. It is now visible to authorized approvers who can review and post it. This is the standard process in companies with multi-level approval controls.</p>
+          </div>
+          <div class="hbox info" style="margin-top:10px">💡 <strong>Park vs Hold:</strong> Park (FBV0) = shared draft, visible to other authorized users. Hold = private draft, only accessible by the user who created it.</div>
+        </div>
+
+        <!-- 5. FBL3N & FAGLL03 -->
+        <div class="content-block">
+          <h3>5. FBL3N — GL Account Line Item Display</h3>
+          <p>FBL3N displays all <strong style="color:var(--text)">individual line items (transactions) posted to a GL account</strong>. It is one of the main reporting T-codes for reviewing GL account activity.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Enter the <strong>G/L Account</strong> number and <strong>Company Code</strong></li>
+            <li>Select the status of items to display: <strong>Open Items</strong> (not yet cleared), <strong>Cleared Items</strong>, or <strong>All Items</strong></li>
+            <li>Set an <strong>Open at Key Date</strong> to see items that were open as of a specific date</li>
+            <li>Click <strong>Execute</strong> — results show: Document Number, Type, Date, Posting Key, Amount, Currency, Clearing Doc</li>
+          </ul>
+          <div style="margin-top:14px;background:var(--surface2);border:1px solid rgba(139,92,246,.2);border-radius:8px;padding:14px">
+            <div style="font-weight:600;color:var(--purple);font-size:13px;margin-bottom:6px">Alternative T-Code: FAGLL03 — GL Account Line Item Display (GL View)</div>
+            <p style="font-size:13px;color:var(--dim);line-height:1.7">FAGLL03 provides the same line item display as FBL3N but from the <strong>General Ledger (GL) perspective</strong>. It shows additional GL-level fields and is the preferred T-code in S/4HANA environments. Both T-codes serve the same core purpose.</p>
+          </div>
+        </div>
+
+        <!-- 6. FAGLB03 -->
+        <div class="content-block">
+          <h3>6. FAGLB03 — GL Account Balance Display</h3>
+          <p>FAGLB03 shows the <strong style="color:var(--text)">period-by-period balance of a GL account</strong> — not individual line items, but the aggregated debit, credit, and net balance for each fiscal period in the year.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Enter <strong>Account Number, Company Code, Fiscal Year</strong>, and <strong>Ledger</strong> (e.g. 0L = Leading Ledger)</li>
+            <li>Optionally check <strong>"Select Closing/Opening Postings at Year End"</strong></li>
+            <li>Click <strong>Execute</strong></li>
+          </ul>
+          <p style="font-size:16px;color:var(--dim);line-height:1.8;margin-top:12px">The result shows a table with one row per fiscal period (1–16), displaying: <strong>Debit, Credit, Balance</strong> (net for the period), and <strong>Cumulative Balance</strong> (running total from period 1). The opening balance (carryforward from prior year) is shown at the top.</p>
+          <div class="hbox ok" style="margin-top:10px">✅ <strong>Use case:</strong> FAGLB03 is ideal for quickly reviewing how a GL account's balance has moved across the year — e.g. checking if revenue or expense accounts are tracking correctly month by month.</div>
+        </div>
+
+        <!-- 7. SU01 -->
+        <div class="content-block">
+          <h3>7. SU01 — User Maintenance</h3>
+          <p>SU01 is the T-code for <strong style="color:var(--text)">managing SAP user accounts</strong> — creating users, setting passwords, and assigning roles that control what each user can access and do in the system.</p>
+          <div class="org-tree" style="margin-top:14px">
+            <div class="org-node l1">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">Initial Screen</div>
+                <div class="org-sub">Enter the User ID (e.g. FI.MAMA) → click the Edit (pencil) icon or Display icon to open the user record. The Alias field shows the user's full name.</div>
+              </div>
+            </div>
+            <div class="org-node l2">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">Address Tab</div>
+                <div class="org-sub">Contains the user's personal details: First/Last Name, Full Name, Department, Function, Language. Must be filled in when creating a new user.</div>
+              </div>
+            </div>
+            <div class="org-node l2">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">Logon Data Tab</div>
+                <div class="org-sub">Set the user's password, user type (Dialog, System, Service, etc.), and validity dates (Start Date / End Date).</div>
+              </div>
+            </div>
+            <div class="org-node l3">
+              <div class="org-dot"></div>
+              <div>
+                <div class="org-label">Roles Tab — Assign Roles</div>
+                <div class="org-sub">The most important tab for FI consultants. Add roles here to grant the user access to specific SAP functions. Each role has a Start Date and End Date (9999 = no expiry). Example: add <strong>SAP_BR_GL_ACCOUNTANT</strong> to give GL Accountant permissions.</div>
+              </div>
+            </div>
+          </div>
+          <div class="hbox info" style="margin-top:14px">💡 Role names in SAP follow a naming convention. <strong>SAP_BR_</strong> prefix = SAP Best Practice Business Roles. Examples seen in class: SAP_BR_CASH_MANAGER, SAP_BR_CASH_SPECIALIST, SAP_BR_INVENTORY_MANAGER, SAP_BR_GL_ACCOUNTANT.</div>
+        </div>
+
+        <!-- 8. FIORI UPLOAD -->
+        <div class="content-block">
+          <h3>8. Fiori — Upload General Journal Entries</h3>
+          <p>SAP Fiori provides an app for <strong style="color:var(--text)">mass-uploading GL journal entries</strong> from an Excel or CSV file — useful when you need to post many entries at once (e.g. period-end allocations, opening balances migration).</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px">
+            <div style="background:var(--surface2);border-right:3px solid var(--accent);padding:12px 16px;border-radius:6px;display:flex;gap:12px;align-items:flex-start">
+              <span style="background:var(--accent);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">1</span>
+              <div style="font-size:13px;color:var(--dim);line-height:1.7"><strong style="color:var(--text)">Open the App:</strong> From the Fiori Launchpad, search for <strong>"Upload General Journal Entries"</strong> and open it. The main screen shows a Browse button and a list of previous uploads.</div>
+            </div>
+            <div style="background:var(--surface2);border-right:3px solid var(--purple);padding:12px 16px;border-radius:6px;display:flex;gap:12px;align-items:flex-start">
+              <span style="background:var(--purple);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">2</span>
+              <div style="font-size:13px;color:var(--dim);line-height:1.7"><strong style="color:var(--text)">Download the Template:</strong> Click <strong>"Download Template"</strong> at the bottom right. A dialog asks for language and format — choose <strong>Spreadsheet (.xlsx)</strong> or CSV. Download the file.</div>
+            </div>
+            <div style="background:var(--surface2);border-right:3px solid var(--gold);padding:12px 16px;border-radius:6px;display:flex;gap:12px;align-items:flex-start">
+              <span style="background:var(--gold);color:black;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">3</span>
+              <div style="font-size:13px;color:var(--dim);line-height:1.7"><strong style="color:var(--text)">Fill in the Template:</strong> The template has a structured format with a <strong>Header</strong> section (Company Code, Journal Entry Type, Journal Entry Date, Posting Date) and <strong>Line Items</strong> section (Company Code, G/L Account, Item Text, Debit amount, Credit amount). Fill in your data — each journal entry needs at least one header and balanced line items.</div>
+            </div>
+            <div style="background:var(--surface2);border-right:3px solid var(--green);padding:12px 16px;border-radius:6px;display:flex;gap:12px;align-items:flex-start">
+              <span style="background:var(--green);color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">4</span>
+              <div style="font-size:13px;color:var(--dim);line-height:1.7"><strong style="color:var(--text)">Upload & Post:</strong> Click <strong>Browse</strong>, select the completed file, then click <strong>Post</strong>. SAP validates and posts all entries from the file. Use <strong>Show Log</strong> to review the result — any errors will be listed there.</div>
+            </div>
+          </div>
+          <div class="hbox warn" style="margin-top:14px">📌 <strong>Template key fields:</strong> BUKRS = Company Code, BLART = Journal Entry Type, BLDAT = Journal Entry Date, BUDAT = Posting Date, HKONT = G/L Account, WRSOL = Debit Amount, WRHAB = Credit Amount.</div>
+        </div>
+
+        <!-- 9. FBCJ -->
+        <div class="content-block">
+          <h3>9. FBCJ — Cash Journal</h3>
+          <p>FBCJ is the T-code for the <strong style="color:var(--text)">Cash Journal</strong> — used to record and review petty cash transactions (cash payments, cash receipts, and check receipts) directly in SAP.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>On opening, SAP shows an <strong>Initial popup</strong> asking for Company Code and Cash Journal number — enter these to access the correct cash journal</li>
+            <li>The main screen has a <strong>Display Period</strong> section with shortcuts: Today, This Week, Current Period</li>
+            <li>The <strong>Balance Display</strong> section shows: Opening Balance, Total Cash Receipts, Total Check Receipts, Total Cash Payments, and the <strong>Closing Balance</strong></li>
+            <li>Three tabs: <strong>Cash Payments</strong> | <strong>Cash Receipts</strong> | <strong>Check Receipts</strong> — each showing individual transactions in that category</li>
+            <li>Toolbar includes: <strong>Print Cash Journal</strong> and <strong>Change Cash Journal</strong></li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 The Cash Journal in SAP is a real-time view of petty cash. Every transaction posted here updates the GL immediately — no separate reconciliation needed.</div>
+        </div>
+
+        <!-- T-CODE SUMMARY TABLE -->
+        <div class="content-block">
+          <h3>🗂️ L5 T-Code Quick Reference</h3>
+          <div class="tcode-grid" style="margin-top:10px">
+            <div class="tcode-item"><span class="tcode">FB03</span><span class="tcode-desc">Display posted document — search, view, export</span></div>
+            <div class="tcode-item"><span class="tcode">FB08</span><span class="tcode-desc">Reverse a posted document</span></div>
+            <div class="tcode-item"><span class="tcode">FBV0</span><span class="tcode-desc">List and manage parked documents</span></div>
+            <div class="tcode-item"><span class="tcode">FBL3N</span><span class="tcode-desc">GL account line item display</span></div>
+            <div class="tcode-item"><span class="tcode">FAGLL03</span><span class="tcode-desc">GL line item display — GL view (same as FBL3N)</span></div>
+            <div class="tcode-item"><span class="tcode">FAGLB03</span><span class="tcode-desc">GL account balance display (period by period)</span></div>
+            <div class="tcode-item"><span class="tcode">SU01</span><span class="tcode-desc">User maintenance — create users, assign roles</span></div>
+            <div class="tcode-item"><span class="tcode">FBCJ</span><span class="tcode-desc">Cash journal — petty cash transactions</span></div>
+          </div>
+        </div>
+
+        <!-- QUIZ -->
+        <div class="content-block" style="border-color:var(--purple)">
+          <h3 style="display:flex;align-items:center;gap:10px">📝 Lecture 5 Quiz <span class="quiz-badge">5 Questions</span></h3>
+          <div id="quiz-l5">
+            <div class="question-card">
+              <div class="question-text">1. You are working in T-code FB01 and want to open F-03 without closing your current screen. What do you type in the command field?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l5','q1',this,'wrong')">/nf-03</button>
+                <button class="option" onclick="answerQ('l5','q1',this,'correct')">/of-03</button>
+                <button class="option" onclick="answerQ('l5','q1',this,'wrong')">/nex</button>
+                <button class="option" onclick="answerQ('l5','q1',this,'wrong')">f-03</button>
+              </div>
+              <div class="explanation" id="exp-l5-q1"><strong>/o + T-code</strong> opens the transaction in a new session window without closing the current one. /n + T-code would close FB01 first. /nex exits SAP entirely. Typing the T-code alone replaces the current screen.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">2. In FB03 Document List, the standard search screen does not show a User Name field. How do you add it?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l5','q2',this,'wrong')">Click the Filter button in the toolbar</button>
+                <button class="option" onclick="answerQ('l5','q2',this,'correct')">Click Dynamic Selection to expand the search fields panel</button>
+                <button class="option" onclick="answerQ('l5','q2',this,'wrong')">Click General Ledger View</button>
+                <button class="option" onclick="answerQ('l5','q2',this,'wrong')">Go to Environment → Document Environment</button>
+              </div>
+              <div class="explanation" id="exp-l5-q2">The <strong>Dynamic Selection</strong> button opens an additional panel on the left side of the screen with extra filterable fields — including User Name, Transaction Code, Changed On, and more. This allows searching by user or other fields not shown by default.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">3. A user posted a wrong journal entry in SAP. What is the correct way to fix it?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l5','q3',this,'wrong')">Delete the document using SE16 table editor</button>
+                <button class="option" onclick="answerQ('l5','q3',this,'wrong')">Edit the document directly in FB03</button>
+                <button class="option" onclick="answerQ('l5','q3',this,'correct')">Use FB08 to reverse the wrong document, then post a new correct one</button>
+                <button class="option" onclick="answerQ('l5','q3',this,'wrong')">Park the document using FBV0 to hide it from reports</button>
+              </div>
+              <div class="explanation" id="exp-l5-q3">SAP never allows deletion of posted documents. The correct approach is to use <strong>FB08 (Reverse Document)</strong> — enter the document number and a reversal reason, which creates a mirror-image entry that cancels the original. Then post a new, correct document.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">4. What does FAGLB03 display, and how is it different from FBL3N?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l5','q4',this,'wrong')">FAGLB03 shows individual line items; FBL3N shows period balances</button>
+                <button class="option" onclick="answerQ('l5','q4',this,'correct')">FAGLB03 shows period-by-period balances (aggregated); FBL3N shows individual line items per document</button>
+                <button class="option" onclick="answerQ('l5','q4',this,'wrong')">Both show the same data in the same format</button>
+                <button class="option" onclick="answerQ('l5','q4',this,'wrong')">FAGLB03 is for vendors; FBL3N is for GL accounts</button>
+              </div>
+              <div class="explanation" id="exp-l5-q4"><strong>FAGLB03</strong> shows the GL account balance aggregated by fiscal period — Debit, Credit, Balance, and Cumulative Balance for each period. <strong>FBL3N</strong> shows individual transaction line items (every document that hit the account). Use FAGLB03 for a monthly summary, FBL3N for a detailed transaction list.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">5. What is the correct process for uploading multiple journal entries at once using SAP Fiori?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l5','q5',this,'wrong')">Post each entry manually in FB01 one by one</button>
+                <button class="option" onclick="answerQ('l5','q5',this,'wrong')">Import directly from any Excel file format</button>
+                <button class="option" onclick="answerQ('l5','q5',this,'correct')">Open "Upload General Journal Entries" → Download Template → Fill data → Upload → Post</button>
+                <button class="option" onclick="answerQ('l5','q5',this,'wrong')">Use SU01 to assign batch upload permissions first, then use FB50</button>
+              </div>
+              <div class="explanation" id="exp-l5-q5">The correct process in Fiori: search for <strong>"Upload General Journal Entries"</strong> → click Download Template (choose .xlsx) → fill in header and line item data in the template → click Browse to upload the file → click <strong>Post</strong>. Use Show Log to verify results and catch any errors.</div>
+            </div>
+            <div class="q-score" id="score-l5">
+              <div class="snum" id="scorenum-l5">0/5</div>
+              <p id="scoremsg-l5"></p>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l5',5)">Try Again</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-outline" onclick="showLecture(3)">← Lecture 4</button>
+          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 6 — Coming Soon</button>
+        </div>
+
+      </div><!-- end lecture-4 -->
+    </div><!-- end lesson-content -->
+  </div><!-- end content-layout -->
+</div><!-- end page-mycourse -->
 
 <!-- ===== PAGE: PRACTICAL EXERCISES ===== -->
 <div id="page-exercises" class="page">
