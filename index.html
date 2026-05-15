@@ -200,7 +200,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showPage('overview')">Overview</button>
     <button class="nav-tab" onclick="showPage('mycourse')">My Course</button>
-    <button class="nav-tab" onclick="showPage('exercises')">Practical Exercises</button>
+    <button class="nav-tab" onclick="showPage('exercises')">T-Code Exercises</button>
     <button class="nav-tab soon">CO – Coming Soon</button>
   </div>
   <button class="install-btn" id="installBtn" onclick="installApp()">
@@ -2510,47 +2510,90 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
 <!-- ===== PAGE: PRACTICAL EXERCISES ===== -->
 <div id="page-exercises" class="page">
 
-  <div class="unit-header">
-    <div class="breadcrumb">SAP FICO Hub › <span>Practical Exercises</span></div>
-    <h1>Practical Exercises — Hands-On T-Codes</h1>
+  <div class="unit-header" style="padding:24px 40px">
+    <div class="breadcrumb">SAP FICO Hub › <span>T-Codes Practical Exercises</span></div>
+    <h1>T-Codes Practical Exercises</h1>
     <p>Step-by-step exercises with real SAP screenshots — follow along in your system</p>
-    <div class="unit-meta">
-      <div class="meta-tag">🖥️ <b>11 T-Codes</b></div>
-      <div class="meta-tag">📸 <b>Real Screenshots</b></div>
-      <div class="meta-tag">✅ <b>Real System</b></div>
-    </div>
   </div>
 
-  <div style="max-width:960px;margin:0 auto;padding:32px 32px 60px">
-
-    <!-- INTRO BANNER -->
-    <div style="background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(139,92,246,.08));border:1px solid rgba(14,165,233,.25);border-radius:14px;padding:20px 24px;margin-bottom:32px;display:flex;align-items:center;gap:16px">
-      <div style="font-size:32px;flex-shrink:0">💡</div>
-      <div>
-        <div style="font-weight:700;font-size:15px;color:var(--text);margin-bottom:4px">How to use these exercises</div>
-        <div style="font-size:13px;color:var(--dim);line-height:1.7">Open each card, follow the numbered steps, and replicate each action in your SAP system. Screenshots show exactly what you should see at each stage. Expand a card by clicking on it.</div>
+  <div class="content-layout">
+    <div class="sidebar">
+      <div class="sidebar-title">T-Codes</div>
+      <div class="sidebar-item active" onclick="showExercise(0)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB03</span>
+        <span style="font-size:13px">Display & Analyze a Posted Document</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(1)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB08</span>
+        <span style="font-size:13px">Reverse a Posted Document</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(2)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBV0</span>
+        <span style="font-size:13px">Find & Complete a Parked Document</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(3)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBL3N</span>
+        <span style="font-size:13px">Display GL Account Line Items</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(4)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FAGLB03</span>
+        <span style="font-size:13px">Display GL Account Period Balances</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(5)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">SU01</span>
+        <span style="font-size:13px">User Maintenance</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(6)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBCJ</span>
+        <span style="font-size:13px">Cash Journal</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(7)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">FIORI</span>
+        <span style="font-size:13px">Upload General Journal Entries</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(8)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">FS00</span>
+        <span style="font-size:13px">Create G/L Account Master Data</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(9)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB50</span>
+        <span style="font-size:13px">Post G/L Document</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(10)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--purple);min-width:68px;flex-shrink:0">F-02</span>
+        <span style="font-size:13px">Classic G/L Posting</span>
       </div>
     </div>
 
-    <!-- ======= FB03 CARD ======= -->
-    <div class="ex-card" id="ex-fb03">
-      <div class="ex-card-header" onclick="toggleEx('fb03')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">FB03</div>
-          <div>
-            <div class="ex-title">Display & Analyze a Posted Document</div>
-            <div class="ex-subtitle">Search documents · Dynamic Selection by user · GL View · Export · Document Header · Environment</div>
+    <div class="mobile-picker" id="ex-mobile-picker">
+      <select onchange="showExercise(parseInt(this.value)); window.scrollTo(0,120)">
+        <option value="0">FB03 — Display & Analyze a Posted Document</option>
+        <option value="1">FB08 — Reverse a Posted Document</option>
+        <option value="2">FBV0 — Find & Complete a Parked Document</option>
+        <option value="3">FBL3N — Display GL Account Line Items</option>
+        <option value="4">FAGLB03 — Display GL Account Period Balances</option>
+        <option value="5">SU01 — User Maintenance — Add a Role</option>
+        <option value="6">FBCJ — Cash Journal — View Cash Transactions</option>
+        <option value="7">FIORI — Upload General Journal Entries</option>
+        <option value="8">FS00 — Create G/L Account Master Data</option>
+        <option value="9">FB50 — Post G/L Document — Modern Interface</option>
+        <option value="10">F-02 — Classic G/L Posting — Legacy Interface</option>
+      </select>
+    </div>
+
+    <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
+      <div class="ex-section active" id="ex-section-0">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);font-size:20px;padding:10px 20px">FB03</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Display & Analyze a Posted Document</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-beginner">Beginner</span>
-          <span class="ex-steps-count">6 Steps</span>
-          <span class="ex-chevron" id="chev-fb03">▼</span>
-        </div>
-      </div>
-
-      <div class="ex-body" id="body-fb03" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Use FB03 to find all documents posted by user <strong style="color:var(--gold)">FI.MAMA</strong> in Company Code <strong>BEV1</strong>. Open a document, switch to General Ledger View, change the layout, export to Excel, view the Document Header, and explore the related Accounting Documents via the Environment menu.</div>
         </div>
@@ -2642,27 +2685,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
         <div class="ex-result-box">
           ✅ <strong>Result:</strong> Successfully searched documents by user via Dynamic Selection, opened a posted document, viewed GL accounts in GL View, customized the layout, exported to Excel, inspected the Document Header, and explored the full set of automatically generated accounting documents via Environment.
         </div>
+        </div>
       </div>
-    </div><!-- end FB03 card -->
-
-    <!-- ======= FB08 CARD ======= -->
-    <div class="ex-card" id="ex-fb08">
-      <div class="ex-card-header" onclick="toggleEx('fb08')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#ef4444,#b91c1c)">FB08</div>
-          <div>
-            <div class="ex-title">Reverse a Posted Document</div>
-            <div class="ex-subtitle">Reverse a wrong entry · Reversal reason · Why deletion is not allowed in SAP</div>
+      <div class="ex-section" id="ex-section-1">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#ef4444,#b91c1c);font-size:20px;padding:10px 20px">FB08</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Reverse a Posted Document</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-beginner">Beginner</span>
-          <span class="ex-steps-count">4 Steps</span>
-          <span class="ex-chevron" id="chev-fb08">▼</span>
-        </div>
-      </div>
-      <div class="ex-body" id="body-fb08" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">A journal entry was posted with the wrong amount in Company Code <strong style="color:var(--gold)">BEV1</strong>, Fiscal Year <strong>2026</strong>. Use FB08 to reverse it. You cannot delete it — SAP requires a reversal document instead.</div>
         </div>
@@ -2698,27 +2734,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> The wrong document is reversed. A new reversal document is created with all amounts mirrored. The GL balances are corrected. Both documents remain in SAP's permanent audit trail.</div>
+        </div>
       </div>
-    </div><!-- end FB08 card -->
-
-    <!-- ======= FBV0 CARD ======= -->
-    <div class="ex-card" id="ex-fbv0">
-      <div class="ex-card-header" onclick="toggleEx('fbv0')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#f59e0b,#d97706)">FBV0</div>
-          <div>
-            <div class="ex-title">Find & Complete a Parked Document</div>
-            <div class="ex-subtitle">Search parked documents · Processing status · Save as Completed → Approval workflow</div>
+      <div class="ex-section" id="ex-section-2">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#f59e0b,#d97706);font-size:20px;padding:10px 20px">FBV0</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Find & Complete a Parked Document</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-beginner">Beginner</span>
-          <span class="ex-steps-count">4 Steps</span>
-          <span class="ex-chevron" id="chev-fbv0">▼</span>
-        </div>
-      </div>
-      <div class="ex-body" id="body-fbv0" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">A junior accountant parked a document in Company Code <strong style="color:var(--gold)">BEV1</strong> for review. Use FBV0 to find it, review it, and submit it for approval by clicking <strong>Save as Completed</strong>.</div>
         </div>
@@ -2754,27 +2783,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> The parked document was found, reviewed, and submitted into the approval workflow via Save as Completed. It now awaits release by an authorized approver before final posting.</div>
+        </div>
       </div>
-    </div><!-- end FBV0 card -->
-
-    <!-- ======= FBL3N CARD ======= -->
-    <div class="ex-card" id="ex-fbl3n">
-      <div class="ex-card-header" onclick="toggleEx('fbl3n')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#10b981,#059669)">FBL3N</div>
-          <div>
-            <div class="ex-title">Display GL Account Line Items</div>
-            <div class="ex-subtitle">View all transactions on a GL account · Open items · Cleared items · FAGLL03 alternative</div>
+      <div class="ex-section" id="ex-section-3">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#10b981,#059669);font-size:20px;padding:10px 20px">FBL3N</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Display GL Account Line Items</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-beginner">Beginner</span>
-          <span class="ex-steps-count">3 Steps</span>
-          <span class="ex-chevron" id="chev-fbl3n">▼</span>
-        </div>
-      </div>
-      <div class="ex-body" id="body-fbl3n" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Review all transactions posted to GL account <strong style="color:var(--gold)">110010 (Petty Cash A/C)</strong> in Company Code <strong>BEV1</strong>. Display open items and analyze the individual postings using FBL3N.</div>
         </div>
@@ -2805,27 +2827,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> All line items for GL account 110010 (Petty Cash) displayed. Each individual posting is visible with document number, date, type, and amount. Drilldown to original documents available. Same data viewed in both FBL3N and FAGLL03.</div>
+        </div>
       </div>
-    </div><!-- end FBL3N card -->
-
-    <!-- ======= FAGLB03 CARD ======= -->
-    <div class="ex-card" id="ex-faglb03">
-      <div class="ex-card-header" onclick="toggleEx('faglb03')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">FAGLB03</div>
-          <div>
-            <div class="ex-title">Display GL Account Period Balances</div>
-            <div class="ex-subtitle">Period-by-period balance · Debit · Credit · Cumulative balance per fiscal period</div>
+      <div class="ex-section" id="ex-section-4">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#06b6d4,#0891b2);font-size:20px;padding:10px 20px">FAGLB03</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Display GL Account Period Balances</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-beginner">Beginner</span>
-          <span class="ex-steps-count">3 Steps</span>
-          <span class="ex-chevron" id="chev-faglb03">▼</span>
-        </div>
-      </div>
-      <div class="ex-body" id="body-faglb03" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Review the monthly balance movement of GL account <strong style="color:var(--gold)">122225 (BANK)</strong> in Company Code <strong>BEV1</strong> for Fiscal Year <strong>2026</strong> using FAGLB03.</div>
         </div>
@@ -2855,27 +2870,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> Period-by-period balance for GL account 122225 (BANK) displayed. Debit, Credit, Balance, and Cumulative Balance shown for each fiscal period. Drill-down to line items available per period.</div>
+        </div>
       </div>
-    </div><!-- end FAGLB03 card -->
-
-    <!-- ======= SU01 CARD ======= -->
-    <div class="ex-card" id="ex-su01">
-      <div class="ex-card-header" onclick="toggleEx('su01')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">SU01</div>
-          <div>
-            <div class="ex-title">User Maintenance — Add a Role</div>
-            <div class="ex-subtitle">Open user record · Address tab · Roles tab · Assign SAP_BR_GL_ACCOUNTANT role</div>
+      <div class="ex-section" id="ex-section-5">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);font-size:20px;padding:10px 20px">SU01</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">User Maintenance — Add a Role</h1>
+              <span class="ex-badge ex-badge-intermediate" style="font-size:12px">Intermediate</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-intermediate">Intermediate</span>
-          <span class="ex-steps-count">4 Steps</span>
-          <span class="ex-chevron" id="chev-su01">▼</span>
-        </div>
-      </div>
-      <div class="ex-body" id="body-su01" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Add the role <strong style="color:var(--gold)">SAP_BR_GL_ACCOUNTANT</strong> to user <strong>FI.MAMA</strong>. This will give the user access to all GL Accountant functions in SAP. Use SU01 to open the user record and assign the role.</div>
         </div>
@@ -2912,27 +2920,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> Role SAP_BR_GL_ACCOUNTANT successfully assigned to user FI.MAMA. The user now has GL Accountant access permissions in SAP. Role visible in the Roles tab with start/end dates.</div>
+        </div>
       </div>
-    </div><!-- end SU01 card -->
-
-    <!-- ======= FBCJ CARD ======= -->
-    <div class="ex-card" id="ex-fbcj">
-      <div class="ex-card-header" onclick="toggleEx('fbcj')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#f59e0b,#b45309)">FBCJ</div>
-          <div>
-            <div class="ex-title">Cash Journal — View Cash Transactions</div>
-            <div class="ex-subtitle">Open cash journal · Balance display · Cash Payments · Cash Receipts · Check Receipts</div>
+      <div class="ex-section" id="ex-section-6">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#f59e0b,#b45309);font-size:20px;padding:10px 20px">FBCJ</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Cash Journal — View Cash Transactions</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-beginner">Beginner</span>
-          <span class="ex-steps-count">3 Steps</span>
-          <span class="ex-chevron" id="chev-fbcj">▼</span>
-        </div>
-      </div>
-      <div class="ex-body" id="body-fbcj" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Open the Cash Journal for Company Code <strong style="color:var(--gold)">BEV1</strong> and review the Opening Balance, total cash movements, Closing Balance, and individual cash transactions for the current period.</div>
         </div>
@@ -2961,27 +2962,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> Cash Journal for BEV1 opened successfully. Opening and Closing Balances reviewed. Individual cash payment and receipt transactions visible. Ready to post new cash transactions or print the journal report.</div>
+        </div>
       </div>
-    </div><!-- end FBCJ card -->
-
-    <!-- ======= FIORI UPLOAD CARD ======= -->
-    <div class="ex-card" id="ex-fioriupload">
-      <div class="ex-card-header" onclick="toggleEx('fioriupload')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);font-size:12px">FIORI</div>
-          <div>
-            <div class="ex-title">Upload General Journal Entries (Fiori)</div>
-            <div class="ex-subtitle">Download template · Fill header & line items · Upload XLSX · Post batch entries</div>
+      <div class="ex-section" id="ex-section-7">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);font-size:20px;padding:10px 20px">FIORI</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Upload General Journal Entries</h1>
+              <span class="ex-badge ex-badge-intermediate" style="font-size:12px">Intermediate</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-intermediate">Intermediate</span>
-          <span class="ex-steps-count">4 Steps</span>
-          <span class="ex-chevron" id="chev-fioriupload">▼</span>
-        </div>
-      </div>
-      <div class="ex-body" id="body-fioriupload" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Post multiple journal entries at once using SAP Fiori's <strong style="color:var(--gold)">Upload General Journal Entries</strong> app. Download the template, fill in entries for Company Code <strong>BEV1</strong>, upload, and post — all without using the SAP GUI.</div>
         </div>
@@ -3018,28 +3012,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> Multiple journal entries uploaded and posted in one batch via Fiori. No need to enter each one individually in FB01 or F-02. Document numbers assigned for all successful entries. Full audit trail maintained in SAP.</div>
+        </div>
       </div>
-    </div><!-- end Fiori Upload card -->
-
-    <!-- ======= FS00 CARD ======= -->
-    <div class="ex-card" id="ex-fs00">
-      <div class="ex-card-header" onclick="toggleEx('fs00')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">FS00</div>
-          <div>
-            <div class="ex-title">Create G/L Account Master Data</div>
-            <div class="ex-subtitle">Create account 480002 "Credit Revenue" — full walkthrough with all 3 tabs</div>
+      <div class="ex-section" id="ex-section-8">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);font-size:20px;padding:10px 20px">FS00</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Create G/L Account Master Data</h1>
+              <span class="ex-badge ex-badge-intermediate" style="font-size:12px">Intermediate</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-intermediate">Intermediate</span>
-          <span class="ex-steps-count">7 Steps</span>
-          <span class="ex-chevron" id="chev-fs00">▼</span>
-        </div>
-      </div>
-
-      <div class="ex-body" id="body-fs00">
-        <!-- Scenario box -->
+        <div style="padding:20px 40px 60px">
+          <!-- Scenario box -->
         <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Create a new P&L Revenue GL account <strong style="color:var(--gold)">480002</strong> called <strong>"Credit Revenue"</strong> in Company Code <strong>BEV1</strong>. You will configure the Type/Description tab, Control Data tab, and Create/Bank/Interest tab, then Save.</div>
@@ -3141,28 +3127,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
         <div class="ex-result-box">
           ✅ <strong>Result:</strong> GL Account 480002 "Credit Revenue" is now created in Company Code BEV1 — Type P (Revenue), Currency EGP, CElem 11. It is ready for journal entry postings via FB50 or F-02.
         </div>
-      </div><!-- end ex-body -->
-    </div><!-- end ex-card -->
-
-    <!-- ======= FB50 CARD ======= -->
-    <div class="ex-card" id="ex-fb50">
-      <div class="ex-card-header" onclick="toggleEx('fb50')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#10b981,#059669)">FB50</div>
-          <div>
-            <div class="ex-title">Post G/L Document — Modern Interface</div>
-            <div class="ex-subtitle">Post a balanced journal entry with 2 line items and review tax data</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-beginner">Beginner</span>
-          <span class="ex-steps-count">4 Steps</span>
-          <span class="ex-chevron" id="chev-fb50">▼</span>
         </div>
       </div>
-
-      <div class="ex-body" id="body-fb50" style="display:none">
-        <div class="ex-scenario">
+      <div class="ex-section" id="ex-section-9">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#10b981,#059669);font-size:20px;padding:10px 20px">FB50</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Post G/L Document — Modern Interface</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Post a <strong>Buffet Expense</strong> journal entry of <strong style="color:var(--gold)">EGP 1,000</strong> — debit account 501303 (Buffet EXP) and credit account 122223 (CIB Bank). Use Document Date 02/05/2026 and Reference "TEST".</div>
         </div>
@@ -3225,28 +3203,20 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
         <div class="ex-result-box">
           ✅ <strong>Result:</strong> Journal entry posted — Buffet EXP (501303) Dr 1,000 / CIB Bank (122223) Cr 1,000. SAP assigns a permanent Document Number. Use FB03 to display and verify the posted document.
         </div>
+        </div>
       </div>
-    </div><!-- end fb50 card -->
-
-    <!-- ======= F-02 CARD ======= -->
-    <div class="ex-card" id="ex-f02">
-      <div class="ex-card-header" onclick="toggleEx('f02')">
-        <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0">
-          <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">F-02</div>
-          <div>
-            <div class="ex-title">Classic G/L Posting — Legacy Interface</div>
-            <div class="ex-subtitle">Post line items one-by-one with manual Posting Key entry, then verify with FB03</div>
+      <div class="ex-section" id="ex-section-10">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);font-size:20px;padding:10px 20px">F-02</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Classic G/L Posting — Legacy Interface</h1>
+              <span class="ex-badge ex-badge-advanced" style="font-size:12px">Advanced</span>
+            </div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-          <span class="ex-badge ex-badge-advanced">Advanced</span>
-          <span class="ex-steps-count">6 Steps</span>
-          <span class="ex-chevron" id="chev-f02">▼</span>
-        </div>
-      </div>
-
-      <div class="ex-body" id="body-f02" style="display:none">
-        <div class="ex-scenario">
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Post a <strong>Cleaning Expense</strong> of <strong style="color:var(--gold)">EGP 1,000</strong> using F-02 — the classic SAP interface. Debit account 500005 (Cleaning Exp) with PstKy 40, and Credit account 122225 (BANK) with PstKy 50. Then verify the posted document using FB03.</div>
         </div>
@@ -3334,10 +3304,11 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
         <div class="ex-result-box">
           ✅ <strong>Result:</strong> Document 100000047 posted — Cleaning Expenses (500005) Dr 1,000 / BANK (122225) Cr 1,000. Verified in FB03. The document is now permanent in SAP's audit trail.
         </div>
+        </div>
       </div>
-    </div><!-- end f-02 card -->
+    </div>
+  </div>
 
-  </div><!-- end section -->
 </div><!-- end page-exercises -->
 
 <style>
@@ -3374,6 +3345,18 @@ This means: SAP calculated that the tax on 1,000 EGP with tax code 29 = <strong>
 .ex-result-box{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);border-radius:10px;padding:14px 18px;margin-top:20px;font-size:13px;color:var(--dim);line-height:1.7;}
 .ex-result-box strong{color:var(--green);}
 .ex-step-desc code{background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.2);padding:1px 6px;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent2);}
+
+/* ── Exercise Sections ── */
+.ex-section{display:none;}
+.ex-section.active{display:block;}
+.ex-section .ex-step-desc{font-size:15px;line-height:1.9;}
+.ex-section .ex-step-title{font-size:16px;}
+.ex-section .ex-step-note{font-size:13px;line-height:1.7;}
+.ex-section .ex-scenario-text{font-size:15px;line-height:1.8;}
+.ex-section .ex-result-box{font-size:15px;}
+.ex-section .ex-step-num{width:32px;height:32px;font-size:14px;}
+.ex-section .ex-step-header{padding:16px 20px;}
+.ex-section .ex-step-body{padding:20px 22px;gap:14px;}
 </style>
 
 <script>
@@ -3385,6 +3368,15 @@ function showPage(p){
   if(p==='overview')tabs[0].classList.add('active');
   else if(p==='mycourse')tabs[1].classList.add('active');
   else if(p==='exercises')tabs[2].classList.add('active');
+  window.scrollTo(0,0);
+}
+function showExercise(i){
+  document.querySelectorAll('.ex-section').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#page-exercises .sidebar-item').forEach(x=>x.classList.remove('active'));
+  document.getElementById('ex-section-'+i).classList.add('active');
+  document.querySelectorAll('#page-exercises .sidebar-item')[i].classList.add('active');
+  const sel=document.querySelector('#ex-mobile-picker select');
+  if(sel) sel.value=i;
   window.scrollTo(0,0);
 }
 function showLecture(i){
@@ -3432,13 +3424,7 @@ function toggleEx(id){
   body.style.display=isOpen?'none':'block';
   if(chev) chev.classList.toggle('open',!isOpen);
 }
-// Open FS00 by default on page load
-document.addEventListener('DOMContentLoaded',function(){
-  const fs00body=document.getElementById('body-fs00');
-  const fs00chev=document.getElementById('chev-fs00');
-  if(fs00body){fs00body.style.display='block';}
-  if(fs00chev){fs00chev.classList.add('open');}
-});
+// Exercise sections use showExercise() — no accordion needed
 function resetQuizL(lec,total){
   for(let i=1;i<=total;i++) delete quizState[lec+'_q'+i];
   const quiz=document.getElementById('quiz-'+lec);
