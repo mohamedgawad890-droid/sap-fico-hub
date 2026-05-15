@@ -202,6 +202,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <button class="nav-tab" onclick="showPage('mycourse')">My Course</button>
     <button class="nav-tab" onclick="showPage('exercises')">T-Code Exercises</button>
     <button class="nav-tab" onclick="showPage('quiz')">Quiz</button>
+    <button class="nav-tab" onclick="showPage('consultant')" style="color:var(--gold)">🎯 Consultant Track</button>
     <button class="nav-tab soon">CO – Coming Soon</button>
   </div>
   <button class="install-btn" id="installBtn" onclick="installApp()">
@@ -3586,6 +3587,303 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     </div>
   </div>
 </div><!-- end page-quiz -->
+<!-- ===== PAGE: CONSULTANT TRACK ===== -->
+<div id="page-consultant" class="page">
+
+  <div style="background:linear-gradient(135deg,#0a1628 0%,#0f2540 100%);padding:40px;border-bottom:1px solid var(--border);">
+    <div style="display:inline-block;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:16px">CONSULTANT TRACK</div>
+    <h1 style="font-size:28px;font-weight:700;margin-bottom:8px">Beyond the T-Code</h1>
+    <p style="font-size:16px;color:var(--dim);max-width:700px;line-height:1.7">This track bridges the gap between knowing how to use SAP and thinking like a consultant. Each module covers the full business process, configuration awareness, real troubleshooting scenarios, and integration points.</p>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
+      <div style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:var(--green);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">checkmark GL Complete</div>
+      <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">AP In Progress</div>
+      <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">AR Coming</div>
+      <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">Bank Coming</div>
+      <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">Assets Coming</div>
+      <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">Config Coming</div>
+    </div>
+  </div>
+
+  <div class="content-layout">
+    <div class="sidebar">
+      <div class="sidebar-title">Modules</div>
+      <div class="sidebar-item active" onclick="showConsultant(0)"><span class="sidebar-num" style="color:var(--green)">GL</span>General Ledger</div>
+      <div class="sidebar-item" style="opacity:.45;cursor:default"><span class="sidebar-num" style="color:var(--gold)">AP</span>Accounts Payable</div>
+      <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">AR</span>Accounts Receivable</div>
+      <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">BNK</span>Bank Accounting</div>
+      <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">AA</span>Asset Accounting</div>
+      <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">CFG</span>Configuration</div>
+    </div>
+
+    <div class="mobile-picker">
+      <select onchange="showConsultant(parseInt(this.value)); window.scrollTo(0,120)">
+        <option value="0">GL General Ledger</option>
+      </select>
+    </div>
+
+    <div class="lesson-content">
+      <div class="cons-section active" id="cons-0">
+        <div style="padding:0 40px 60px">
+
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--green);padding:3px 12px;border-radius:4px">GL CONSULTANT TRACK</span>
+            <h1 style="font-size:28px;font-weight:700;margin:14px 0 6px">General Ledger The Consultant Layer</h1>
+            <p style="font-size:16px;color:var(--dim)">You can post, display, reverse, and report. Now learn why it works that way and what happens when it breaks.</p>
+          </div>
+
+          <div class="content-block">
+            <h3>1. The Real GL Workflow What Accountants Do Every Month</h3>
+            <p>In your course you learned individual T-codes. In a real company, GL is driven by a <strong style="color:var(--text)">monthly closing process</strong> a sequence of steps that must happen in the right order. Missing one step creates errors that are painful to fix.</p>
+            <div style="margin-top:16px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.3px">The Monthly GL Closing Sequence</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">1</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Complete All Postings for the Period</div><div style="font-size:14px;color:var(--dim)">All invoices, payments, journal entries must be posted before closing begins. Nothing can be added after the period closes.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--gold);color:black;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">2</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Post Recurring Entries <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">F.14</span></div><div style="font-size:14px;color:var(--dim)">Automatically posts pre-defined recurring documents (rent, insurance, depreciation accruals). Must run before closing.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--purple);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">3</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Post Accruals and Deferrals <span style="font-family:IBM Plex Mono,monospace;color:var(--purple)">FBS1 / F.81</span></div><div style="font-size:14px;color:var(--dim)">Accruals are expenses incurred but not yet invoiced. FBS1 posts them with a reversal date; F.81 auto-reverses them next period.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--green);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">4</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Run Foreign Currency Revaluation <span style="font-family:IBM Plex Mono,monospace;color:var(--green)">FAGL_FC_VAL</span></div><div style="font-size:14px;color:var(--dim)">Revalues open items in foreign currencies at the current exchange rate. Required by IFRS/GAAP if the company has forex transactions.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">5</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Reconcile Sub-Ledgers to GL</div><div style="font-size:14px;color:var(--dim)">Verify AP totals (FBL1N totals = GL account 210100 balance), AR totals, Asset values. Any difference means a posting error that must be found.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:14px">
+                <div style="background:var(--red);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">6</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Close the Posting Period <span style="font-family:IBM Plex Mono,monospace;color:var(--red)">OB52</span></div><div style="font-size:14px;color:var(--dim)">Lock the period so no more postings can go into it. Only done after all reconciliation is complete. Special periods 13-16 remain available for authorized year-end adjustments.</div></div>
+              </div>
+            </div>
+            <div class="hbox warn" style="margin-top:16px">Consultant reality: In most companies this entire sequence must be completed within 3-5 business days of month-end. Knowing the sequence protects you from making expensive errors under time pressure.</div>
+          </div>
+
+          <div class="content-block">
+            <h3>2. Posting Period Control The Gate of GL</h3>
+            <p>One of the most common calls an FI consultant gets: "I cannot post a document, it says the posting period is not open." Understanding this means you solve it in 60 seconds.</p>
+            <ul class="key-points" style="margin-top:12px">
+              <li>Every Company Code is assigned a <strong style="color:var(--text)">Posting Period Variant</strong> (e.g. K4, Z001). This variant defines which periods are open.</li>
+              <li>T-code <strong style="color:var(--gold)">OB52</strong> is where you open and close periods. You set it per Account Type: + (all types), A (Assets), D (Customers), K (Vendors), M (Materials), S (GL accounts).</li>
+              <li>Each row defines a From Period and To Period that are open. Anything outside that range is blocked.</li>
+              <li>Periods <strong>13, 14, 15, 16</strong> are special adjustment periods used only by senior accountants for year-end adjustments after regular period 12 is closed.</li>
+            </ul>
+            <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--green);margin-bottom:8px;font-size:13px">What a student knows</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">When I get a period error I need to ask someone to fix it.</p>
+              </div>
+              <div style="background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--gold);margin-bottom:8px;font-size:13px">What a consultant knows</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Go to OB52, find the correct Posting Period Variant, check if the period is in the From-To range for that account type, open it if authorized.</p>
+              </div>
+            </div>
+            <div style="margin-top:14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+              <div style="font-weight:600;color:var(--text);margin-bottom:10px">Real Scenario: Wrong Period Posting</div>
+              <p style="font-size:14px;color:var(--dim);line-height:1.8">A junior accountant posted an invoice dated January in February because the period was still open. The January P&L is now wrong.<br><br><strong style="color:var(--accent2)">Consultant approach:</strong> Step 1 - Identify the document in FB03. Step 2 - If January is still open in OB52, reverse with FB08 and repost with correct January date. Step 3 - If January is already closed, reverse in February then post a period allocation correction entry. Step 4 - Document the correction and notify the CFO.</p>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>3. Recurring Entries and Accruals The GL Work Nobody Teaches</h3>
+            <p>In real companies a large portion of GL postings happen <strong style="color:var(--text)">automatically</strong> through recurring entries and accruals. A consultant who does not know these will be lost on any real project.</p>
+            <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.3px">Recurring Entry Documents</div>
+            <ul class="key-points">
+              <li><strong style="color:var(--gold)">FBD1</strong> Create a Recurring Entry document. Define the GL accounts, amounts, first run date, last run date, and interval (monthly, quarterly). SAP stores this as a template and does NOT post immediately.</li>
+              <li><strong style="color:var(--gold)">F.14</strong> Execute Recurring Entries every month-end. SAP finds all templates due and posts them automatically as real accounting documents.</li>
+              <li>Common uses: monthly rent, insurance premiums, depreciation accruals, management fee allocations.</li>
+            </ul>
+            <div class="hbox info" style="margin-top:10px">Consultant tip: Always check if F.14 has been run before closing a period. Many month-end errors come from recurring entries not executed.</div>
+            <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.3px">Accrual Documents</div>
+            <ul class="key-points">
+              <li><strong style="color:var(--gold)">FBS1</strong> Post an Accrual document. You post the entry AND set a Reversal Date in the same screen. The document posts normally but is flagged for automatic reversal.</li>
+              <li><strong style="color:var(--gold)">F.81</strong> Execute Scheduled Reversals at the start of the next period. SAP automatically reverses all FBS1 documents whose reversal date has passed.</li>
+              <li>Example: Electricity for December not yet billed. Post Dr Electricity Expense Cr Accrued Liabilities on Dec 31 with reversal date Jan 1. F.81 reverses automatically. When real invoice arrives it posts normally.</li>
+            </ul>
+            <div style="margin-top:12px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+              <div style="font-weight:600;color:var(--text);margin-bottom:8px">Real Scenario: Accrual Not Reversed</div>
+              <p style="font-size:14px;color:var(--dim);line-height:1.8">An accountant posted an accrual in December using FB50 (a regular journal entry, not FBS1). Nobody reversed it in January. The real invoice came in February and was posted. Result: the expense was counted twice. Prevention: Always use FBS1 for accruals. FBS1 forces you to set a reversal date and F.81 handles it automatically.</p>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>4. Document Types and Number Ranges Why They Matter</h3>
+            <p>A consultant needs to understand what each document type controls because clients constantly ask to add new ones or change existing ones.</p>
+            <div style="overflow-x:auto;margin-top:14px">
+              <table style="width:100%;border-collapse:collapse;background:var(--surface2);border-radius:8px;overflow:hidden;font-size:14px">
+                <thead><tr style="background:var(--surface)">
+                  <th style="padding:12px 16px;text-align:left;color:var(--accent2)">Type</th>
+                  <th style="padding:12px 16px;text-align:left;color:var(--text)">Name</th>
+                  <th style="padding:12px 16px;text-align:left;color:var(--dim)">Posts to</th>
+                  <th style="padding:12px 16px;text-align:left;color:var(--dim)">T-Code</th>
+                </tr></thead>
+                <tbody>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">SA</td><td style="padding:10px 16px;color:var(--text)">GL Document</td><td style="padding:10px 16px;color:var(--dim)">GL accounts only</td><td style="padding:10px 16px;color:var(--dim)">FB50, F-02</td></tr>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">KR</td><td style="padding:10px 16px;color:var(--text)">Vendor Invoice</td><td style="padding:10px 16px;color:var(--dim)">Vendor + GL</td><td style="padding:10px 16px;color:var(--dim)">FB60, MIRO</td></tr>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">KZ</td><td style="padding:10px 16px;color:var(--text)">Vendor Payment</td><td style="padding:10px 16px;color:var(--dim)">Vendor + Bank GL</td><td style="padding:10px 16px;color:var(--dim)">F-53, F110</td></tr>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">DR</td><td style="padding:10px 16px;color:var(--text)">Customer Invoice</td><td style="padding:10px 16px;color:var(--dim)">Customer + GL</td><td style="padding:10px 16px;color:var(--dim)">FB70</td></tr>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">DZ</td><td style="padding:10px 16px;color:var(--text)">Customer Payment</td><td style="padding:10px 16px;color:var(--dim)">Customer + Bank GL</td><td style="padding:10px 16px;color:var(--dim)">F-28</td></tr>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">AA</td><td style="padding:10px 16px;color:var(--text)">Asset Document</td><td style="padding:10px 16px;color:var(--dim)">Asset + GL</td><td style="padding:10px 16px;color:var(--dim)">Asset T-codes</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul class="key-points" style="margin-top:14px">
+              <li>Each document type has its own <strong>number range</strong> configured in <strong style="color:var(--gold)">FBN1</strong>. This is why a vendor invoice gets a 19xxxxxxx number and a GL document gets a 10xxxxxxx number.</li>
+              <li>Document types control which account types can be used. A KR document cannot post to Asset accounts directly.</li>
+              <li>They also control reversal behavior and whether negative posting is allowed.</li>
+            </ul>
+          </div>
+
+          <div class="content-block">
+            <h3>5. The 6 Configuration Objects Behind GL</h3>
+            <p>Every time you posted a document in FB50, six configuration objects worked silently in the background. When something goes wrong, one of these six is always the cause.</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OB13</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Chart of Accounts</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Defines the GL account structure</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Every Company Code must be assigned to a Chart of Accounts. If wrong: GL accounts do not exist and no postings are possible.</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBBO / OB52</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Posting Periods</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Controls which periods are open for posting</div><p style="font-size:14px;color:var(--dim);line-height:1.7">OBBO creates the variant. OBB8 defines open periods. OB37 assigns the variant to a Company Code. If wrong: users cannot post or can post to closed periods (audit risk).</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBA7</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Document Types</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Defines document type properties</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Configures which account types each document type allows, reversal behavior, and required fields. If wrong: users cannot post invoices or documents cannot be reversed.</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">FBN1</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Number Ranges</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Assigns number sequences to document types</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Each document type gets a number range per year. SAP increments automatically. If wrong: number range exhausted and posting fails, or two types share a range causing document number overlaps.</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.2);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBC4</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Field Status Groups</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Controls which fields appear when posting</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Defines for every field whether it is Suppressed, Optional, or Required. The posting key also has a field status and the more restrictive one wins. If wrong: field status conflict error blocks all postings to the account.</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(239,68,68,.25);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBA4</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Tolerance Groups</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Controls how much a user can post</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Defines maximum document amount, maximum line item amount, and maximum cash discount. If wrong: junior accountant can post a 10 million EGP document by mistake, or senior accountant cannot post a large legitimate invoice.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>6. The 5 GL Errors Every Consultant Faces on Day One</h3>
+            <p>These are not theoretical. Every FI consultant encounters these in the first 90 days on a project.</p>
+            <div style="display:flex;flex-direction:column;gap:14px;margin-top:14px">
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 1: Posting period not open</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Period is closed in OB52.<br><strong style="color:var(--text)">Solution:</strong> Go to OB52, find the Posting Period Variant, open the required period, user retries.<br><strong style="color:var(--text)">Prevention:</strong> Agree a period opening/closing calendar with the client at project start.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 2: Field status conflict</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Field Status Group on the GL account and the Field Status of the Posting Key conflict. One says Required, the other says Suppressed. SAP cannot resolve it.<br><strong style="color:var(--text)">Solution:</strong> Go to OBC4, find the Field Status Group of the account, align the conflicting field to Optional in both.<br><strong style="color:var(--text)">Example:</strong> Cost Center is Required on the posting key but Suppressed on the account.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 3: Not authorized for this amount</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Document amount exceeds the user Tolerance Group limit in OBA4.<br><strong style="color:var(--text)">Solution:</strong> Increase the tolerance for this user group (requires authorization) or have a senior user post it.<br><strong style="color:var(--text)">Consultant note:</strong> Never increase tolerances without written approval from the financial controller. This is an audit control.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 4: Cannot post to this account directly</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> The user is trying to post directly to a Reconciliation Account (210100 Vendors, 110100 Customers, or an Asset account). Direct posting to reconciliation accounts is blocked by design.<br><strong style="color:var(--text)">Solution:</strong> Use the correct T-code. FB60 for vendor invoices, FB70 for customer invoices. Never try to bypass via F-02 with posting key 40/50 directly to a recon account.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 5: Document cannot be reversed</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> The document has already been cleared (e.g. an invoice that was paid). Cleared documents cannot be reversed directly.<br><strong style="color:var(--text)">Solution:</strong> Use <strong style="color:var(--gold)">FBRA (Reset Clearing)</strong> to unlink the payment from the invoice, then reverse the original document with FB08, then re-clear or re-pay as needed.<br><strong style="color:var(--text)">Warning:</strong> This affects the vendor/customer account balance. Always verify the impact before doing it in production.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>7. GL Integration How Every Module Feeds Into GL</h3>
+            <p>GL is the <strong style="color:var(--text)">automatic receiver</strong> of every financial event in the entire SAP system. Understanding these flows is what separates a GL consultant from a GL end-user.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--accent);margin-bottom:8px;font-size:14px">MM to GL</div>
+                <ul class="key-points" style="font-size:13px">
+                  <li>Goods Receipt: Dr Inventory / Cr GR/IR Clearing</li>
+                  <li>Invoice (MIRO): Dr GR/IR / Cr Vendor</li>
+                  <li>Goods Issue: Dr COGS / Cr Inventory</li>
+                </ul>
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--green);margin-bottom:8px;font-size:14px">SD to GL</div>
+                <ul class="key-points" style="font-size:13px">
+                  <li>Billing: Dr Customer / Cr Revenue</li>
+                  <li>Credit Memo: reverse of billing</li>
+                  <li>Down Payment: Special GL entry</li>
+                </ul>
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--gold);margin-bottom:8px;font-size:14px">AA to GL</div>
+                <ul class="key-points" style="font-size:13px">
+                  <li>Acquisition: Dr Asset / Cr Vendor or Bank</li>
+                  <li>Depreciation: Dr Depr. Expense / Cr Accum. Depr.</li>
+                  <li>Retirement: Dr Accum. Depr. + Loss / Cr Asset</li>
+                </ul>
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--purple);margin-bottom:8px;font-size:14px">CO to GL</div>
+                <ul class="key-points" style="font-size:13px">
+                  <li>Every GL posting with a cost center creates a parallel CO document</li>
+                  <li>Internal Orders and Profit Centers generate reconciliation entries</li>
+                  <li>CO-PA settlement posts to revenue and WIP in GL</li>
+                </ul>
+              </div>
+            </div>
+            <div class="hbox info" style="margin-top:14px">The consultant rule: When a client says the GL balance for account X is wrong, do not only look at manual FB50 postings. Check all four integration sources above. The error may have originated in MM, SD, AA, or CO, not in GL itself.</div>
+          </div>
+
+          <div class="content-block">
+            <h3>8. Year-End GL Closing The Most Critical Process</h3>
+            <p>Two specific T-codes that every GL consultant must know for year-end:</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:18px">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+                  <span style="font-family:monospace;font-size:17px;font-weight:700;color:var(--gold)">FAGLGVTR</span>
+                  <span style="font-size:14px;font-weight:600;color:var(--text)">Balance Carryforward</span>
+                </div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8">Carries the closing balances of Balance Sheet accounts (Assets, Liabilities, Equity) forward to period 0 of the new fiscal year. P&amp;L accounts are zeroed out and their balance is transferred to the Retained Earnings account. This is why in January of a new year, Balance Sheet accounts have an opening balance and P&amp;L accounts start at zero.</p>
+                <div class="hbox warn" style="margin-top:10px">FAGLGVTR can be run in simulation mode during the year. The final run must happen before any postings in the new year are reported. Running it late means the new year starts with wrong opening balances.</div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:18px">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+                  <span style="font-family:monospace;font-size:17px;font-weight:700;color:var(--accent)">OB52</span>
+                  <span style="font-size:14px;font-weight:600;color:var(--text)">Special Periods 13 to 16</span>
+                </div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8">After period 12 (December) is closed, auditors and senior accountants may still need to post year-end adjustments. SAP provides special periods 13, 14, 15, and 16 opened separately in OB52 and accessible only to authorized users. This allows year-end audit adjustments without reopening the regular December period.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>GL Consultant T-Code Reference</h3>
+            <p style="margin-bottom:14px">These are the T-codes you will not find in a basic course but will use on every project:</p>
+            <div class="tcode-grid">
+              <div class="tcode-item"><span class="tcode">OB52</span><span class="tcode-desc">Open and close posting periods</span></div>
+              <div class="tcode-item"><span class="tcode">FBD1</span><span class="tcode-desc">Create recurring entry document</span></div>
+              <div class="tcode-item"><span class="tcode">F.14</span><span class="tcode-desc">Execute recurring entries at month-end</span></div>
+              <div class="tcode-item"><span class="tcode">FBS1</span><span class="tcode-desc">Post accrual or deferral document</span></div>
+              <div class="tcode-item"><span class="tcode">F.81</span><span class="tcode-desc">Execute scheduled reversals</span></div>
+              <div class="tcode-item"><span class="tcode">FBRA</span><span class="tcode-desc">Reset clearing before reversal</span></div>
+              <div class="tcode-item"><span class="tcode">FAGLGVTR</span><span class="tcode-desc">Year-end balance carryforward</span></div>
+              <div class="tcode-item"><span class="tcode">FAGL_FC_VAL</span><span class="tcode-desc">Foreign currency revaluation</span></div>
+              <div class="tcode-item"><span class="tcode">OBA7</span><span class="tcode-desc">Configure document types</span></div>
+              <div class="tcode-item"><span class="tcode">FBN1</span><span class="tcode-desc">Maintain document number ranges</span></div>
+              <div class="tcode-item"><span class="tcode">OBC4</span><span class="tcode-desc">Field status groups</span></div>
+              <div class="tcode-item"><span class="tcode">OBA4</span><span class="tcode-desc">Tolerance groups for users</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- end cons-0 -->
+    </div><!-- end lesson-content -->
+  </div><!-- end content-layout -->
+</div><!-- end page-consultant -->
+
 
 
 
@@ -3638,6 +3936,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 /* ── Exercise Sections ── */
 .ex-section{display:none;}
 .ex-section.active{display:block;}
+
+/* ── Consultant Sections ── */
+.cons-section{display:none;}
+.cons-section.active{display:block;}
 .ex-section .ex-step-desc{font-size:15px;line-height:1.9;}
 .ex-section .ex-step-title{font-size:16px;}
 .ex-section .ex-step-note{font-size:13px;line-height:1.7;}
@@ -3658,6 +3960,18 @@ function showPage(p){
   else if(p==='mycourse')tabs[1].classList.add('active');
   else if(p==='exercises')tabs[2].classList.add('active');
   else if(p==='quiz')tabs[3].classList.add('active');
+  else if(p==='consultant')tabs[4].classList.add('active');
+  window.scrollTo(0,0);
+}
+function showConsultant(i){
+  document.querySelectorAll('.cons-section').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#page-consultant .sidebar-item').forEach(x=>x.classList.remove('active'));
+  const sec=document.getElementById('cons-'+i);
+  if(sec) sec.classList.add('active');
+  const items=document.querySelectorAll('#page-consultant .sidebar-item');
+  if(items[i]) items[i].classList.add('active');
+  const sel=document.querySelector('#page-consultant .mobile-picker select');
+  if(sel) sel.value=i;
   window.scrollTo(0,0);
 }
 function showQuiz(i){
