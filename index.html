@@ -380,6 +380,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
       <div class="sidebar-item" onclick="showLecture(3)"><span class="sidebar-num">L4</span>GL Posting & Document Entry</div>
       <div class="sidebar-item" onclick="showLecture(4)"><span class="sidebar-num">L5</span>Document Management & Reporting</div>
+      <div class="sidebar-item" onclick="showLecture(5)"><span class="sidebar-num">L6</span>AP — Accounts Payable</div>
     </div>
 
     <div class="mobile-picker">
@@ -389,6 +390,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="2">L3 — GL Account Master Data</option>
         <option value="3">L4 — GL Posting &amp; Document Entry</option>
         <option value="4">L5 — Document Management &amp; Reporting</option>
+        <option value="5">L6 — AP — Accounts Payable</option>
       </select>
     </div>
 
@@ -1765,10 +1767,199 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div class="nav-btns">
           <button class="btn btn-outline" onclick="showLecture(3)">← Lecture 4</button>
-          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 6 — Coming Soon</button>
+          <button class="btn btn-primary" onclick="showLecture(5)">Lecture 6 →</button>
         </div>
 
       </div><!-- end lecture-4 -->
+
+      <!-- LECTURE 6 -->
+      <div class="lesson-section" id="lecture-5">
+        <div class="lesson-title"><span class="lesson-num">Lecture 6</span>AP — Accounts Payable</div>
+        <div class="lesson-sub">Business Partner creation, Vendor Invoice entry, Cash Journal AP transactions, Vendor reporting T-Codes</div>
+
+        <!-- INTRO -->
+        <div class="content-block">
+          <h3>1. Overview — AP Sub-Module</h3>
+          <p>In this lecture we complete GL codes and begin <strong style="color:var(--text)">AP (Accounts Payable)</strong> codes. AP manages all transactions related to vendors/suppliers — from creating vendor master data to entering invoices, making payments, and generating aging reports.</p>
+          <ul class="key-points">
+            <li>Vendors are called <strong>Suppliers</strong> or <strong>Business Partners</strong> in SAP S/4HANA</li>
+            <li>Every AP transaction posts automatically to the <strong>Reconciliation Account</strong> in GL (e.g. 210100 — Vendors Reconciliation)</li>
+            <li>AP sub-ledger keeps detail per vendor; GL keeps totals in the recon. account</li>
+            <li>Key document types: <strong>KR</strong> = Vendor Invoice, <strong>KZ</strong> = Vendor Payment</li>
+          </ul>
+          <div class="hbox info">💡 In SAP S/4HANA, vendors and customers are unified under the <strong>Business Partner (BP)</strong> concept — one master record, multiple roles (General Partner, Supplier, Customer).</div>
+        </div>
+
+        <!-- BP -->
+        <div class="content-block">
+          <h3>2. BP — Maintain Business Partner (Create Vendor)</h3>
+          <p>Transaction <strong style="color:var(--gold)">BP</strong> is the central T-code for creating and managing Business Partners. To create a new vendor, you add the general person/org data first, then assign the <strong>Supplier role</strong> with FI and Purchasing data.</p>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Step-by-Step: Create a New Vendor</div>
+          <ul class="key-points">
+            <li><strong>Step 1 — Open BP:</strong> Type <code>BP</code> in the command field → the Maintain Business Partner screen opens with a Find/Worklist tab</li>
+            <li><strong>Step 2 — Create as Person:</strong> Click <strong>Person</strong> in the toolbar → the "Create Person" screen opens</li>
+            <li><strong>Step 3 — Set Grouping:</strong> In the Grouping dropdown, choose <strong>AF VENDOR FOR PG</strong></li>
+            <li><strong>Step 4 — Fill Name:</strong> Title → <code>0002 Mr.</code> | First name → <code>Gawad</code> | Last name → <code>Gawad</code></li>
+            <li><strong>Step 5 — Street Address:</strong> Street/House number → <code>Cairo</code> | Postal Code → <code>11111</code> | City → <code>cairo</code> | Country → <code>EG</code> (Egypt) | Region → <code>C</code> (Cairo)</li>
+            <li><strong>Step 6 — Check:</strong> Press Enter → status bar shows <em>"Data of business partner is error-free"</em></li>
+            <li><strong>Step 7 — Save:</strong> Click Save → SAP creates the Business Partner and assigns number (e.g. <strong>446208</strong>). Status bar: <em>"Business partner 446208 created"</em></li>
+          </ul>
+          <div class="hbox warn" style="margin-top:12px">📌 After saving, the screen switches to <strong>Display</strong> mode showing the new BP number. To add the Vendor role, you must go back into <strong>Edit/Change</strong> mode.</div>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Add FI Supplier Role (FLVN00)</div>
+          <ul class="key-points">
+            <li>In the "Change in BP role" dropdown, select <strong>FLVN00 Supplier (Fin.Accounting)</strong></li>
+            <li>Navigate to the <strong>Company Code</strong> section → Add Company Code: <code>BEV1</code></li>
+            <li>In the <strong>Vendor: Account Management</strong> tab → enter Reconciliation Account: <code>210100</code> (Vendors Reconciliation)</li>
+            <li>Check → no error → Save → <em>"Changes have been saved"</em>. Supplier number is now assigned (= BP number: 446208)</li>
+          </ul>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Add Purchasing Role (FLVN01)</div>
+          <ul class="key-points">
+            <li>Switch role to <strong>FLVN01 Supplier (New)</strong></li>
+            <li>In the <strong>Purchasing Organization</strong> section → set Purch. Organization: <code>BE25</code> (be7ery's po)</li>
+            <li>Check → no error → Save → <em>"Changes have been saved"</em>. Role now shows as "FLVN01 Supplier (Maintained)"</li>
+          </ul>
+        </div>
+
+        <!-- FBCJ AP tests -->
+        <div class="content-block">
+          <h3>3. FBCJ — Cash Journal (AP Tests)</h3>
+          <p>In this lecture we also use <strong style="color:var(--gold)">FBCJ</strong> (Cash Journal) to practice AP-related cash transactions. The interface was already covered in L5 — here we focus on the AP-specific business transactions.</p>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Test 1 — Payment to Vendor (Cash)</div>
+          <ul class="key-points">
+            <li>Open FBCJ → Cash Payments tab → click the Business Transaction field</li>
+            <li>From the search popup, choose <strong>PAYMENT TO VENDOR</strong> (Tran. 0007, type K)</li>
+            <li>Amount: <code>5,000</code> | G/L Account auto-fills to <code>210100</code> (Recon. Account) | Supplier: <code>Behery (446031)</code></li>
+            <li>Save → Post → posted entry: <strong>Petty Cash 2 (110011) Cr 5,000</strong> / <strong>Behery (446031) Dr 5,000</strong></li>
+            <li>Click <strong>Follow-On Docs</strong> to see the generated accounting document</li>
+          </ul>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">To Reverse the Transaction</div>
+          <ul class="key-points">
+            <li>Select the transaction row → click the <strong>(−) Reverse</strong> button in the toolbar</li>
+            <li>A "Reverse document?" popup appears → click <strong>Yes</strong></li>
+            <li>A "Reason for reversal" dialog appears → enter Reversal reason: <code>01</code> | Posting Date: today → confirm</li>
+            <li>The journal now shows both the original (5,000) and the reversal (5,000−) — closing balance returns to opening balance</li>
+          </ul>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Test 2 — Expense (Cash)</div>
+          <ul class="key-points">
+            <li>Business Transaction: <strong>PURCHASES USING CASH</strong> | Amount: <code>8,000</code></li>
+            <li>G/L Account: <code>500002</code> (Electricity EXP) | Cost Center: <code>INVCS01</code></li>
+            <li>Save → Post → Document: Petty Cash 2 (110011) Cr 8,000 / Electricity EXP (500002) Dr 8,000</li>
+          </ul>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Available Business Transactions in FBCJ</div>
+          <div class="tcode-grid" style="margin-top:8px">
+            <div class="tcode-item"><span class="tcode" style="color:var(--green);font-size:13px">CASH SALE (0010)</span><span class="tcode-desc">Type R — Revenue account 400000</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--green);font-size:13px">CUSTODIES FROM (0014)</span><span class="tcode-desc">Type K — Special G/L (A)</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--green);font-size:13px">PAYMENT FROM CUSTOMER (0008)</span><span class="tcode-desc">Type D</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--gold);font-size:13px">PAYMENT TO VENDOR (0007)</span><span class="tcode-desc">Type K — Posts to recon. acct</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--green);font-size:13px">PURCHASES USING CASH (0009)</span><span class="tcode-desc">Type E — G/L 500000</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--green);font-size:13px">REVENUE (0012)</span><span class="tcode-desc">Type R — G/L 400000</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--dim);font-size:13px">TRANSFER BANK TO JOURNAL (0005)</span><span class="tcode-desc">Type C — G/L 140100</span></div>
+            <div class="tcode-item"><span class="tcode" style="color:var(--dim);font-size:13px">TRANSFER JOURNAL TO BANK (0006)</span><span class="tcode-desc">Type B — G/L 140100</span></div>
+          </div>
+        </div>
+
+        <!-- FB60 -->
+        <div class="content-block">
+          <h3>4. FB60 — Enter Vendor Invoice</h3>
+          <p>Transaction <strong style="color:var(--gold)">FB60</strong> is used to enter a vendor (supplier) invoice in SAP. It posts automatically to the <strong>vendor sub-ledger</strong> and the <strong>reconciliation account (210100)</strong> in GL.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Open FB60 → "Enter Vendor Invoice: Company Code BEV1" screen opens</li>
+            <li><strong>Vendor:</strong> enter vendor number (e.g. <code>580024</code>) → a popup shows vendor address (Company: المتحدة, Cairo, Egypt)</li>
+            <li><strong>Invoice date:</strong> the date on the vendor's invoice</li>
+            <li><strong>Amount:</strong> total invoice amount (e.g. <code>8,000</code> EGP)</li>
+            <li>In the line items grid: <strong>G/L Account:</strong> <code>500005</code> (Cleaning Exp) | Cost Center: <code>INVCS01</code></li>
+            <li><strong>Simulate</strong> → verify the entry: Vendor (580024) Cr 8,000 | Cleaning Exp (500005) Dr 8,000</li>
+            <li><strong>Post</strong> → SAP assigns Document Number (e.g. 1900000143, Doc Type KR)</li>
+            <li><strong>Display</strong> → use FB03 to open and verify the posted invoice document</li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 Document Type <strong>KR = Kreditor Rechnung</strong> (German) = Vendor Invoice. The vendor account is automatically credited, and the expense GL account is debited.</div>
+        </div>
+
+        <!-- FBL1N -->
+        <div class="content-block">
+          <h3>5. FBL1N — Vendor Line Item Display</h3>
+          <p>Transaction <strong style="color:var(--gold)">FBL1N</strong> shows all individual line items for one or more vendor accounts — open invoices, cleared payments, or all items.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li><strong>Supplier Account:</strong> enter specific vendor number (e.g. <code>580024</code>) or leave blank to view all</li>
+            <li><strong>Company Code:</strong> <code>BEV1</code></li>
+            <li><strong>Line Item Selection — Status:</strong>
+              <ul style="padding-left:16px;margin-top:6px">
+                <li><strong>Open Items</strong> — invoices not yet paid (outstanding)</li>
+                <li><strong>Cleared Items</strong> — invoices that have been paid/cleared</li>
+                <li><strong>All Items</strong> — everything, paid or not</li>
+              </ul>
+            </li>
+            <li>Execute → results show: Status (🔴 = open/overdue), Document Number, Type, Date, Amount, Currency, Text</li>
+          </ul>
+          <div style="margin-top:12px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Reading the Results</div>
+          <ul class="key-points">
+            <li><strong>🔴 Red (ST)</strong> — Open item (not yet paid)</li>
+            <li><strong>🔴 Red (⚡)</strong> — Overdue item (past due date)</li>
+            <li><strong>🟢 Green square</strong> — Cleared item (paid)</li>
+            <li><strong>Doc Type KR</strong> → Vendor Invoice</li>
+            <li><strong>Doc Type KZ</strong> → Vendor Payment</li>
+          </ul>
+          <div style="margin-top:12px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Key Date Fields</div>
+          <ul class="key-points">
+            <li><strong>Baseline Date</strong> — the start date for calculating the due date (e.g. invoice date)</li>
+            <li><strong>Payment Date / Net Due Date</strong> — the actual date payment is due</li>
+          </ul>
+          <div style="margin-top:12px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Special G/L Transactions</div>
+          <p style="font-size:16px;color:var(--dim);line-height:1.8">At the main selection screen, under <strong>Type</strong>, check the <strong>Special G/L Transactions</strong> checkbox. When you execute, the report shows a new column <strong>(S)</strong> and indicator <strong>(A)</strong> — these represent <strong>down payments</strong> made to the vendor. This allows you to see advance payments separately from regular invoices.</p>
+        </div>
+
+        <!-- FK10N -->
+        <div class="content-block">
+          <h3>6. FK10N — Vendor Balance Display</h3>
+          <p>Transaction <strong style="color:var(--gold)">FK10N</strong> shows the <strong>vendor account balance by period</strong> (monthly). Unlike FBL1N which shows individual line items, FK10N gives you a summary view — useful for reconciliation and reporting.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Enter: <strong>Vendor:</strong> <code>580024</code> | <strong>Company code:</strong> <code>BEV1</code> | <strong>Fiscal year:</strong> <code>2026</code></li>
+            <li>Click <strong>Execute</strong></li>
+            <li>The result shows a table with: Period (1–12), Debit, Credit, Balance, Cumulative Balance, Sales/Purchases</li>
+            <li>The <strong>Bals</strong> tab shows normal transactions; the <strong>Special G/L</strong> tab shows down payments</li>
+            <li>To drill down into a specific period's transactions, <strong>double-click</strong> on the amount in that period row → opens the Vendor Line Item Display (FBL1N) filtered to that period</li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 FK10N is the vendor equivalent of FAGLB03 (GL Account Balance Display). Use it to quickly see how much you owe a vendor across the year, period by period.</div>
+        </div>
+
+        <!-- IDCNAP -->
+        <div class="content-block">
+          <h3>7. IDCNAP — AP Aging Report</h3>
+          <p>Transaction <strong style="color:var(--gold)">IDCNAP</strong> generates the <strong>Accounts Payable Aging Report</strong> — it shows how long vendor invoices have been outstanding and groups them by aging buckets.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li><strong>Supplier Selection:</strong> leave blank to include all suppliers, or enter a specific Supplier Account and Company Code range</li>
+            <li><strong>Line Item Selection:</strong> Open Items at Key Date (e.g. today) — shows all unpaid invoices as of that date</li>
+            <li><strong>Output Control → Due Date Sorted List:</strong> defines the aging buckets: <code>10, 20, 30, 60, 90, 180, 360, 720</code> days (1 Day intervals)</li>
+          </ul>
+          <div style="margin-top:12px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Reading the AP Aging Analysis</div>
+          <ul class="key-points">
+            <li>Columns: CoCd, Supplier, Supplier Name, G/L Account, <strong>Total Open</strong>, Not Due, &lt;11 Days, 11–20 Days, 21–30 Days, 31–60 Days…</li>
+            <li>Each row shows a vendor with the total amount owed split across aging buckets</li>
+            <li>Example: Cocacola (Supplier 1) — Total Open: 2,800 — all in &lt;11 Days (100%)</li>
+            <li>The report helps prioritize which vendors to pay first based on how long invoices have been outstanding</li>
+          </ul>
+          <div class="hbox warn" style="margin-top:10px">📌 The AP Aging Report is one of the most important reports for a CFO or AP manager — it shows the total outstanding liability by vendor and by aging period at any key date.</div>
+        </div>
+
+        <!-- L6 T-CODE SUMMARY -->
+        <div class="content-block">
+          <h3>🗂️ L6 T-Code Quick Reference</h3>
+          <div class="tcode-grid" style="margin-top:10px">
+            <div class="tcode-item"><span class="tcode">BP</span><span class="tcode-desc">Maintain Business Partner — create/edit vendors & customers</span></div>
+            <div class="tcode-item"><span class="tcode">FBCJ</span><span class="tcode-desc">Cash Journal — AP cash payments & expense postings</span></div>
+            <div class="tcode-item"><span class="tcode">FB60</span><span class="tcode-desc">Enter Vendor Invoice (AP document type KR)</span></div>
+            <div class="tcode-item"><span class="tcode">FBL1N</span><span class="tcode-desc">Vendor Line Item Display — open, cleared, all items</span></div>
+            <div class="tcode-item"><span class="tcode">FK10N</span><span class="tcode-desc">Vendor Balance Display — period-by-period summary</span></div>
+            <div class="tcode-item"><span class="tcode">IDCNAP</span><span class="tcode-desc">AP Aging Report — outstanding invoices by aging bucket</span></div>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-outline" onclick="showLecture(4)">← Lecture 5</button>
+          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 7 — Coming Soon</button>
+        </div>
+
+      </div><!-- end lecture-5 -->
     </div><!-- end lesson-content -->
   </div><!-- end content-layout -->
 </div><!-- end page-mycourse -->
@@ -1823,6 +2014,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--purple);min-width:68px;flex-shrink:0">F-02</span>
         <span style="font-size:13px">Classic G/L Posting</span>
       </div>
+      <div style="padding:12px 20px 4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-top:1px solid var(--border);margin-top:8px">AP — Lecture 6</div>
+      <div class="sidebar-item" onclick="showExercise(11)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">BP</span>
+        <span style="font-size:13px">Create Vendor (Business Partner)</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(12)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB60</span>
+        <span style="font-size:13px">Enter Vendor Invoice</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(13)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBL1N</span>
+        <span style="font-size:13px">Vendor Line Item Display</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(14)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--accent);min-width:68px;flex-shrink:0">FK10N</span>
+        <span style="font-size:13px">Vendor Balance Display</span>
+      </div>
+      <div class="sidebar-item" onclick="showExercise(15)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--purple);min-width:68px;flex-shrink:0">IDCNAP</span>
+        <span style="font-size:13px">AP Aging Report</span>
+      </div>
     </div>
 
     <div class="mobile-picker" id="ex-mobile-picker">
@@ -1838,6 +2050,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="8">FS00 — Create G/L Account Master Data</option>
         <option value="9">FB50 — Post G/L Document — Modern Interface</option>
         <option value="10">F-02 — Classic G/L Posting — Legacy Interface</option>
+        <option value="11">BP — Create Vendor (Business Partner)</option>
+        <option value="12">FB60 — Enter Vendor Invoice</option>
+        <option value="13">FBL1N — Vendor Line Item Display</option>
+        <option value="14">FK10N — Vendor Balance Display</option>
+        <option value="15">IDCNAP — AP Aging Report</option>
       </select>
     </div>
 
@@ -2566,6 +2783,281 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         </div>
         </div>
       </div>
+
+      <!-- ===== BP ===== -->
+      <div class="ex-section" id="ex-section-11">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#f59e0b,#d97706);font-size:20px;padding:10px 20px">BP</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Create a New Vendor (Business Partner)</h1>
+              <span class="ex-badge ex-badge-intermediate" style="font-size:12px">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
+            <div class="ex-scenario-title">📋 Scenario</div>
+            <div class="ex-scenario-text">Create a new vendor in SAP S/4HANA using transaction <strong style="color:var(--gold)">BP</strong>. The vendor is <strong>Mr. Gawad</strong>, a person-type supplier in Cairo, Egypt. Assign both the FI Supplier role (with reconciliation account 210100) and the Purchasing role (with Purchasing Org BE25).</div>
+          </div>
+          <div class="ex-steps">
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open BP — Maintain Business Partner</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Type <strong>BP</strong> in the command field and press Enter. The <strong>Maintain Business Partner</strong> screen opens with two tabs: <strong>Worklist</strong> and <strong>Find</strong>. The toolbar shows buttons: Person, Organization, Group. Use the Find tab to search existing partners or click <strong>Person</strong> to create a new one.</div>
+                <div class="ex-step-note">💡 In SAP S/4HANA, customers and vendors are unified as Business Partners. One BP can have multiple roles (General, Supplier, Customer) assigned at the same time.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">2</span><div class="ex-step-title">Create Person — Fill Basic Data</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Click <strong>Person</strong> in the toolbar. The "Create Person" screen opens. Fill in:<br><br>• <strong>Grouping:</strong> <code>AF VENDOR FOR PG</code><br>• <strong>Title:</strong> <code>0002 Mr.</code><br>• <strong>First name:</strong> <code>Gawad</code><br>• <strong>Last name:</strong> <code>Gawad</code><br><br>The Search Term 1/2 auto-fills to GAWAD / GAWAD.</div>
+                <div class="ex-step-note">📌 The Grouping determines the number range for the BP number. "AF VENDOR FOR PG" assigns the correct range for AP vendors in the system.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">3</span><div class="ex-step-title">Fill Street Address</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Scroll down on the Address tab to the <strong>Standard Address</strong> section. Fill in:<br><br>• <strong>Street/House number:</strong> <code>Cairo</code><br>• <strong>Postal Code:</strong> <code>11111</code><br>• <strong>City:</strong> <code>cairo</code><br>• <strong>Country/Region:</strong> <code>EG</code> (Egypt)<br>• <strong>Region:</strong> <code>C</code> → auto-fills to Cairo<br>• <strong>Time zone:</strong> EGYPT (auto-fills)<br><br>Press Enter → status bar shows <em>"Data of business partner is error-free"</em>.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--gold);color:black">4</span><div class="ex-step-title">Save → Business Partner Created</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Click <strong>Save</strong>. SAP creates the Business Partner and assigns a number (e.g. <strong>446208</strong>). The screen switches to Display mode showing:<br><br>• Business Partner: <strong>446208</strong><br>• Name: Gawad Gawad / 11111 cairo<br>• Display in BP role: 000000 Business Partner (Gen.)<br>• Status bar: <em>"Business partner 446208 created"</em></div>
+                <div class="ex-step-note">✅ The BP is now created as a General Business Partner only. The Vendor and Purchasing roles must be added in the next steps.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">5</span><div class="ex-step-title">Add FI Supplier Role (FLVN00) — Company Code Data</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">In the "Change in BP role" dropdown (top of screen), select <strong>FLVN00 Supplier (Fin.Accounting)</strong>. The screen title changes to <em>"Change Person: 446208, new role Supplier (Fin.Accounting)"</em>.<br><br>Navigate to the <strong>Company Code</strong> section:<br>• <strong>Company Code:</strong> <code>BEV1</code> (be7ery) — auto-populated<br>• Supplier number auto-assigned as <code>&lt;External&gt;</code><br><br>Go to the <strong>Vendor: Account Management</strong> tab:<br>• <strong>Reconciliation acct:</strong> <code>210100</code> → description: "Vendors Reconciliation"<br><br>Press Enter → "Data of business partner is error-free" → Click <strong>Save</strong>.<br>The Supplier field now shows <strong>446208</strong> (same as BP number).</div>
+                <div class="ex-step-note">📌 The Reconciliation Account (210100) links the vendor sub-ledger to the GL. Every invoice or payment posted to vendor 446208 will automatically update GL account 210100.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">6</span><div class="ex-step-title">Add Purchasing Role (FLVN01) — Purchasing Org Data</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Switch the role to <strong>FLVN01 Supplier (New)</strong>. The Purchasing tab becomes visible in the toolbar. Navigate to the <strong>Purchasing Organization</strong> section:<br><br>• <strong>Purch. organization:</strong> <code>BE25</code> → description: "be7ery's po"<br><br>The Purchasing Data tab shows: Order currency, Payment Terms, Incoterms, etc. (leave blank for now).<br><br>Press Enter → "Data of business partner is error-free" → Click <strong>Save</strong>.<br>Status bar: <em>"Changes have been saved"</em>. Role now shows as <strong>FLVN01 Supplier (Maintained)</strong>.</div>
+                <div class="ex-step-note">✅ Vendor 446208 is now fully configured with General data, FI Accounting role (recon. acct 210100), and Purchasing role (Org BE25). Ready for invoice entry in FB60.</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="ex-result-box">✅ <strong>Result:</strong> Business Partner 446208 (Mr. Gawad Gawad) created as a full vendor — General BP role, FI Supplier role with Recon. Account 210100 (Company Code BEV1), and Purchasing role with Purchasing Org BE25.</div>
+        </div>
+      </div>
+
+      <!-- ===== FB60 ===== -->
+      <div class="ex-section" id="ex-section-12">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#10b981,#059669);font-size:20px;padding:10px 20px">FB60</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Enter Vendor Invoice</h1>
+              <span class="ex-badge ex-badge-intermediate" style="font-size:12px">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
+            <div class="ex-scenario-title">📋 Scenario</div>
+            <div class="ex-scenario-text">Enter a vendor invoice from supplier <strong style="color:var(--gold)">580024 (المتحدة)</strong> for <strong>Cleaning Expenses of EGP 8,000</strong>. Post the invoice and verify the resulting accounting document.</div>
+          </div>
+          <div class="ex-steps">
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FB60 — Enter Vendor Invoice</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Type <strong>FB60</strong> in the command field. The <strong>"Enter Vendor Invoice: Company Code BEV1"</strong> screen opens. The header shows:<br>• Transaction: R Invoice<br>• Balance indicator: ○△○ (unbalanced — red/yellow until entry is complete)<br>• Tabs: Basic data | Payment | Details | Tax | Withholding tax | Notes<br>• Company Code: BEV1 be7ery Madinty (at bottom)</div>
+                <div class="ex-step-note">💡 FB60 automatically sets the document type to KR (Vendor Invoice) and posts to the vendor sub-ledger + reconciliation account. No need to enter posting keys manually.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">2</span><div class="ex-step-title">Fill Header Data — Vendor, Date, Amount</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">On the <strong>Basic data</strong> tab, fill in:<br><br>• <strong>Vendor:</strong> <code>580024</code> → press Enter → a vendor address popup appears showing: Company: المتحدة, Cairo, Egypt<br>• <strong>Invoice date:</strong> <code>05/15/2026</code> (today)<br>• <strong>Posting Date:</strong> auto-fills to 05/15/2026<br>• <strong>Amount:</strong> <code>8,000</code> EGP<br><br>The balance indicator changes as you fill the amount. Payment terms show "Due immediately" and Baseline Date auto-fills.</div>
+                <div class="ex-step-note">📌 The vendor popup confirms you selected the correct supplier before proceeding. Check the address to avoid posting to the wrong vendor.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">3</span><div class="ex-step-title">Enter Line Item — GL Account & Cost Center</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">In the line items grid at the bottom of the screen, fill in the expense line:<br><br>• <strong>G/L acct:</strong> <code>500005</code> → Short Text auto-fills: "Cleanning exp"<br>• <strong>D/C:</strong> S Debit (auto-set for expense)<br>• <strong>Amount in doc.curr.:</strong> <code>8,000</code><br>• <strong>Cost center:</strong> <code>INVCS01</code><br><br>The result grid shows: 500005 | Cleanning exp | S Deb | 8,000 | BEV1 | INVCS01</div>
+                <div class="ex-step-note">💡 In FB60, you only enter the <strong>expense/debit</strong> side. SAP automatically creates the <strong>vendor credit</strong> line (posting to the reconciliation account 210100) behind the scenes.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--gold);color:black">4</span><div class="ex-step-title">Simulate → Post → Display</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Click <strong>Simulate</strong> in the toolbar to preview the document. The balance indicator should now be green (○○■). The preview shows both lines:<br><br>• Item 1 | Key 31 | Vendor 580024 (المتحدة) | <strong>8,000 Cr</strong> EGP<br>• Item 2 | Key 40 | G/L 500005 (Cleanning exp) | <strong>8,000 Dr</strong> EGP<br><br>If balanced → click <strong>Post</strong>. SAP creates Document Number <strong>1900000143</strong> (Doc Type: KR). Use <strong>FB03</strong> to display and verify.</div>
+                <div class="ex-step-note">📌 Posting Key 31 = Vendor Credit (AP). SAP uses this automatically for the vendor line. The document is now in the vendor sub-ledger as an open item (unpaid invoice).</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="ex-result-box">✅ <strong>Result:</strong> Vendor invoice posted — Doc 1900000143 (KR). Vendor 580024 Cr 8,000 / Cleaning Exp (500005) Dr 8,000 EGP. The invoice is now an open item in FBL1N awaiting payment.</div>
+        </div>
+      </div>
+
+      <!-- ===== FBL1N ===== -->
+      <div class="ex-section" id="ex-section-13">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#10b981,#059669);font-size:20px;padding:10px 20px">FBL1N</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Vendor Line Item Display</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
+            <div class="ex-scenario-title">📋 Scenario</div>
+            <div class="ex-scenario-text">Use <strong style="color:var(--gold)">FBL1N</strong> to review all vendor transactions for supplier <strong>580024</strong> in Company Code <strong>BEV1</strong>. View open items, cleared items, and understand the document types and status indicators. Also explore Special G/L transactions (down payments).</div>
+          </div>
+          <div class="ex-steps">
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FBL1N — Vendor Line Item Display</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Type <strong>FBL1N</strong> in the command field. The <strong>Vendor Line Item Display</strong> screen opens with sections:<br><br>• <strong>Supplier Selection:</strong> Supplier Account, Company Code<br>• <strong>Selection Using Search Help</strong><br>• <strong>Line item selection — Status:</strong> Open items / Cleared items / All items<br>• <strong>Type:</strong> Normal items, Special G/L transactions, Noted items, Parked items<br><br>Enter Supplier Account: <code>580024</code> | Company Code: <code>BEV1</code> | Select <strong>Open Items</strong> | Open at key date: today → Execute.</div>
+                <div class="ex-step-note">📌 You can also leave Supplier Account blank and execute to view ALL vendor accounts — useful for a broad review or audit.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">2</span><div class="ex-step-title">Read the Results — Open Items</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">SAP shows the Vendor Line Item Display results for Supplier 580024 (المتحدة), City: cairo. The list shows all unpaid invoices:<br><br>Columns: Status, Assignment, DocumentNo, Type, Doc. Date, S, DD, Amount in Local Crcy, LCurr, Clrng doc., Text<br><br>Example results:<br>• 🔴 | — | 1900000127 | KR | 05/12/2026 | ⚡ | 777− EGP<br>• 🔴 | — | 1900000128 | KR | 05/12/2026 | ⚡ | 666− EGP<br><br>The total shows the sum of all open items for this vendor (e.g. "5 items displayed").</div>
+                <div class="ex-step-note">💡 <strong>🔴 = Open (unpaid)</strong>. The ⚡ icon in the DD column = Overdue (past net due date). A 🟢 square = Cleared (paid/settled).</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">3</span><div class="ex-step-title">Switch to All Items — See Cleared Items Too</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Go back to the selection screen. Select <strong>All Items</strong> → Execute. Now the list shows both open (🔴) and cleared (🟢) items. Cleared items show a value in the <strong>Clrng doc.</strong> column — the document number that cleared/paid the invoice.<br><br>Document Types visible:<br>• <strong>KR</strong> — Kreditor Rechnung = Vendor Invoice<br>• <strong>KZ</strong> — Vendor Payment<br>• <strong>SA</strong> — General GL posting related to vendor</div>
+                <div class="ex-step-note">📌 To drill into any item, double-click the document number to open the original document in display mode (same as FB03).</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--gold);color:black">4</span><div class="ex-step-title">Special G/L Transactions — Down Payments</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Go back to the selection screen. Under <strong>Type</strong>, check <strong>Special G/L transactions</strong> (in addition to Normal items). Select <strong>All Items</strong> → Execute.<br><br>The report now shows an additional column <strong>S</strong> (Special G/L Indicator). Items with indicator <strong>A</strong> represent <strong>down payments</strong> made to the vendor. These are tracked separately from regular invoices because they use a different reconciliation account in GL.<br><br>Also visible: the <strong>Baseline Date</strong> (start of payment terms) and <strong>Net Due Date</strong> (actual payment due date) on each line item.</div>
+                <div class="ex-step-note">💡 Special G/L Indicator A = Down Payment. These are prepayments to a vendor — shown separately to ensure they are later matched against the final invoice.</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="ex-result-box">✅ <strong>Result:</strong> All vendor line items for supplier 580024 displayed. Open items (unpaid invoices) identified by 🔴 and ⚡ indicators. Cleared items visible in All Items view. Down payments visible via Special G/L filter. Document types KR (Invoice) and KZ (Payment) identified.</div>
+        </div>
+      </div>
+
+      <!-- ===== FK10N ===== -->
+      <div class="ex-section" id="ex-section-14">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);font-size:20px;padding:10px 20px">FK10N</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">Vendor Balance Display</h1>
+              <span class="ex-badge ex-badge-beginner" style="font-size:12px">Beginner</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
+            <div class="ex-scenario-title">📋 Scenario</div>
+            <div class="ex-scenario-text">Use <strong style="color:var(--gold)">FK10N</strong> to review the balance of vendor <strong>580024</strong> in Company Code <strong>BEV1</strong> for fiscal year <strong>2026</strong>. Analyze the period-by-period balance and drill down into a specific period's transactions.</div>
+          </div>
+          <div class="ex-steps">
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FK10N — Enter Parameters</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Type <strong>FK10N</strong> in the command field. The <strong>Vendor Balance Display</strong> screen opens with three fields:<br><br>• <strong>Vendor:</strong> <code>580024</code><br>• <strong>Company code:</strong> <code>BEV1</code><br>• <strong>Fiscal year:</strong> <code>2026</code><br><br>Click <strong>Execute</strong>.</div>
+                <div class="ex-step-note">💡 FK10N is the vendor equivalent of FAGLB03 (GL Balance Display). It gives you a month-by-month summary of all activity for this vendor account.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">2</span><div class="ex-step-title">Read the Vendor Balance Display</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">The result screen shows vendor 580024 (المتحدة), Company Code BEV1, Fiscal Year 2026, Currency EGP.<br><br>Two tabs: <strong>Bals</strong> (normal balances) and <strong>Special G/L</strong> (down payments).<br><br>The Bals table columns: Period | Debit | Credit | Balance | Cumulative Balance | Sales/Purchases<br><br>Example result for Period 5:<br>• Debit: 1,887 | Credit: 11,330 | Balance: 9,443− | Cumulative Balance: 9,443− | Sales/Purchases: 11,330−<br><br>Periods 6–12 show the Cumulative Balance carried forward (9,443−) even with no new activity.</div>
+                <div class="ex-step-note">📌 A negative cumulative balance means the company <strong>owes</strong> this vendor — the vendor has a credit position (you haven't paid yet).</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--green)">3</span><div class="ex-step-title">Drill Down — Double-Click on Amount</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">To see the individual transactions behind any period's total, <strong>double-click</strong> on the amount in the Credit or Balance column for that period. SAP opens the <strong>Vendor Line Item Display (FBL1N)</strong> filtered to that period and vendor — showing each individual invoice or payment that makes up that period's total.<br><br>Example: double-clicking Period 5 Credit (11,330) shows the invoices posted in May 2026 for vendor 580024.</div>
+                <div class="ex-step-note">✅ This drilldown capability is the power of FK10N — quickly navigate from a summary balance to the exact underlying transactions.</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="ex-result-box">✅ <strong>Result:</strong> Vendor 580024 balance displayed by period. Period 5 shows Debit 1,887 / Credit 11,330 / Balance 9,443−. Cumulative balance of 9,443− EGP indicates this vendor is owed money. Drilldown to individual transactions available via double-click.</div>
+        </div>
+      </div>
+
+      <!-- ===== IDCNAP ===== -->
+      <div class="ex-section" id="ex-section-15">
+        <div style="padding:36px 40px 0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+            <div class="ex-tcode-badge" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9);font-size:20px;padding:10px 16px">IDCNAP</div>
+            <div>
+              <h1 style="font-size:26px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px">AP Aging Report</h1>
+              <span class="ex-badge ex-badge-intermediate" style="font-size:12px">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:20px 40px 60px">
+          <div class="ex-scenario">
+            <div class="ex-scenario-title">📋 Scenario</div>
+            <div class="ex-scenario-text">Generate an <strong style="color:var(--gold)">AP Aging Report</strong> for Company Code <strong>BEV1</strong> as of today's date. View all outstanding vendor invoices grouped by aging buckets (Not Due, &lt;11 days, 11–20, 21–30, 31–60 days, etc.) to identify overdue payables.</div>
+          </div>
+          <div class="ex-steps">
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open IDCNAP — A/P Aging Report</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Type <strong>IDCNAP</strong> in the command field. The <strong>A/P Aging Report</strong> selection screen opens with four sections:<br><br>• <strong>Supplier Selection:</strong> Supplier Account (leave blank for all) | Company Code: <code>BEV1</code> to <code>BEV1</code><br>• <strong>Transaction Figures Selection:</strong> Profit Center, Segment (optional)<br>• <strong>Line Item Selection:</strong> Open Items at Key Date → <code>05/15/2026</code> (today)<br>• <strong>Further Selections:</strong> Normal Items ✓, Special G/L Transactions (optional)</div>
+                <div class="ex-step-note">📌 Leave Supplier Account blank to include ALL vendors in the company — this gives the complete AP aging picture for management reporting.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">2</span><div class="ex-step-title">Configure Output Control — Due Date Sorted List</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">Scroll down to the <strong>Output Control</strong> section. The <strong>Due Date Sorted List</strong> defines the aging buckets:<br><br>Default values: <code>10 | 20 | 30 | 60 | 90 | 180 | 360 | 720</code> days (each in 1-Day intervals)<br><br>These buckets mean: Not Due | 1–10 days | 11–20 days | 21–30 days | 31–60 days | 61–90 days | etc.<br><br>Leave as default → Click <strong>Execute</strong>.</div>
+                <div class="ex-step-note">💡 You can customize the aging buckets to match your company's payment terms. For example, if standard terms are Net 30, use buckets of 30, 60, 90 days.</div>
+              </div>
+            </div>
+
+            <div class="ex-step">
+              <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">3</span><div class="ex-step-title">Read the AP Aging Analysis Report</div></div>
+              <div class="ex-step-body">
+                <div class="ex-step-desc">The <strong>AP Aging Analysis</strong> screen opens showing all vendors with open items as of the key date. Columns:<br><br>CoCd | Segment | Profit Center | <strong>Supplier</strong> | Supplier Name | G/L Acct | G/L Acc Text | <strong>Σ Total Open</strong> | LCurr | <strong>Σ Not Due</strong> | % | <strong>Σ &lt;11D</strong> | % | Σ 11D–20D | % | Σ 21D–30D | % | Σ 31D–60D…<br><br>Example results (Company BEV1):<br>• Cocacola (1): Total Open 2,800 EGP | 100% in &lt;11 Days<br>• Aroma (10079): Total Open 7,500 EGP | 100% in &lt;11 Days<br>• Behery (446031): Total Open 600 EGP | 100% Not Due<br>• المتحدة (580024): Total Open 8,000 EGP | 100% in &lt;11 Days</div>
+                <div class="ex-step-note">📌 The % column shows what proportion of the vendor's total payable falls in each aging bucket. 100% in &lt;11 Days means the invoice is recent and not yet overdue.</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="ex-result-box">✅ <strong>Result:</strong> AP Aging Report generated for Company Code BEV1 as of 05/15/2026. All outstanding vendor invoices grouped by aging period. Report shows total payables by vendor with % distribution across aging buckets — essential for cash flow planning and payment prioritization.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -2591,6 +3083,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item" onclick="showQuiz(4)">
         <span class="sidebar-num">L5</span>Document Management & Reporting
       </div>
+      <div class="sidebar-item" onclick="showQuiz(5)">
+        <span class="sidebar-num">L6</span>AP — Accounts Payable
+      </div>
     </div>
 
     <div class="mobile-picker" id="quiz-mobile-picker">
@@ -2600,6 +3095,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="2">L3 — GL Account Master Data</option>
         <option value="3">L4 — GL Posting & Document Entry</option>
         <option value="4">L5 — Document Management & Reporting</option>
+        <option value="5">L6 — AP — Accounts Payable</option>
       </select>
     </div>
 
@@ -2949,6 +3445,75 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <div style="height:32px"></div>
         </div>
       </div>
+      <div class="quiz-section" id="qsec-5">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L6</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">AP — Accounts Payable</h2>
+          </div>
+          <div class="content-block">
+          <h3>🧪 Quiz — Lecture 6</h3>
+          <div id="quiz-l6">
+            <div class="question-card">
+              <div class="question-text">1. In SAP S/4HANA, what transaction is used to create a new vendor (Business Partner)?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l6','q1',this,'wrong')">FK01</button>
+                <button class="option" onclick="answerQ('l6','q1',this,'correct')">BP</button>
+                <button class="option" onclick="answerQ('l6','q1',this,'wrong')">XK01</button>
+                <button class="option" onclick="answerQ('l6','q1',this,'wrong')">FB60</button>
+              </div>
+              <div class="explanation" id="exp-l6-q1">In SAP S/4HANA, <strong>BP (Maintain Business Partner)</strong> is the unified T-code for creating vendors, customers, and general business partners. The older transactions XK01/FK01 (for vendors) and XD01/FD01 (for customers) still work but BP is the S/4HANA standard.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">2. What is the FI Supplier role code used when adding vendor accounting data in the BP transaction?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l6','q2',this,'wrong')">FLVN01 Supplier (New)</button>
+                <button class="option" onclick="answerQ('l6','q2',this,'correct')">FLVN00 Supplier (Fin.Accounting)</button>
+                <button class="option" onclick="answerQ('l6','q2',this,'wrong')">000000 Business Partner (Gen.)</button>
+                <button class="option" onclick="answerQ('l6','q2',this,'wrong')">FLKU00 Customer (Fin.Accounting)</button>
+              </div>
+              <div class="explanation" id="exp-l6-q2"><strong>FLVN00 Supplier (Fin.Accounting)</strong> is the FI role — it unlocks the Company Code tab and Vendor: Account Management tab where you set the Reconciliation Account (210100). <strong>FLVN01 Supplier (New)</strong> is the Purchasing role where you add the Purchasing Organization data.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">3. What document type does SAP assign when you post a vendor invoice via FB60?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l6','q3',this,'wrong')">SA — General GL Document</button>
+                <button class="option" onclick="answerQ('l6','q3',this,'wrong')">KZ — Vendor Payment</button>
+                <button class="option" onclick="answerQ('l6','q3',this,'correct')">KR — Vendor Invoice</button>
+                <button class="option" onclick="answerQ('l6','q3',this,'wrong')">DR — Customer Invoice</button>
+              </div>
+              <div class="explanation" id="exp-l6-q3">FB60 posts a <strong>KR document</strong> — KR stands for "Kreditor Rechnung" (German for Vendor Invoice). KZ = Vendor Payment. SA = General GL. DR = Customer Invoice. The document type controls number ranges, reversal rules, and what accounts can be posted to.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">4. In FBL1N, what does a red circle with a lightning bolt icon (⚡) in the DD column indicate?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l6','q4',this,'wrong')">The invoice has been paid and cleared</button>
+                <button class="option" onclick="answerQ('l6','q4',this,'wrong')">The document is parked and not yet posted</button>
+                <button class="option" onclick="answerQ('l6','q4',this,'correct')">The item is overdue — past its net due date</button>
+                <button class="option" onclick="answerQ('l6','q4',this,'wrong')">The vendor account is blocked for payment</button>
+              </div>
+              <div class="explanation" id="exp-l6-q4">In FBL1N, the <strong>⚡ lightning bolt in the DD (Due Date) column</strong> means the item is <strong>overdue</strong> — the net due date has passed and the invoice has not been paid. A plain red circle (no lightning) means open but not yet overdue. A green square means cleared/paid.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">5. What is the purpose of the IDCNAP report and what key parameter defines its aging buckets?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l6','q5',this,'wrong')">It shows vendor master data; the bucket is defined by the Reconciliation Account</button>
+                <button class="option" onclick="answerQ('l6','q5',this,'wrong')">It shows paid invoices; buckets are defined by Document Type</button>
+                <button class="option" onclick="answerQ('l6','q5',this,'correct')">It is the AP Aging Report — outstanding invoices grouped by overdue period; buckets defined in Output Control → Due Date Sorted List</button>
+                <button class="option" onclick="answerQ('l6','q5',this,'wrong')">It is the vendor balance display; buckets are defined by Company Code</button>
+              </div>
+              <div class="explanation" id="exp-l6-q5"><strong>IDCNAP</strong> = AP Aging Report. It shows all open (unpaid) vendor invoices as of a key date, distributed across aging buckets. The aging buckets are configured in <strong>Output Control → Due Date Sorted List</strong> (default: 10, 20, 30, 60, 90, 180, 360, 720 days). This report is essential for cash flow planning and payment prioritization.</div>
+            </div>
+            <div class="q-score" id="score-l6">
+              <div class="snum" id="scorenum-l6">0/5</div>
+              <p id="scoremsg-l6"></p>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l6',5)">Try Again</button>
+            </div>
+          </div>
+        </div>
+        <div style="height:32px"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div><!-- end page-quiz -->
@@ -3038,8 +3603,13 @@ function showQuiz(i){
 function showExercise(i){
   document.querySelectorAll('.ex-section').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('#page-exercises .sidebar-item').forEach(x=>x.classList.remove('active'));
-  document.getElementById('ex-section-'+i).classList.add('active');
-  document.querySelectorAll('#page-exercises .sidebar-item')[i].classList.add('active');
+  const sec=document.getElementById('ex-section-'+i);
+  if(sec) sec.classList.add('active');
+  // Find sidebar item by data or by matching onclick attribute
+  const allItems=document.querySelectorAll('#page-exercises .sidebar-item');
+  allItems.forEach(item=>{
+    if(item.getAttribute('onclick')==='showExercise('+i+')') item.classList.add('active');
+  });
   const sel=document.querySelector('#ex-mobile-picker select');
   if(sel) sel.value=i;
   window.scrollTo(0,0);
