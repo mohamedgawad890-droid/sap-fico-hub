@@ -372,16 +372,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 <!-- PAGE 3: MY COURSE -->
 <div id="page-mycourse" class="page">
 
-  <div class="unit-header">
-    <div class="breadcrumb">My Course › <span>SAP FICO Consultant</span></div>
-    <h1>SAP FICO Consultant Course</h1>
-    <p>My personal lecture notes — exactly as covered in class, lecture by lecture</p>
-    <div class="unit-meta">
-      <div class="meta-tag">📖 <b>Lectures 1–5</b> covered</div>
-      <div class="meta-tag">✍️ <b>Personal Notes</b></div>
-    </div>
-  </div>
-
   <div class="content-layout">
     <div class="sidebar">
       <div class="sidebar-title">Lectures</div>
@@ -2583,20 +2573,44 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
 <!-- ===== PAGE: QUIZ ===== -->
 <div id="page-quiz" class="page">
-  <div style="max-width:820px;margin:0 auto;padding:40px 32px 80px">
-    <div style="margin-bottom:36px">
-      <div style="font-size:13px;color:var(--muted);margin-bottom:6px">SAP FICO Hub › Quiz</div>
-      <h1 style="font-size:34px;font-weight:700;margin-bottom:8px">Knowledge Quizzes</h1>
-      <p style="font-size:16px;color:var(--dim)">Test your understanding — 5 questions per lecture, instant feedback</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--dim)">📚 <b style="color:var(--text)">5 Quizzes</b></div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--dim)">❓ <b style="color:var(--text)">25 Questions</b></div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--dim)">⚡ <b style="color:var(--text)">Instant Scoring</b></div>
+  <div class="content-layout">
+    <div class="sidebar">
+      <div class="sidebar-title">Lectures</div>
+      <div class="sidebar-item active" onclick="showQuiz(0)">
+        <span class="sidebar-num">L1</span>Introduction to SAP
+      </div>
+      <div class="sidebar-item" onclick="showQuiz(1)">
+        <span class="sidebar-num">L2</span>SAP Landscape & Methodology
+      </div>
+      <div class="sidebar-item" onclick="showQuiz(2)">
+        <span class="sidebar-num">L3</span>GL Account Master Data
+      </div>
+      <div class="sidebar-item" onclick="showQuiz(3)">
+        <span class="sidebar-num">L4</span>GL Posting & Document Entry
+      </div>
+      <div class="sidebar-item" onclick="showQuiz(4)">
+        <span class="sidebar-num">L5</span>Document Management & Reporting
       </div>
     </div>
-      <div class="quiz-page-section" id="qsection-0">
-        <div style="margin-bottom:10px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Lecture 1 — Introduction to SAP</div>
-        <div class="content-block" >
+
+    <div class="mobile-picker" id="quiz-mobile-picker">
+      <select onchange="showQuiz(parseInt(this.value)); window.scrollTo(0,120)">
+        <option value="0">L1 — Introduction to SAP</option>
+        <option value="1">L2 — SAP Landscape & Methodology</option>
+        <option value="2">L3 — GL Account Master Data</option>
+        <option value="3">L4 — GL Posting & Document Entry</option>
+        <option value="4">L5 — Document Management & Reporting</option>
+      </select>
+    </div>
+
+    <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
+      <div class="quiz-section active" id="qsec-0">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L1</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">Introduction to SAP</h2>
+          </div>
+          <div class="content-block" >
           <h3>🧪 Quiz — Lecture 1</h3>
           <div id="quiz-l1">
             <div class="question-card">
@@ -2657,10 +2671,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div style="height:32px"></div>
+        </div>
       </div>
-      <div class="quiz-page-section" id="qsection-1">
-        <div style="margin-bottom:10px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Lecture 2 — SAP Landscape & Methodology</div>
-        <div class="content-block" >
+      <div class="quiz-section" id="qsec-1">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L2</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">SAP Landscape & Methodology</h2>
+          </div>
+          <div class="content-block" >
           <h3>🧪 Quiz — Lecture 2</h3>
           <div id="quiz-l2">
             <div class="question-card">
@@ -2721,10 +2740,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div style="height:32px"></div>
+        </div>
       </div>
-      <div class="quiz-page-section" id="qsection-2">
-        <div style="margin-bottom:10px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Lecture 3 — GL Account Master Data</div>
-        <div class="content-block" >
+      <div class="quiz-section" id="qsec-2">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L3</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">GL Account Master Data</h2>
+          </div>
+          <div class="content-block" >
           <h3>🧪 Quiz — Lecture 3</h3>
           <div id="quiz-l3">
             <div class="question-card">
@@ -2785,10 +2809,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div style="height:32px"></div>
+        </div>
       </div>
-      <div class="quiz-page-section" id="qsection-3">
-        <div style="margin-bottom:10px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Lecture 4 — GL Posting & Document Entry</div>
-        <div class="content-block" >
+      <div class="quiz-section" id="qsec-3">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L4</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">GL Posting & Document Entry</h2>
+          </div>
+          <div class="content-block" >
           <h3>🧪 Quiz — Lecture 4</h3>
           <div id="quiz-l4">
             <div class="question-card">
@@ -2849,10 +2878,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div style="height:32px"></div>
+        </div>
       </div>
-      <div class="quiz-page-section" id="qsection-4">
-        <div style="margin-bottom:10px;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Lecture 5 — Document Management & Reporting</div>
-        <div class="content-block" style="border-color:var(--purple)">
+      <div class="quiz-section" id="qsec-4">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L5</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">Document Management & Reporting</h2>
+          </div>
+          <div class="content-block" style="border-color:var(--purple)">
           <h3 style="display:flex;align-items:center;gap:10px">📝 Lecture 5 Quiz <span class="quiz-badge">5 Questions</span></h3>
           <div id="quiz-l5">
             <div class="question-card">
@@ -2913,9 +2947,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div style="height:32px"></div>
+        </div>
       </div>
+    </div>
   </div>
 </div><!-- end page-quiz -->
+
 
 
 <style>
@@ -2955,10 +2992,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
 
 /* ── Quiz Page ── */
-.quiz-page-section .content-block{margin-bottom:32px;}
-.quiz-page-section .question-text{font-size:17px;}
-.quiz-page-section .option{font-size:16px;padding:14px 18px;}
-.quiz-page-section .explanation{font-size:15px;}
+.quiz-section{display:none;}
+.quiz-section.active{display:block;}
+.quiz-section .content-block{margin-bottom:28px;}
+.quiz-section .question-text{font-size:18px;font-weight:600;line-height:1.6;margin-bottom:18px;}
+.quiz-section .option{font-size:16px;padding:14px 18px;}
+.quiz-section .explanation{font-size:15px;line-height:1.7;padding:14px 18px;}
+.quiz-section .q-score .snum{font-size:56px;}
+.quiz-section .q-score p{font-size:17px;}
 
 /* ── Exercise Sections ── */
 .ex-section{display:none;}
@@ -2983,6 +3024,15 @@ function showPage(p){
   else if(p==='mycourse')tabs[1].classList.add('active');
   else if(p==='exercises')tabs[2].classList.add('active');
   else if(p==='quiz')tabs[3].classList.add('active');
+  window.scrollTo(0,0);
+}
+function showQuiz(i){
+  document.querySelectorAll('.quiz-section').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#page-quiz .sidebar-item').forEach(x=>x.classList.remove('active'));
+  document.getElementById('qsec-'+i).classList.add('active');
+  document.querySelectorAll('#page-quiz .sidebar-item')[i].classList.add('active');
+  const sel=document.querySelector('#quiz-mobile-picker select');
+  if(sel) sel.value=i;
   window.scrollTo(0,0);
 }
 function showExercise(i){
