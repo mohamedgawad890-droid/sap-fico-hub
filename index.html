@@ -191,6 +191,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 .mobile-picker select{width:100%;padding:10px 36px 10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
 .mobile-picker select:focus{outline:none;border-color:var(--accent);}
 @media(max-width:768px){.mobile-picker{display:block;}}
+
+/* CONSULTANT SECTIONS */
+.cons-section{display:none;}
+.cons-section.active{display:block;}
 </style>
 </head>
 <body>
@@ -4453,9 +4457,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 .ex-section{display:none;}
 .ex-section.active{display:block;}
 
-/* ── Consultant Sections ── */
-.cons-section{display:none;}
-.cons-section.active{display:block;}
 .ex-section .ex-step-desc{font-size:15px;line-height:1.9;}
 .ex-section .ex-step-title{font-size:16px;}
 .ex-section .ex-step-note{font-size:13px;line-height:1.7;}
@@ -4476,7 +4477,7 @@ function showPage(p){
   else if(p==='mycourse')tabs[1].classList.add('active');
   else if(p==='exercises')tabs[2].classList.add('active');
   else if(p==='quiz')tabs[3].classList.add('active');
-  else if(p==='consultant')tabs[4].classList.add('active');
+  else if(p==='consultant'){tabs[4].classList.add('active');showConsultant(0);}
   window.scrollTo(0,0);
 }
 function showConsultant(i){
