@@ -225,7 +225,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">16</span><span class="stat-lbl">T-Code Exercises</span></div>
       <div class="stat"><span class="stat-num">6</span><span class="stat-lbl">Course Lectures</span></div>
-      <div class="stat"><span class="stat-num">46</span><span class="stat-lbl">Quiz Questions</span></div>
+      <div class="stat"><span class="stat-num">74</span><span class="stat-lbl">Quiz Questions</span></div>
       <div class="stat"><span class="stat-num">1</span><span class="stat-lbl">Consultant Track Module</span></div>
     </div>
   </div>
@@ -3631,7 +3631,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Overall Score</span>
       <div style="display:flex;gap:8px;align-items:center">
         <span id="total-score-num" style="font-size:22px;font-weight:700;color:var(--accent)">0</span>
-        <span style="font-size:14px;color:var(--muted)">/ 46 correct</span>
+        <span style="font-size:14px;color:var(--muted)">/ 74 correct</span>
       </div>
       <div style="flex:1;min-width:160px;height:6px;background:var(--surface);border-radius:3px;overflow:hidden">
         <div id="total-score-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:3px;transition:width .4s"></div>
@@ -3697,10 +3697,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               </div>
               <div class="explanation" id="exp-l1-q5">SAP R/3 (1992) introduced the three-tier client-server architecture and became SAP's first global success. R/1 (1972) covered only finance, R/2 (1979) was mainframe-based.</div>
             </div>
-            <div class="q-score" id="score-l1">
-              <div class="snum" id="scorenum-l1">0/5</div>
+            <div class="question-card">
+              <div class="question-text">6. What does the abbreviation "FICO" stand for in SAP?</div>
+              <div class="options"><button class="option" onclick="answerQ('l1','q6',this,'wrong')">Financial Intelligence &amp; Cost Operations</button><button class="option" onclick="answerQ('l1','q6',this,'correct')">Financial Accounting &amp; Controlling</button><button class="option" onclick="answerQ('l1','q6',this,'wrong')">Financial Information &amp; Cost Overview</button><button class="option" onclick="answerQ('l1','q6',this,'wrong')">Fiscal Integration &amp; Controlling Objects</button></div>
+              <div class="explanation" id="exp-l1-q6">FICO = Financial Accounting (FI) + Controlling (CO). FI handles external financial reporting; CO handles internal management accounting. Together they form the financial backbone of every SAP implementation.</div>
+            </div><div class="question-card">
+              <div class="question-text">7. Which SAP product is designed for small businesses with up to approximately 100 employees?</div>
+              <div class="options"><button class="option" onclick="answerQ('l1','q7',this,'wrong')">SAP S/4HANA</button><button class="option" onclick="answerQ('l1','q7',this,'wrong')">SAP Business ByDesign</button><button class="option" onclick="answerQ('l1','q7',this,'correct')">SAP Business One</button><button class="option" onclick="answerQ('l1','q7',this,'wrong')">SAP ECC 6.0</button></div>
+              <div class="explanation" id="exp-l1-q7">SAP Business One targets small businesses (up to ~100 employees). SAP Business ByDesign targets mid-size companies. SAP S/4HANA and ECC target large enterprises.</div>
+            </div><div class="question-card">
+              <div class="question-text">8. In an SAP project, who is responsible for the day-to-day operation of the system after go-live?</div>
+              <div class="options"><button class="option" onclick="answerQ('l1','q8',this,'wrong')">The SAP partner's consulting team</button><button class="option" onclick="answerQ('l1','q8',this,'wrong')">The SAP AG support center</button><button class="option" onclick="answerQ('l1','q8',this,'correct')">The customer's internal team</button><button class="option" onclick="answerQ('l1','q8',this,'wrong')">The Basis administrator only</button></div>
+              <div class="explanation" id="exp-l1-q8">After go-live, the customer's internal team manages daily operations. The consulting partner provides hyper-care support for 4–8 weeks, then transitions to a support contract or the customer's own support team.</div>
+            </div><div class="q-score" id="score-l1">
+              <div class="snum" id="scorenum-l1">0/8</div>
               <p id="scoremsg-l1"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l1',5)">Try Again</button>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l1',8)">Try Again</button>
             </div>
           </div>
         </div>
@@ -3766,10 +3778,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               </div>
               <div class="explanation" id="exp-l2-q5">FI produces external reports for shareholders, tax authorities, and regulators (balance sheet, P&L). CO produces internal reports for management decisions — cost centers, profit centers, budgets vs actuals.</div>
             </div>
-            <div class="q-score" id="score-l2">
-              <div class="snum" id="scorenum-l2">0/5</div>
+            <div class="question-card">
+              <div class="question-text">6. In SAP Activate, what is the main deliverable of the Prepare phase?</div>
+              <div class="options"><button class="option" onclick="answerQ('l2','q6',this,'wrong')">The signed Blueprint document</button><button class="option" onclick="answerQ('l2','q6',this,'wrong')">The configured DEV system</button><button class="option" onclick="answerQ('l2','q6',this,'correct')">Project charter, scope, and system setup</button><button class="option" onclick="answerQ('l2','q6',this,'wrong')">The go-live cutover plan</button></div>
+              <div class="explanation" id="exp-l2-q6">The Prepare phase delivers: project charter, team assignments, system landscape setup (DEV/QAS/PRD provisioning), and initial project planning. The Blueprint is created in the Explore phase.</div>
+            </div><div class="question-card">
+              <div class="question-text">7. What is a Transport Request in SAP?</div>
+              <div class="options"><button class="option" onclick="answerQ('l2','q7',this,'wrong')">A request to move physical servers between data centers</button><button class="option" onclick="answerQ('l2','q7',this,'correct')">A package that carries configuration and development changes from DEV to QAS to PRD</button><button class="option" onclick="answerQ('l2','q7',this,'wrong')">An approval form signed by the customer before go-live</button><button class="option" onclick="answerQ('l2','q7',this,'wrong')">A log of all financial documents posted in one day</button></div>
+              <div class="explanation" id="exp-l2-q7">A Transport Request (TR) packages all configuration changes made in DEV and moves them through the landscape: DEV → QAS → PRD. Without releasing a TR, changes stay in DEV and never reach production.</div>
+            </div><div class="question-card">
+              <div class="question-text">8. Which organizational unit in SAP represents a legal entity that produces its own financial statements?</div>
+              <div class="options"><button class="option" onclick="answerQ('l2','q8',this,'wrong')">Controlling Area</button><button class="option" onclick="answerQ('l2','q8',this,'wrong')">Business Area</button><button class="option" onclick="answerQ('l2','q8',this,'wrong')">Plant</button><button class="option" onclick="answerQ('l2','q8',this,'correct')">Company Code</button></div>
+              <div class="explanation" id="exp-l2-q8">The Company Code is the central FI organizational unit — it represents an independent legal entity with its own balance sheet and P&amp;L. A Client can have multiple Company Codes (e.g. one per country).</div>
+            </div><div class="q-score" id="score-l2">
+              <div class="snum" id="scorenum-l2">0/8</div>
               <p id="scoremsg-l2"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l2',5)">Try Again</button>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l2',8)">Try Again</button>
             </div>
           </div>
         </div>
@@ -3835,10 +3859,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               </div>
               <div class="explanation" id="exp-l3-q5">The Field Status Group defines the field layout during posting. For example, G001 (General) makes certain fields like Text and Cost Center optional or mandatory. This controls what the accountant must fill in when posting to this GL account.</div>
             </div>
-            <div class="q-score" id="score-l3">
-              <div class="snum" id="scorenum-l3">0/5</div>
+            <div class="question-card">
+              <div class="question-text">6. In FS00, what does setting "Account Currency" to the company code currency mean?</div>
+              <div class="options"><button class="option" onclick="answerQ('l3','q6',this,'wrong')">The account can only receive foreign currency postings</button><button class="option" onclick="answerQ('l3','q6',this,'correct')">All postings to this account must be in the local company currency</button><button class="option" onclick="answerQ('l3','q6',this,'wrong')">The account is exempt from currency revaluation</button><button class="option" onclick="answerQ('l3','q6',this,'wrong')">The account automatically converts all currencies to USD</button></div>
+              <div class="explanation" id="exp-l3-q6">Setting Account Currency = Company Code currency (e.g. EGP) means only postings in that currency are allowed. Set it to a foreign currency (e.g. USD) to accept only USD postings. Leave it blank to allow all currencies.</div>
+            </div><div class="question-card">
+              <div class="question-text">7. What is the purpose of the Account Group in GL Account Master Data?</div>
+              <div class="options"><button class="option" onclick="answerQ('l3','q7',this,'wrong')">It defines which users can post to the account</button><button class="option" onclick="answerQ('l3','q7',this,'correct')">It groups accounts by type and controls the number range and field layout in FS00</button><button class="option" onclick="answerQ('l3','q7',this,'wrong')">It determines the tax code applied automatically</button><button class="option" onclick="answerQ('l3','q7',this,'wrong')">It links the account to a specific cost center</button></div>
+              <div class="explanation" id="exp-l3-q7">The Account Group (e.g. Fixed Asset, Revenue, Liability) controls: (1) the number range for the account, (2) which fields are displayed, required, or hidden in FS00. Every GL account must belong to an Account Group.</div>
+            </div><div class="question-card">
+              <div class="question-text">8. You are creating a vendor reconciliation GL account in FS00. Which Reconciliation Account type do you select?</div>
+              <div class="options"><button class="option" onclick="answerQ('l3','q8',this,'wrong')">B — Balance Sheet Account</button><button class="option" onclick="answerQ('l3','q8',this,'wrong')">P — Primary Costs or Revenue</button><button class="option" onclick="answerQ('l3','q8',this,'correct')">K — Vendors</button><button class="option" onclick="answerQ('l3','q8',this,'wrong')">D — Customers</button></div>
+              <div class="explanation" id="exp-l3-q8">Setting Reconciliation Account type to K (Vendors) links the GL account to the AP sub-ledger. All vendor postings (FB60, payments) automatically update this account. Direct manual posting to it is blocked by design.</div>
+            </div><div class="question-card">
+              <div class="question-text">9. What happens to P&amp;L account balances when you run FAGLGVTR at year-end?</div>
+              <div class="options"><button class="option" onclick="answerQ('l3','q9',this,'wrong')">All balances carry forward to the new fiscal year unchanged</button><button class="option" onclick="answerQ('l3','q9',this,'correct')">P&amp;L balances are zeroed out and their net is transferred to the Retained Earnings account</button><button class="option" onclick="answerQ('l3','q9',this,'wrong')">P&amp;L balances are deleted permanently</button><button class="option" onclick="answerQ('l3','q9',this,'wrong')">Nothing changes — FAGLGVTR only produces a simulation report</button></div>
+              <div class="explanation" id="exp-l3-q9">FAGLGVTR closes P&amp;L accounts: their net balance is transferred to the Retained Earnings GL account, and they start the new year at zero. Balance Sheet accounts (Assets, Liabilities, Equity) carry their closing balance forward as the new opening balance.</div>
+            </div><div class="question-card">
+              <div class="question-text">10. In FS00, what is the difference between "Short Text" and "Long Text"?</div>
+              <div class="options"><button class="option" onclick="answerQ('l3','q10',this,'wrong')">Short Text is for internal use only; Long Text appears in reports</button><button class="option" onclick="answerQ('l3','q10',this,'correct')">Short Text (max 20 chars) appears in search lists and line item displays; Long Text is the full account name used in financial statements</button><button class="option" onclick="answerQ('l3','q10',this,'wrong')">They are identical — SAP copies one to the other automatically</button><button class="option" onclick="answerQ('l3','q10',this,'wrong')">Long Text is mandatory; Short Text is optional</button></div>
+              <div class="explanation" id="exp-l3-q10">Short Text (max 20 characters) appears in dropdown searches, line item displays, and compact reports. Long Text is the full descriptive name used in financial statements and printouts. Both should be meaningful and consistent.</div>
+            </div><div class="q-score" id="score-l3">
+              <div class="snum" id="scorenum-l3">0/10</div>
               <p id="scoremsg-l3"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l3',5)">Try Again</button>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l3',10)">Try Again</button>
             </div>
           </div>
         </div>
@@ -3904,10 +3948,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               </div>
               <div class="explanation" id="exp-l4-q5">PstKy 31 = Vendor Credit Invoice. When posting a vendor invoice, the vendor account is credited (liability increases). PstKy 01 = Customer Debit Invoice. PstKy 40/50 = GL Debit/Credit entries.</div>
             </div>
-            <div class="q-score" id="score-l4">
-              <div class="snum" id="scorenum-l4">0/5</div>
+            <div class="question-card">
+              <div class="question-text">6. In FB50, what is the key difference between "Document Date" and "Posting Date"?</div>
+              <div class="options"><button class="option" onclick="answerQ('l4','q6',this,'wrong')">They must always be the same date in SAP</button><button class="option" onclick="answerQ('l4','q6',this,'correct')">Document Date is the date on the original source document; Posting Date determines which accounting period is affected</button><button class="option" onclick="answerQ('l4','q6',this,'wrong')">Posting Date is when the accountant saves the entry; Document Date is when it is approved</button><button class="option" onclick="answerQ('l4','q6',this,'wrong')">Document Date is mandatory; Posting Date is optional</button></div>
+              <div class="explanation" id="exp-l4-q6">Document Date = date on the physical document (e.g. invoice date: 28 April). Posting Date = determines which fiscal period the entry hits (e.g. 30 April = Period 4). They can differ — a March invoice can be posted in April if the period is still open.</div>
+            </div><div class="question-card">
+              <div class="question-text">7. A vendor invoice was posted with the wrong amount and needs to be corrected. What is the correct SAP process?</div>
+              <div class="options"><button class="option" onclick="answerQ('l4','q7',this,'wrong')">Open the document in FB03 and change the amount</button><button class="option" onclick="answerQ('l4','q7',this,'correct')">Use FB08 to reverse the document, then re-post with the correct amount</button><button class="option" onclick="answerQ('l4','q7',this,'wrong')">Delete the document from the database</button><button class="option" onclick="answerQ('l4','q7',this,'wrong')">Call SAP support to edit the database directly</button></div>
+              <div class="explanation" id="exp-l4-q7">Posted documents cannot be edited or deleted in SAP — this is a core audit principle. Correct process: (1) Reverse the wrong document with FB08 (creates a mirror-image reversal entry), (2) Post a new correct document. This leaves a complete, tamper-proof audit trail.</div>
+            </div><div class="question-card">
+              <div class="question-text">8. What does Posting Key 31 tell SAP when entered in F-02?</div>
+              <div class="options"><button class="option" onclick="answerQ('l4','q8',this,'wrong')">Post a debit to a GL account</button><button class="option" onclick="answerQ('l4','q8',this,'correct')">Post a credit to a vendor account — the vendor invoice line</button><button class="option" onclick="answerQ('l4','q8',this,'wrong')">Post a debit to a customer account</button><button class="option" onclick="answerQ('l4','q8',this,'wrong')">Post a credit to an asset account</button></div>
+              <div class="explanation" id="exp-l4-q8">PstKy 31 = Vendor / Credit. When you enter 31 as the posting key in F-02, SAP knows: (1) this line posts to a Vendor account, (2) it is a Credit entry (increasing the liability). This is the standard posting key for a vendor invoice credit line.</div>
+            </div><div class="question-card">
+              <div class="question-text">9. When would you use "Park" instead of posting directly in FB50?</div>
+              <div class="options"><button class="option" onclick="answerQ('l4','q9',this,'wrong')">When the document is fully correct and ready for the GL</button><button class="option" onclick="answerQ('l4','q9',this,'wrong')">When you want to save a private draft only you can retrieve</button><button class="option" onclick="answerQ('l4','q9',this,'correct')">When the document needs a second person to review and approve before it updates the GL</button><button class="option" onclick="answerQ('l4','q9',this,'wrong')">When posting to a prior fiscal year</button></div>
+              <div class="explanation" id="exp-l4-q9">Park = shared draft that does NOT update GL balances. It enters an approval workflow — another authorized user (e.g. supervisor) can open it in FBV0, review it, and post it. Use Park whenever a document requires dual control before posting.</div>
+            </div><div class="question-card">
+              <div class="question-text">10. What controls the automatic assignment of a document number when you post in FB50?</div>
+              <div class="options"><button class="option" onclick="answerQ('l4','q10',this,'wrong')">The Posting Date determines the document number</button><button class="option" onclick="answerQ('l4','q10',this,'correct')">The Document Type — each document type has a number range configured in FBN1</button><button class="option" onclick="answerQ('l4','q10',this,'wrong')">The Company Code — each company code uses one number range for all documents</button><button class="option" onclick="answerQ('l4','q10',this,'wrong')">The user ID of the person posting the document</button></div>
+              <div class="explanation" id="exp-l4-q10">Each Document Type (SA, KR, DR, etc.) is assigned a Number Range in FBN1. SAP automatically picks the next available number from that range when you post. This is why GL documents get 10xxxxxxx numbers and vendor invoices get 19xxxxxxx numbers.</div>
+            </div><div class="q-score" id="score-l4">
+              <div class="snum" id="scorenum-l4">0/10</div>
               <p id="scoremsg-l4"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l4',5)">Try Again</button>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l4',10)">Try Again</button>
             </div>
           </div>
         </div>
@@ -3973,10 +4037,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               </div>
               <div class="explanation" id="exp-l5-q5">The correct process in Fiori: search for <strong>"Upload General Journal Entries"</strong> → click Download Template (choose .xlsx) → fill in header and line item data in the template → click Browse to upload the file → click <strong>Post</strong>. Use Show Log to verify results and catch any errors.</div>
             </div>
-            <div class="q-score" id="score-l5">
-              <div class="snum" id="scorenum-l5">0/5</div>
+            <div class="question-card">
+              <div class="question-text">6. In FB08, what is the impact of using a prior-period reversal reason compared to Reason 01?</div>
+              <div class="options"><button class="option" onclick="answerQ('l5','q6',this,'wrong')">No difference — all reversal reasons produce the same financial result</button><button class="option" onclick="answerQ('l5','q6',this,'correct')">Reason 01 reverses in the current period; prior-period reasons allow the reversal to post back into the original period, correcting that period's P&amp;L</button><button class="option" onclick="answerQ('l5','q6',this,'wrong')">Reason 01 is only for vendor documents; prior-period reasons are for GL documents</button><button class="option" onclick="answerQ('l5','q6',this,'wrong')">Prior-period reversal reasons automatically reopen the closed period</button></div>
+              <div class="explanation" id="exp-l5-q6">Reversal Reason 01 posts the reversal with today's date (current period). Prior-period reasons (e.g. 02) allow you to set a Reversal Date in the original period — so the correction appears in the month the error occurred, not in the current month. Important for accurate monthly P&L.</div>
+            </div><div class="question-card">
+              <div class="question-text">7. You want to see all GL postings on account 500005 for Q1 2026 including both paid and unpaid items. Which T-code and selection do you use?</div>
+              <div class="options"><button class="option" onclick="answerQ('l5','q7',this,'wrong')">FB03 — enter the account number and fiscal year</button><button class="option" onclick="answerQ('l5','q7',this,'correct')">FBL3N — select All Items with a posting date range 01.01.2026 to 31.03.2026</button><button class="option" onclick="answerQ('l5','q7',this,'wrong')">FAGLB03 — it shows individual line items by date range</button><button class="option" onclick="answerQ('l5','q7',this,'wrong')">FBV0 — it lists all items pending approval</button></div>
+              <div class="explanation" id="exp-l5-q7">FBL3N = GL Account Line Item Display. Select "All Items" to include both open and cleared items. Use the Posting Date range to filter Q1. FAGLB03 shows period totals (summary), not individual line items.</div>
+            </div><div class="question-card">
+              <div class="question-text">8. What is the primary purpose of T-code FAGLB03?</div>
+              <div class="options"><button class="option" onclick="answerQ('l5','q8',this,'wrong')">To display individual line items for a GL account</button><button class="option" onclick="answerQ('l5','q8',this,'correct')">To display the period-by-period opening balance, postings, and closing balance of a GL account</button><button class="option" onclick="answerQ('l5','q8',this,'wrong')">To reverse a GL document</button><button class="option" onclick="answerQ('l5','q8',this,'wrong')">To list all parked documents for a GL account</button></div>
+              <div class="explanation" id="exp-l5-q8">FAGLB03 = GL Account Balance Display. It shows, per accounting period: opening balance, total debits, total credits, and closing balance. It is the standard tool for reconciliation, trend analysis, and verifying that a GL account balance is correct at month-end.</div>
+            </div><div class="q-score" id="score-l5">
+              <div class="snum" id="scorenum-l5">0/8</div>
               <p id="scoremsg-l5"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l5',5)">Try Again</button>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l5',8)">Try Again</button>
             </div>
           </div>
         </div>
@@ -4042,25 +4118,45 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               </div>
               <div class="explanation" id="exp-l6-q5"><strong>IDCNAP</strong> = AP Aging Report. It shows all open (unpaid) vendor invoices as of a key date, distributed across aging buckets. The aging buckets are configured in <strong>Output Control → Due Date Sorted List</strong> (default: 10, 20, 30, 60, 90, 180, 360, 720 days). This report is essential for cash flow planning and payment prioritization.</div>
             </div>
-            <div class="q-score" id="score-l6">
-              <div class="snum" id="scorenum-l6">0/5</div>
+            <div class="question-card">
+              <div class="question-text">6. What is the role of the Reconciliation Account assigned in the vendor master (BP)?</div>
+              <div class="options"><button class="option" onclick="answerQ('l6','q6',this,'wrong')">It stores the vendor bank account details for payment runs</button><button class="option" onclick="answerQ('l6','q6',this,'correct')">It is a GL account that automatically receives the credit posting when a vendor invoice is posted in FB60</button><button class="option" onclick="answerQ('l6','q6',this,'wrong')">It tracks vendor payment terms and calculates due dates</button><button class="option" onclick="answerQ('l6','q6',this,'wrong')">It is used only for reporting and has no direct effect on GL postings</button></div>
+              <div class="explanation" id="exp-l6-q6">The Reconciliation Account (e.g. 210100 — AP) in the vendor master is automatically credited every time you post a vendor invoice via FB60. You never enter it manually — SAP pulls it from the vendor master. This links the AP sub-ledger to the GL balance sheet simultaneously.</div>
+            </div><div class="question-card">
+              <div class="question-text">7. In FBL1N, you want to see only unpaid vendor invoices as of today. Which selection do you choose?</div>
+              <div class="options"><button class="option" onclick="answerQ('l6','q7',this,'wrong')">All Items with a posting date of today</button><button class="option" onclick="answerQ('l6','q7',this,'wrong')">Cleared Items with fiscal year filter</button><button class="option" onclick="answerQ('l6','q7',this,'correct')">Open Items at Key Date = today</button><button class="option" onclick="answerQ('l6','q7',this,'wrong')">Special G/L Transactions only</button></div>
+              <div class="explanation" id="exp-l6-q7">Open Items = invoices not yet paid. Key Date = today means SAP shows all items open as of that date. "Cleared Items" shows already-paid invoices. "All Items" shows both — useful for full history but not filtered to just outstanding payables.</div>
+            </div><div class="question-card">
+              <div class="question-text">8. A vendor invoice posted in FB60 used the wrong GL expense account and is still unpaid. What is the correct correction process?</div>
+              <div class="options"><button class="option" onclick="answerQ('l6','q8',this,'wrong')">Open FB60 and change the GL account directly</button><button class="option" onclick="answerQ('l6','q8',this,'correct')">Use FB08 to reverse the original invoice, then post a new FB60 with the correct GL account</button><button class="option" onclick="answerQ('l6','q8',this,'wrong')">Delete the document and repost from scratch</button><button class="option" onclick="answerQ('l6','q8',this,'wrong')">Change only the GL account in FB03</button></div>
+              <div class="explanation" id="exp-l6-q8">Posted documents are immutable in SAP. Correct process: (1) FB08 to reverse the wrong invoice (creates a mirror reversal, cancels the wrong GL posting), (2) Post a new FB60 with the correct GL expense account. This leaves a complete audit trail of the error and the correction.</div>
+            </div><div class="question-card">
+              <div class="question-text">9. What does a negative cumulative balance in FK10N indicate for a vendor account?</div>
+              <div class="options"><button class="option" onclick="answerQ('l6','q9',this,'wrong')">A data error — vendor balances should always be positive</button><button class="option" onclick="answerQ('l6','q9',this,'wrong')">The vendor owes your company money from a credit memo</button><button class="option" onclick="answerQ('l6','q9',this,'correct')">Your company has a normal outstanding liability to this vendor</button><button class="option" onclick="answerQ('l6','q9',this,'wrong')">The vendor account has been blocked for payment</button></div>
+              <div class="explanation" id="exp-l6-q9">Vendor accounts in SAP AP carry a Credit balance = normal liability (you owe them). A negative cumulative balance in FK10N = your company owes that vendor money. This is the expected state for an active supplier. A positive balance (unusual) would mean the vendor owes you, e.g. from an overpayment.</div>
+            </div><div class="question-card">
+              <div class="question-text">10. In FBCJ Cash Journal, what is the difference between "Save" and "Post Selected"?</div>
+              <div class="options"><button class="option" onclick="answerQ('l6','q10',this,'wrong')">They are the same — both update GL balances immediately</button><button class="option" onclick="answerQ('l6','q10',this,'correct')">Save stores the entry as a draft without updating GL; Post Selected creates the follow-on accounting document that actually updates GL balances</button><button class="option" onclick="answerQ('l6','q10',this,'wrong')">Post Selected saves the entry privately; Save shares it with the team</button><button class="option" onclick="answerQ('l6','q10',this,'wrong')">Save requires supervisor approval; Post Selected posts without approval</button></div>
+              <div class="explanation" id="exp-l6-q10">FBCJ is a two-step process: (1) Save = stores the cash entry as a draft in the journal — GL is NOT yet updated. (2) Post Selected = creates the actual Follow-On FI document that posts to all relevant GL accounts. Both steps are required to complete a cash transaction.</div>
+            </div><div class="q-score" id="score-l6">
+              <div class="snum" id="scorenum-l6">0/10</div>
               <p id="scoremsg-l6"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l6',5)">Try Again</button>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l6',10)">Try Again</button>
             </div>
           </div>
         </div>
         <div style="height:32px"></div>
         </div>
-      
+      </div>
       <div class="quiz-section" id="qsec-6">
         <div style="padding:40px">
           <div style="margin-bottom:28px">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">TC</span>
             <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:4px">T-Code Challenge</h2>
-            <p style="font-size:14px;color:var(--muted)">One question per T-code — 16 questions total</p>
+            <p style="font-size:14px;color:var(--muted)">One question per T-code — 20 questions total</p>
           </div>
           <div class="content-block" style="border-color:var(--gold)">
-          <h3 style="display:flex;align-items:center;gap:10px">🎯 T-Code Quiz <span class="quiz-badge" style="background:rgba(245,158,11,.15);border-color:var(--gold);color:var(--gold)">16 Questions</span></h3>
+          <h3 style="display:flex;align-items:center;gap:10px">🎯 T-Code Quiz <span class="quiz-badge" style="background:rgba(245,158,11,.15);border-color:var(--gold);color:var(--gold)">20 Questions</span></h3>
           <div id="quiz-tc">
             <div class="question-card"><div class="question-text">1. (FB03) — In FB03, which view replaces posting keys with actual GL account numbers?</div><div class="options"><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Data Entry View</button><button class="option" onclick="answerQ('tc','q1',this,'correct')">General Ledger View</button><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Document Header View</button><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Line Item Display</button></div><div class="explanation" id="exp-tc-q1">GL View replaces customer/vendor codes with actual account numbers. S = Soll (Debit) and H = Haben (Credit) in German accounting notation.</div></div>
             <div class="question-card"><div class="question-text">2. (FB08) — Reversal Reason "01" in FB08 is used for which type of reversal?</div><div class="options"><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Prior-period reversal</button><button class="option" onclick="answerQ('tc','q2',this,'correct')">Reversal in the current period</button><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Mass reversal of multiple documents</button><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Reversal due to a system error</button></div><div class="explanation" id="exp-tc-q2">Reason 01 = Reversal in current period — the most common code. Other codes exist specifically for prior-period reversals and different correction scenarios.</div></div>
@@ -4078,8 +4174,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="question-card"><div class="question-text">14. (FBL1N) — In FBL1N results, what does a ⚡ lightning bolt indicator mean?</div><div class="options"><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Document was posted via Fiori app</button><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Special G/L transaction such as a down payment</button><button class="option" onclick="answerQ('tc','q14',this,'correct')">Item is overdue — net due date has passed and it is unpaid</button><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Vendor account is blocked for payment</button></div><div class="explanation" id="exp-tc-q14">Lightning bolt = overdue (due date passed, not yet paid). Plain red circle = open but not yet due. Green square = cleared and matched. Key indicators to prioritize payment runs.</div></div>
             <div class="question-card"><div class="question-text">15. (FK10N) — In FK10N, vendor 580024 shows a cumulative balance of 9,443−. What does this mean?</div><div class="options"><button class="option" onclick="answerQ('tc','q15',this,'wrong')">The vendor owes your company 9,443</button><button class="option" onclick="answerQ('tc','q15',this,'wrong')">This is a data error — AP balances should be positive</button><button class="option" onclick="answerQ('tc','q15',this,'correct')">Your company owes this vendor 9,443 — a normal AP credit balance</button><button class="option" onclick="answerQ('tc','q15',this,'wrong')">The vendor account has been blocked</button></div><div class="explanation" id="exp-tc-q15">In AP, a negative cumulative balance is completely normal — it means your company has a liability to this vendor. Negative = you owe them. Positive = they owe you (unusual, may indicate overpayment).</div></div>
             <div class="question-card"><div class="question-text">16. (IDCNAP) — In IDCNAP, where do you configure the aging buckets (10, 20, 30 days etc.)?</div><div class="options"><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Supplier Selection section</button><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Line Item Selection section</button><button class="option" onclick="answerQ('tc','q16',this,'correct')">Output Control → Due Date Sorted List</button><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Further Selections → Posting Date Range</button></div><div class="explanation" id="exp-tc-q16">Output Control → Due Date Sorted List defines the aging buckets. Default: 10, 20, 30, 60, 90, 180, 360, 720 days. Customize to match your company's payment terms (e.g. Net 30, Net 45).</div></div>
-            <div class="q-score" id="score-tc">
-              <div class="snum" id="scorenum-tc">0/16</div>
+            <div class="question-card">
+              <div class="question-text">17. (FB03 / FB08) — After reversing a document with FB08, can the original document still be found in FB03?</div>
+              <div class="options"><button class="option" onclick="answerQ('tc','q17',this,'wrong')">No — reversed documents are deleted from the system</button><button class="option" onclick="answerQ('tc','q17',this,'correct')">Yes — the original document remains and shows a Reversed indicator with the reversal document number</button><button class="option" onclick="answerQ('tc','q17',this,'wrong')">Only for 90 days, then it is archived and hidden</button><button class="option" onclick="answerQ('tc','q17',this,'wrong')">Only if the fiscal year is still open</button></div>
+              <div class="explanation" id="exp-tc-q17">SAP never deletes posted documents — this is a fundamental audit principle. Both the original document and the reversal document remain permanently visible in FB03. The original shows "Reversed" status and the reversal document number; the reversal shows the original document number.</div>
+            </div><div class="question-card">
+              <div class="question-text">18. (FS00 / FBL3N) — Postings to GL account 501999 keep failing with a CO error. What is most likely missing?</div>
+              <div class="options"><button class="option" onclick="answerQ('tc','q18',this,'wrong')">The account has no Short Text defined</button><button class="option" onclick="answerQ('tc','q18',this,'wrong')">The Field Status Group is not assigned</button><button class="option" onclick="answerQ('tc','q18',this,'correct')">The CElem Category was not set in the Control Data tab of FS00</button><button class="option" onclick="answerQ('tc','q18',this,'wrong')">The account number is outside the valid number range</button></div>
+              <div class="explanation" id="exp-tc-q18">P-type (P&amp;L) accounts must have a CElem Category to integrate with SAP CO. Without it, every posting requiring a cost object (cost center, internal order) fails with a CO error. Fix: FS00 → Control Data tab → set CElem Category (1=Primary Costs, 11=Revenue, 12=Sales Deductions).</div>
+            </div><div class="question-card">
+              <div class="question-text">19. (FBL1N / FK10N) — What is the key operational difference between FBL1N and FK10N?</div>
+              <div class="options"><button class="option" onclick="answerQ('tc','q19',this,'wrong')">FBL1N is for customers only; FK10N is for vendors only</button><button class="option" onclick="answerQ('tc','q19',this,'correct')">FBL1N shows every individual document line item; FK10N shows period-by-period summary totals</button><button class="option" onclick="answerQ('tc','q19',this,'wrong')">FK10N shows open items; FBL1N shows only cleared items</button><button class="option" onclick="answerQ('tc','q19',this,'wrong')">They show identical data in different visual layouts</button></div>
+              <div class="explanation" id="exp-tc-q19">FBL1N = line item level — every individual document (each invoice, each payment) as a separate row with its own date, amount, and status. FK10N = period summary — total debits, credits, and balance per month. Use FBL1N to investigate specific transactions; FK10N for reconciliation and trend analysis.</div>
+            </div><div class="question-card">
+              <div class="question-text">20. (FB60 / FBL1N) — After posting a vendor invoice in FB60, where does the automatic offsetting credit post?</div>
+              <div class="options"><button class="option" onclick="answerQ('tc','q20',this,'wrong')">To the bank account you specify in the header</button><button class="option" onclick="answerQ('tc','q20',this,'wrong')">To a suspense clearing account for later allocation</button><button class="option" onclick="answerQ('tc','q20',this,'correct')">To the AP Reconciliation Account linked in the vendor master</button><button class="option" onclick="answerQ('tc','q20',this,'wrong')">To the GR/IR clearing account from Materials Management</button></div>
+              <div class="explanation" id="exp-tc-q20">FB60 posts: Dr = GL expense account (you enter this) / Cr = AP Reconciliation Account (SAP pulls this automatically from the vendor master — you never type it). This is the core FI/AP integration: the vendor sub-ledger and the GL balance sheet are updated simultaneously in one document.</div>
+            </div><div class="q-score" id="score-tc">
+              <div class="snum" id="scorenum-tc">0/20</div>
               <p id="scoremsg-tc"></p>
               <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizTC()">Try Again</button>
             </div>
@@ -4089,7 +4201,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       </div>
     </div>
   </div>
-</div>
 </div><!-- end page-quiz -->
 <!-- ===== PAGE: CONSULTANT TRACK ===== -->
 <div id="page-consultant" class="page">
@@ -4697,7 +4808,7 @@ function updateLecProgress(){
 /* ── Overall quiz score ── */
 function updateTotalScore(){
   const lecs=['l1','l2','l3','l4','l5','l6','tc'];
-  const totals={l1:5,l2:5,l3:5,l4:5,l5:5,l6:5,tc:16};
+  const totals={l1:8,l2:8,l3:10,l4:10,l5:8,l6:10,tc:20};
   let total=0, correct=0;
   lecs.forEach(l=>{
     const t=totals[l];
@@ -4717,7 +4828,7 @@ function updateTotalScore(){
 
 /* ── Reset TC quiz ── */
 function resetQuizTC(){
-  for(let i=1;i<=16;i++) delete quizState['tc_q'+i];
+  for(let i=1;i<=20;i++) delete quizState['tc_q'+i];
   const quiz=document.getElementById('quiz-tc');
   quiz.querySelectorAll('.option').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong');});
   quiz.querySelectorAll('.explanation').forEach(e=>e.style.display='none');
