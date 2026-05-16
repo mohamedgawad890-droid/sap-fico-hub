@@ -2073,14 +2073,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       </select>
     </div>
 
-    <div id="ex-filter-bar" style="padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+    <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
+      <div id="ex-filter-bar" style="padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:10;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <span style="font-size:12px;color:var(--muted);font-weight:600;margin-right:4px">FILTER:</span>
       <button onclick="filterEx('all')" id="filt-all" style="padding:4px 14px;border-radius:20px;border:1px solid var(--accent);background:var(--accent);color:white;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">All</button>
       <button onclick="filterEx('beginner')" id="filt-beginner" style="padding:4px 14px;border-radius:20px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Beginner</button>
       <button onclick="filterEx('intermediate')" id="filt-intermediate" style="padding:4px 14px;border-radius:20px;border:1px solid rgba(245,158,11,.4);background:transparent;color:var(--gold);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Intermediate</button>
       <span id="ex-progress-label" style="margin-left:auto;font-size:12px;color:var(--muted)">Loading...</span>
     </div>
-    <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
       <div class="ex-section active" id="ex-section-0">
         <div style="padding:36px 40px 0">
           <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap">
