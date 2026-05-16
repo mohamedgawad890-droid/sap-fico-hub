@@ -3625,8 +3625,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="6">TC — T-Code Challenge</option>
       </select>
     </div>
-
-    <div id="quiz-scoreboard" style="background:var(--surface2);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
+      <div id="quiz-scoreboard" style="background:var(--surface2);border-bottom:1px solid var(--border);padding:12px 24px;position:sticky;top:60px;z-index:10;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
       <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Overall Score</span>
       <div style="display:flex;gap:8px;align-items:center">
         <span id="total-score-num" style="font-size:22px;font-weight:700;color:var(--accent)">0</span>
@@ -3637,7 +3637,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       </div>
       <span id="total-score-pct" style="font-size:13px;color:var(--muted);font-weight:600">0%</span>
     </div>
-    <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
       <div class="quiz-section active" id="qsec-0">
         <div style="padding:40px">
           <div style="margin-bottom:28px">
