@@ -219,10 +219,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <h1>SAP FICO Learning Hub</h1>
     <p>Your structured guide to mastering SAP Financial Accounting & Controlling — from fundamentals to consultant level</p>
     <div class="hero-stats">
-      <div class="stat"><span class="stat-num">1972</span><span class="stat-lbl">Founded</span></div>
-      <div class="stat"><span class="stat-num">440K+</span><span class="stat-lbl">Clients Worldwide</span></div>
-      <div class="stat"><span class="stat-num">25+</span><span class="stat-lbl">Core Modules</span></div>
-      <div class="stat"><span class="stat-num">180+</span><span class="stat-lbl">Countries</span></div>
+      <div class="stat"><span class="stat-num">16</span><span class="stat-lbl">T-Code Exercises</span></div>
+      <div class="stat"><span class="stat-num">6</span><span class="stat-lbl">Course Lectures</span></div>
+      <div class="stat"><span class="stat-num">46</span><span class="stat-lbl">Quiz Questions</span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-lbl">Consultant Modules</span></div>
     </div>
   </div>
 
@@ -231,7 +231,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <!-- ABOUT -->
     <div class="about-card">
       <div class="about-photo-wrap">
-        
+        <svg class="about-photo" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="avgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="70" cy="70" r="70" fill="url(#avgrad)"/><text x="70" y="88" text-anchor="middle" font-family="IBM Plex Sans,Arial,sans-serif" font-size="44" font-weight="700" fill="white">MA</text></svg>
         <div class="about-socials">
           <a class="social-btn" href="https://www.linkedin.com/in/mohamed-abdelgawad890" target="_blank">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -375,7 +375,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
   <div class="content-layout">
     <div class="sidebar">
-      <div class="sidebar-title">Lectures</div>
+      <div class="sidebar-title" style="display:flex;justify-content:space-between;align-items:center">Lectures <span id="lec-progress" style="font-size:11px;color:var(--green);font-weight:700">0/6</span></div>
       <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
       <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Methodology</div>
       <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
@@ -392,6 +392,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="3">L4 — GL Posting &amp; Document Entry</option>
         <option value="4">L5 — Document Management &amp; Reporting</option>
         <option value="5">L6 — AP — Accounts Payable</option>
+        <option value="6">TC — T-Code Challenge</option>
       </select>
     </div>
 
@@ -587,6 +588,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <!-- QUIZ L1 -->
 
 
+      
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(0,this)" id="lec-done-0" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 1 Complete</button></div>
       </div><!-- end lecture-0 -->
 
       <!-- LECTURE 2 -->
@@ -923,6 +926,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <!-- QUIZ L2 -->
 
 
+      
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(1,this)" id="lec-done-1" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 2 Complete</button></div>
       </div><!-- end lecture-1 -->
 
       <!-- ═══════════════════════════════════════════════════════ LECTURE 3 -->
@@ -1211,6 +1216,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <!-- QUIZ L3 -->
 
 
+      
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(2,this)" id="lec-done-2" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 3 Complete</button></div>
       </div><!-- end lecture-2 -->
 
       <!-- ═══════════════════════════════════════════════════════ LECTURE 4 -->
@@ -1494,6 +1501,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <!-- QUIZ L4 -->
 
 
+      
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(3,this)" id="lec-done-3" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 4 Complete</button></div>
       </div><!-- end lecture-3 -->
 
       <!-- ═══════════════════════════════════════════════════════ LECTURE 5 -->
@@ -1770,7 +1779,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <button class="btn btn-outline" onclick="showLecture(3)">← Lecture 4</button>
           <button class="btn btn-primary" onclick="showLecture(5)">Lecture 6 →</button>
         </div>
+        <div style="text-align:center;padding:20px 0 8px"><button onclick="markLecDone(4,this)" id="lec-done-4" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 5 Complete</button></div>
 
+      
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(4,this)" id="lec-done-4" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 5 Complete</button></div>
       </div><!-- end lecture-4 -->
 
       <!-- LECTURE 6 -->
@@ -1960,6 +1972,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 7 — Coming Soon</button>
         </div>
 
+      
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(5,this)" id="lec-done-5" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 6 Complete</button></div>
       </div><!-- end lecture-5 -->
     </div><!-- end lesson-content -->
   </div><!-- end content-layout -->
@@ -1971,68 +1985,68 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
   <div class="content-layout">
     <div class="sidebar">
       <div class="sidebar-title">T-Codes</div>
-      <div class="sidebar-item active" onclick="showExercise(0)">
+      <div class="sidebar-item active" onclick="showExercise(0)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB03</span>
         <span style="font-size:13px">Display & Analyze a Posted Document</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(1)">
+      <div class="sidebar-item" onclick="showExercise(1)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB08</span>
         <span style="font-size:13px">Reverse a Posted Document</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(2)">
+      <div class="sidebar-item" onclick="showExercise(2)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBV0</span>
         <span style="font-size:13px">Find & Complete a Parked Document</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(3)">
+      <div class="sidebar-item" onclick="showExercise(3)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBL3N</span>
         <span style="font-size:13px">Display GL Account Line Items</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(4)">
+      <div class="sidebar-item" onclick="showExercise(4)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FAGLB03</span>
         <span style="font-size:13px">Display GL Account Period Balances</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(5)">
+      <div class="sidebar-item" onclick="showExercise(5)" data-diff="intermediate">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">SU01</span>
         <span style="font-size:13px">User Maintenance</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(6)">
+      <div class="sidebar-item" onclick="showExercise(6)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBCJ</span>
         <span style="font-size:13px">Cash Journal</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(7)">
+      <div class="sidebar-item" onclick="showExercise(7)" data-diff="intermediate">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">FIORI</span>
         <span style="font-size:13px">Upload General Journal Entries</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(8)">
+      <div class="sidebar-item" onclick="showExercise(8)" data-diff="intermediate">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">FS00</span>
         <span style="font-size:13px">Create G/L Account Master Data</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(9)">
+      <div class="sidebar-item" onclick="showExercise(9)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB50</span>
         <span style="font-size:13px">Post G/L Document</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(10)">
+      <div class="sidebar-item" onclick="showExercise(10)" data-diff="intermediate">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--purple);min-width:68px;flex-shrink:0">F-02</span>
         <span style="font-size:13px">Classic G/L Posting</span>
       </div>
       <div style="padding:12px 20px 4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-top:1px solid var(--border);margin-top:8px">AP — Lecture 6</div>
-      <div class="sidebar-item" onclick="showExercise(11)">
+      <div class="sidebar-item" onclick="showExercise(11)" data-diff="intermediate">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">BP</span>
         <span style="font-size:13px">Create Vendor (Business Partner)</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(12)">
+      <div class="sidebar-item" onclick="showExercise(12)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB60</span>
         <span style="font-size:13px">Enter Vendor Invoice</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(13)">
+      <div class="sidebar-item" onclick="showExercise(13)" data-diff="beginner">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBL1N</span>
         <span style="font-size:13px">Vendor Line Item Display</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(14)">
+      <div class="sidebar-item" onclick="showExercise(14)" data-diff="intermediate">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--accent);min-width:68px;flex-shrink:0">FK10N</span>
         <span style="font-size:13px">Vendor Balance Display</span>
       </div>
-      <div class="sidebar-item" onclick="showExercise(15)">
+      <div class="sidebar-item" onclick="showExercise(15)" data-diff="intermediate">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--purple);min-width:68px;flex-shrink:0">IDCNAP</span>
         <span style="font-size:13px">AP Aging Report</span>
       </div>
@@ -2059,6 +2073,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       </select>
     </div>
 
+    <div id="ex-filter-bar" style="padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <span style="font-size:12px;color:var(--muted);font-weight:600;margin-right:4px">FILTER:</span>
+      <button onclick="filterEx('all')" id="filt-all" style="padding:4px 14px;border-radius:20px;border:1px solid var(--accent);background:var(--accent);color:white;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">All</button>
+      <button onclick="filterEx('beginner')" id="filt-beginner" style="padding:4px 14px;border-radius:20px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Beginner</button>
+      <button onclick="filterEx('intermediate')" id="filt-intermediate" style="padding:4px 14px;border-radius:20px;border:1px solid rgba(245,158,11,.4);background:transparent;color:var(--gold);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Intermediate</button>
+      <span id="ex-progress-label" style="margin-left:auto;font-size:12px;color:var(--muted)">Loading...</span>
+    </div>
     <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
       <div class="ex-section active" id="ex-section-0">
         <div style="padding:36px 40px 0">
@@ -2206,6 +2227,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB08</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Reverse the document if it was posted incorrectly</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View all line items for a specific GL account</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FAGLB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View period-by-period balances for an account</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <div></div>
+          <button onclick="markExDone(0,this)" id="ex-done-0" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(1)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FB08 →</button>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-1">
@@ -2275,6 +2302,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Find and verify the document before reversing</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Re-post the corrected entry after the reversal</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">F-02</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Alternative posting interface to re-post the corrected entry</span></div></div>
           </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(0)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FB03</button>
+          <button onclick="markExDone(1,this)" id="ex-done-1" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(2)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FBV0 →</button>
         </div>
         </div>
       </div>
@@ -2346,6 +2379,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Post directly without parking — for simple entries requiring no approval</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the document after it is finally posted</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB08</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Reverse the document if an error is found after posting</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(1)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FB08</button>
+          <button onclick="markExDone(2,this)" id="ex-done-2" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(3)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FBL3N →</button>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-3">
@@ -2411,6 +2450,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FAGLB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View period totals instead of individual line items</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Open any specific document directly from the results list</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Same concept but for vendor accounts instead of GL accounts</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(2)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FBV0</button>
+          <button onclick="markExDone(3,this)" id="ex-done-3" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(4)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FAGLB03 →</button>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-4">
@@ -2474,6 +2519,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Drill into individual line items for any specific period</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Same period-balance concept but for vendor accounts</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Open any specific document from the drilldown</span></div></div>
           </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(3)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FBL3N</button>
+          <button onclick="markExDone(4,this)" id="ex-done-4" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(5)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">SU01 →</button>
         </div>
         </div>
       </div>
@@ -2545,6 +2596,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">SU53</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Authorization check — shows exactly why a user received an authorization error</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify which documents a user has posted after account setup</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Filter by User Name to see all postings made by a specific account</span></div></div>
           </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(4)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FAGLB03</button>
+          <button onclick="markExDone(5,this)" id="ex-done-5" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(6)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FBCJ →</button>
         </div>
         </div>
       </div>
@@ -2649,6 +2706,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">For GL journal entries not involving the petty cash fund</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify the GL postings automatically created by FBCJ</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the full details of the follow-on accounting document</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(5)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← SU01</button>
+          <button onclick="markExDone(6,this)" id="ex-done-6" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(7)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FIORI →</button>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-7">
@@ -2708,6 +2771,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Manual single-entry alternative for low posting volumes</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify uploaded documents individually after the batch posts</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Review all postings to confirm the batch upload is complete</span></div></div>
           </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(6)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FBCJ</button>
+          <button onclick="markExDone(7,this)" id="ex-done-7" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(8)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FS00 →</button>
         </div>
         </div>
       </div>
@@ -2845,6 +2914,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Post to the newly created account immediately after saving</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View all transactions posted to this GL account</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FAGLB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the period balance of the account after postings</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(7)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FIORI</button>
+          <button onclick="markExDone(8,this)" id="ex-done-8" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(9)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FB50 →</button>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-9">
@@ -2941,6 +3016,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">F-02</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Legacy alternative for complex entries requiring posting keys or special GL indicators</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify the posted document immediately after</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB08</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Reverse the entry if a mistake is discovered after posting</span></div></div>
           </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(8)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FS00</button>
+          <button onclick="markExDone(9,this)" id="ex-done-9" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(10)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">F-02 →</button>
         </div>
         </div>
       </div>
@@ -3064,6 +3145,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Modern alternative for straightforward GL journal entries</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify the document number shown in the confirmation message</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB08</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Reverse the entry if an error is found after posting</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(9)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FB50</button>
+          <button onclick="markExDone(10,this)" id="ex-done-10" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(11)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">BP →</button>
+        </div>
         </div>
       </div>
 
@@ -3169,6 +3256,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB60</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Post the first vendor invoice after the vendor is created</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View all transactions for this vendor after invoices are posted</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the vendor period balance summary</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(10)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← F-02</button>
+          <button onclick="markExDone(11,this)" id="ex-done-11" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(12)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FB60 →</button>
+        </div>
         </div>
       </div>
 
@@ -3247,6 +3340,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">BP</span><span style="font-size:13px;color:var(--dim);line-height:1.5">The vendor must be created here first — FB60 will fail without it</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify the invoice appears in vendor line items after posting</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Check the updated total vendor balance after posting</span></div></div>
           </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(11)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← BP</button>
+          <button onclick="markExDone(12,this)" id="ex-done-12" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(13)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FBL1N →</button>
         </div>
         </div>
       </div>
@@ -3328,6 +3427,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the vendor period balance summary instead of individual lines</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB60</span><span style="font-size:13px;color:var(--dim);line-height:1.5">The transaction that created most of the invoice line items shown</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">IDCNAP</span><span style="font-size:13px;color:var(--dim);line-height:1.5">AP aging analysis across all vendors simultaneously</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(12)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FB60</button>
+          <button onclick="markExDone(13,this)" id="ex-done-13" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(14)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">FK10N →</button>
+        </div>
         </div>
       </div>
 
@@ -3401,6 +3506,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">See every individual invoice and payment behind any period total</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">IDCNAP</span><span style="font-size:13px;color:var(--dim);line-height:1.5">AP aging analysis for all vendors simultaneously</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB60</span><span style="font-size:13px;color:var(--dim);line-height:1.5">The transaction that created the vendor invoices shown in the balance</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(13)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FBL1N</button>
+          <button onclick="markExDone(14,this)" id="ex-done-14" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <button onclick="showExercise(15)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;background:var(--accent);color:white;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">IDCNAP →</button>
+        </div>
         </div>
       </div>
 
@@ -3461,6 +3572,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Drill into individual invoice details for any specific vendor</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View a single vendor's balance broken down by period</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB60</span><span style="font-size:13px;color:var(--dim);line-height:1.5">The transaction that created the outstanding invoices shown in the report</span></div></div>
           </div>
         </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 40px;margin-top:8px;border-top:1px solid var(--border)">
+          <button onclick="showExercise(14)" style="display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--dim);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">← FK10N</button>
+          <button onclick="markExDone(15,this)" id="ex-done-15" style="padding:10px 20px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer">✓ Mark Complete</button>
+          <div></div>
+        </div>
         </div>
       </div>
 
@@ -3492,6 +3609,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item" onclick="showQuiz(5)">
         <span class="sidebar-num">L6</span>AP — Accounts Payable
       </div>
+      <div class="sidebar-item" onclick="showQuiz(6)">
+        <span class="sidebar-num" style="color:var(--gold)">TC</span>T-Code Challenge
+      </div>
     </div>
 
     <div class="mobile-picker" id="quiz-mobile-picker">
@@ -3502,9 +3622,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="3">L4 — GL Posting & Document Entry</option>
         <option value="4">L5 — Document Management & Reporting</option>
         <option value="5">L6 — AP — Accounts Payable</option>
+        <option value="6">TC — T-Code Challenge</option>
       </select>
     </div>
 
+    <div id="quiz-scoreboard" style="background:var(--surface2);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Overall Score</span>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span id="total-score-num" style="font-size:22px;font-weight:700;color:var(--accent)">0</span>
+        <span style="font-size:14px;color:var(--muted)">/ 46 correct</span>
+      </div>
+      <div style="flex:1;min-width:160px;height:6px;background:var(--surface);border-radius:3px;overflow:hidden">
+        <div id="total-score-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:3px;transition:width .4s"></div>
+      </div>
+      <span id="total-score-pct" style="font-size:13px;color:var(--muted);font-weight:600">0%</span>
+    </div>
     <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
       <div class="quiz-section active" id="qsec-0">
         <div style="padding:40px">
@@ -3919,6 +4051,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         </div>
         <div style="height:32px"></div>
         </div>
+      
+      <div class="quiz-section" id="qsec-6">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">TC</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:4px">T-Code Challenge</h2>
+            <p style="font-size:14px;color:var(--muted)">One question per T-code — 16 questions total</p>
+          </div>
+          <div class="content-block" style="border-color:var(--gold)">
+          <h3 style="display:flex;align-items:center;gap:10px">🎯 T-Code Quiz <span class="quiz-badge" style="background:rgba(245,158,11,.15);border-color:var(--gold);color:var(--gold)">16 Questions</span></h3>
+          <div id="quiz-tc">
+            <div class="question-card"><div class="question-text">1. (FB03) — In FB03, which view replaces posting keys with actual GL account numbers?</div><div class="options"><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Data Entry View</button><button class="option" onclick="answerQ('tc','q1',this,'correct')">General Ledger View</button><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Document Header View</button><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Line Item Display</button></div><div class="explanation" id="exp-tc-q1">GL View replaces customer/vendor codes with actual account numbers. S = Soll (Debit) and H = Haben (Credit) in German accounting notation.</div></div>
+            <div class="question-card"><div class="question-text">2. (FB08) — Reversal Reason "01" in FB08 is used for which type of reversal?</div><div class="options"><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Prior-period reversal</button><button class="option" onclick="answerQ('tc','q2',this,'correct')">Reversal in the current period</button><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Mass reversal of multiple documents</button><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Reversal due to a system error</button></div><div class="explanation" id="exp-tc-q2">Reason 01 = Reversal in current period — the most common code. Other codes exist specifically for prior-period reversals and different correction scenarios.</div></div>
+            <div class="question-card"><div class="question-text">3. (FBV0) — What is the key difference between a Parked document and a Held document?</div><div class="options"><button class="option" onclick="answerQ('tc','q3',this,'wrong')">Both are the same in SAP S/4HANA</button><button class="option" onclick="answerQ('tc','q3',this,'wrong')">Held documents are visible to all users; Parked are private</button><button class="option" onclick="answerQ('tc','q3',this,'correct')">Parked is accessible to any authorized user; Held can only be retrieved by the original creator</button><button class="option" onclick="answerQ('tc','q3',this,'wrong')">Parked updates AP balances; Held updates GL balances</button></div><div class="explanation" id="exp-tc-q3">Held = private draft (only the creator can open it). Parked = shared draft accessible to any authorized user and can enter an approval workflow via FBV0.</div></div>
+            <div class="question-card"><div class="question-text">4. (FBL3N) — When selecting "Open Items" in FBL3N, which field is essential for accurate results?</div><div class="options"><button class="option" onclick="answerQ('tc','q4',this,'wrong')">Document Type filter</button><button class="option" onclick="answerQ('tc','q4',this,'wrong')">Posting Period range</button><button class="option" onclick="answerQ('tc','q4',this,'correct')">Open at Key Date</button><button class="option" onclick="answerQ('tc','q4',this,'wrong')">Fiscal Year</button></div><div class="explanation" id="exp-tc-q4">The Key Date tells SAP which items were still open as of that specific date. Without it, results may be inaccurate or show no data — especially when analysing prior periods.</div></div>
+            <div class="question-card"><div class="question-text">5. (FAGLB03) — In FAGLB03, Ledger "0L" refers to what?</div><div class="options"><button class="option" onclick="answerQ('tc','q5',this,'wrong')">A test ledger for training purposes only</button><button class="option" onclick="answerQ('tc','q5',this,'wrong')">The local GAAP parallel ledger</button><button class="option" onclick="answerQ('tc','q5',this,'correct')">The Leading Ledger — the main financial accounting ledger</button><button class="option" onclick="answerQ('tc','q5',this,'wrong')">The CO (Controlling) ledger</button></div><div class="explanation" id="exp-tc-q5">0L = Leading Ledger — the primary ledger used for official financial statements. Other ledgers (e.g. 2L, 3L) may exist for IFRS or local GAAP parallel accounting.</div></div>
+            <div class="question-card"><div class="question-text">6. (SU01) — Which T-code reveals exactly which authorization object is missing when a user gets an access error?</div><div class="options"><button class="option" onclick="answerQ('tc','q6',this,'wrong')">SU01</button><button class="option" onclick="answerQ('tc','q6',this,'correct')">SU53</button><button class="option" onclick="answerQ('tc','q6',this,'wrong')">SU10</button><button class="option" onclick="answerQ('tc','q6',this,'wrong')">SUIM</button></div><div class="explanation" id="exp-tc-q6">SU53 stores the last failed authorization check for a user — showing exactly which object, field, and value caused the error. Far more useful than calling the helpdesk.</div></div>
+            <div class="question-card"><div class="question-text">7. (FBCJ) — After saving a cash entry in FBCJ, what must you do to update GL balances?</div><div class="options"><button class="option" onclick="answerQ('tc','q7',this,'wrong')">Nothing — saving automatically updates the GL</button><button class="option" onclick="answerQ('tc','q7',this,'wrong')">Click Save again with a posting date</button><button class="option" onclick="answerQ('tc','q7',this,'correct')">Click Post Selected</button><button class="option" onclick="answerQ('tc','q7',this,'wrong')">Close and reopen the Cash Journal</button></div><div class="explanation" id="exp-tc-q7">Save stores the entry as a draft. Post Selected creates the Follow-On accounting document that actually updates GL balances. Both steps are required.</div></div>
+            <div class="question-card"><div class="question-text">8. (FIORI Upload) — In the Fiori GL Journal upload, what happens if one entry in the Excel template is unbalanced?</div><div class="options"><button class="option" onclick="answerQ('tc','q8',this,'wrong')">SAP rounds the difference automatically</button><button class="option" onclick="answerQ('tc','q8',this,'wrong')">SAP posts it with a warning message</button><button class="option" onclick="answerQ('tc','q8',this,'correct')">SAP rejects only that specific entry; others can still post</button><button class="option" onclick="answerQ('tc','q8',this,'wrong')">SAP rejects the entire upload file</button></div><div class="explanation" id="exp-tc-q8">SAP validates each entry individually. An unbalanced entry (Dr ≠ Cr) is rejected and shown in the error log, while other balanced entries in the same file post successfully.</div></div>
+            <div class="question-card"><div class="question-text">9. (FS00) — When creating a P-type (P&L) account in FS00, which field in the Control Data tab is mandatory?</div><div class="options"><button class="option" onclick="answerQ('tc','q9',this,'wrong')">Tax Category</button><button class="option" onclick="answerQ('tc','q9',this,'correct')">CElem Category</button><button class="option" onclick="answerQ('tc','q9',this,'wrong')">Field Status Group</button><button class="option" onclick="answerQ('tc','q9',this,'wrong')">Sort Key</button></div><div class="explanation" id="exp-tc-q9">CElem Category connects the GL account to SAP CO (Controlling). Without it, postings will fail with a CO error. Values: 1=Primary Costs, 11=Revenue, 12=Sales Deductions.</div></div>
+            <div class="question-card"><div class="question-text">10. (FB50) — In FB50's D/C column, what does the indicator "S" stand for?</div><div class="options"><button class="option" onclick="answerQ('tc','q10',this,'wrong')">Standard posting</button><button class="option" onclick="answerQ('tc','q10',this,'wrong')">Special GL indicator</button><button class="option" onclick="answerQ('tc','q10',this,'correct')">Soll — Debit in German</button><button class="option" onclick="answerQ('tc','q10',this,'wrong')">System-generated line</button></div><div class="explanation" id="exp-tc-q10">SAP uses German accounting notation. S = Soll (Debit), H = Haben (Credit). This appears in FB50 and in all posted documents displayed via FB03.</div></div>
+            <div class="question-card"><div class="question-text">11. (F-02) — In F-02, which Posting Key is used for a GL Credit line?</div><div class="options"><button class="option" onclick="answerQ('tc','q11',this,'wrong')">40</button><button class="option" onclick="answerQ('tc','q11',this,'correct')">50</button><button class="option" onclick="answerQ('tc','q11',this,'wrong')">31</button><button class="option" onclick="answerQ('tc','q11',this,'wrong')">01</button></div><div class="explanation" id="exp-tc-q11">PK 40 = GL Debit, PK 50 = GL Credit. For vendor lines: PK 31 = Vendor Credit (Invoice), PK 25 = Vendor Debit (Payment). Wrong posting key reverses your entry silently.</div></div>
+            <div class="question-card"><div class="question-text">12. (BP) — In SAP S/4HANA, transaction BP replaces which two legacy T-codes?</div><div class="options"><button class="option" onclick="answerQ('tc','q12',this,'wrong')">FK01 and FD01</button><button class="option" onclick="answerQ('tc','q12',this,'correct')">XK01 and XD01</button><button class="option" onclick="answerQ('tc','q12',this,'wrong')">ME23N and FB60</button><button class="option" onclick="answerQ('tc','q12',this,'wrong')">XK01 and FK10N</button></div><div class="explanation" id="exp-tc-q12">XK01 = Create Vendor (ECC), XD01 = Create Customer (ECC). In S/4HANA both are unified under BP — one master record can have Vendor, Customer, and General roles simultaneously.</div></div>
+            <div class="question-card"><div class="question-text">13. (FB60) — When you post a vendor invoice in FB60, which account is automatically credited by SAP?</div><div class="options"><button class="option" onclick="answerQ('tc','q13',this,'wrong')">The GL expense account you entered</button><button class="option" onclick="answerQ('tc','q13',this,'wrong')">The bank account</button><button class="option" onclick="answerQ('tc','q13',this,'correct')">The AP Reconciliation Account from the vendor master</button><button class="option" onclick="answerQ('tc','q13',this,'wrong')">The vendor clearing account</button></div><div class="explanation" id="exp-tc-q13">FB60 posts: Dr = GL Expense account (what you specify) / Cr = AP Reconciliation Account (pulled automatically from vendor master). This links the vendor sub-ledger to the GL balance sheet.</div></div>
+            <div class="question-card"><div class="question-text">14. (FBL1N) — In FBL1N results, what does a ⚡ lightning bolt indicator mean?</div><div class="options"><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Document was posted via Fiori app</button><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Special G/L transaction such as a down payment</button><button class="option" onclick="answerQ('tc','q14',this,'correct')">Item is overdue — net due date has passed and it is unpaid</button><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Vendor account is blocked for payment</button></div><div class="explanation" id="exp-tc-q14">Lightning bolt = overdue (due date passed, not yet paid). Plain red circle = open but not yet due. Green square = cleared and matched. Key indicators to prioritize payment runs.</div></div>
+            <div class="question-card"><div class="question-text">15. (FK10N) — In FK10N, vendor 580024 shows a cumulative balance of 9,443−. What does this mean?</div><div class="options"><button class="option" onclick="answerQ('tc','q15',this,'wrong')">The vendor owes your company 9,443</button><button class="option" onclick="answerQ('tc','q15',this,'wrong')">This is a data error — AP balances should be positive</button><button class="option" onclick="answerQ('tc','q15',this,'correct')">Your company owes this vendor 9,443 — a normal AP credit balance</button><button class="option" onclick="answerQ('tc','q15',this,'wrong')">The vendor account has been blocked</button></div><div class="explanation" id="exp-tc-q15">In AP, a negative cumulative balance is completely normal — it means your company has a liability to this vendor. Negative = you owe them. Positive = they owe you (unusual, may indicate overpayment).</div></div>
+            <div class="question-card"><div class="question-text">16. (IDCNAP) — In IDCNAP, where do you configure the aging buckets (10, 20, 30 days etc.)?</div><div class="options"><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Supplier Selection section</button><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Line Item Selection section</button><button class="option" onclick="answerQ('tc','q16',this,'correct')">Output Control → Due Date Sorted List</button><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Further Selections → Posting Date Range</button></div><div class="explanation" id="exp-tc-q16">Output Control → Due Date Sorted List defines the aging buckets. Default: 10, 20, 30, 60, 90, 180, 360, 720 days. Customize to match your company's payment terms (e.g. Net 30, Net 45).</div></div>
+            <div class="q-score" id="score-tc">
+              <div class="snum" id="scorenum-tc">0/16</div>
+              <p id="scoremsg-tc"></p>
+              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizTC()">Try Again</button>
+            </div>
+          </div></div>
+        <div style="height:32px"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -3931,7 +4098,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <h1 style="font-size:28px;font-weight:700;margin-bottom:8px">Beyond the T-Code</h1>
     <p style="font-size:16px;color:var(--dim);max-width:700px;line-height:1.7">This track bridges the gap between knowing how to use SAP and thinking like a consultant. Each module covers the full business process, configuration awareness, real troubleshooting scenarios, and integration points.</p>
     <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
-      <div style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:var(--green);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">checkmark GL Complete</div>
+      <div style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:var(--green);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">✅ GL Complete</div>
       <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">AP In Progress</div>
       <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">AR Coming</div>
       <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">Bank Coming</div>
@@ -3944,7 +4111,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <div class="sidebar">
       <div class="sidebar-title">Modules</div>
       <div class="sidebar-item active" onclick="showConsultant(0)"><span class="sidebar-num" style="color:var(--green)">GL</span>General Ledger</div>
-      <div class="sidebar-item" style="opacity:.45;cursor:default"><span class="sidebar-num" style="color:var(--gold)">AP</span>Accounts Payable</div>
+      <div class="sidebar-item" onclick="showConsultant(1)"><span class="sidebar-num" style="color:var(--gold)">AP</span>Accounts Payable</div>
       <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">AR</span>Accounts Receivable</div>
       <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">BNK</span>Bank Accounting</div>
       <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">AA</span>Asset Accounting</div>
@@ -4216,6 +4383,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         </div>
       </div><!-- end cons-0 -->
+      <div class="cons-section" id="cons-1">
+        <div style="padding:60px 40px;text-align:center;max-width:560px;margin:0 auto">
+          <div style="font-size:64px;margin-bottom:24px">🚧</div>
+          <div style="background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;display:inline-block;margin-bottom:16px">COMING SOON</div>
+          <h2 style="font-size:26px;font-weight:700;margin-bottom:12px">AP Consultant Track</h2>
+          <p style="font-size:15px;color:var(--dim);line-height:1.8;margin-bottom:28px">This module will cover the full Accounts Payable consultant layer — business process design, configuration awareness (payment terms, tolerance groups, payment methods), integration with MM, real troubleshooting scenarios, and interview preparation.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;margin-bottom:32px">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px"><div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:6px">PLANNED TOPICS</div><ul style="list-style:none;font-size:13px;color:var(--dim);line-height:2.2"><li>▸ AP Process End-to-End</li><li>▸ Payment Terms Config</li><li>▸ Tolerance Groups</li><li>▸ Payment Methods</li></ul></div>
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px"><div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:6px">MORE TOPICS</div><ul style="list-style:none;font-size:13px;color:var(--dim);line-height:2.2"><li>▸ Automatic Payment F110</li><li>▸ Invoice Verification</li><li>▸ Reconciliation</li><li>▸ Interview Q&amp;A</li></ul></div>
+          </div>
+          <button onclick="showConsultant(0)" style="padding:10px 28px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--dim);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">← Back to GL Module</button>
+        
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(5,this)" id="lec-done-5" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 6 Complete</button></div></div>
+      </div>
     </div><!-- end lesson-content -->
   </div><!-- end content-layout -->
 </div><!-- end page-consultant -->
@@ -4358,18 +4539,19 @@ function answerQ(lec,q,btn,result){
   btn.parentElement.querySelectorAll('.option').forEach(o=>o.disabled=true);
   btn.classList.add(result);
   document.getElementById('exp-'+lec+'-'+q).style.display='block';
-  // check if all questions in this lecture answered
-  const total=5;
+  const total=lec==='tc'?16:5;
   const done=Object.keys(quizState).filter(k=>k.startsWith(lec+'_')).length;
   if(done===total){
     const correct=Object.entries(quizState).filter(([k,v])=>k.startsWith(lec+'_')&&v==='correct').length;
     const scoreEl=document.getElementById('score-'+lec);
     scoreEl.style.display='block';
     document.getElementById('scorenum-'+lec).textContent=correct+'/'+total;
-    document.getElementById('scorenum-'+lec).style.color=correct>=4?'var(--green)':correct>=3?'var(--gold)':'var(--red)';
-    const msgs=['Keep reviewing — go back through the lecture 📚','Good effort! Review the topics you missed','Solid progress! Almost there 🎯','Great work! 🌟','Perfect score! Excellent! ✨'];
-    document.getElementById('scoremsg-'+lec).textContent=msgs[correct]||msgs[4];
+    document.getElementById('scorenum-'+lec).style.color=correct>=Math.ceil(total*.8)?'var(--green)':correct>=Math.ceil(total*.6)?'var(--gold)':'var(--red)';
+    const pct=Math.round(correct/total*100);
+    const msgs=pct<50?'Keep reviewing — go back through the exercises 📚':pct<70?'Good effort! Review the topics you missed':pct<80?'Solid progress! Almost there 🎯':pct<100?'Great work! 🌟':'Perfect score! Excellent! ✨';
+    document.getElementById('scoremsg-'+lec).textContent=msgs;
   }
+  updateTotalScore();
 }
 function toggleEx(id){
   const body=document.getElementById('body-'+id);
@@ -4454,6 +4636,125 @@ function resetQuizL(lec,total){
     if(btn) btn.style.display='none';
   });
 })();
+
+/* ── Filter exercises by difficulty ── */
+function filterEx(level){
+  const items=document.querySelectorAll('#page-exercises .sidebar-item[data-diff]');
+  items.forEach(item=>{
+    const d=item.getAttribute('data-diff');
+    item.style.opacity=(level==='all'||d===level)?'1':'0.3';
+  });
+  ['all','beginner','intermediate'].forEach(l=>{
+    const b=document.getElementById('filt-'+l);
+    if(b) b.style.background=l===level?'var(--accent)':'transparent';
+    if(b) b.style.color=l===level?'white':l==='beginner'?'var(--green)':l==='intermediate'?'var(--gold)':'var(--dim)';
+    if(b) b.style.borderColor=l===level?'var(--accent)':l==='beginner'?'rgba(16,185,129,.4)':l==='intermediate'?'rgba(245,158,11,.4)':'var(--border)';
+  });
+}
+
+/* ── Mark exercise complete ── */
+function markExDone(i,btn){
+  localStorage.setItem('ex_done_'+i,'1');
+  btn.textContent='✅ Completed';
+  btn.style.background='rgba(16,185,129,.1)';
+  btn.style.borderColor='var(--green)';
+  btn.disabled=true;
+  updateExProgress();
+}
+function updateExProgress(){
+  let done=0;
+  for(let i=0;i<16;i++) if(localStorage.getItem('ex_done_'+i)==='1') done++;
+  const lbl=document.getElementById('ex-progress-label');
+  if(lbl) lbl.textContent=done+'/16 completed';
+  for(let i=0;i<16;i++){
+    const btn=document.getElementById('ex-done-'+i);
+    if(btn&&localStorage.getItem('ex_done_'+i)==='1'){
+      btn.textContent='✅ Completed'; btn.style.background='rgba(16,185,129,.1)';
+      btn.style.borderColor='var(--green)'; btn.disabled=true;
+    }
+  }
+}
+
+/* ── Mark lecture complete ── */
+function markLecDone(i,btn){
+  localStorage.setItem('lec_done_'+i,'1');
+  btn.textContent='✅ Lecture '+(i+1)+' Complete';
+  btn.style.background='rgba(16,185,129,.1)';
+  btn.disabled=true;
+  updateLecProgress();
+}
+function updateLecProgress(){
+  let done=0;
+  for(let i=0;i<6;i++) if(localStorage.getItem('lec_done_'+i)==='1') done++;
+  const lbl=document.getElementById('lec-progress');
+  if(lbl){ lbl.textContent=done+'/6'; lbl.style.color=done===6?'var(--green)':'var(--accent)'; }
+  for(let i=0;i<6;i++){
+    const btn=document.getElementById('lec-done-'+i);
+    if(btn&&localStorage.getItem('lec_done_'+i)==='1'){
+      btn.textContent='✅ Lecture '+(i+1)+' Complete';
+      btn.style.background='rgba(16,185,129,.1)'; btn.disabled=true;
+    }
+  }
+}
+
+/* ── Overall quiz score ── */
+function updateTotalScore(){
+  const lecs=['l1','l2','l3','l4','l5','l6','tc'];
+  const totals={l1:5,l2:5,l3:5,l4:5,l5:5,l6:5,tc:16};
+  let total=0, correct=0;
+  lecs.forEach(l=>{
+    const t=totals[l];
+    total+=t;
+    for(let q=1;q<=t;q++){
+      if(quizState[l+'_q'+q]==='correct') correct++;
+    }
+  });
+  const pct=total>0?Math.round(correct/total*100):0;
+  const el=document.getElementById('total-score-num');
+  const bar=document.getElementById('total-score-bar');
+  const pctEl=document.getElementById('total-score-pct');
+  if(el) el.textContent=correct;
+  if(bar) bar.style.width=pct+'%';
+  if(pctEl) pctEl.textContent=pct+'%';
+}
+
+/* ── Reset TC quiz ── */
+function resetQuizTC(){
+  for(let i=1;i<=16;i++) delete quizState['tc_q'+i];
+  const quiz=document.getElementById('quiz-tc');
+  quiz.querySelectorAll('.option').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong');});
+  quiz.querySelectorAll('.explanation').forEach(e=>e.style.display='none');
+  document.getElementById('score-tc').style.display='none';
+  updateTotalScore();
+}
+
+/* ── Keyboard navigation ── */
+document.addEventListener('keydown',function(e){
+  const exPage=document.getElementById('page-exercises');
+  const quizPage=document.getElementById('page-quiz');
+  if(exPage&&exPage.classList.contains('active')){
+    const active=document.querySelector('.ex-section.active');
+    if(!active) return;
+    const id=parseInt(active.id.replace('ex-section-',''));
+    if(e.key==='ArrowRight'&&id<15) showExercise(id+1);
+    if(e.key==='ArrowLeft'&&id>0) showExercise(id-1);
+  }
+  if(quizPage&&quizPage.classList.contains('active')){
+    const active=document.querySelector('.quiz-section.active');
+    if(!active) return;
+    const id=parseInt(active.id.replace('qsec-',''));
+    if(e.key==='ArrowRight'&&id<6) showQuiz(id+1);
+    if(e.key==='ArrowLeft'&&id>0) showQuiz(id-1);
+  }
+});
+
+/* ── Init on load ── */
+window.addEventListener('load',function(){
+  updateExProgress();
+  updateLecProgress();
+  updateTotalScore();
+});
+
 </script>
 </body>
 </html>
