@@ -226,7 +226,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="stat"><span class="stat-num">16</span><span class="stat-lbl">T-Code Exercises</span></div>
       <div class="stat"><span class="stat-num">6</span><span class="stat-lbl">Course Lectures</span></div>
       <div class="stat"><span class="stat-num">46</span><span class="stat-lbl">Quiz Questions</span></div>
-      <div class="stat"><span class="stat-num">5</span><span class="stat-lbl">Consultant Modules</span></div>
+      <div class="stat"><span class="stat-num">1</span><span class="stat-lbl">Consultant Track Module</span></div>
     </div>
   </div>
 
@@ -381,7 +381,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <div class="sidebar">
       <div class="sidebar-title" style="display:flex;justify-content:space-between;align-items:center">Lectures <span id="lec-progress" style="font-size:11px;color:var(--green);font-weight:700">0/6</span></div>
       <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
-      <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Methodology</div>
+      <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Implementation Methodology</div>
       <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
       <div class="sidebar-item" onclick="showLecture(3)"><span class="sidebar-num">L4</span>GL Posting & Document Entry</div>
       <div class="sidebar-item" onclick="showLecture(4)"><span class="sidebar-num">L5</span>Document Management & Reporting</div>
@@ -391,7 +391,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <div class="mobile-picker">
       <select onchange="showLecture(parseInt(this.value)); window.scrollTo(0,120)">
         <option value="0">L1 — Introduction to SAP</option>
-        <option value="1">L2 — SAP Landscape &amp; Methodology</option>
+        <option value="1">L2 — SAP Landscape &amp; Implementation Methodology</option>
         <option value="2">L3 — GL Account Master Data</option>
         <option value="3">L4 — GL Posting &amp; Document Entry</option>
         <option value="4">L5 — Document Management &amp; Reporting</option>
@@ -1468,7 +1468,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <tbody>
                 <!-- Customer -->
                 <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">01</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Invoice — enter Customer Code; SAP auto-adds Recon. GL account</td></tr>
-                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">05</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Outgoing Payment</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">05</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Incoming Payment (Debit customer — used in some system configs)</td></tr>
                 <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">09</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Special G/L — Debit</td></tr>
                 <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">11</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Credit Memo</td></tr>
                 <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">15</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Incoming Payment</td></tr>
@@ -1784,9 +1784,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <button class="btn btn-primary" onclick="showLecture(5)">Lecture 6 →</button>
         </div>
         <div style="text-align:center;padding:20px 0 8px"><button onclick="markLecDone(4,this)" id="lec-done-4" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 5 Complete</button></div>
-
-      
-        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(4,this)" id="lec-done-4" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 5 Complete</button></div>
       </div><!-- end lecture-4 -->
 
       <!-- LECTURE 6 -->
@@ -3599,7 +3596,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <span class="sidebar-num">L1</span>Introduction to SAP
       </div>
       <div class="sidebar-item" onclick="showQuiz(1)">
-        <span class="sidebar-num">L2</span>SAP Landscape & Methodology
+        <span class="sidebar-num">L2</span>SAP Landscape &amp; Implementation Methodology
       </div>
       <div class="sidebar-item" onclick="showQuiz(2)">
         <span class="sidebar-num">L3</span>GL Account Master Data
@@ -3621,7 +3618,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <div class="mobile-picker" id="quiz-mobile-picker">
       <select onchange="showQuiz(parseInt(this.value)); window.scrollTo(0,120)">
         <option value="0">L1 — Introduction to SAP</option>
-        <option value="1">L2 — SAP Landscape & Methodology</option>
+        <option value="1">L2 — SAP Landscape &amp; Implementation Methodology</option>
         <option value="2">L3 — GL Account Master Data</option>
         <option value="3">L4 — GL Posting & Document Entry</option>
         <option value="4">L5 — Document Management & Reporting</option>
@@ -3714,7 +3711,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <div style="padding:40px">
           <div style="margin-bottom:28px">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L2</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">SAP Landscape & Methodology</h2>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">SAP Landscape &amp; Implementation Methodology</h2>
           </div>
           <div class="content-block" >
           <h3>🧪 Quiz — Lecture 2</h3>
@@ -4255,8 +4252,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
                 <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Defines the GL account structure</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Every Company Code must be assigned to a Chart of Accounts. If wrong: GL accounts do not exist and no postings are possible.</p></div>
               </div>
               <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
-                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBBO / OB52</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Posting Periods</div></div>
-                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Controls which periods are open for posting</div><p style="font-size:14px;color:var(--dim);line-height:1.7">OBBO creates the variant. OBB8 defines open periods. OB37 assigns the variant to a Company Code. If wrong: users cannot post or can post to closed periods (audit risk).</p></div>
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBB8 / OB52</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Posting Periods</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Controls which periods are open for posting</div><p style="font-size:14px;color:var(--dim);line-height:1.7">OBB8 defines the posting period variant and its open/closed periods. OB52 is used at month-end to open or close a specific period. OB37 assigns the variant to a Company Code. If wrong: users cannot post or can post to closed periods (audit risk).</p></div>
               </div>
               <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
                 <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBA7</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Document Types</div></div>
@@ -4398,8 +4395,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px"><div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:6px">MORE TOPICS</div><ul style="list-style:none;font-size:13px;color:var(--dim);line-height:2.2"><li>▸ Automatic Payment F110</li><li>▸ Invoice Verification</li><li>▸ Reconciliation</li><li>▸ Interview Q&amp;A</li></ul></div>
           </div>
           <button onclick="showConsultant(0)" style="padding:10px 28px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--dim);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">← Back to GL Module</button>
-        
-        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(5,this)" id="lec-done-5" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 6 Complete</button></div></div>
+        </div>
       </div>
     </div><!-- end lesson-content -->
   </div><!-- end content-layout -->
