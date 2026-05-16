@@ -231,7 +231,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <!-- ABOUT -->
     <div class="about-card">
       <div class="about-photo-wrap">
-        
+        <img class="about-photo" src="./images/fs00-step1-open-screen.png" alt="Mohamed Abdelgawad">
         <div class="about-socials">
           <a class="social-btn" href="https://www.linkedin.com/in/mohamed-abdelgawad890" target="_blank">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -2076,6 +2076,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-text">Use FB03 to find all documents posted by user <strong style="color:var(--gold)">FI.MAMA</strong> in Company Code <strong>BEV1</strong>. Open a document, switch to General Ledger View, change the layout, export to Excel, view the Document Header, and explore the related Accounting Documents via the Environment menu.</div>
         </div>
 
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">A read-only transaction to view any posted FI document. Shows all line items, amounts, document header details, GL view, and links to all related sub-ledger documents.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Your manager asks "who posted document 100000084 and what accounts were hit?" Open FB03, enter the document number, and see the full entry — user, timestamp, every debit and credit line — without changing anything.</p>
+          </div>
+        </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">A SAP Fiori app for uploading and posting multiple journal entries in bulk using an Excel template — eliminating the need to post each entry individually in FB50 or F-02.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Month-end closing requires 60 depreciation and accrual entries. The accountant fills the Excel template with all entries, uploads it via the Fiori app, and all 60 are posted in one action — saving several hours of manual work.</p>
+          </div>
+        </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Generates an Accounts Payable aging analysis — groups all outstanding vendor invoices by how many days overdue they are. Essential for cash flow planning and payment prioritization.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">End of month, the CFO asks: "Which vendors are we overdue with, and by how long?" IDCNAP produces the full AP aging report in seconds, showing every vendor with amounts distributed across overdue day buckets.</p>
+          </div>
+        </div>
         <div class="ex-steps">
 
           <!-- Step 1 -->
@@ -2087,7 +2120,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Type <strong>FB03</strong> in the SAP command field and press Enter. The initial screen opens — click the <strong>Document List</strong> button in the toolbar. The Document List selection screen appears with fields: Company Code, Document Number, Fiscal Year, Ledger, and General Selections (Document Type, Posting Date, Entry Date).</div>
               <div class="ex-step-note">📌 Leave all fields empty for a broad search — or pre-fill Company Code BEV1 and Fiscal Year 2026. The more filters you apply, the faster results load on large systems.</div>
-              
+              <img src="./images/fb03__.png" class="ex-img" alt="FB03 Document List Initial Screen" loading="lazy">
             </div>
           </div>
 
@@ -2100,7 +2133,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Click the <strong>Dynamic Selection</strong> button (left side of the toolbar). A panel expands on the left side showing additional filterable fields under <strong>Document header</strong>. Check the box next to <strong>User Name</strong> — this adds it to the right-side filter panel. Enter <code>FI.MAMA</code> in the User Name field, then click <strong>Execute</strong>.</div>
               <div class="ex-step-note">💡 Dynamic Selection is the way to search by any field not shown on the standard screen — including User Name, Transaction Code, Changed On date, and more.</div>
-              
+              <img src="./images/fb03____Dynamic_selection__.png" class="ex-img" alt="FB03 Dynamic Selection" loading="lazy">
             </div>
           </div>
 
@@ -2113,7 +2146,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">SAP returns the <strong>Document List</strong> showing all documents posted by FI.MAMA — in our example, 3 documents are displayed (100000084, 100000047, 100000015), all type SA (Financial Accounting), currency EGP. Double-click any document to open it. The <strong>Display Document: Data Entry View</strong> opens showing the document header and all line items.</div>
               <div class="ex-step-note">📌 The columns shown are: CoCode, DocumentNo, Year, Type, Currency, Doc.Date, Posting Date, Entered On, User.</div>
-              
+              <img src="./images/FB03_DYNAMIC_SELECTION___TRY_TO_SEARCH_BY_USER.png" class="ex-img" alt="Document List Results" loading="lazy">
             </div>
           </div>
 
@@ -2126,8 +2159,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">From the Data Entry View, click <strong>General Ledger View</strong> in the toolbar. The document now shows GL account numbers instead of customer/vendor codes — useful for verifying the underlying accounting impact. To customize the columns, click <strong>Settings → Change Layout</strong>. The layout popup lets you add or remove columns (e.g. add Company Code, remove unused columns). Click the green checkmark to apply.</div>
               <div class="ex-step-note">💡 S = Soll (Debit in German) | H = Haben (Credit in German) — SAP uses German notation for debit/credit indicators in document displays.</div>
-              
-              
+              <img src="./images/GENERAL_LEDGER_VIEW.png" class="ex-img" alt="General Ledger View" loading="lazy">
+              <img src="./images/FB03______________________.png" class="ex-img" style="margin-top:10px" alt="Change Layout" loading="lazy">
             </div>
           </div>
 
@@ -2140,8 +2173,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">To see full document metadata: go to <strong>Document → Display Document Header</strong>. The popup shows Document Type, Reference, Posting Date, Created By, Entry Time, T-Code used to post (FB01), and Logical System.<br><br>To export: click the <strong>Spreadsheet</strong> export icon in the toolbar → a <strong>Select Spreadsheet</strong> dialog appears → choose <strong>Excel (XLSX)</strong> format → click the green checkmark. SAP exports all line items to an Excel file.</div>
               <div class="ex-step-note">📌 The Document Header is key for audit purposes — it tells you exactly who posted, when, and from which T-code.</div>
-              
-              
+              <img src="./images/Document_Header.png" class="ex-img" alt="Document Header" loading="lazy">
+              <img src="./images/EXPORT___.png" class="ex-img" style="margin-top:10px" alt="Export to Spreadsheet" loading="lazy">
             </div>
           </div>
 
@@ -2154,7 +2187,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">From the GL View, go to <strong>Environment → Document Environment → Accounting Documents</strong>. A popup appears listing all documents that SAP automatically created alongside the original entry. In the example, you can see: Accounting document (the main FI entry), Profit center document, Controlling document, and Profitability Analysis document — all generated automatically from one posting.</div>
               <div class="ex-step-note">✅ This is very useful for understanding the full financial impact of a posting across FI, CO, and CO-PA modules — all linked to the same original document number.</div>
-              
+              <img src="./images/Document_enviremont.png" class="ex-img" alt="Document Environment - Accounting Documents" loading="lazy">
             </div>
           </div>
 
@@ -2162,6 +2195,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div class="ex-result-box">
           ✅ <strong>Result:</strong> Successfully searched documents by user via Dynamic Selection, opened a posted document, viewed GL accounts in GL View, customized the layout, exported to Excel, inspected the Document Header, and explored the full set of automatically generated accounting documents via Environment.
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">FB03 is display-only — you cannot edit anything here. Many beginners look for a Save button that simply does not exist.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to use Dynamic Selection to filter by User Name — it is not visible on the main screen by default.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Not switching to GL View — the default Data Entry View shows posting keys, not the actual GL account numbers.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB08</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Reverse the document if it was posted incorrectly</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View all line items for a specific GL account</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FAGLB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View period-by-period balances for an account</span></div></div>
+          </div>
         </div>
         </div>
       </div>
@@ -2180,13 +2223,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">A journal entry was posted with the wrong amount in Company Code <strong style="color:var(--gold)">BEV1</strong>, Fiscal Year <strong>2026</strong>. Use FB08 to reverse it. You cannot delete it — SAP requires a reversal document instead.</div>
         </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Creates a mirror-image reversal document that cancels the accounting effect of a previously posted entry. SAP never deletes posted documents — a reversal is the only correction method.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">A colleague posted rent expense of 10,000 EGP to the wrong account. You cannot delete it — use FB08 to create a reversal that zeroes it out, then re-post the corrected entry with FB50.</p>
+          </div>
+        </div>
         <div class="ex-steps">
           <div class="ex-step">
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FB08</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Type <strong>FB08</strong> in the command field and press Enter. The <strong>Reverse Document: Header Data</strong> screen opens with fields for Document Number, Company Code, Fiscal Year, Reversal Reason, Posting Date, and Posting Period.</div>
               <div class="ex-step-note">⚠️ SAP rule: You can never delete a posted document. FB08 creates a mirror-image reversal entry that cancels the original — both remain permanently in the system for audit purposes.</div>
-              
+              <img src="./images/fb08.png" class="ex-img" alt="FB08 Reverse Document" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2212,6 +2266,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> The wrong document is reversed. A new reversal document is created with all amounts mirrored. The GL balances are corrected. Both documents remain in SAP's permanent audit trail.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Trying to reverse an already-reversed document — SAP will block this with an error message.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Using Reversal Reason 01 for a prior-period document — use the correct reason code for prior-period reversals.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Not verifying the document in FB03 first — always confirm you have the right document before posting a reversal.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Find and verify the document before reversing</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Re-post the corrected entry after the reversal</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">F-02</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Alternative posting interface to re-post the corrected entry</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-2">
@@ -2229,13 +2293,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">A junior accountant parked a document in Company Code <strong style="color:var(--gold)">BEV1</strong> for review. Use FBV0 to find it, review it, and submit it for approval by clicking <strong>Save as Completed</strong>.</div>
         </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Lists and manages parked (draft) documents that have NOT yet updated GL balances. These documents are pending review or approval before final posting.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">A junior accountant parks a month-end accrual for supervisor review. The supervisor opens FBV0, verifies the amounts and accounts, then clicks Save as Completed to send it through the approval workflow.</p>
+          </div>
+        </div>
         <div class="ex-steps">
           <div class="ex-step">
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FBV0</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Type <strong>FBV0</strong> in the command field. The <strong>List of Parked Documents</strong> screen opens. Notice it has sections for: Company Code range, Document Number, Fiscal Year, General Selections (posting date, document date, document type, reference, entered by), and <strong>Processing Status</strong>.</div>
               <div class="ex-step-note">💡 Parked documents have NOT updated GL balances yet. They are drafts awaiting review or approval before final posting.</div>
-              
+              <img src="./images/fbv0.png" class="ex-img" alt="FBV0 List of Parked Documents" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2261,6 +2336,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> The parked document was found, reviewed, and submitted into the approval workflow via Save as Completed. It now awaits release by an authorized approver before final posting.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Confusing Parked with Held documents — held docs can only be retrieved by the original user; parked docs are accessible to anyone with the right authorization.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Clicking Post instead of Save as Completed — this bypasses the approval workflow entirely.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting that parked documents have NO effect on GL balances until they are finally approved and posted.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Post directly without parking — for simple entries requiring no approval</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the document after it is finally posted</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB08</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Reverse the document if an error is found after posting</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-3">
@@ -2278,13 +2363,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Review all transactions posted to GL account <strong style="color:var(--gold)">110010 (Petty Cash A/C)</strong> in Company Code <strong>BEV1</strong>. Display open items and analyze the individual postings using FBL3N.</div>
         </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Displays all individual debit and credit postings to any GL account. Can filter by open items, cleared items, or all items within a selected date range.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">An external auditor requests a full listing of every transaction posted to the Petty Cash account for the year. FBL3N produces the complete list — document numbers, dates, amounts — in seconds.</p>
+          </div>
+        </div>
         <div class="ex-steps">
           <div class="ex-step">
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FBL3N — Selection Screen</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Type <strong>FBL3N</strong> in the command field. The <strong>G/L Account Line Item Display</strong> screen opens. Enter:<br>• <strong>G/L account:</strong> <code>110010</code> (or any account you want to review)<br>• <strong>Company code:</strong> <code>BEV1</code><br>• Under <strong>Line item selection — Status</strong>, select <strong>Open Items</strong> and set an <strong>Open at Key Date</strong> (e.g. today's date)</div>
               <div class="ex-step-note">📌 You can also select "Cleared Items" (already matched/closed) or "All Items" to see the complete history of postings to the account.</div>
-              
+              <img src="./images/fbl3n.png" class="ex-img" alt="FBL3N Selection Screen" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2292,7 +2388,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Click <strong>Execute</strong>. SAP displays all line items for the selected account showing: Status (✓ = open), Assignment, Document Number, Business Area, Document Type, Document Date, Posting Key, Amount in Local Currency, Currency, Clearing Document, and Text. The total at the bottom shows the sum of all displayed items.</div>
               <div class="ex-step-note">💡 Each row is one line item from one document. Click on any document number to drill into the original posted document in FB03.</div>
-              
+              <img src="./images/fbl3n__.png" class="ex-img" alt="FBL3N Results" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2300,11 +2396,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Now type <strong>FAGLL03</strong> in the command field. You get the same line item display but from the <strong>General Ledger view</strong> — with additional columns like G/L Account, Ledger, and Ledger-specific amounts. The selection screen and layout are similar to FBL3N. FAGLL03 is the preferred T-code in S/4HANA environments.</div>
               <div class="ex-step-note">📌 FBL3N = classic view (ECC). FAGLL03 = GL view (S/4HANA preferred). Both give you line items — FAGLL03 adds ledger-level detail.</div>
-              
+              <img src="./images/fagll03.png" class="ex-img" alt="FAGLL03 GL View" loading="lazy">
             </div>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> All line items for GL account 110010 (Petty Cash) displayed. Each individual posting is visible with document number, date, type, and amount. Drilldown to original documents available. Same data viewed in both FBL3N and FAGLL03.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to set the Open at Key Date when selecting Open Items — results may be incorrect or show no data.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Running with no date restriction on a busy account — can return thousands of lines and slow down the system.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Not customizing the layout to add useful columns like Reference, Header Text, Cost Center, or Clearing Date.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FAGLB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View period totals instead of individual line items</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Open any specific document directly from the results list</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Same concept but for vendor accounts instead of GL accounts</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-4">
@@ -2322,13 +2428,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Review the monthly balance movement of GL account <strong style="color:var(--gold)">122225 (BANK)</strong> in Company Code <strong>BEV1</strong> for Fiscal Year <strong>2026</strong> using FAGLB03.</div>
         </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Displays GL account balances broken down by accounting period — showing debit total, credit total, net balance, and cumulative running balance for each month of the fiscal year.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Month-end closing: the controller needs the closing balance of the bank account for each month to reconcile with the bank statement. FAGLB03 shows the period-by-period breakdown of account 122225 instantly.</p>
+          </div>
+        </div>
         <div class="ex-steps">
           <div class="ex-step">
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FAGLB03 — Input Screen</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Type <strong>FAGLB03</strong> in the command field. The <strong>G/L Account Balance Display</strong> screen opens. Enter:<br>• <strong>Account Number:</strong> <code>122225</code><br>• <strong>Company Code:</strong> <code>BEV1</code><br>• <strong>Fiscal Year:</strong> <code>2026</code><br>• <strong>Ledger:</strong> <code>0L</code> (Leading Ledger — the main accounting ledger)</div>
               <div class="ex-step-note">📌 Ledger 0L = the Leading Ledger in SAP. This is the standard ledger used for financial statements. Other ledgers may exist for parallel accounting (e.g. IFRS vs local GAAP).</div>
-              
+              <img src="./images/faglb03.png" class="ex-img" alt="FAGLB03 Input Screen" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2336,7 +2453,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Click <strong>Execute</strong>. SAP displays the <strong>Balance Display: G/L Accounts For the Ledger 0L</strong> screen. The table shows one row per fiscal period (1–16) with columns: <strong>Period, Debit, Credit, Balance</strong> (net for that period), and <strong>Cumulative Balance</strong> (running total from period 1). The first row shows the <strong>Bal.Carryforward</strong> (opening balance from prior year).</div>
               <div class="ex-step-note">💡 A negative balance shown without brackets means credit balance (normal for bank/asset accounts that are credit-heavy). Click on any period row to drill down to the individual line items for that period.</div>
-              
+              <img src="./images/faglb03__.png" class="ex-img" alt="FAGLB03 Balance Results" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2348,6 +2465,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> Period-by-period balance for GL account 122225 (BANK) displayed. Debit, Credit, Balance, and Cumulative Balance shown for each fiscal period. Drill-down to line items available per period.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Not selecting the correct Ledger — always use 0L (Leading Ledger) unless your company uses parallel accounting.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Confusing FAGLB03 (period totals) with FBL3N (individual line items) — use FAGLB03 for summaries, FBL3N for detail.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to specify the fiscal year — FAGLB03 shows one fiscal year at a time.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Drill into individual line items for any specific period</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Same period-balance concept but for vendor accounts</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Open any specific document from the drilldown</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-5">
@@ -2365,20 +2492,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Add the role <strong style="color:var(--gold)">SAP_BR_GL_ACCOUNTANT</strong> to user <strong>FI.MAMA</strong>. This will give the user access to all GL Accountant functions in SAP. Use SU01 to open the user record and assign the role.</div>
         </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Creates and maintains SAP user accounts — controls login credentials, authorization roles, user type, personal settings, and validity dates. Used by system administrators and security teams.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">A new FI accountant joins the company. The SAP Basis admin opens SU01 to create their user account, assigns the FI Accountant role with the correct authorization profile, and sets a temporary initial password.</p>
+          </div>
+        </div>
         <div class="ex-steps">
           <div class="ex-step">
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open SU01 — Initial Screen</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Type <strong>SU01</strong> in the command field. The <strong>User Maintenance: Initial Screen</strong> opens with a <strong>User</strong> field. Type <code>FI.MAMA</code> in the User field. The Alias field auto-fills with the user's full name (MOHAMED AHMED MAHMOUD ABDELGAWAD). Click the <strong>Edit (pencil)</strong> icon in the toolbar to open the user record for editing.</div>
               <div class="ex-step-note">📌 SU01 is typically used by the SAP Basis team or security administrators. FI consultants use it to define which roles each user needs — based on the Authorization Matrix defined in the Blueprint.</div>
-              
+              <img src="./images/SU01.png" class="ex-img" alt="SU01 Initial Screen" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">2</span><div class="ex-step-title">Review Address Tab</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">The user record opens on the <strong>Address</strong> tab by default. You can see the user's personal details: Last Name, First Name, Full Name, Language, Department, Function. Verify this is the correct user before making any changes.</div>
-              
+              <img src="./images/SU01___.png" class="ex-img" alt="SU01 Address Tab" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2386,7 +2524,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Click the <strong>Roles</strong> tab. The <strong>Role Assignments</strong> section shows all roles currently assigned to this user. The existing roles are shown with green indicators and start/end dates. To add a new role: click in the empty <strong>Role</strong> field at the bottom of the list → type <code>SAP_BR_GL_ACCOUNTANT</code> → press Enter or use the search icon to find it.</div>
               <div class="ex-step-note">💡 Role naming convention: SAP_BR_ = SAP Best Practice Business Role. Each role gives access to a specific set of T-codes and functions. Always set an appropriate end date (use 12/31/9999 for no expiry).</div>
-              
+              <img src="./images/SU01______.png" class="ex-img" alt="SU01 Roles Tab" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2398,6 +2536,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> Role SAP_BR_GL_ACCOUNTANT successfully assigned to user FI.MAMA. The user now has GL Accountant access permissions in SAP. Role visible in the Roles tab with start/end dates.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Assigning too many roles (over-authorization) — users should only have access to the transactions their job requires.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to set end dates for temporary users such as contractors or interns — accounts remain active indefinitely.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Not locking the account immediately when an employee leaves — this is a critical security risk.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">SU53</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Authorization check — shows exactly why a user received an authorization error</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify which documents a user has posted after account setup</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Filter by User Name to see all postings made by a specific account</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-6">
@@ -2415,20 +2563,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-title">📋 Scenario</div>
           <div class="ex-scenario-text">Open the Cash Journal for Company Code <strong style="color:var(--gold)">BEV1</strong> and review the Opening Balance, total cash movements, Closing Balance, and individual cash transactions for the current period.</div>
         </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Manages a petty cash fund — records cash receipts and payments directly with a running balance, and automatically generates the corresponding GL accounting document.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">The office manager pays 200 EGP for printer cartridges from the petty cash box. She records it in FBCJ as a cash payment, and SAP automatically creates the GL entry: Dr Stationery Expense / Cr Petty Cash.</p>
+          </div>
+        </div>
         <div class="ex-steps">
           <div class="ex-step">
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FBCJ — Initial Popup</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Type <strong>FBCJ</strong> in the command field. A <strong>Cash Journal: Initial</strong> popup appears asking for:<br>• <strong>Company Code:</strong> <code>BEV1</code><br>• <strong>Cash Journal:</strong> the cash journal number (e.g. <code>TEST</code> for the training journal)<br><br>Enter both values and click the green checkmark ✔ to open the journal.</div>
               <div class="ex-step-note">📌 A company can have multiple cash journals (e.g. one per branch or department). Each has its own journal number and is linked to a specific GL Petty Cash account.</div>
-              
+              <img src="./images/FBCJ.png" class="ex-img" alt="FBCJ Initial Popup" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">2</span><div class="ex-step-title">Review the Balance Display</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">The <strong>Cash Journal</strong> main screen opens. On the right, the <strong>Balance Display for Display Period</strong> section shows:<br>• <strong>Opening Balance:</strong> cash on hand at the start of the period (e.g. 999,000 EGP)<br>• <strong>+ Total Cash Receipts</strong> and <strong>+ Total Check Receipts</strong><br>• <strong>- Total Cash Payments</strong><br>• <strong>= Closing Balance:</strong> current cash on hand<br>• <strong>Cash Thereof:</strong> physical cash amount<br><br>Use the shortcuts <strong>Today / This Week / Current Period</strong> to change the display range.</div>
-              
+              <img src="./images/FBCJ___.png" class="ex-img" alt="FBCJ Main Screen" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2436,7 +2595,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">At the bottom, three tabs show individual transactions:<br>• <strong>Cash Payments</strong> — all outgoing cash entries (expenses paid in cash)<br>• <strong>Cash Receipts</strong> — all incoming cash entries (cash received)<br>• <strong>Check Receipts</strong> — checks received<br><br>Each tab shows: Business Transaction, Amount, Document Number, G/L Account, Text, Supplier/Customer, Posting Date. Use <strong>Print Cash Journal</strong> to generate a printable petty cash report.</div>
               <div class="ex-step-note">✅ Every transaction posted in FBCJ immediately updates the corresponding GL account — no separate journal entry needed. SAP handles it automatically.</div>
-              
+              <img src="./images/1.png" class="ex-img" alt="FBCJ — Opening balance 49,900 EGP" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2444,9 +2603,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">On the <strong>Cash Payments</strong> tab, click the Business Transaction field → a search popup appears listing all configured transactions (CASH SALE, PAYMENT TO VENDOR, PURCHASES USING CASH, etc.). Select <strong>PAYMENT TO VENDOR</strong> (type K, Tran. 0007).<br><br>Fill in: Amount <code>5,000</code> | G/L Acct auto-fills to <code>210100</code> | Receipt Recip: <code>Company Behery</code> | Supplier: <code>446031</code><br><br>Click <strong>Save Sel.</strong> → then <strong>Post Sel.</strong> → Balance updates: Total Cash Payments: 5,000 | Closing Balance: 44,900.</div>
               <div class="ex-step-note">📌 After posting, use <strong>Follow-On Docs</strong> to see the generated accounting document: Petty Cash 2 (110011) Cr 5,000 / Behery (446031) Dr 5,000.</div>
-              
-              
-              
+              <img src="./images/2.png" class="ex-img" alt="FBCJ — After posting 5,000 payment, balance 44,900" loading="lazy">
+              <img src="./images/3.png" class="ex-img" alt="FBCJ — Payment to Vendor entry visible in list" loading="lazy">
+              <img src="./images/4.png" class="ex-img" alt="FBCJ — Follow-On Document posted" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2454,10 +2613,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">To reverse a posted cash entry, select the transaction row (check the checkbox) → click the <strong>(−) Reverse</strong> button in the bottom toolbar (highlighted in red). A <strong>"Reverse document?"</strong> popup appears → click <strong>Yes</strong>.<br><br>A <strong>"Reason for reversal"</strong> dialog appears: enter Reversal reason <code>01</code> | Posting Date: today → confirm with ✔.<br><br>The journal now shows both the original and reversed entries. Closing balance returns to 49,900 (opening balance).</div>
               <div class="ex-step-note">⚠️ You cannot simply delete a cash journal entry. Always reverse it — both entries remain in the system for audit trail purposes.</div>
-              
-              
-              
-              
+              <img src="./images/5.png" class="ex-img" alt="FBCJ — Reverse document popup" loading="lazy">
+              <img src="./images/6.png" class="ex-img" alt="FBCJ — Reverse button (−) highlighted" loading="lazy">
+              <img src="./images/7.png" class="ex-img" alt="FBCJ — Reason for reversal dialog" loading="lazy">
+              <img src="./images/8.png" class="ex-img" alt="FBCJ — Both original and reversed entries visible" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2465,8 +2624,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">For an expense payment (not vendor-related), select business transaction <strong>PURCHASES USING CASH</strong> (type E). Fill in: Amount <code>8,000</code> | G/L Account <code>500002</code> (Electricity EXP) | Cost Center <code>INVCS01</code>.<br><br>Save → Post → Document shows: Petty Cash 2 (110011) Cr 8,000 / Electricity EXP (500002) Dr 8,000. Total Cash Payments now: 8,000 | Closing Balance: 41,900.</div>
               <div class="ex-step-note">💡 Use PURCHASES USING CASH for expense payments. Use PAYMENT TO VENDOR when paying a known vendor account (posts to reconciliation account 210100).</div>
-              
-              
+              <img src="./images/9.png" class="ex-img" alt="FBCJ — Electricity expense document 8,000" loading="lazy">
+              <img src="./images/10.png" class="ex-img" alt="FBCJ — Cash Receipts tab" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2474,12 +2633,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Click the search icon in the Business Transaction field. The <strong>Restrict Value Range</strong> popup opens (8 Entries found for Company Code BEV1):<br><br>• CASH SALE (0010) — Type R, G/L 400000<br>• CUSTODIES FROM (0014) — Type K, Special G/L A<br>• PAYMENT FROM CUSTOMER (0008) — Type D<br>• PAYMENT TO VENDOR (0007) — Type K<br>• PURCHASES USING CASH (0009) — Type E, G/L 500000<br>• REVENUE (0012) — Type R, G/L 400000<br>• TRANSFER BANK TO JOURNAL (0005) — Type C, G/L 140100<br>• TRANSFER JOURNAL TO BANK (0006) — Type B, G/L 140100</div>
               <div class="ex-step-note">📌 Business transactions are configured per company code. The list you see is specific to BEV1 — different companies may have different transactions available.</div>
-              
-              
+              <img src="./images/11.png" class="ex-img" alt="FBCJ — Business transaction search popup" loading="lazy">
+              <img src="./images/12.png" class="ex-img" alt="FBCJ — 8 business transactions listed" loading="lazy">
             </div>
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> Cash Journal for BEV1 opened successfully. Opening and Closing Balances reviewed. Individual cash payment and receipt transactions visible. Ready to post new cash transactions or print the journal report.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to click Post Selected after saving — FBCJ entries must be posted to update GL balances.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Posting to the wrong business transaction type — the type determines which GL account and document type SAP uses.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Finding an error after posting — use the (−) Reverse button inside FBCJ, not the external FB08 transaction.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">For GL journal entries not involving the petty cash fund</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify the GL postings automatically created by FBCJ</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the full details of the follow-on accounting document</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-7">
@@ -2502,7 +2671,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open the Fiori App</div></div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Log into the SAP Fiori Launchpad. In the search bar, type <strong>"Upload General Journal Entries"</strong> and open the app. The main screen shows a <strong>Browse</strong> button to upload a file, and below it a list of previous uploads (Temporary ID, Batch ID, Status, Posting Date). At the bottom: <strong>Post</strong>, <strong>Show Log</strong>, and <strong>Download Template</strong> buttons.</div>
-              
+              <img src="./images/UPLOAD_GL_FROM_FUIRI.png" class="ex-img" alt="Upload GL Fiori Main Screen" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2510,7 +2679,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Click <strong>Download Template</strong> (bottom right). A <strong>Template Download</strong> dialog appears:<br>• <strong>Template Language:</strong> English<br>• <strong>Format:</strong> choose <strong>Spreadsheet (.xlsx)</strong> (recommended)<br><br>Click <strong>Download</strong>. The file <code>JournalEntry_Template.xlsx</code> is saved to your computer.</div>
               <div class="ex-step-note">📌 Always use the template downloaded from the system — it contains the exact column structure SAP expects. Using a custom or outdated template will cause upload errors.</div>
-              
+              <img src="./images/UPLOAD_GL______.png" class="ex-img" alt="Template Download Dialog" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2518,7 +2687,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Open the template in Excel. It has two sections per journal entry:<br><br><strong>Header section:</strong> BUKRS (Company Code), BLART (Document Type), BLDAT (Document Date), BUDAT (Posting Date), BKTXT (Header Text), WAERS (Currency)<br><br><strong>Line Items section:</strong> BUKRS, HKONT (G/L Account), SGTXT (Item Text), WRSOL (Debit amount), WRHAB (Credit amount)<br><br>Fill in one header row and at least two line item rows per journal entry. Debits = WRSOL, Credits = WRHAB. Save the file.</div>
               <div class="ex-step-note">⚠️ Every journal entry must balance: Total WRSOL must equal Total WRHAB. SAP will reject unbalanced entries during the upload validation.</div>
-              
+              <img src="./images/UPLOAD_GL_______________.png" class="ex-img" alt="Journal Entry Template Excel" loading="lazy">
             </div>
           </div>
           <div class="ex-step">
@@ -2530,6 +2699,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
         <div class="ex-result-box">✅ <strong>Result:</strong> Multiple journal entries uploaded and posted in one batch via Fiori. No need to enter each one individually in FB01 or F-02. Document numbers assigned for all successful entries. Full audit trail maintained in SAP.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Debits and credits not balancing for any entry in the template — SAP rejects any entry where Total Dr ≠ Total Cr.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Using incorrect column headers — the template columns must match exactly; do not rename or reorder any column.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Not checking Show Log after upload — some entries may have failed silently while others posted successfully.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Manual single-entry alternative for low posting volumes</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify uploaded documents individually after the batch posts</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Review all postings to confirm the batch upload is complete</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="ex-section" id="ex-section-8">
@@ -2549,6 +2728,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-text">Create a new P&L Revenue GL account <strong style="color:var(--gold)">480002</strong> called <strong>"Credit Revenue"</strong> in Company Code <strong>BEV1</strong>. You will configure the Type/Description tab, Control Data tab, and Create/Bank/Interest tab, then Save.</div>
         </div>
 
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Creates and maintains GL account master data — the definition of each account: its type, account group, currency, tax settings, and controlling integration. An account must exist here before any postings can be made to it.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">The finance team decides to track a new cost category: "Digital Marketing Expenses." The consultant creates GL account 501450 in FS00 — after saving, the team can immediately start posting to it in FB50.</p>
+          </div>
+        </div>
         <div class="ex-steps">
 
           <!-- Step 1 -->
@@ -2560,7 +2750,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Enter T-Code <strong>FS00</strong> in the SAP command field and press Enter. The "Edit G/L Account Centrally" screen opens with a left-panel chart of accounts tree and empty fields on the right. The G/L Account and Company Code fields are empty and ready for input.<br><br>Click the <strong>Create</strong> icon (blank page 📄) in the toolbar — a <strong>Create G/L Account</strong> popup appears with two empty fields: G/L Account and Company Code.</div>
               <div class="ex-step-note">📌 FS00 opens in <em>Edit</em> mode by default. Use the Create icon in the toolbar to start a new account — do not type the account number in the top field before clicking Create.</div>
-              
+              <img src="./images/fs00-step2-enter-account.png" class="ex-img" alt="FS00 Step 1 — Open Screen with Create Popup" loading="lazy">
             </div>
           </div>
 
@@ -2573,7 +2763,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">A <strong>Create G/L Account</strong> popup appears. Enter:<br><br>• <strong>G/L Account:</strong> <code>480002</code><br>• <strong>Company Code:</strong> <code>BEV1</code><br><br>Click the green checkmark ✔ to confirm. SAP opens the full account creation screen.</div>
               <div class="ex-step-note">💡 Account 480002 falls in the 400000–499999 Revenue range in this Chart of Accounts.</div>
-              
+              <img src="./images/fs00-step3-type-desc-empty.png" class="ex-img" alt="FS00 Step 2 — Enter Account Number" loading="lazy">
             </div>
           </div>
 
@@ -2585,7 +2775,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             </div>
             <div class="ex-step-body">
               <div class="ex-step-desc">The <strong>Type/Description</strong> tab is now active and all fields are empty. Notice on the left panel: the P&L Statement Accounts folder is expanded, showing existing accounts (480001 Cash Revenue visible). The <strong>G/L Account Type</strong> and <strong>Account Group</strong> dropdowns are required fields.</div>
-              
+              <img src="./images/fs00-step4-type-desc-filled.png" class="ex-img" alt="FS00 Step 3 — Type/Description Empty" loading="lazy">
             </div>
           </div>
 
@@ -2598,7 +2788,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Fill in all required fields on the Type/Description tab:<br><br>• <strong>G/L Account Type:</strong> <code>P — Primary Costs or Revenue</code><br>• <strong>Account Group:</strong> <code>PL — P&L Statement Accounts</code><br>• <strong>Short Text:</strong> <code>Credit Revenue</code><br>• <strong>G/L Acct Long Text:</strong> <code>Credit Revenue</code></div>
               <div class="ex-step-note">💡 Account Type "P" creates a P&L account linked to CO (Controlling). This requires a Cost Element Category setting later on the Control Data tab.</div>
-              
+              <img src="./images/fs00-step5-control-data-top.png" class="ex-img" alt="FS00 Step 4 — Type/Description Filled" loading="lazy">
             </div>
           </div>
 
@@ -2610,7 +2800,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             </div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Click the <strong>Control Data</strong> tab. Fill in the top section:<br><br>• <strong>Account Currency:</strong> <code>EGP</code> (Egyptian Pound)<br>• <strong>Tax Category:</strong> <code>*</code> (All tax types allowed)<br>• <strong>Posting without tax allowed:</strong> ✓ Checked<br><br>Leave Alternative Account No. and Tolerance Group empty.</div>
-              
+              <img src="./images/fs00-step6-control-data-co.png" class="ex-img" alt="FS00 Step 5 — Control Data Top" loading="lazy">
             </div>
           </div>
 
@@ -2623,7 +2813,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Scroll down on the Control Data tab to see <strong>Account Settings in Controlling Area</strong>. Fill in:<br><br>• <strong>CElem Category:</strong> <code>11</code> — Revenue<br><br>Leave Record Quantity and Internal UoM unchecked/empty. Then click <strong>Save</strong> (bottom right). SAP creates account 480002 and it appears in the left-panel tree under P&L Statement Accounts.</div>
               <div class="ex-step-note">⚠️ CElem Category is mandatory for Account Type "P". 1 = Primary Costs, 11 = Revenue, 12 = Sales Deduction. After saving, verify the account appears alongside 480001 in the left panel.</div>
-              
+              <img src="./images/fs00-step6-control-data-co.png" class="ex-img" alt="FS00 Step 6 — CO Settings" loading="lazy">
             </div>
           </div>
 
@@ -2636,7 +2826,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Click the <strong>Create/bank/interest</strong> tab. Set the <strong>Field Status Group</strong> (e.g. G001 — General). Then click <strong>Save</strong>. SAP creates account 480002 "Credit Revenue" and it now appears in the left-panel account tree under P&L Statement Accounts.</div>
               <div class="ex-step-note">✅ After saving, you can verify by navigating to the account in the left panel — it appears under P&L Statement Accounts alongside 480001.</div>
-              
+              <img src="./images/fs00-step7-create-bank-interest.png" class="ex-img" alt="FS00 Step 7 — Create Bank Interest Tab" loading="lazy">
             </div>
           </div>
 
@@ -2644,6 +2834,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div class="ex-result-box">
           ✅ <strong>Result:</strong> GL Account 480002 "Credit Revenue" is now created in Company Code BEV1 — Type P (Revenue), Currency EGP, CElem 11. It is ready for journal entry postings via FB50 or F-02.
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Wrong Account Group — this controls which fields are required and what the account can be used for; it cannot be changed after creation.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to set CElem Category for P-type (P&L) accounts — postings will fail with a CO error if this is missing.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Creating only at Chart of Accounts level and forgetting the Company Code extension — both levels are required before posting.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Post to the newly created account immediately after saving</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL3N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View all transactions posted to this GL account</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FAGLB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the period balance of the account after postings</span></div></div>
+          </div>
         </div>
         </div>
       </div>
@@ -2663,6 +2863,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-text">Post a <strong>Buffet Expense</strong> journal entry of <strong style="color:var(--gold)">EGP 1,000</strong> — debit account 501303 (Buffet EXP) and credit account 122223 (CIB Bank). Use Document Date 02/05/2026 and Reference "TEST".</div>
         </div>
 
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">The modern Fiori-style interface for posting G/L journal entries. Supports multiple line items in a spreadsheet-like grid with document simulation and balance verification before final posting.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">The accountant records monthly utility bills — Dr: Electricity Expense 5,000 / Dr: Water Expense 1,200 / Cr: Accrued Liabilities 6,200. FB50's clean grid layout makes entering multiple line items fast.</p>
+          </div>
+        </div>
         <div class="ex-steps">
 
           <!-- Step 1 -->
@@ -2673,7 +2884,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             </div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Enter T-Code <strong>FB50</strong> and press Enter. The "Enter G/L Account Document" screen opens. Note the two main areas:<br><br>• <strong>Top half (Header):</strong> Document Date, Currency, Reference, Doc Header Text<br>• <strong>Bottom half (Line Items):</strong> G/L account grid with D/C selector and Amount fields<br><br>The line item grid shows 5 empty rows ready for input. Total Dr and Total Cr show 0.</div>
-              
+              <img src="./images/fb50-step1-empty-screen.png" class="ex-img" alt="FB50 Step 1 — Empty Screen" loading="lazy">
             </div>
           </div>
 
@@ -2686,7 +2897,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Fill in the header fields at the top of the screen:<br><br>• <strong>Document Date:</strong> <code>02/05/2026</code><br>• <strong>Currency:</strong> <code>EGP</code> (auto-filled)<br>• <strong>Reference:</strong> <code>TEST</code><br>• <strong>Doc. Header Text:</strong> <code>Test</code><br><br>Posting Date auto-fills to today. Company Code BEV1 is shown at the bottom of the header area.</div>
               <div class="ex-step-note">💡 The green indicator (●●■) in the Amount Information box changes as you add line items — it shows document balance status.</div>
-              
+              <img src="./images/fb50-step2-header-filled.png" class="ex-img" alt="FB50 Step 2 — Header Filled" loading="lazy">
             </div>
           </div>
 
@@ -2699,7 +2910,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">In the line items grid, enter both journal entry lines:<br><br><strong>Line 1 (Debit):</strong><br>• G/L Acct: <code>501303</code> → Short Text auto-fills: "Buffet EXP"<br>• D/C: <code>S Debit</code><br>• Amount: <code>1,000</code><br><br><strong>Line 2 (Credit):</strong><br>• G/L Acct: <code>122223</code> → Short Text auto-fills: "CIB Bank"<br>• D/C: <code>H Credit</code><br>• Amount: <code>1,000</code><br><br>The Amount Information box now shows Total Dr: 1,000 = Total Cr: 1,000 ✅</div>
               <div class="ex-step-note">⚠️ SAP uses German notation internally: S = Soll (Debit), H = Haben (Credit). This appears in the D/C dropdown and in posted document displays.</div>
-              
+              <img src="./images/fb50-step3-line-items.png" class="ex-img" alt="FB50 Step 3 — Line Items" loading="lazy">
             </div>
           </div>
 
@@ -2712,7 +2923,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">When you click <strong>Post</strong>, SAP may show the <strong>"Enter Accounting Document: Check Tax Data"</strong> screen. This appears because the GL accounts have tax categories configured. The screen shows:<br><br>• Tax code 29 (PstKy 40) — Tax Base Amount: 1,000<br>• Tax code A0 (PstKy 50) — Tax Base Amount: 1,000<br>• Warning: "Tax entered incorrect (code 29, amount 0), correct 140 EGP"<br><br>Since we are not applying tax in this exercise, confirm and post through this screen.</div>
               <div class="ex-step-note">💡 The "Calculate Tax" checkbox at the top controls whether SAP calculates tax automatically. Leave it unchecked for this exercise.</div>
-              
+              <img src="./images/fb50-step4-tax-check.png" class="ex-img" alt="FB50 Step 4 — Tax Check" loading="lazy">
             </div>
           </div>
 
@@ -2720,6 +2931,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div class="ex-result-box">
           ✅ <strong>Result:</strong> Journal entry posted — Buffet EXP (501303) Dr 1,000 / CIB Bank (122223) Cr 1,000. SAP assigns a permanent Document Number. Use FB03 to display and verify the posted document.
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Document not balanced (Total Dr ≠ Total Cr) — SAP will not allow posting until both sides match exactly.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to assign a Cost Center for P&L expense accounts — these accounts require a CO cost object.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Wrong Document Date vs Posting Date — Document Date is the original invoice/transaction date; Posting Date determines the accounting period.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">F-02</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Legacy alternative for complex entries requiring posting keys or special GL indicators</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify the posted document immediately after</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB08</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Reverse the entry if a mistake is discovered after posting</span></div></div>
+          </div>
         </div>
         </div>
       </div>
@@ -2739,6 +2960,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="ex-scenario-text">Post a <strong>Cleaning Expense</strong> of <strong style="color:var(--gold)">EGP 1,000</strong> using F-02 — the classic SAP interface. Debit account 500005 (Cleaning Exp) with PstKy 40, and Credit account 122225 (BANK) with PstKy 50. Then verify the posted document using FB03.</div>
         </div>
 
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">The classic legacy screen interface for complex GL postings. Uses explicit posting keys (40=Debit, 50=Credit) and supports special GL indicators. Still widely used in training and for specific transaction types.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">An experienced consultant uses F-02 in training because it exposes the full posting engine — posting keys, document types, and special GL indicators — that FB50 hides behind its simplified modern interface.</p>
+          </div>
+        </div>
         <div class="ex-steps">
 
           <!-- Step 1 -->
@@ -2750,7 +2982,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Enter T-Code <strong>F-02</strong> and press Enter. The "Enter G/L Account Posting: Header Data" screen appears with some fields pre-filled:<br><br>• <strong>Posting Date:</strong> auto-fills to today (05/02/2026)<br>• <strong>Type:</strong> <code>SA</code> (General G/L Document) — default<br>• <strong>Company Code:</strong> <code>BEV1</code> — pre-filled from user settings<br>• <strong>Currency:</strong> <code>EGP</code><br><br>Document Date and Reference are empty — you must fill them.</div>
               <div class="ex-step-note">💡 F-02 uses a 2-step process: first fill the Header, then enter each Line Item on a separate screen — unlike FB50 where everything is on one screen.</div>
-              
+              <img src="./images/f02-step1-empty-header.png" class="ex-img" alt="F-02 Step 1 — Empty Header" loading="lazy">
             </div>
           </div>
 
@@ -2762,7 +2994,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             </div>
             <div class="ex-step-body">
               <div class="ex-step-desc">Fill in the Header fields then press <strong>Enter</strong>:<br><br>• <strong>Document Date:</strong> <code>2/5/2026</code><br>• <strong>Type:</strong> <code>SA</code> — General G/L Document (pre-filled)<br>• <strong>Company Code:</strong> <code>BEV1</code> (pre-filled)<br>• <strong>Posting Date:</strong> <code>05/02/2026</code> (pre-filled)<br>• <strong>Period:</strong> <code>5</code> — auto-calculated by SAP<br>• <strong>Currency:</strong> <code>EGP</code><br>• <strong>Reference:</strong> <code>TEST</code><br>• <strong>Doc. Header Text:</strong> <code>Test</code><br><br>After pressing Enter, SAP navigates to the first Line Item input screen.</div>
-              
+              <img src="./images/f02-step2-header-filled.png" class="ex-img" alt="F-02 Step 2 — Header Filled" loading="lazy">
             </div>
           </div>
 
@@ -2775,7 +3007,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">This is the <strong>key difference in F-02</strong> — each line item is entered on a separate screen using Posting Keys:<br><br><strong>Line 1 (Debit):</strong><br>• PstKy: <code>40</code> → Enter → Account: <code>500005</code> (Cleanning exp) → Enter<br>• Amount: <code>1,000</code> EGP<br>• SAP shows: <em>"Item 1 / Debit entry / 40"</em><br>• Profit Center <code>ASSPC02</code> auto-fills from account settings<br><br><strong>Line 2 (Credit):</strong><br>In the <strong>"Next Line Item"</strong> section at the bottom:<br>• PstKy: <code>50</code> → Account: <code>122225</code> (BANK) → Enter → Amount: <code>1,000</code><br><br>Status bar shows: <em>"Specify account number"</em> — SAP prompts for the next line's account.</div>
               <div class="ex-step-note">💡 Posting Key 40 = GL Debit. Posting Key 50 = GL Credit. These are the two standard keys for GL-to-GL journal entries.</div>
-              
+              <img src="./images/f02-step3-first-line-item.png" class="ex-img" alt="F-02 Step 3 — First Line Item" loading="lazy">
             </div>
           </div>
 
@@ -2788,7 +3020,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">After entering all line items, click <strong>Simulate</strong> from the top menu. The <strong>"Display Overview"</strong> screen appears showing a summary before posting:<br><br>• Document Number: <code>INTERNAL</code> — not yet saved, just a preview<br>• <strong>Items in document currency:</strong><br>&nbsp;&nbsp;— Item 001 | PK 40 | 500005 Cleanning exp | 1,000 Dr<br>&nbsp;&nbsp;— Item 002 | PK 50 | 122225 BANK | 1,000- Cr<br>• Bottom: <strong>D 1,000 = C 1,000</strong> ✅ — entry is balanced<br>• 2 Line Items confirmed<br><br>If everything looks correct → click <strong>Post</strong>.</div>
               <div class="ex-step-note">✅ Always simulate before posting to catch errors. The overview screen is your final chance to verify the entry before it becomes permanent.</div>
-              
+              <img src="./images/f02-step4-simulate-overview.png" class="ex-img" alt="F-02 Step 4 — Simulate Overview" loading="lazy">
             </div>
           </div>
 
@@ -2800,7 +3032,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             </div>
             <div class="ex-step-body">
               <div class="ex-step-desc">After clicking <strong>Post</strong>, SAP returns to the empty Header screen and shows a confirmation message at the bottom of the screen:<br><br><div style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:6px;padding:10px 14px;font-family:monospace;font-size:13px;color:var(--green);margin:8px 0">✅ Document 100000047 was posted in company code BEV1</div><br>This means:<br>• The entry is permanently saved in SAP<br>• Document Number: <strong>100000047</strong><br>• It cannot be deleted — only reversed with a reversal document<br>• SAP is now ready for the next journal entry</div>
-              
+              <img src="./images/f02-step5-posted-confirmation.png" class="ex-img" alt="F-02 Step 5 — Posted Confirmation" loading="lazy">
             </div>
           </div>
 
@@ -2813,7 +3045,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-step-body">
               <div class="ex-step-desc">Enter T-Code <strong>FB03</strong> and enter Document Number <code>100000047</code> to display the posted document. The Data Entry View shows:<br><br>• Company Code: BEV1 | Fiscal Year: 2026 | Period: 5<br>• Document Date: 02/05/2026 | Posting Date: 05/02/2026<br>• Currency: EGP<br><br><strong>Line Items:</strong><br>• Item 1 | <strong>S 40</strong> | 500005 | Cleanning exp | <strong>1,000 Dr</strong> EGP<br>• Item 2 | <strong>H 50</strong> | 122225 | BANK | <strong>1,000 Cr</strong> EGP</div>
               <div class="ex-step-note">💡 S = Soll (German for Debit) | H = Haben (German for Credit). SAP uses German accounting notation internally in posted document displays.</div>
-              
+              <img src="./images/f02-step6-display-document.png" class="ex-img" alt="F-02 Step 6 — Display Document" loading="lazy">
             </div>
           </div>
 
@@ -2821,6 +3053,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div class="ex-result-box">
           ✅ <strong>Result:</strong> Document 100000047 posted — Cleaning Expenses (500005) Dr 1,000 / BANK (122225) Cr 1,000. Verified in FB03. The document is now permanent in SAP's audit trail.
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Wrong Posting Key — 40 = Debit GL, 50 = Credit GL. Using the wrong key will reverse your debit/credit and corrupt the entry.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Confusing Document Date with Posting Date — a common error that places entries in the wrong accounting period.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to Simulate before posting — always preview the document to catch errors before they become permanent.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB50</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Modern alternative for straightforward GL journal entries</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB03</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify the document number shown in the confirmation message</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB08</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Reverse the entry if an error is found after posting</span></div></div>
+          </div>
         </div>
         </div>
       </div>
@@ -2841,14 +3083,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-scenario-title">📋 Scenario</div>
             <div class="ex-scenario-text">Create a new vendor in SAP S/4HANA using transaction <strong style="color:var(--gold)">BP</strong>. The vendor is <strong>Mr. Gawad</strong>, a person-type supplier in Cairo, Egypt. Assign both the FI Supplier role (with reconciliation account 210100) and the Purchasing role (with Purchasing Org BE25).</div>
           </div>
-          <div class="ex-steps">
+          
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">The unified Business Partner transaction in SAP S/4HANA for creating vendors, customers, and other partners. Replaces the legacy XK01 (vendor) and XD01 (customer) transactions used in ECC.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">A new supplier signs a contract. Before their first invoice can be processed, the AP team creates them in BP with the FI Vendor role (reconciliation account) and Purchasing role. Without this, FB60 will reject the entry.</p>
+          </div>
+        </div>
+        <div class="ex-steps">
 
             <div class="ex-step">
               <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open BP — Maintain Business Partner</div></div>
               <div class="ex-step-body">
                 <div class="ex-step-desc">Type <strong>BP</strong> in the command field and press Enter. The <strong>Maintain Business Partner</strong> screen opens with two tabs: <strong>Worklist</strong> and <strong>Find</strong>. The toolbar shows buttons: Person, Organization, Group. Use the Find tab to search existing partners or click <strong>Person</strong> to create a new one.</div>
                 <div class="ex-step-note">💡 In SAP S/4HANA, customers and vendors are unified as Business Partners. One BP can have multiple roles (General, Supplier, Customer) assigned at the same time.</div>
-                
+                <img src="./images/Screenshot_20260515_174356.png" class="ex-img" alt="BP — Maintain Business Partner search screen" loading="lazy">
               </div>
             </div>
 
@@ -2857,8 +3110,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">Click <strong>Person</strong> in the toolbar. The "Create Person" screen opens. Fill in:<br><br>• <strong>Grouping:</strong> <code>AF VENDOR FOR PG</code><br>• <strong>Title:</strong> <code>0002 Mr.</code><br>• <strong>First name:</strong> <code>Gawad</code><br>• <strong>Last name:</strong> <code>Gawad</code><br><br>The Search Term 1/2 auto-fills to GAWAD / GAWAD.</div>
                 <div class="ex-step-note">📌 The Grouping determines the number range for the BP number. "AF VENDOR FOR PG" assigns the correct range for AP vendors in the system.</div>
-                
-                
+                <img src="./images/Screenshot_20260515_174458.png" class="ex-img" alt="BP — Create Person empty form" loading="lazy">
+                <img src="./images/Screenshot_20260515_174926.png" class="ex-img" alt="BP — Create Person filled with Gawad data" loading="lazy">
               </div>
             </div>
 
@@ -2866,8 +3119,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-header"><span class="ex-step-num" style="background:var(--purple)">3</span><div class="ex-step-title">Fill Street Address</div></div>
               <div class="ex-step-body">
                 <div class="ex-step-desc">Scroll down on the Address tab to the <strong>Standard Address</strong> section. Fill in:<br><br>• <strong>Street/House number:</strong> <code>Cairo</code><br>• <strong>Postal Code:</strong> <code>11111</code><br>• <strong>City:</strong> <code>cairo</code><br>• <strong>Country/Region:</strong> <code>EG</code> (Egypt)<br>• <strong>Region:</strong> <code>C</code> → auto-fills to Cairo<br>• <strong>Time zone:</strong> EGYPT (auto-fills)<br><br>Press Enter → status bar shows <em>"Data of business partner is error-free"</em>.</div>
-                
-                
+                <img src="./images/Screenshot_20260515_174938.png" class="ex-img" alt="BP — Street Address filled" loading="lazy">
+                <img src="./images/Screenshot_20260515_174953.png" class="ex-img" alt="BP — Error-free confirmation" loading="lazy">
               </div>
             </div>
 
@@ -2876,7 +3129,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">Click <strong>Save</strong>. SAP creates the Business Partner and assigns a number (e.g. <strong>446208</strong>). The screen switches to Display mode showing:<br><br>• Business Partner: <strong>446208</strong><br>• Name: Gawad Gawad / 11111 cairo<br>• Display in BP role: 000000 Business Partner (Gen.)<br>• Status bar: <em>"Business partner 446208 created"</em></div>
                 <div class="ex-step-note">✅ The BP is now created as a General Business Partner only. The Vendor and Purchasing roles must be added in the next steps.</div>
-                
+                <img src="./images/Screenshot_20260515_175137.png" class="ex-img" alt="BP — Business Partner 446208 created" loading="lazy">
               </div>
             </div>
 
@@ -2885,10 +3138,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">In the "Change in BP role" dropdown (top of screen), select <strong>FLVN00 Supplier (Fin.Accounting)</strong>. The screen title changes to <em>"Change Person: 446208, new role Supplier (Fin.Accounting)"</em>.<br><br>Navigate to the <strong>Company Code</strong> section:<br>• <strong>Company Code:</strong> <code>BEV1</code> (be7ery) — auto-populated<br>• Supplier number auto-assigned as <code>&lt;External&gt;</code><br><br>Go to the <strong>Vendor: Account Management</strong> tab:<br>• <strong>Reconciliation acct:</strong> <code>210100</code> → description: "Vendors Reconciliation"<br><br>Press Enter → "Data of business partner is error-free" → Click <strong>Save</strong>.<br>The Supplier field now shows <strong>446208</strong> (same as BP number).</div>
                 <div class="ex-step-note">📌 The Reconciliation Account (210100) links the vendor sub-ledger to the GL. Every invoice or payment posted to vendor 446208 will automatically update GL account 210100.</div>
-                
-                
-                
-                
+                <img src="./images/Screenshot_20260515_175523.png" class="ex-img" alt="BP — FLVN00 Identification tab" loading="lazy">
+                <img src="./images/Screenshot_20260515_175719.png" class="ex-img" alt="BP — Company Code with Recon Account 210100" loading="lazy">
+                <img src="./images/Screenshot_20260515_175757.png" class="ex-img" alt="BP — Data error-free" loading="lazy">
+                <img src="./images/Screenshot_20260515_175810.png" class="ex-img" alt="BP — Changes saved, Supplier 446208" loading="lazy">
               </div>
             </div>
 
@@ -2897,15 +3150,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">Switch the role to <strong>FLVN01 Supplier (New)</strong>. The Purchasing tab becomes visible in the toolbar. Navigate to the <strong>Purchasing Organization</strong> section:<br><br>• <strong>Purch. organization:</strong> <code>BE25</code> → description: "be7ery's po"<br><br>The Purchasing Data tab shows: Order currency, Payment Terms, Incoterms, etc. (leave blank for now).<br><br>Press Enter → "Data of business partner is error-free" → Click <strong>Save</strong>.<br>Status bar: <em>"Changes have been saved"</em>. Role now shows as <strong>FLVN01 Supplier (Maintained)</strong>.</div>
                 <div class="ex-step-note">✅ Vendor 446208 is now fully configured with General data, FI Accounting role (recon. acct 210100), and Purchasing role (Org BE25). Ready for invoice entry in FB60.</div>
-                
-                
-                
-                
+                <img src="./images/Screenshot_20260515_180019.png" class="ex-img" alt="BP — FLVN01 Supplier New role" loading="lazy">
+                <img src="./images/Screenshot_20260515_180155.png" class="ex-img" alt="BP — Purchasing Org BE25" loading="lazy">
+                <img src="./images/Screenshot_20260515_180216.png" class="ex-img" alt="BP — Purchasing data error-free" loading="lazy">
+                <img src="./images/Screenshot_20260515_180239.png" class="ex-img" alt="BP — FLVN01 Supplier Maintained saved" loading="lazy">
               </div>
             </div>
 
           </div>
           <div class="ex-result-box">✅ <strong>Result:</strong> Business Partner 446208 (Mr. Gawad Gawad) created as a full vendor — General BP role, FI Supplier role with Recon. Account 210100 (Company Code BEV1), and Purchasing role with Purchasing Org BE25.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Not assigning both the FI Vendor role AND the Purchasing role — both are required for full AP invoice processing.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Wrong Reconciliation Account — this links the vendor sub-ledger to the GL; an incorrect account causes balance sheet errors.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Wrong BP Grouping — controls the number range for the vendor and cannot be changed after the BP is created.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB60</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Post the first vendor invoice after the vendor is created</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View all transactions for this vendor after invoices are posted</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the vendor period balance summary</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -2925,14 +3188,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-scenario-title">📋 Scenario</div>
             <div class="ex-scenario-text">Enter a vendor invoice from supplier <strong style="color:var(--gold)">580024 (المتحدة)</strong> for <strong>Cleaning Expenses of EGP 8,000</strong>. Post the invoice and verify the resulting accounting document.</div>
           </div>
-          <div class="ex-steps">
+          
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Posts a vendor invoice into SAP — records the liability (credit to AP reconciliation account) and the corresponding expense or asset (debit to GL). This is the core Accounts Payable data entry transaction.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">You receive an invoice from a cleaning company for 8,000 EGP. Enter it in FB60: Vendor = 580024, Amount = 8,000, GL = 500005. SAP creates the entry: Dr Cleaning Expense 8,000 / Cr AP Reconciliation 8,000.</p>
+          </div>
+        </div>
+        <div class="ex-steps">
 
             <div class="ex-step">
               <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FB60 — Enter Vendor Invoice</div></div>
               <div class="ex-step-body">
                 <div class="ex-step-desc">Type <strong>FB60</strong> in the command field. The <strong>"Enter Vendor Invoice: Company Code BEV1"</strong> screen opens. The header shows:<br>• Transaction: R Invoice<br>• Balance indicator: ○△○ (unbalanced — red/yellow until entry is complete)<br>• Tabs: Basic data | Payment | Details | Tax | Withholding tax | Notes<br>• Company Code: BEV1 be7ery Madinty (at bottom)</div>
                 <div class="ex-step-note">💡 FB60 automatically sets the document type to KR (Vendor Invoice) and posts to the vendor sub-ledger + reconciliation account. No need to enter posting keys manually.</div>
-                
+                <img src="./images/Screenshot_20260515_183214.png" class="ex-img" alt="FB60 — Enter Vendor Invoice empty screen" loading="lazy">
               </div>
             </div>
 
@@ -2941,7 +3215,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">On the <strong>Basic data</strong> tab, fill in:<br><br>• <strong>Vendor:</strong> <code>580024</code> → press Enter → a vendor address popup appears showing: Company: المتحدة, Cairo, Egypt<br>• <strong>Invoice date:</strong> <code>05/15/2026</code> (today)<br>• <strong>Posting Date:</strong> auto-fills to 05/15/2026<br>• <strong>Amount:</strong> <code>8,000</code> EGP<br><br>The balance indicator changes as you fill the amount. Payment terms show "Due immediately" and Baseline Date auto-fills.</div>
                 <div class="ex-step-note">📌 The vendor popup confirms you selected the correct supplier before proceeding. Check the address to avoid posting to the wrong vendor.</div>
-                
+                <img src="./images/Screenshot_20260515_184011.png" class="ex-img" alt="FB60 — Vendor 580024 filled with amount 8000 and GL 500005" loading="lazy">
               </div>
             </div>
 
@@ -2958,12 +3232,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">Click <strong>Simulate</strong> in the toolbar to preview the document. The balance indicator should now be green (○○■). The preview shows both lines:<br><br>• Item 1 | Key 31 | Vendor 580024 (المتحدة) | <strong>8,000 Cr</strong> EGP<br>• Item 2 | Key 40 | G/L 500005 (Cleanning exp) | <strong>8,000 Dr</strong> EGP<br><br>If balanced → click <strong>Post</strong>. SAP creates Document Number <strong>1900000143</strong> (Doc Type: KR). Use <strong>FB03</strong> to display and verify.</div>
                 <div class="ex-step-note">📌 Posting Key 31 = Vendor Credit (AP). SAP uses this automatically for the vendor line. The document is now in the vendor sub-ledger as an open item (unpaid invoice).</div>
-                
+                <img src="./images/Screenshot_20260515_184046.png" class="ex-img" alt="FB60 — Display Document posted result" loading="lazy">
               </div>
             </div>
 
           </div>
           <div class="ex-result-box">✅ <strong>Result:</strong> Vendor invoice posted — Doc 1900000143 (KR). Vendor 580024 Cr 8,000 / Cleaning Exp (500005) Dr 8,000 EGP. The invoice is now an open item in FBL1N awaiting payment.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Wrong vendor number — always confirm the vendor name auto-fills correctly; a wrong vendor is difficult to correct after posting.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Posting to the wrong GL expense account — the account must match the nature of the invoice for accurate financial reporting.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting payment terms — these determine the invoice due date and directly affect the AP aging report and cash flow planning.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">BP</span><span style="font-size:13px;color:var(--dim);line-height:1.5">The vendor must be created here first — FB60 will fail without it</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Verify the invoice appears in vendor line items after posting</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Check the updated total vendor balance after posting</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -2983,14 +3267,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-scenario-title">📋 Scenario</div>
             <div class="ex-scenario-text">Use <strong style="color:var(--gold)">FBL1N</strong> to review all vendor transactions for supplier <strong>580024</strong> in Company Code <strong>BEV1</strong>. View open items, cleared items, and understand the document types and status indicators. Also explore Special G/L transactions (down payments).</div>
           </div>
-          <div class="ex-steps">
+          
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Displays all individual transactions for a specific vendor — invoices, payments, and credit memos. Filters by open (unpaid), cleared (paid), or all items within a selected date range.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Before the weekly payment run, the AP team opens FBL1N for each vendor to see all outstanding invoices, verify amounts and due dates, and flag any overdue items requiring urgent payment.</p>
+          </div>
+        </div>
+        <div class="ex-steps">
 
             <div class="ex-step">
               <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FBL1N — Vendor Line Item Display</div></div>
               <div class="ex-step-body">
                 <div class="ex-step-desc">Type <strong>FBL1N</strong> in the command field. The <strong>Vendor Line Item Display</strong> screen opens with sections:<br><br>• <strong>Supplier Selection:</strong> Supplier Account, Company Code<br>• <strong>Selection Using Search Help</strong><br>• <strong>Line item selection — Status:</strong> Open items / Cleared items / All items<br>• <strong>Type:</strong> Normal items, Special G/L transactions, Noted items, Parked items<br><br>Enter Supplier Account: <code>580024</code> | Company Code: <code>BEV1</code> | Select <strong>Open Items</strong> | Open at key date: today → Execute.</div>
                 <div class="ex-step-note">📌 You can also leave Supplier Account blank and execute to view ALL vendor accounts — useful for a broad review or audit.</div>
-                
+                <img src="./images/Screenshot_20260515_185036.png" class="ex-img" alt="FBL1N — Selection screen with Open Items" loading="lazy">
               </div>
             </div>
 
@@ -2999,7 +3294,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">SAP shows the Vendor Line Item Display results for Supplier 580024 (المتحدة), City: cairo. The list shows all unpaid invoices:<br><br>Columns: Status, Assignment, DocumentNo, Type, Doc. Date, S, DD, Amount in Local Crcy, LCurr, Clrng doc., Text<br><br>Example results:<br>• 🔴 | — | 1900000127 | KR | 05/12/2026 | ⚡ | 777− EGP<br>• 🔴 | — | 1900000128 | KR | 05/12/2026 | ⚡ | 666− EGP<br><br>The total shows the sum of all open items for this vendor (e.g. "5 items displayed").</div>
                 <div class="ex-step-note">💡 <strong>🔴 = Open (unpaid)</strong>. The ⚡ icon in the DD column = Overdue (past net due date). A 🟢 square = Cleared (paid/settled).</div>
-                
+                <img src="./images/Screenshot_20260515_185309.png" class="ex-img" alt="FBL1N — Open items results" loading="lazy">
               </div>
             </div>
 
@@ -3008,7 +3303,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">Go back to the selection screen. Select <strong>All Items</strong> → Execute. Now the list shows both open (🔴) and cleared (🟢) items. Cleared items show a value in the <strong>Clrng doc.</strong> column — the document number that cleared/paid the invoice.<br><br>Document Types visible:<br>• <strong>KR</strong> — Kreditor Rechnung = Vendor Invoice<br>• <strong>KZ</strong> — Vendor Payment<br>• <strong>SA</strong> — General GL posting related to vendor</div>
                 <div class="ex-step-note">📌 To drill into any item, double-click the document number to open the original document in display mode (same as FB03).</div>
-                
+                <img src="./images/Screenshot_20260515_185448.png" class="ex-img" alt="FBL1N — All items with open and cleared" loading="lazy">
               </div>
             </div>
 
@@ -3017,12 +3312,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">Go back to the selection screen. Under <strong>Type</strong>, check <strong>Special G/L transactions</strong> (in addition to Normal items). Select <strong>All Items</strong> → Execute.<br><br>The report now shows an additional column <strong>S</strong> (Special G/L Indicator). Items with indicator <strong>A</strong> represent <strong>down payments</strong> made to the vendor. These are tracked separately from regular invoices because they use a different reconciliation account in GL.<br><br>Also visible: the <strong>Baseline Date</strong> (start of payment terms) and <strong>Net Due Date</strong> (actual payment due date) on each line item.</div>
                 <div class="ex-step-note">💡 Special G/L Indicator A = Down Payment. These are prepayments to a vendor — shown separately to ensure they are later matched against the final invoice.</div>
-                
+                <img src="./images/Screenshot_20260515_191200.png" class="ex-img" alt="FBL1N — Special G/L transactions selected" loading="lazy">
               </div>
             </div>
 
           </div>
           <div class="ex-result-box">✅ <strong>Result:</strong> All vendor line items for supplier 580024 displayed. Open items (unpaid invoices) identified by 🔴 and ⚡ indicators. Cleared items visible in All Items view. Down payments visible via Special G/L filter. Document types KR (Invoice) and KZ (Payment) identified.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to set the correct Open at Key Date — leaving it as today may miss invoices that were open at a prior month-end.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Missing Special G/L items — down payments and guarantees are filtered separately and will not appear in the standard open items view.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Confusing open items (unpaid) with cleared items (paid and matched) — check the status indicator column carefully.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View the vendor period balance summary instead of individual lines</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB60</span><span style="font-size:13px;color:var(--dim);line-height:1.5">The transaction that created most of the invoice line items shown</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">IDCNAP</span><span style="font-size:13px;color:var(--dim);line-height:1.5">AP aging analysis across all vendors simultaneously</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -3042,14 +3347,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="ex-scenario-title">📋 Scenario</div>
             <div class="ex-scenario-text">Use <strong style="color:var(--gold)">FK10N</strong> to review the balance of vendor <strong>580024</strong> in Company Code <strong>BEV1</strong> for fiscal year <strong>2026</strong>. Analyze the period-by-period balance and drill down into a specific period's transactions.</div>
           </div>
-          <div class="ex-steps">
+          
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px">
+          <div style="background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">🔍 What is this T-Code?</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">Displays the total debit, credit, and cumulative balance for a vendor account broken down by accounting period. Allows direct drill-down from any period total to the individual transactions behind it.</p>
+          </div>
+          <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">💼 Real-Life Use Case</div>
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin:0">The Finance Manager asks: "How much did we owe Coca-Cola at the end of Q1 2026?" Open FK10N, enter the vendor and fiscal year — the cumulative balance at period 3 answers the question in one screen.</p>
+          </div>
+        </div>
+        <div class="ex-steps">
 
             <div class="ex-step">
               <div class="ex-step-header"><span class="ex-step-num" style="background:var(--accent)">1</span><div class="ex-step-title">Open FK10N — Enter Parameters</div></div>
               <div class="ex-step-body">
                 <div class="ex-step-desc">Type <strong>FK10N</strong> in the command field. The <strong>Vendor Balance Display</strong> screen opens with three fields:<br><br>• <strong>Vendor:</strong> <code>580024</code><br>• <strong>Company code:</strong> <code>BEV1</code><br>• <strong>Fiscal year:</strong> <code>2026</code><br><br>Click <strong>Execute</strong>.</div>
                 <div class="ex-step-note">💡 FK10N is the vendor equivalent of FAGLB03 (GL Balance Display). It gives you a month-by-month summary of all activity for this vendor account.</div>
-                
+                <img src="./images/Screenshot_20260515_191848.png" class="ex-img" alt="FK10N — Vendor Balance Display selection screen" loading="lazy">
               </div>
             </div>
 
@@ -3058,8 +3374,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">The result screen shows vendor 580024 (المتحدة), Company Code BEV1, Fiscal Year 2026, Currency EGP.<br><br>Two tabs: <strong>Bals</strong> (normal balances) and <strong>Special G/L</strong> (down payments).<br><br>The Bals table columns: Period | Debit | Credit | Balance | Cumulative Balance | Sales/Purchases<br><br>Example result for Period 5:<br>• Debit: 1,887 | Credit: 11,330 | Balance: 9,443− | Cumulative Balance: 9,443− | Sales/Purchases: 11,330−<br><br>Periods 6–12 show the Cumulative Balance carried forward (9,443−) even with no new activity.</div>
                 <div class="ex-step-note">📌 A negative cumulative balance means the company <strong>owes</strong> this vendor — the vendor has a credit position (you haven't paid yet).</div>
-                
-                
+                <img src="./images/Screenshot_20260515_191949.png" class="ex-img" alt="FK10N — Period balances result" loading="lazy">
+                <img src="./images/Screenshot_20260515_192123.png" class="ex-img" alt="FK10N — Period 5 credit column highlighted" loading="lazy">
               </div>
             </div>
 
@@ -3068,13 +3384,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">To see the individual transactions behind any period's total, <strong>double-click</strong> on the amount in the Credit or Balance column for that period. SAP opens the <strong>Vendor Line Item Display (FBL1N)</strong> filtered to that period and vendor — showing each individual invoice or payment that makes up that period's total.<br><br>Example: double-clicking Period 5 Credit (11,330) shows the invoices posted in May 2026 for vendor 580024.</div>
                 <div class="ex-step-note">✅ This drilldown capability is the power of FK10N — quickly navigate from a summary balance to the exact underlying transactions.</div>
-                
-                
+                <img src="./images/Screenshot_20260515_192205.png" class="ex-img" alt="FK10N — Drilldown to FBL1N line items" loading="lazy">
+                <img src="./images/Screenshot_20260515_192220.png" class="ex-img" alt="FK10N — Display Document Line Item detail" loading="lazy">
               </div>
             </div>
 
           </div>
           <div class="ex-result-box">✅ <strong>Result:</strong> Vendor 580024 balance displayed by period. Period 5 shows Debit 1,887 / Credit 11,330 / Balance 9,443−. Cumulative balance of 9,443− EGP indicates this vendor is owed money. Drilldown to individual transactions available via double-click.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Misreading a negative cumulative balance — in AP, a negative balance is normal and simply means the company owes that vendor money.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting to check the Special G/L tab — down payments appear there separately and are excluded from the main Bals tab.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Wrong fiscal year — FK10N shows one fiscal year at a time; always verify you selected the correct year.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">See every individual invoice and payment behind any period total</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">IDCNAP</span><span style="font-size:13px;color:var(--dim);line-height:1.5">AP aging analysis for all vendors simultaneously</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB60</span><span style="font-size:13px;color:var(--dim);line-height:1.5">The transaction that created the vendor invoices shown in the balance</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -3101,7 +3427,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">Type <strong>IDCNAP</strong> in the command field. The <strong>A/P Aging Report</strong> selection screen opens with four sections:<br><br>• <strong>Supplier Selection:</strong> Supplier Account (leave blank for all) | Company Code: <code>BEV1</code> to <code>BEV1</code><br>• <strong>Transaction Figures Selection:</strong> Profit Center, Segment (optional)<br>• <strong>Line Item Selection:</strong> Open Items at Key Date → <code>05/15/2026</code> (today)<br>• <strong>Further Selections:</strong> Normal Items ✓, Special G/L Transactions (optional)</div>
                 <div class="ex-step-note">📌 Leave Supplier Account blank to include ALL vendors in the company — this gives the complete AP aging picture for management reporting.</div>
-                
+                <img src="./images/Screenshot_20260515_192529.png" class="ex-img" alt="IDCNAP — A/P Aging Report selection screen" loading="lazy">
               </div>
             </div>
 
@@ -3110,7 +3436,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">Scroll down to the <strong>Output Control</strong> section. The <strong>Due Date Sorted List</strong> defines the aging buckets:<br><br>Default values: <code>10 | 20 | 30 | 60 | 90 | 180 | 360 | 720</code> days (each in 1-Day intervals)<br><br>These buckets mean: Not Due | 1–10 days | 11–20 days | 21–30 days | 31–60 days | 61–90 days | etc.<br><br>Leave as default → Click <strong>Execute</strong>.</div>
                 <div class="ex-step-note">💡 You can customize the aging buckets to match your company's payment terms. For example, if standard terms are Net 30, use buckets of 30, 60, 90 days.</div>
-                
+                <img src="./images/Screenshot_20260515_192757.png" class="ex-img" alt="IDCNAP — Output Control Due Date Sorted List" loading="lazy">
               </div>
             </div>
 
@@ -3119,12 +3445,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">The <strong>AP Aging Analysis</strong> screen opens showing all vendors with open items as of the key date. Columns:<br><br>CoCd | Segment | Profit Center | <strong>Supplier</strong> | Supplier Name | G/L Acct | G/L Acc Text | <strong>Σ Total Open</strong> | LCurr | <strong>Σ Not Due</strong> | % | <strong>Σ &lt;11D</strong> | % | Σ 11D–20D | % | Σ 21D–30D | % | Σ 31D–60D…<br><br>Example results (Company BEV1):<br>• Cocacola (1): Total Open 2,800 EGP | 100% in &lt;11 Days<br>• Aroma (10079): Total Open 7,500 EGP | 100% in &lt;11 Days<br>• Behery (446031): Total Open 600 EGP | 100% Not Due<br>• المتحدة (580024): Total Open 8,000 EGP | 100% in &lt;11 Days</div>
                 <div class="ex-step-note">📌 The % column shows what proportion of the vendor's total payable falls in each aging bucket. 100% in &lt;11 Days means the invoice is recent and not yet overdue.</div>
-                
+                <img src="./images/Screenshot_20260515_192553.png" class="ex-img" alt="IDCNAP — AP Aging Analysis results by vendor" loading="lazy">
               </div>
             </div>
 
           </div>
           <div class="ex-result-box">✅ <strong>Result:</strong> AP Aging Report generated for Company Code BEV1 as of 05/15/2026. All outstanding vendor invoices grouped by aging period. Report shows total payables by vendor with % distribution across aging buckets — essential for cash flow planning and payment prioritization.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">⚠️ Common Mistakes</div>
+            <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Wrong Key Date — the aging is calculated as of this date; an incorrect date produces completely misleading overdue figures.</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Not customizing the aging buckets — the default buckets may not match your company's payment terms (e.g. Net 45 or Net 60).</span></div><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--red);font-size:12px;flex-shrink:0;margin-top:2px">✕</span><span style="font-size:13px;color:var(--dim);line-height:1.6">Forgetting Special G/L transactions — down payments may need to be included or excluded depending on the analysis purpose.</span></div></div>
+          </div>
+          <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:18px">
+            <div style="font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">🔗 Related T-Codes</div>
+            <div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FBL1N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">Drill into individual invoice details for any specific vendor</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FK10N</span><span style="font-size:13px;color:var(--dim);line-height:1.5">View a single vendor's balance broken down by period</span></div><div style="display:flex;align-items:flex-start;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:4px;white-space:nowrap">FB60</span><span style="font-size:13px;color:var(--dim);line-height:1.5">The transaction that created the outstanding invoices shown in the report</span></div></div>
+          </div>
+        </div>
         </div>
       </div>
 
