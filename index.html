@@ -396,7 +396,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="3">L4 — GL Posting &amp; Document Entry</option>
         <option value="4">L5 — Document Management &amp; Reporting</option>
         <option value="5">L6 — AP — Accounts Payable</option>
-        <option value="6">TC — T-Code Challenge</option>
       </select>
     </div>
 
@@ -4630,14 +4629,6 @@ function showLecture(i){
   const sel=document.querySelector('#page-mycourse .mobile-picker select');
   if(sel) sel.value=i;
 }
-function showLesson(i){
-  document.querySelectorAll('.lesson-section').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('.sidebar-item').forEach(x=>x.classList.remove('active'));
-  document.getElementById('lesson-'+i).classList.add('active');
-  document.querySelectorAll('.sidebar-item')[i].classList.add('active');
-  const sel=document.querySelector('#fi-mobile-picker select');
-  if(sel) sel.value=i;
-}
 /* ── Quiz System (multi-lecture) ── */
 let quizState={};
 function answerQ(lec,q,btn,result){
@@ -4647,7 +4638,8 @@ function answerQ(lec,q,btn,result){
   btn.parentElement.querySelectorAll('.option').forEach(o=>o.disabled=true);
   btn.classList.add(result);
   document.getElementById('exp-'+lec+'-'+q).style.display='block';
-  const total=lec==='tc'?16:5;
+  const totals={l1:8,l2:8,l3:10,l4:10,l5:8,l6:10,tc:20};
+  const total=totals[lec]||8;
   const done=Object.keys(quizState).filter(k=>k.startsWith(lec+'_')).length;
   if(done===total){
     const correct=Object.entries(quizState).filter(([k,v])=>k.startsWith(lec+'_')&&v==='correct').length;
@@ -4675,6 +4667,7 @@ function resetQuizL(lec,total){
   quiz.querySelectorAll('.option').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong');});
   quiz.querySelectorAll('.explanation').forEach(e=>e.style.display='none');
   document.getElementById('score-'+lec).style.display='none';
+  updateTotalScore();
 }
 
 /* ── PWA ── */
