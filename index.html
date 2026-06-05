@@ -379,13 +379,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
   <div class="content-layout">
     <div class="sidebar">
-      <div class="sidebar-title" style="display:flex;justify-content:space-between;align-items:center">Lectures <span id="lec-progress" style="font-size:11px;color:var(--green);font-weight:700">0/6</span></div>
+      <div class="sidebar-title" style="display:flex;justify-content:space-between;align-items:center">Lectures <span id="lec-progress" style="font-size:11px;color:var(--green);font-weight:700">0/7</span></div>
       <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
       <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Implementation Methodology</div>
       <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
       <div class="sidebar-item" onclick="showLecture(3)"><span class="sidebar-num">L4</span>GL Posting & Document Entry</div>
       <div class="sidebar-item" onclick="showLecture(4)"><span class="sidebar-num">L5</span>Document Management & Reporting</div>
       <div class="sidebar-item" onclick="showLecture(5)"><span class="sidebar-num">L6</span>AP — Accounts Payable</div>
+      <div class="sidebar-item" onclick="showLecture(6)"><span class="sidebar-num">L7</span>AP Down Payments & AR — Order-to-Cash</div>
     </div>
 
     <div class="mobile-picker">
@@ -396,6 +397,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="3">L4 — GL Posting &amp; Document Entry</option>
         <option value="4">L5 — Document Management &amp; Reporting</option>
         <option value="5">L6 — AP — Accounts Payable</option>
+        <option value="6">L7 — AP Down Payments &amp; AR — Order-to-Cash</option>
       </select>
     </div>
 
@@ -1969,12 +1971,206 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div class="nav-btns">
           <button class="btn btn-outline" onclick="showLecture(4)">← Lecture 5</button>
-          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 7 — Coming Soon</button>
+          <button class="btn btn-primary" onclick="showLecture(6)">Lecture 7 →</button>
         </div>
 
       
         <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(5,this)" id="lec-done-5" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 6 Complete</button></div>
       </div><!-- end lecture-5 -->
+
+      <div class="lesson-section" id="lecture-6">
+        <div class="lesson-title"><span class="lesson-num">Lecture 7</span>AP Down Payments &amp; AR — Order-to-Cash</div>
+        <div class="lesson-sub">Vendor down payments &amp; special G/L config, outgoing payments &amp; clearing — then the start of AR: customer master, customer invoice, reporting, and incoming/down payments</div>
+
+        <!-- INTRO -->
+        <div class="content-block">
+          <h3>1. Overview — Down Payments &amp; the Move into AR</h3>
+          <p>Lecture 7 completes the <strong style="color:var(--text)">AP payment cycle</strong> with down payments, outgoing payments and clearing, then transitions into <strong style="color:var(--text)">AR (Accounts Receivable)</strong> — the mirror image of AP on the customer side.</p>
+          <ul class="key-points">
+            <li>A <strong>down payment</strong> is an advance paid to a vendor <em>before</em> the invoice/goods arrive — tracked as a <strong>special G/L transaction</strong>, not a normal payable</li>
+            <li>Special G/L transactions post to an <strong>alternative reconciliation account</strong>, so advances are reported separately from regular invoices</li>
+            <li>Full AP advance cycle: request <strong>(F-47)</strong> → post down payment <strong>(F-48)</strong> → clear against invoice <strong>(F-54)</strong> → pay the balance <strong>(F-53)</strong></li>
+            <li>AR handles the <strong>customer</strong> side — the <strong>Order-to-Cash (OTC)</strong> cycle — reusing the same logic with account type <strong>D</strong> instead of <strong>K</strong></li>
+          </ul>
+          <div class="hbox info">💡 Account type <strong>K = Kreditor</strong> (vendor) and <strong>D = Debitor</strong> (customer). Almost every AP transaction has a matching AR counterpart — e.g. F-53 pay vendor ↔ F-28 receive from customer.</div>
+        </div>
+
+        <!-- F-48 -->
+        <div class="content-block">
+          <h3>2. F-48 — Post Vendor Down Payment</h3>
+          <p>Transaction <strong style="color:var(--gold)">F-48</strong> posts an advance payment to a vendor before the invoice arrives. It is recorded as a <strong>special G/L transaction (indicator A)</strong> so it shows separately from normal payables.</p>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">Data to Enter</div>
+          <ul class="key-points">
+            <li><strong>Header:</strong> Document/Posting Date, Company Code <code>BEV1</code>, Currency, Reference, Document Header Text</li>
+            <li><strong>Vendor data:</strong> Account (vendor number) and <strong>Special G/L indicator: A</strong> (down payment)</li>
+            <li><strong>Bank data:</strong> House Bank, Account ID, Amount</li>
+            <li>Press Enter → the down payment line is generated against the alternative (special G/L) account → <strong>Post</strong></li>
+            <li>Posting: <strong>Bank Cr</strong> / <strong>Vendor special G/L (down payment) Dr</strong></li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 Because it uses special G/L indicator <strong>A</strong>, the advance lands on the down-payment recon account — keeping it out of the normal 210100 payables balance until it is cleared.</div>
+        </div>
+
+        <!-- FBKP -->
+        <div class="content-block">
+          <h3>3. FBKP — Maintain Accounting Configuration (Special G/L)</h3>
+          <p>Transaction <strong style="color:var(--gold)">FBKP</strong> is the configuration cockpit for automatic postings and special G/L. Here it defines <strong>which alternative G/L account a special G/L transaction posts to</strong>.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Open FBKP → choose the <strong>Special G/L</strong> selection</li>
+            <li>Select the <strong>Account type: K</strong> (vendor) — or <strong>D</strong> for customers</li>
+            <li>Select the <strong>special G/L indicator</strong> (e.g. <strong>A</strong> = down payment, <strong>F</strong> = down payment request)</li>
+            <li>Assign the special G/L account — e.g. the <strong>Down Payment account</strong> — against the normal reconciliation account</li>
+            <li>Save → from now on F-48 down payments automatically post to that account</li>
+          </ul>
+          <div class="hbox warn" style="margin-top:10px">📌 FBKP is <strong>configuration</strong>, not a daily transaction. The special G/L account must already exist (created in FS00 and flagged as a reconciliation account) before you can link it here.</div>
+        </div>
+
+        <!-- F-47 -->
+        <div class="content-block">
+          <h3>4. F-47 — Down Payment Request</h3>
+          <p>Transaction <strong style="color:var(--gold)">F-47</strong> creates a <strong>down payment request</strong> — a noted item that records the intention to pay an advance, with <em>no</em> G/L posting yet. It later drives the actual payment.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Enter the header and vendor data, then add the requested amount</li>
+            <li><strong>Special G/L indicator: F</strong> (down payment request)</li>
+            <li>Post → SAP records a <strong>noted item</strong> (statistical only — no real accounting entry, no balance change)</li>
+            <li>The request can then be picked up by the payment program or by F-48 to make the actual down payment</li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 A down payment request (indicator <strong>F</strong>) is a <strong>noted item</strong> — it appears in the vendor account as a reminder/trigger but does not affect the GL balance until an actual payment is posted.</div>
+        </div>
+
+        <!-- F-53 -->
+        <div class="content-block">
+          <h3>5. F-53 — Post Outgoing Payment</h3>
+          <p>Transaction <strong style="color:var(--gold)">F-53</strong> pays an open vendor invoice. You enter the payment (bank) details, select the open invoice(s) to settle, and post — clearing the payable.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li><strong>Main data:</strong> Document/Posting Date, Company Code <code>BEV1</code>, Currency</li>
+            <li><strong>Bank data:</strong> bank/clearing G/L account and Amount paid</li>
+            <li><strong>Vendor:</strong> enter the Account → <strong>Process Open Items</strong></li>
+            <li>Select the invoice(s) so the assigned amount = the payment amount (the balance must be <strong>0</strong>)</li>
+            <li>Post → <strong>Bank Cr / Vendor Dr</strong>; the paid invoice is now cleared (document type <strong>KZ</strong>)</li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 <strong>KZ = Kreditor Zahlung</strong> = vendor payment. After F-53 the invoice moves from <strong>Open</strong> to <strong>Cleared</strong> in FBL1N.</div>
+        </div>
+
+        <!-- F-54 -->
+        <div class="content-block">
+          <h3>6. F-54 — Clear Vendor Down Payment</h3>
+          <p>Transaction <strong style="color:var(--gold)">F-54</strong> clears a posted down payment against the actual vendor invoice once it arrives — transferring the advance from the special G/L account back to the normal payable so the net remaining balance is correct.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Enter the header, Company Code <code>BEV1</code> and the Vendor account</li>
+            <li>Select the relevant <strong>invoice</strong> the down payment relates to</li>
+            <li>Choose the down payment line(s) to clear (transfer posting)</li>
+            <li>Post → the special G/L down payment is reversed against the normal recon account; only the <strong>net</strong> amount remains open</li>
+          </ul>
+          <div class="hbox warn" style="margin-top:10px">📌 Sequence matters: post the down payment <strong>(F-48)</strong> → enter the vendor invoice <strong>(FB60)</strong> → clear the down payment against it <strong>(F-54)</strong> → pay the remaining balance <strong>(F-53)</strong>.</div>
+        </div>
+
+        <!-- AR Overview / OTC -->
+        <div class="content-block">
+          <h3>7. AR — Accounts Receivable &amp; the Order-to-Cash (OTC) Cycle</h3>
+          <p>From here the lecture moves into <strong style="color:var(--text)">AR (Accounts Receivable)</strong> — managing money owed by customers. The end-to-end flow is the <strong>Order-to-Cash (OTC)</strong> cycle.</p>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">The OTC Cycle</div>
+          <ul class="key-points">
+            <li>Create / maintain the <strong>customer master</strong> (BP)</li>
+            <li>Sales order → delivery → goods issue (the logistics/SD side)</li>
+            <li>Billing → <strong>customer invoice</strong> (FB70 in FI)</li>
+            <li>Customer pays → <strong>incoming payment</strong> (F-28)</li>
+            <li>Reporting: line items (FBL5N), balance (FD10N), aging (IDCNAR)</li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 AR mirrors AP: customer = account type <strong>D</strong>, customer invoice doc type <strong>DR</strong>, customer payment doc type <strong>DZ</strong>, and every transaction posts to the <strong>customer reconciliation account</strong> (trade receivables).</div>
+        </div>
+
+        <!-- BP customer -->
+        <div class="content-block">
+          <h3>8. BP — Create New Customer</h3>
+          <p>As with vendors, customers are created in the central <strong style="color:var(--gold)">BP</strong> (Business Partner) transaction. You create the partner, then add the FI customer role.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Open BP → create the partner → add <strong>Title, Name</strong> and the main/address data → <strong>Save</strong></li>
+            <li>Add the <strong>FI role</strong>: press <strong>Change</strong>, then in <strong>"Change in BP role"</strong> choose <strong>FLCU00 — Customer (Fin. Accounting)</strong></li>
+            <li>In the Company Code data, enter Company Code <code>BEV1</code> and the customer <strong>Reconciliation Account</strong> (Trade Receivables)</li>
+            <li>Check → no error → <strong>Save</strong></li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 <strong>FLCU00</strong> = the FI customer role (the AR counterpart of <strong>FLVN00</strong> for vendors). <strong>FLCU01</strong> adds the Sales-area / SD customer data, just as FLVN01 adds purchasing data for vendors.</div>
+        </div>
+
+        <!-- FB70 -->
+        <div class="content-block">
+          <h3>9. FB70 — Enter Customer Invoice</h3>
+          <p>Transaction <strong style="color:var(--gold)">FB70</strong> enters a customer (outgoing) invoice in FI — the AR counterpart of FB60. It <strong>debits the customer</strong> (receivable) and <strong>credits revenue</strong>.</p>
+          <ul class="key-points" style="margin-top:10px">
+            <li>Choose the <strong>Customer</strong> (e.g. <code>CocaCola</code>) → header shows the customer address</li>
+            <li>Enter the <strong>Invoice date</strong> and <strong>Amount</strong></li>
+            <li>In the line items: <strong>G/L Account = Revenue</strong> <code>400000</code> with the amount</li>
+            <li>Add <strong>Profit Center</strong> and <strong>Profitability Segment</strong> as required for margin / segment reporting</li>
+            <li><strong>Simulate</strong> → Customer Dr / Revenue Cr → <strong>Post</strong> (document type <strong>DR</strong>)</li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 <strong>DR = Debitor Rechnung</strong> = customer invoice. The customer account is debited (they owe us) and revenue is credited.</div>
+        </div>
+
+        <!-- AR reporting -->
+        <div class="content-block">
+          <h3>10. AR Reporting — FBL5N, FD10N, IDCNAR</h3>
+          <p>The AR reporting trio mirrors the AP reports from L6, one-for-one — same screens, customer side.</p>
+          <div class="tcode-grid" style="margin-top:10px">
+            <div class="tcode-item"><span class="tcode">FBL5N</span><span class="tcode-desc">Customer Line Item Display — open / cleared / all items (= FBL1N for vendors)</span></div>
+            <div class="tcode-item"><span class="tcode">FD10N</span><span class="tcode-desc">Customer Balance Display — period-by-period balance (= FK10N for vendors)</span></div>
+            <div class="tcode-item"><span class="tcode">IDCNAR</span><span class="tcode-desc">AR Aging Report — receivables by aging bucket (= IDCNAP for vendors)</span></div>
+          </div>
+          <ul class="key-points" style="margin-top:14px">
+            <li><strong>FBL5N</strong> — line items per customer: status (open / cleared / overdue), document number, type, date, amount; supports the special G/L (down payments) view</li>
+            <li><strong>FD10N</strong> — monthly Debit / Credit / Balance summary; double-click a period to drill into FBL5N for that period</li>
+            <li><strong>IDCNAR</strong> — aging analysis (Not Due, &lt;11, 11–20, 21–30, 31–60… days) per customer at a key date</li>
+          </ul>
+        </div>
+
+        <!-- F-28 / F-29 / F-39 -->
+        <div class="content-block">
+          <h3>11. F-28 / F-29 / F-39 — Customer Payments</h3>
+          <p>The customer-side payment transactions, mirroring the vendor F-53 / F-48 / F-54.</p>
+          <div class="tcode-grid" style="margin-top:10px">
+            <div class="tcode-item"><span class="tcode">F-28</span><span class="tcode-desc">Post Incoming Payment — receive money &amp; clear the open invoice (= F-53)</span></div>
+            <div class="tcode-item"><span class="tcode">F-29</span><span class="tcode-desc">Post Customer Down Payment — advance received (special G/L, = F-48)</span></div>
+            <div class="tcode-item"><span class="tcode">F-39</span><span class="tcode-desc">Clear Customer Down Payment — clear the advance against the invoice (= F-54)</span></div>
+          </div>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px">F-28 — Steps</div>
+          <ul class="key-points">
+            <li>Enter the bank / clearing account and the <strong>amount received</strong></li>
+            <li>Enter the <strong>Customer</strong> account → <strong>Process Open Items</strong></li>
+            <li>Select the invoice(s) so the balance is <strong>0</strong> → <strong>Post</strong> (doc type <strong>DZ</strong>)</li>
+          </ul>
+          <div class="hbox info" style="margin-top:10px">💡 Quick map — <strong>F-28 ↔ F-53</strong> (payment), <strong>F-29 ↔ F-48</strong> (down payment), <strong>F-39 ↔ F-54</strong> (clear down payment). Same logic, customer side (type <strong>D</strong>) instead of vendor (type <strong>K</strong>).</div>
+        </div>
+
+        <!-- L7 T-CODE SUMMARY -->
+        <div class="content-block">
+          <h3>🗂️ L7 T-Code Quick Reference</h3>
+          <div style="margin-top:10px;font-weight:600;color:var(--gold);font-size:12px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">AP — Down Payments &amp; Payments</div>
+          <div class="tcode-grid">
+            <div class="tcode-item"><span class="tcode">F-48</span><span class="tcode-desc">Post Vendor Down Payment (special G/L ind. A)</span></div>
+            <div class="tcode-item"><span class="tcode">FBKP</span><span class="tcode-desc">Maintain Accounting Config — special G/L account setup</span></div>
+            <div class="tcode-item"><span class="tcode">F-47</span><span class="tcode-desc">Down Payment Request — noted item (ind. F)</span></div>
+            <div class="tcode-item"><span class="tcode">F-53</span><span class="tcode-desc">Post Outgoing Payment — pay &amp; clear invoice (KZ)</span></div>
+            <div class="tcode-item"><span class="tcode">F-54</span><span class="tcode-desc">Clear Vendor Down Payment against invoice</span></div>
+          </div>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:12px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">AR — Order-to-Cash</div>
+          <div class="tcode-grid">
+            <div class="tcode-item"><span class="tcode">BP</span><span class="tcode-desc">Create Customer — FI role FLCU00</span></div>
+            <div class="tcode-item"><span class="tcode">FB70</span><span class="tcode-desc">Enter Customer Invoice (DR)</span></div>
+            <div class="tcode-item"><span class="tcode">FBL5N</span><span class="tcode-desc">Customer Line Item Display</span></div>
+            <div class="tcode-item"><span class="tcode">FD10N</span><span class="tcode-desc">Customer Balance Display</span></div>
+            <div class="tcode-item"><span class="tcode">IDCNAR</span><span class="tcode-desc">AR Aging Report</span></div>
+            <div class="tcode-item"><span class="tcode">F-28</span><span class="tcode-desc">Post Incoming Payment (DZ)</span></div>
+            <div class="tcode-item"><span class="tcode">F-29</span><span class="tcode-desc">Post Customer Down Payment</span></div>
+            <div class="tcode-item"><span class="tcode">F-39</span><span class="tcode-desc">Clear Customer Down Payment</span></div>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-outline" onclick="showLecture(5)">← Lecture 6</button>
+          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 8 — Coming Soon</button>
+        </div>
+
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(6,this)" id="lec-done-6" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 7 Complete</button></div>
+      </div><!-- end lecture-6 -->
     </div><!-- end lesson-content -->
   </div><!-- end content-layout -->
 </div><!-- end page-mycourse -->
@@ -4786,10 +4982,10 @@ function markLecDone(i,btn){
 }
 function updateLecProgress(){
   let done=0;
-  for(let i=0;i<6;i++) if(localStorage.getItem('lec_done_'+i)==='1') done++;
+  for(let i=0;i<7;i++) if(localStorage.getItem('lec_done_'+i)==='1') done++;
   const lbl=document.getElementById('lec-progress');
-  if(lbl){ lbl.textContent=done+'/6'; lbl.style.color=done===6?'var(--green)':'var(--accent)'; }
-  for(let i=0;i<6;i++){
+  if(lbl){ lbl.textContent=done+'/7'; lbl.style.color=done===7?'var(--green)':'var(--accent)'; }
+  for(let i=0;i<7;i++){
     const btn=document.getElementById('lec-done-'+i);
     if(btn&&localStorage.getItem('lec_done_'+i)==='1'){
       btn.textContent='✅ Lecture '+(i+1)+' Complete';
