@@ -226,7 +226,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="stat"><span class="stat-num">16</span><span class="stat-lbl">T-Code Exercises</span></div>
       <div class="stat"><span class="stat-num">6</span><span class="stat-lbl">Course Lectures</span></div>
       <div class="stat"><span class="stat-num">74</span><span class="stat-lbl">Quiz Questions</span></div>
-      <div class="stat"><span class="stat-num">1</span><span class="stat-lbl">Consultant Track Module</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Consultant Track Modules</span></div>
     </div>
   </div>
 
@@ -5293,8 +5293,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <p style="font-size:16px;color:var(--dim);max-width:700px;line-height:1.7">This track bridges the gap between knowing how to use SAP and thinking like a consultant. Each module covers the full business process, configuration awareness, real troubleshooting scenarios, and integration points.</p>
     <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
       <div style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:var(--green);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">✅ GL Complete</div>
-      <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">AP In Progress</div>
-      <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">AR Coming</div>
+      <div style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:var(--green);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">✅ AP Complete</div>
+      <div style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:var(--green);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">✅ AR Complete</div>
       <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">Bank Coming</div>
       <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">Assets Coming</div>
       <div style="background:rgba(100,116,139,.08);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">Config Coming</div>
@@ -5306,7 +5306,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-title">Modules</div>
       <div class="sidebar-item active" onclick="showConsultant(0)"><span class="sidebar-num" style="color:var(--green)">GL</span>General Ledger</div>
       <div class="sidebar-item" onclick="showConsultant(1)"><span class="sidebar-num" style="color:var(--gold)">AP</span>Accounts Payable</div>
-      <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">AR</span>Accounts Receivable</div>
+      <div class="sidebar-item" onclick="showConsultant(2)"><span class="sidebar-num" style="color:var(--purple)">AR</span>Accounts Receivable</div>
       <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">BNK</span>Bank Accounting</div>
       <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">AA</span>Asset Accounting</div>
       <div class="sidebar-item" style="opacity:.35;cursor:default"><span class="sidebar-num">CFG</span>Configuration</div>
@@ -5315,6 +5315,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <div class="mobile-picker">
       <select onchange="showConsultant(parseInt(this.value)); window.scrollTo(0,120)">
         <option value="0">GL General Ledger</option>
+        <option value="1">AP Accounts Payable</option>
+        <option value="2">AR Accounts Receivable</option>
       </select>
     </div>
 
@@ -5577,19 +5579,452 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         </div>
       </div><!-- end cons-0 -->
+      <!-- ===== AP CONSULTANT TRACK ===== -->
       <div class="cons-section" id="cons-1">
-        <div style="padding:60px 40px;text-align:center;max-width:560px;margin:0 auto">
-          <div style="font-size:64px;margin-bottom:24px">🚧</div>
-          <div style="background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;display:inline-block;margin-bottom:16px">COMING SOON</div>
-          <h2 style="font-size:26px;font-weight:700;margin-bottom:12px">AP Consultant Track</h2>
-          <p style="font-size:15px;color:var(--dim);line-height:1.8;margin-bottom:28px">This module will cover the full Accounts Payable consultant layer — business process design, configuration awareness (payment terms, tolerance groups, payment methods), integration with MM, real troubleshooting scenarios, and interview preparation.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;margin-bottom:32px">
-            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px"><div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:6px">PLANNED TOPICS</div><ul style="list-style:none;font-size:13px;color:var(--dim);line-height:2.2"><li>▸ AP Process End-to-End</li><li>▸ Payment Terms Config</li><li>▸ Tolerance Groups</li><li>▸ Payment Methods</li></ul></div>
-            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px"><div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:6px">MORE TOPICS</div><ul style="list-style:none;font-size:13px;color:var(--dim);line-height:2.2"><li>▸ Automatic Payment F110</li><li>▸ Invoice Verification</li><li>▸ Reconciliation</li><li>▸ Interview Q&amp;A</li></ul></div>
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:3px 12px;border-radius:4px">AP CONSULTANT TRACK</span>
+            <h1 style="font-size:28px;font-weight:700;margin:14px 0 6px">Accounts Payable — The Consultant Layer</h1>
+            <p style="font-size:16px;color:var(--dim)">You can post invoices, run vendor reports, and process payments. Now learn how AP is designed, configured, and kept under control on a live project.</p>
           </div>
-          <button onclick="showConsultant(0)" style="padding:10px 28px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--dim);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">← Back to GL Module</button>
+
+          <div class="content-block">
+            <h3>1. The AP Business Process — End to End</h3>
+            <p>In real companies, AP is a <strong style="color:var(--text)">controlled purchase-to-pay cycle</strong> from the moment a purchase order is raised to the moment the vendor is paid. A consultant must understand every step and where it can break.</p>
+            <div style="margin-top:16px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.3px">The Purchase-to-Pay (P2P) Cycle</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">1</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Purchase Order — MM <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">ME21N</span></div><div style="font-size:14px;color:var(--dim)">Procurement creates a PO. This is a legal commitment to pay a vendor. No FI posting yet — purely a commitment document stored in MM.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--gold);color:black;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">2</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Goods Receipt — MM <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">MIGO</span></div><div style="font-size:14px;color:var(--dim)">Warehouse confirms goods arrived. SAP auto-posts: Dr Inventory / Cr GR/IR Clearing. This is when the liability becomes real in FI.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--purple);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">3</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Invoice Receipt — FI <span style="font-family:IBM Plex Mono,monospace;color:var(--purple)">MIRO / FB60</span></div><div style="font-size:14px;color:var(--dim)">MIRO for PO-based invoices (3-way match: PO + GR + Invoice). FB60 for non-PO invoices (rent, utilities, consulting). Posting: Dr GR/IR or Expense / Cr Vendor (Reconciliation Account 210100).</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--green);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">4</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Invoice Approval (Workflow)</div><div style="font-size:14px;color:var(--dim)">Most companies require invoice approval before payment. Handled via SAP Workflow or by parking invoices (FBV0) for supervisor posting. Consultant designs and documents the approval matrix during Blueprint.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:14px">
+                <div style="background:var(--gold);color:black;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">5</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Automatic Payment Run <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">F110</span></div><div style="font-size:14px;color:var(--dim)">On payment run date, AP runs F110. SAP selects all due invoices, generates payment documents, sends files to the bank. Posting: Dr Vendor / Cr Bank GL.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:14px">
+                <div style="background:var(--red);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">6</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">AP Month-End Closing</div><div style="font-size:14px;color:var(--dim)">Reconcile FBL1N totals to GL 210100 balance. Run aging report (IDCNAP). Verify all invoices are posted. Close posting period for Vendors (account type K) in OB52.</div></div>
+              </div>
+            </div>
+            <div class="hbox info" style="margin-top:16px">💡 Key distinction: MIRO has 3-way match validation built-in (it checks PO qty, GR qty, and invoice qty match). FB60 is free-form — no PO needed. On most projects 60–70% of invoices go through MIRO because most purchases go through procurement.</div>
+          </div>
+
+          <div class="content-block">
+            <h3>2. Vendor Master — What a Consultant Configures</h3>
+            <p>In your course you created a vendor with BP. What you may not know is that the vendor master has <strong style="color:var(--text)">three distinct data levels</strong>, and all must be correctly set before a vendor can be used.</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--accent);margin-bottom:6px">General Data (Client Level)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Name, address, bank details, tax numbers (VAT/TIN). Shared across all Company Codes. If a vendor supplies to multiple entities, one BP is created at client level. Consultant configures: bank account types, tax category fields, duplicate check settings.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--gold);margin-bottom:6px">Company Code Data (FI View)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Reconciliation Account (e.g. 210100), Payment Terms, Payment Methods, Tolerance Group, Withholding Tax settings. This is the critical AP layer. Without a Reconciliation Account assigned, posting via FB60 will fail with an error.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--green);margin-bottom:6px">Purchasing Data (MM View — per Purchasing Org)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Purchasing Terms, Order Currency, Incoterms, Confirmed Delivery Time. Required for MIRO and PO processing. FI consultants work with MM consultants to ensure both views are complete before go-live testing.</p>
+              </div>
+            </div>
+            <div class="hbox warn" style="margin-top:14px">⚠️ Classic project mistake: IT creates the vendor at General Data only. AP team posts an invoice in FB60 and gets "Reconciliation account not assigned" error. Always verify Company Code Data is complete for every vendor before UAT starts.</div>
+          </div>
+
+          <div class="content-block">
+            <h3>3. Payment Terms — Configuration That Drives Cash Flow</h3>
+            <p>Payment Terms control <strong style="color:var(--text)">when invoices are due</strong> and whether early payment discounts apply. They are among the most business-critical configurations in AP.</p>
+            <div style="overflow-x:auto;margin-top:14px">
+              <table style="width:100%;border-collapse:collapse;background:var(--surface2);border-radius:8px;overflow:hidden;font-size:14px">
+                <thead><tr style="background:var(--surface)">
+                  <th style="padding:12px 16px;text-align:left;color:var(--accent2)">Term Code</th>
+                  <th style="padding:12px 16px;text-align:left;color:var(--text)">Description</th>
+                  <th style="padding:12px 16px;text-align:left;color:var(--gold)">Due Date Logic</th>
+                  <th style="padding:12px 16px;text-align:left;color:var(--dim)">Config T-Code</th>
+                </tr></thead>
+                <tbody>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">0001</td><td style="padding:10px 16px;color:var(--text)">Payable immediately</td><td style="padding:10px 16px;color:var(--dim)">Due = Invoice Date</td><td style="padding:10px 16px;color:var(--dim)">OBB8</td></tr>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">0030</td><td style="padding:10px 16px;color:var(--text)">Net 30 days</td><td style="padding:10px 16px;color:var(--dim)">Due = Invoice Date + 30</td><td style="padding:10px 16px;color:var(--dim)">OBB8</td></tr>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">0014</td><td style="padding:10px 16px;color:var(--text)">2% discount / Net 30</td><td style="padding:10px 16px;color:var(--dim)">2% discount if paid in 10 days; otherwise full amount due in 30</td><td style="padding:10px 16px;color:var(--dim)">OBB8</td></tr>
+                  <tr style="border-top:1px solid var(--border)"><td style="padding:10px 16px;color:var(--gold);font-family:monospace;font-weight:700">ZEND</td><td style="padding:10px 16px;color:var(--text)">End of month + 30</td><td style="padding:10px 16px;color:var(--dim)">Due = End of invoice month + 30 days</td><td style="padding:10px 16px;color:var(--dim)">OBB8</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul class="key-points" style="margin-top:14px">
+              <li>Payment Terms are configured in <strong style="color:var(--gold)">OBB8</strong>. Each term has a key, description, and due date calculation rules including baseline date logic.</li>
+              <li>Assigned to the vendor in BP (Company Code Data). When an invoice is posted in FB60, SAP reads the term from the vendor master and auto-calculates the due date.</li>
+              <li>Terms can be overridden at the invoice level in FB60 for one-time special agreements — but the default always comes from the vendor master.</li>
+              <li>The <strong style="color:var(--text)">Baseline Date</strong> starts the clock. Default is the Invoice Date. Can be changed to Posting Date or Document Date per client requirement in OBB8.</li>
+            </ul>
+            <div style="margin-top:14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+              <div style="font-weight:600;color:var(--text);margin-bottom:8px">Real Scenario: Wrong Due Dates Everywhere</div>
+              <p style="font-size:14px;color:var(--dim);line-height:1.8">During UAT, the AP team noticed all vendor invoices were due 5 days earlier than expected. Investigation: the Baseline Date was configured as Posting Date instead of Invoice Date. Invoices were being posted 5 days after their invoice date, so the due date was calculated from the posting date and came out short. Fix: change Baseline Date to Invoice Date in OBB8 for all affected payment terms and retest.</p>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>4. F110 — Automatic Payment Run (The Most Complex AP Process)</h3>
+            <p>F110 is the most powerful and most misunderstood transaction in AP. Students know it exists. Consultants know <strong style="color:var(--text)">exactly how it works and what to do when it fails</strong>.</p>
+            <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.3px">How F110 Selects Invoices</div>
+            <ul class="key-points">
+              <li>You enter a <strong style="color:var(--text)">Run Date</strong> and <strong style="color:var(--text)">Next Payment Run Date</strong>. SAP selects all invoices due between today and the next run date — anything due before the next run is included now.</li>
+              <li>Vendor must have a <strong style="color:var(--text)">Payment Method</strong> assigned (e.g. T = Bank Transfer, C = Check). Only vendors with a matching payment method get selected.</li>
+              <li>The <strong style="color:var(--text)">House Bank</strong> must be configured with bank details and a GL account assigned. F110 uses this to determine which bank account to pay from.</li>
+              <li>Invoices on <strong style="color:var(--text)">Payment Block</strong> are excluded. Blocks can be set per invoice in FB60 or on the vendor master in BP.</li>
+            </ul>
+            <div style="margin-top:16px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.3px">The 4 Steps of Every F110 Run</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(14,165,233,.2);border-radius:8px;padding:12px">
+                <div style="min-width:28px;height:28px;background:var(--accent);color:white;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0">1</div>
+                <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:2px">Proposal Run</div><div style="font-size:13px;color:var(--dim)">SAP simulates the payment run without posting anything. Creates a proposal list showing which invoices will be paid, amounts, and vendors. Review carefully before proceeding.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:12px">
+                <div style="min-width:28px;height:28px;background:var(--gold);color:black;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0">2</div>
+                <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:2px">Proposal Edit (Exception Handling)</div><div style="font-size:13px;color:var(--dim)">Review the exception log. Common exceptions: missing bank details on vendor, payment method mismatch, invoice on payment block. Fix the root cause then re-run the proposal.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(16,185,129,.2);border-radius:8px;padding:12px">
+                <div style="min-width:28px;height:28px;background:var(--green);color:white;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0">3</div>
+                <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:2px">Payment Run (Posting)</div><div style="font-size:13px;color:var(--dim)">Execute the payment. SAP posts payment documents: Dr Vendor / Cr Bank GL. The open invoices are cleared (matched against the payment). Document numbers are assigned.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(139,92,246,.2);border-radius:8px;padding:12px">
+                <div style="min-width:28px;height:28px;background:var(--purple);color:white;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0">4</div>
+                <div><div style="font-weight:600;color:var(--text);font-size:14px;margin-bottom:2px">Payment Media / Bank File</div><div style="font-size:13px;color:var(--dim)">Generate the payment file (SEPA, ACH, or local bank format) and send it to the bank. This is configured using FBZP (payment method configuration) and the Payment Medium Workbench (PMW).</div></div>
+              </div>
+            </div>
+            <div class="hbox warn" style="margin-top:16px">⚠️ Critical rule: Never delete a payment run proposal without understanding why. If a vendor is missing from the proposal, check: (1) Is the invoice due within the run date range? (2) Does the vendor have a payment method assigned? (3) Is there a payment block on the invoice or vendor?</div>
+          </div>
+
+          <div class="content-block">
+            <h3>5. AP Tolerance Groups — Controlling Invoice Risk</h3>
+            <p>Tolerance Groups in AP control how much difference is acceptable between a purchase order, goods receipt, and invoice. This is separate from GL Tolerance Groups (which control posting amounts).</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--accent);margin-bottom:8px;font-size:13px">Vendor Tolerance Group <span style="font-family:monospace;color:var(--gold)">OBA3</span></div>
+                <ul class="key-points" style="font-size:13px">
+                  <li>Max amount allowed per invoice posting for this vendor group</li>
+                  <li>Maximum cash discount deviation (e.g. vendor gives 2% but system expects 1.8%)</li>
+                  <li>Assigned to vendor in BP Company Code Data view</li>
+                </ul>
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--gold);margin-bottom:8px;font-size:13px">3-Way Match Tolerances <span style="font-family:monospace;color:var(--gold)">OMR6</span></div>
+                <ul class="key-points" style="font-size:13px">
+                  <li>Maximum acceptable price difference between PO and invoice (e.g. 5% or EGP 500)</li>
+                  <li>Maximum acceptable quantity difference</li>
+                  <li>If exceeded, MIRO posts the invoice as blocked for payment automatically</li>
+                </ul>
+              </div>
+            </div>
+            <div style="margin-top:14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+              <div style="font-weight:600;color:var(--text);margin-bottom:8px">Real Scenario: Invoice Blocked After MIRO</div>
+              <p style="font-size:14px;color:var(--dim);line-height:1.8">Accountant posts a vendor invoice via MIRO. SAP posts it successfully but marks it as "Blocked for Payment." F110 runs but does not pay this vendor. Root cause: the invoice price was 8% above the PO price, exceeding the 5% tolerance configured in OMR6. Fix: either get procurement to revise the PO (ME22N) or release the invoice block manually using MRBR after getting approval.</p>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>6. AP Reconciliation — Monthly Control That Proves the Books Are Correct</h3>
+            <p>The most important AP control is ensuring the <strong style="color:var(--text)">sub-ledger (FBL1N) exactly matches the reconciliation GL account (210100)</strong>. Any difference is a posting error that must be investigated.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--accent);margin-bottom:8px;font-size:13px">What a Student Knows</div>
+                <p style="font-size:13px;color:var(--dim);line-height:1.7">Run FBL1N to see vendor line items. Run FK10N to see vendor balance.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--gold);margin-bottom:8px;font-size:13px">What a Consultant Does Monthly</div>
+                <p style="font-size:13px;color:var(--dim);line-height:1.7">Sum all vendor balances in FBL1N → compare to GL 210100 balance in FAGLB03 → difference must be zero. Any variance means a manual posting hit the reconciliation account directly — which should be impossible but can happen with incorrect Basis authorizations.</p>
+              </div>
+            </div>
+            <ul class="key-points" style="margin-top:14px">
+              <li><strong style="color:var(--gold)">FBL1N</strong> — Run for all vendors, Open + Cleared items, key date = last day of month. Export to Excel and sum the balance column.</li>
+              <li><strong style="color:var(--gold)">FAGLB03</strong> — Display GL account 210100 balance for the same period. The closing balance should match FBL1N total exactly.</li>
+              <li><strong style="color:var(--gold)">IDCNAP</strong> — AP Aging Report. Shows all open invoices aged into buckets (0–30, 31–60, 61–90, 90+ days). Used for cash flow planning and payment prioritization.</li>
+              <li><strong style="color:var(--gold)">S_ALR_87012085</strong> — Vendor Balance List. Cross-company vendor balance overview — useful for group-level AP reconciliation.</li>
+            </ul>
+          </div>
+
+          <div class="content-block">
+            <h3>7. AP Configuration Objects — The 5 Things You Must Know</h3>
+            <p>These are the configuration objects behind every AP posting. When something goes wrong in AP, one of these is always the root cause.</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBB8</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Payment Terms</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Define payment term calculation rules</div><p style="font-size:14px;color:var(--dim);line-height:1.7">If wrong: all invoices for affected vendors get incorrect due dates. F110 may pay too early or too late. Cash discounts may be calculated incorrectly.</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">FBZP</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Payment Methods</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Configure payment methods per country and company code</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Defines how payments are executed (bank transfer, check, etc.), which bank accounts to use, and which DME format to generate. If wrong: F110 proposal shows no items or generates an incorrect bank file.</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBA3</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Vendor Tolerances</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Control acceptable posting amounts per vendor group</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Sets maximum invoice amounts and allowable cash discount differences. If wrong: large invoices get rejected, or junior users can post unlimited amounts (audit risk).</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OMR6</div><div style="font-size:11px;color:var(--muted);margin-top:4px">3-Way Match Tol.</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Define acceptable PO vs. invoice variance</div><p style="font-size:14px;color:var(--dim);line-height:1.7">If the invoice price or quantity differs from the PO by more than the configured tolerance, MIRO blocks the invoice for payment. Set too tight: constant blocks and manual releases. Set too loose: over-payment risk.</p></div>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(239,68,68,.25);border-radius:8px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:16px">
+                <div style="text-align:center"><div style="font-family:monospace;font-size:16px;font-weight:700;color:var(--gold)">OBVU</div><div style="font-size:11px;color:var(--muted);margin-top:4px">House Banks</div></div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:4px">Define company bank accounts used for payments</div><p style="font-size:14px;color:var(--dim);line-height:1.7">Links each bank account to a GL account. F110 reads this to determine which GL to credit when making payments. If wrong: F110 has no bank to pay from and the proposal is empty.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>8. The 5 AP Errors Every Consultant Faces</h3>
+            <div style="display:flex;flex-direction:column;gap:14px;margin-top:14px">
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 1: Vendor not in payment proposal (F110)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Causes:</strong> Invoice not yet due / payment method missing on vendor or invoice / payment block set / vendor has no bank details.<br><strong style="color:var(--text)">Solution:</strong> Check proposal exception log — it lists the exact reason for each excluded vendor. Fix the root cause (usually missing payment method in BP or missing bank account in vendor master).</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 2: Invoice blocked for payment after MIRO</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> 3-way match tolerance exceeded (price or quantity variance between PO and invoice). SAP posts the document but sets a payment block automatically.<br><strong style="color:var(--text)">Solution:</strong> Use MRBR (Release Blocked Invoices) to review and manually release after getting business approval. Or ask procurement to adjust the PO in ME22N.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 3: FBL1N total ≠ GL 210100 balance</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> A manual journal entry (SA document type) was posted directly to account 210100, bypassing the AP sub-ledger. This should be blocked by the reconciliation account setting but occasionally happens with excessive Basis authorizations.<br><strong style="color:var(--text)">Solution:</strong> Find the out-of-sequence posting in FAGLB03 → line item view. Reverse it and repost correctly via FB60.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 4: Duplicate invoice posted</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Same vendor invoice posted twice (different users, or same user twice). SAP has a duplicate check based on Company Code + Vendor + Currency + Amount + Invoice Date + Reference — but it only works if the Reference field was filled consistently.<br><strong style="color:var(--text)">Solution:</strong> Use FBL1N to identify the duplicate. Reverse the second posting with FB08. Set document Reference field as mandatory in field status configuration to prevent recurrence.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 5: Cannot reverse an already-paid invoice</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> The vendor invoice has been cleared (paid) by F110. Cleared documents cannot be reversed directly in FB08.<br><strong style="color:var(--text)">Solution:</strong> Use FBRA (Reset Clearing) to unlink the payment from the invoice. Then reverse the invoice with FB08. Then re-run or manually handle the payment. Warning: check if the bank payment was already sent — if so, coordinate with treasury before resetting.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>AP Consultant T-Code Reference</h3>
+            <p style="margin-bottom:14px">Essential AP T-codes used on every project — beyond what the basic course covers:</p>
+            <div class="tcode-grid">
+              <div class="tcode-item"><span class="tcode">F110</span><span class="tcode-desc">Automatic Payment Run</span></div>
+              <div class="tcode-item"><span class="tcode">MIRO</span><span class="tcode-desc">Enter invoice for PO (3-way match)</span></div>
+              <div class="tcode-item"><span class="tcode">MRBR</span><span class="tcode-desc">Release blocked invoices</span></div>
+              <div class="tcode-item"><span class="tcode">FBZP</span><span class="tcode-desc">Configure payment methods / house banks</span></div>
+              <div class="tcode-item"><span class="tcode">OBB8</span><span class="tcode-desc">Define payment terms</span></div>
+              <div class="tcode-item"><span class="tcode">OBA3</span><span class="tcode-desc">Vendor tolerance groups</span></div>
+              <div class="tcode-item"><span class="tcode">OMR6</span><span class="tcode-desc">3-way match tolerance configuration</span></div>
+              <div class="tcode-item"><span class="tcode">FBRA</span><span class="tcode-desc">Reset clearing (before reversal)</span></div>
+              <div class="tcode-item"><span class="tcode">IDCNAP</span><span class="tcode-desc">AP Aging Report</span></div>
+              <div class="tcode-item"><span class="tcode">S_ALR_87012085</span><span class="tcode-desc">Vendor balance list</span></div>
+              <div class="tcode-item"><span class="tcode">OBVU</span><span class="tcode-desc">Define house banks</span></div>
+              <div class="tcode-item"><span class="tcode">ME21N</span><span class="tcode-desc">Create purchase order (MM)</span></div>
+            </div>
+          </div>
+
         </div>
-      </div>
+      </div><!-- end cons-1 -->
+
+      <!-- ===== AR CONSULTANT TRACK ===== -->
+      <div class="cons-section" id="cons-2">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">AR CONSULTANT TRACK</span>
+            <h1 style="font-size:28px;font-weight:700;margin:14px 0 6px">Accounts Receivable — The Consultant Layer</h1>
+            <p style="font-size:16px;color:var(--dim)">AR is the mirror of AP. You collect from customers instead of paying vendors. Learn the full order-to-cash process, configuration objects, and how cash is matched to open invoices.</p>
+          </div>
+
+          <div class="content-block">
+            <h3>1. The AR Business Process — Order to Cash (O2C)</h3>
+            <p>AR is driven by the <strong style="color:var(--text)">Order-to-Cash cycle</strong> — from the moment a sales order is created to the moment the customer pays and the AR is cleared. A consultant must understand every handoff point between SD and FI.</p>
+            <div style="margin-top:16px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.3px">The Order-to-Cash (O2C) Cycle</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--accent);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">1</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Sales Order — SD <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">VA01</span></div><div style="font-size:14px;color:var(--dim)">Sales team creates a sales order. No FI posting yet — it is a commitment document in SD. Credit check may trigger at this point based on customer credit limit.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--gold);color:black;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">2</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Goods Issue (Delivery) — SD <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">VL01N</span></div><div style="font-size:14px;color:var(--dim)">Warehouse picks and ships goods. SAP auto-posts: Dr Cost of Goods Sold / Cr Inventory. Stock decreases. Accounting impact but still no customer receivable yet.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--purple);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">3</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Billing / Invoice — SD to FI <span style="font-family:IBM Plex Mono,monospace;color:var(--purple)">VF01</span></div><div style="font-size:14px;color:var(--dim)">Billing document is created in SD. This automatically generates an FI accounting document: Dr Customer (Recon Account e.g. 110100) / Cr Revenue. The receivable is now live in FI/AR.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px">
+                <div style="background:var(--green);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">4</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Manual Invoice (Non-SD) — FI <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">FB70</span></div><div style="font-size:14px;color:var(--dim)">For invoices not driven by a sales order (e.g. management fee, intercompany recharge, lease income). Direct FI posting: Dr Customer / Cr Revenue.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:14px">
+                <div style="background:var(--gold);color:black;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">5</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">Incoming Payment — FI <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">F-28 / F110</span></div><div style="font-size:14px;color:var(--dim)">Customer payment arrives. Posted as: Dr Bank GL / Cr Customer. The payment is matched (cleared) against the open invoice. The receivable is cleared and no longer appears in FBL5N as open.</div></div>
+              </div>
+              <div style="display:flex;gap:14px;align-items:flex-start;background:var(--surface2);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:14px">
+                <div style="background:var(--red);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0">6</div>
+                <div><div style="font-weight:600;color:var(--text);margin-bottom:3px">AR Month-End Closing</div><div style="font-size:14px;color:var(--dim)">Reconcile FBL5N totals to GL 110100 balance. Run AR aging report (S_ALR_87012168). Send customer statements. Run dunning for overdue items (F150). Close posting period for Customers (account type D) in OB52.</div></div>
+              </div>
+            </div>
+            <div class="hbox info" style="margin-top:16px">💡 Key integration point: In SD-driven AR, the billing document (VF01) generates the FI document automatically. The SD consultant and FI consultant must agree on account determination (revenue accounts, tax accounts, COGS accounts) during Blueprint — this is called Revenue Account Determination and is configured in transaction VKOA.</div>
+          </div>
+
+          <div class="content-block">
+            <h3>2. Customer Master — What a Consultant Configures</h3>
+            <p>Like the vendor master, the customer master (Business Partner) has multiple data levels. Consultants must design and complete all levels before any AR posting can work.</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--accent);margin-bottom:6px">General Data (Client Level)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Name, address, communication, tax IDs. Shared across all Company Codes. A customer that buys from multiple entities has one BP record. Consultant configures: customer duplication check, credit management activation, contact data requirements.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--purple);margin-bottom:6px">Company Code Data (FI/AR View)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Reconciliation Account (e.g. 110100), Payment Terms, Dunning Procedure, Dunning Block, Tolerance Group, Interest Calculation. Every customer must have a Reconciliation Account — without it, FB70 and VF01 postings will fail.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--green);margin-bottom:6px">Sales Area Data (SD View)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Pricing procedure, Incoterms, Sales Currency, Shipping conditions, Credit limit. Required for SD sales orders and billing. FI consultants coordinate with SD consultants on credit limits and payment terms that flow from the sales area into billing.</p>
+              </div>
+            </div>
+            <div class="hbox warn" style="margin-top:14px">⚠️ AR-specific risk: The Dunning Procedure and Tolerance Group on the customer master must be configured before go-live. Missing dunning procedure means overdue customers are never chased automatically — a major cash flow risk on any project.</div>
+          </div>
+
+          <div class="content-block">
+            <h3>3. Credit Management — Protecting Revenue Before It Becomes a Loss</h3>
+            <p>Credit Management is the AR function that <strong style="color:var(--text)">prevents bad debt</strong> by checking whether a customer is allowed to receive more goods before they pay for what they already owe.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--accent);margin-bottom:8px;font-size:13px">Static Credit Check</div>
+                <ul class="key-points" style="font-size:13px">
+                  <li>Compares customer's total open AR balance against their credit limit</li>
+                  <li>If balance exceeds limit: sales order is blocked (credit block)</li>
+                  <li>Configuration: FD32 (set customer credit limit), OVA8 (credit check rules)</li>
+                  <li>Simple and common on smaller projects</li>
+                </ul>
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--gold);margin-bottom:8px;font-size:13px">Dynamic Credit Check</div>
+                <ul class="key-points" style="font-size:13px">
+                  <li>Considers open orders + deliveries + AR balance vs. credit limit</li>
+                  <li>More accurate — catches customers who ordered a lot but not yet delivered</li>
+                  <li>Configured with a horizon period (e.g. check open orders next 30 days)</li>
+                  <li>Standard on large enterprise implementations</li>
+                </ul>
+              </div>
+            </div>
+            <div style="margin-top:14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+              <div style="font-weight:600;color:var(--text);margin-bottom:8px">Credit Block Release Process</div>
+              <p style="font-size:14px;color:var(--dim);line-height:1.8">When a sales order is blocked: (1) SD team sees the block in VKM1 (blocked sales orders). (2) Credit manager reviews the customer's payment history in FBL5N and account balance in FD33. (3) If approved, release the block in VKM4 (release credit hold). (4) Sales order processing continues. Consultant's role: design the approval workflow and authorization matrix — who can release credit blocks and up to what amount.</p>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>4. Dunning — The Automated Collections Process</h3>
+            <p>Dunning is SAP's automated process for <strong style="color:var(--text)">chasing overdue customers</strong>. It replaces manual reminder emails with a controlled, documented, escalating notice system.</p>
+            <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:13px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.3px">How Dunning Works</div>
+            <ul class="key-points">
+              <li>A <strong style="color:var(--text)">Dunning Procedure</strong> defines the escalation levels (e.g. Level 1 = friendly reminder, Level 2 = final notice, Level 3 = legal warning). Each level has a minimum days overdue and can add interest charges.</li>
+              <li>The dunning procedure is assigned to the customer master (Company Code Data). Without it, the customer is never dunned.</li>
+              <li><strong style="color:var(--gold)">F150</strong> is the dunning run transaction. You enter a dunning date and SAP identifies all customers with overdue items, determines the appropriate dunning level, and generates dunning notices.</li>
+              <li>Dunning notices can be sent by email, print, or EDI — configured in the output type settings.</li>
+              <li>A <strong style="color:var(--text)">Dunning Block</strong> on the customer or invoice prevents it from being included in the dunning run. Common example: invoice under dispute — block it until resolved.</li>
+            </ul>
+            <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--green);margin-bottom:8px;font-size:13px">What a Student Knows</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Dunning reminds customers to pay. Use F150.</p>
+              </div>
+              <div style="background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--gold);margin-bottom:8px;font-size:13px">What a Consultant Configures</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Define dunning procedure levels in FBMP. Assign procedure to customer master. Configure minimum overdue days per level, interest rates, and notice text. Set dunning blocks for disputed items. Schedule F150 weekly in background jobs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>5. Incoming Payment Clearing — Matching Cash to Invoices</h3>
+            <p>When a customer pays, the key task is <strong style="color:var(--text)">clearing the payment against the correct open invoice</strong>. This is more complex than it sounds in a real business with hundreds of invoices per customer.</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
+              <div style="background:var(--surface2);border:1px solid rgba(14,165,233,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--accent);margin-bottom:6px">Manual Clearing <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">F-28</span></div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Used when the payment advice or bank statement clearly identifies which invoice is being paid. Accountant selects the matching open items and posts the clearing. Dr Bank / Cr Customer. The invoice is cleared.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--gold);margin-bottom:6px">Automatic Clearing <span style="font-family:IBM Plex Mono,monospace;color:var(--gold)">F.13</span></div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">SAP automatically matches open debits and credits based on matching criteria (amount + reference + assignment field). Useful for clearing intercompany postings or when the payment exactly matches the invoice. Does not work well for partial payments.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:16px">
+                <div style="font-weight:700;color:var(--green);margin-bottom:6px">Residual Posting (Partial Payment)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.7">Customer pays only part of an invoice. Two approaches: (1) Partial Payment — leaves both items open, links them. (2) Residual Item — clears the original invoice and creates a new open item for the remaining balance. Residual is cleaner for aging reports. Configure in F-28 by selecting "Residual Items" instead of partial.</p>
+              </div>
+            </div>
+            <div class="hbox warn" style="margin-top:14px">⚠️ The hardest AR problem in real companies: customers pay the wrong amount or lump multiple invoices into one payment with no clear reference. The AR accountant must investigate FBL5N, contact the customer, and use F-28 or F-32 (Clear Customer) to match correctly. This is called cash application and is often the most time-consuming AR task.</div>
+          </div>
+
+          <div class="content-block">
+            <h3>6. AR Reconciliation — Monthly Control</h3>
+            <p>The AR reconciliation check is identical in logic to AP: the <strong style="color:var(--text)">FBL5N sub-ledger total must exactly match the GL reconciliation account (110100)</strong>.</p>
+            <ul class="key-points" style="margin-top:12px">
+              <li><strong style="color:var(--gold)">FBL5N</strong> — Customer Line Item Display. Open Items at Key Date = last day of month. Sum all balances → this is total outstanding AR.</li>
+              <li><strong style="color:var(--gold)">FAGLB03</strong> — Display GL account 110100 (Customer Reconciliation) for the same period. Closing balance must match FBL5N total.</li>
+              <li><strong style="color:var(--gold)">S_ALR_87012168</strong> — Customer Aging Report (AR equivalent of IDCNAP). Shows overdue AR by aging bucket. Essential for bad debt provisioning and collection prioritization.</li>
+              <li><strong style="color:var(--gold)">FD33</strong> — Display Credit Management overview per customer. Shows credit limit, open orders, open deliveries, and total exposure.</li>
+              <li><strong style="color:var(--gold)">S_ALR_87012197</strong> — Customer Balance List. All customer balances across the company code for a given period.</li>
+            </ul>
+            <div style="margin-top:14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px">
+              <div style="font-weight:600;color:var(--text);margin-bottom:8px">Bad Debt Provision — The Year-End AR Task</div>
+              <p style="font-size:14px;color:var(--dim);line-height:1.8">At year-end, the Finance team must estimate how much of the outstanding AR will not be collected. This is the bad debt provision. Process: (1) Run aging report S_ALR_87012168 to see balances by age. (2) Apply provision rates by age bucket (e.g. 5% for 30–90 days, 25% for 90–180 days, 100% for 180+ days). (3) Post the provision as a GL journal entry: Dr Bad Debt Expense / Cr Provision for Doubtful Debts. (4) When bad debt is confirmed: Dr Provision / Cr Customer (to write off).</p>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>7. The 5 AR Errors Every Consultant Faces</h3>
+            <div style="display:flex;flex-direction:column;gap:14px;margin-top:14px">
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 1: Customer balance does not match GL 110100</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Manual journal entry posted directly to the customer reconciliation account (110100) via FB50, bypassing FBL5N.<br><strong style="color:var(--text)">Solution:</strong> Find the rogue posting in FAGLB03 → line item view. Reverse and repost correctly via FB70. Tighten authorization to prevent direct posting to reconciliation accounts.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 2: Customer payment cannot be applied (no matching invoice)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Customer paid, but FBL5N shows no matching open item — invoice was not yet posted, or wrong customer account.<br><strong style="color:var(--text)">Solution:</strong> Post the payment as an "On Account" payment (Dr Bank / Cr Customer without clearing). When the invoice is found or posted, clear manually using F-32. Avoid leaving on-account payments uncleared longer than 30 days.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 3: Sales order blocked by credit check</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Customer's open AR balance exceeds their credit limit in FD32.<br><strong style="color:var(--text)">Solution:</strong> Review in VKM1 and FD33. If the customer has paid recently but bank statement is not yet reconciled, clear the payment first. If genuinely overdue, escalate to credit manager for VKM4 release decision.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 4: Dunning notices sent for paid invoices</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Payment was posted but not cleared against the invoice. Both the invoice and the payment exist as open items. F150 sees the invoice as still open and dunns it.<br><strong style="color:var(--text)">Solution:</strong> Use F-32 to clear the payment against the invoice. Then rerun dunning with corrected status. Prevention: clear incoming payments immediately when posted.</p>
+              </div>
+              <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:18px">
+                <div style="font-weight:700;color:var(--red);margin-bottom:8px">Error 5: AR aging report overstated (old uncleared items)</div>
+                <p style="font-size:14px;color:var(--dim);line-height:1.8"><strong style="color:var(--text)">Cause:</strong> Payments were posted as "on account" and never cleared against invoices. FBL5N shows both the original invoices and the uncleared payments as open items — inflating the aged AR and the on-account balance simultaneously.<br><strong style="color:var(--text)">Solution:</strong> Monthly AR housekeeping: use F-32 to clear all matching open debits and credits. Run F.13 automatic clearing for exact matches. Investigate residual items manually.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>AR Consultant T-Code Reference</h3>
+            <p style="margin-bottom:14px">Essential AR T-codes used on every project:</p>
+            <div class="tcode-grid">
+              <div class="tcode-item"><span class="tcode">FB70</span><span class="tcode-desc">Post customer invoice (non-SD)</span></div>
+              <div class="tcode-item"><span class="tcode">F-28</span><span class="tcode-desc">Post incoming payment with clearing</span></div>
+              <div class="tcode-item"><span class="tcode">F-32</span><span class="tcode-desc">Clear open customer items manually</span></div>
+              <div class="tcode-item"><span class="tcode">F.13</span><span class="tcode-desc">Automatic clearing</span></div>
+              <div class="tcode-item"><span class="tcode">FBL5N</span><span class="tcode-desc">Customer line item display</span></div>
+              <div class="tcode-item"><span class="tcode">F150</span><span class="tcode-desc">Dunning run</span></div>
+              <div class="tcode-item"><span class="tcode">FD32</span><span class="tcode-desc">Set customer credit limit</span></div>
+              <div class="tcode-item"><span class="tcode">FD33</span><span class="tcode-desc">Display credit management overview</span></div>
+              <div class="tcode-item"><span class="tcode">VKM1</span><span class="tcode-desc">Blocked sales orders (credit)</span></div>
+              <div class="tcode-item"><span class="tcode">VKM4</span><span class="tcode-desc">Release credit blocked orders</span></div>
+              <div class="tcode-item"><span class="tcode">FBMP</span><span class="tcode-desc">Define dunning procedures</span></div>
+              <div class="tcode-item"><span class="tcode">S_ALR_87012168</span><span class="tcode-desc">Customer aging report</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- end cons-2 -->
+
     </div><!-- end lesson-content -->
   </div><!-- end content-layout -->
 </div><!-- end page-consultant -->
