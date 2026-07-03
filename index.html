@@ -127,9 +127,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 .content-block p:last-child{margin-bottom:0;}
 
 .key-points{list-style:none;}
-.key-points li{font-size:17px;color:var(--dim);line-height:1.8;padding:7px 0;border-bottom:1px solid rgba(30,58,95,.5);display:flex;align-items:flex-start;gap:10px;}
+.key-points li{font-size:17px;color:var(--dim);line-height:1.8;padding:7px 0 7px 20px;border-bottom:1px solid rgba(30,58,95,.5);display:block;position:relative;}
 .key-points li:last-child{border-bottom:none;}
-.key-points li::before{content:'▸';color:var(--accent);font-size:10px;margin-top:5px;flex-shrink:0;}
+.key-points li::before{content:'▸';color:var(--accent);font-size:10px;position:absolute;left:0;top:11px;}
 
 .tcode-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;}
 .tcode-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:4px;}
@@ -195,6 +195,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 /* CONSULTANT SECTIONS */
 .cons-section{display:none;}
 .cons-section.active{display:block;}
+
+/* SAP TREE SIDEBAR */
+.sap-tree{padding:8px 0;}
+.tree-node{user-select:none;}
+.tree-folder{display:flex;align-items:center;gap:6px;padding:5px 12px 5px 0;cursor:pointer;color:var(--text);font-size:13px;font-weight:600;transition:color .15s;}
+.tree-folder:hover{color:var(--accent);}
+.tree-folder .tree-arrow{font-size:10px;color:var(--muted);transition:transform .2s;flex-shrink:0;width:14px;text-align:center;}
+.tree-folder.open .tree-arrow{transform:rotate(90deg);}
+.tree-folder .tree-icon{font-size:13px;flex-shrink:0;}
+.tree-children{display:none;padding-left:0;}
+.tree-children.open{display:block;}
+.tree-indent{padding-left:16px;}
+.tree-tcode{display:flex;align-items:center;gap:8px;padding:5px 12px 5px 4px;cursor:pointer;border-radius:4px;transition:background .15s;color:var(--dim);font-size:12px;}
+.tree-tcode:hover{background:rgba(14,165,233,.08);color:var(--text);}
+.tree-tcode.active{background:rgba(14,165,233,.12);color:var(--accent);}
+.tree-tcode .tc-code{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);min-width:72px;flex-shrink:0;}
+.tree-tcode.active .tc-code{color:var(--accent);}
+.tree-tcode .tc-name{font-size:12px;color:inherit;line-height:1.3;}
+.tree-section-label{padding:10px 12px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.tree-module-label{padding:8px 12px 2px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent2);border-top:1px solid rgba(30,58,95,.3);margin-top:4px;}
 </style>
 </head>
 <body>
@@ -388,6 +408,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item" onclick="showLecture(5)"><span class="sidebar-num">L6</span>AP — Accounts Payable</div>
       <div class="sidebar-item" onclick="showLecture(6)"><span class="sidebar-num">L7</span>AP Down Payments & AR — Order-to-Cash</div>
       <div class="sidebar-item" onclick="showLecture(7)"><span class="sidebar-num" style="color:var(--gold)">L8</span>SAP FI Configuration</div>
+      <div class="sidebar-item" onclick="showLecture(8)"><span class="sidebar-num" style="color:var(--accent2)">L9+10</span>Bank Accounting</div>
     </div>
 
     <div class="mobile-picker">
@@ -400,6 +421,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="5">L6 — AP — Accounts Payable</option>
         <option value="6">L7 — AP Down Payments &amp; AR — Order-to-Cash</option>
         <option value="7">L8 — SAP FI Configuration</option>
+        <option value="8">L9+10 — Bank Accounting</option>
       </select>
     </div>
 
@@ -2238,7 +2260,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div class="nav-btns">
           <button class="btn btn-outline" onclick="showLecture(5)">← Lecture 6</button>
-          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 8 — Coming Soon</button>
+          <button class="btn btn-primary" onclick="showLecture(8)">Lecture 9+10 →</button>
         </div>
 
         <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(6,this)" id="lec-done-6" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 7 Complete</button></div>
@@ -2526,6 +2548,156 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(7,this)" id="lec-done-7" style="padding:10px 28px;border-radius:8px;border:1px solid rgba(16,185,129,.4);background:transparent;color:var(--green);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer">✓ Mark Lecture 8 Complete</button></div>
       </div><!-- end lecture-7 -->
+      <!-- ═══════════════════════════════════════════════════════ LECTURE 9+10 -->
+      <div class="lesson-section" id="lecture-8">
+        <div class="lesson-title"><span class="lesson-num">Lecture 9 + 10</span>Bank Accounting</div>
+        <div class="lesson-sub">Bank hierarchy · House Bank setup · Bank account creation · Vendor payment end-to-end · FAGLB03 bank reporting</div>
+
+        <!-- 1. OVERVIEW -->
+        <div class="content-block">
+          <h3>1. Overview — Bank Accounting in SAP FI</h3>
+          <p>Bank Accounting is the FI sub-module that connects your company's physical bank accounts to the SAP general ledger. Every vendor payment, customer receipt, or bank transfer flows through the bank account structure configured here. Lecture 9 was interrupted by a server outage — Lecture 10 continued from exactly where it stopped.</p>
+          <div class="key-points" style="margin-top:10px">
+            <li>Bank Accounting sits inside <strong>Financial Accounting → Banks</strong> in the SAP menu</li>
+            <li>Every payment transaction (F-53, F110, F-48) references a <strong>House Bank + Account ID</strong> to know which bank account and GL account to use</li>
+            <li>The bank structure in SAP has <strong>3 levels:</strong> Bank Key → House Bank → Bank Account (ID)</li>
+            <li>In S/4HANA the bank account structure changed from bank-entity-based to <strong>currency-based</strong></li>
+          </div>
+          <div class="hbox info" style="margin-top:12px">💡 Bank Accounting config is a prerequisite for the payment program (F110) and all manual payment transactions. Without it, payments fail at the bank data step.</div>
+        </div>
+
+        <!-- 2. BANK HIERARCHY -->
+        <div class="content-block">
+          <h3>2. The 3-Level Bank Hierarchy</h3>
+          <p>SAP organises bank data in a strict three-level hierarchy. Each level must exist before the next can be created.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px">
+            <div style="background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.3);border-radius:10px;padding:16px;text-align:center">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;color:var(--accent);margin-bottom:8px">1</div>
+              <div style="font-weight:700;color:var(--accent);margin-bottom:6px">Bank Key</div>
+              <div style="font-size:13px;color:var(--dim)">The bank master record. Identifies the physical bank (e.g. CIB, HSBC). Created via <strong>FI01</strong>. Contains bank country, bank number, SWIFT/routing code.</div>
+            </div>
+            <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:16px;text-align:center">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;color:var(--gold);margin-bottom:8px">2</div>
+              <div style="font-weight:700;color:var(--gold);margin-bottom:6px">House Bank</div>
+              <div style="font-size:13px;color:var(--dim)">Links the Bank Key to your Company Code. Created via <strong>FBZP</strong>. One Company Code can have multiple House Banks (e.g. one per physical bank).</div>
+            </div>
+            <div style="background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:16px;text-align:center">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;color:var(--green);margin-bottom:8px">3</div>
+              <div style="font-weight:700;color:var(--green);margin-bottom:6px">Bank Account (ID)</div>
+              <div style="font-size:13px;color:var(--dim)">The specific account under a House Bank. Each Account ID maps to a physical account number and a <strong>GL bank account</strong>. Created from <strong>Fiori only</strong> — "Manage Bank Accounts".</div>
+            </div>
+          </div>
+          <div class="hbox warn" style="margin-top:14px">⚠️ Bank Account (ID) creation is <strong>Fiori only</strong> in S/4HANA — it cannot be done from SAP GUI. Use the Fiori app "Manage Bank Accounts" to create or modify bank account IDs.</div>
+        </div>
+
+        <!-- 3. OLD VS NEW STRUCTURE -->
+        <div class="content-block">
+          <h3>3. Old vs New Bank Account Structure (S/4HANA Change)</h3>
+          <p>SAP changed the bank account structure when moving from ECC to S/4HANA. This is important to understand when you see legacy configurations.</p>
+          <table style="width:100%;border-collapse:collapse;margin-top:12px">
+            <thead><tr style="background:rgba(14,165,233,.08)">
+              <th style="padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em">Structure</th>
+              <th style="padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em">Old (ECC)</th>
+              <th style="padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em">New (S/4HANA)</th>
+            </tr></thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:10px 14px;font-weight:600">Organised by</td>
+                <td style="padding:10px 14px;color:var(--dim)">Bank entity (e.g. CIB bank)</td>
+                <td style="padding:10px 14px;color:var(--dim)">Currency (e.g. EGP, USD)</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.02)">
+                <td style="padding:10px 14px;font-weight:600">Account IDs per bank</td>
+                <td style="padding:10px 14px;color:var(--dim)">5 accounts per bank: Main, Check-in, Check-out, Transfer-in, Transfer-out</td>
+                <td style="padding:10px 14px;color:var(--dim)">5 accounts per currency: Main EGP, Check-in, Check-out, Transfer-in, Transfer-out</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;font-weight:600">Example</td>
+                <td style="padding:10px 14px;color:var(--dim)">CIB → Main CIB / Check-in CIB / Check-out CIB…</td>
+                <td style="padding:10px 14px;color:var(--dim)">EGP → Main EGP / Check-in EGP / Check-out EGP…</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="hbox info" style="margin-top:12px">💡 In BEV1 training environment you work with the new S/4HANA currency-based structure. When referencing a bank account in F-48 or F-53, you select the House Bank + Account ID (e.g. currency group like "EGP").</div>
+        </div>
+
+        <!-- 4. T-CODES -->
+        <div class="content-block">
+          <h3>4. Bank Accounting T-Codes</h3>
+          <div class="tcode-grid" style="margin-top:10px">
+            <div class="tcode-item"><span class="tcode">FI01</span><span class="tcode-desc">Create Bank Key — define the physical bank master record (bank country, number, SWIFT)</span></div>
+            <div class="tcode-item"><span class="tcode">FI02</span><span class="tcode-desc">Change Bank Key</span></div>
+            <div class="tcode-item"><span class="tcode">FI03</span><span class="tcode-desc">Display Bank Key</span></div>
+            <div class="tcode-item"><span class="tcode">FI12</span><span class="tcode-desc">Define House Banks — link bank key to Company Code, create Account IDs, assign GL accounts</span></div>
+            <div class="tcode-item"><span class="tcode">FBZP</span><span class="tcode-desc">Payment Program Configuration — define House Banks for automatic payment (F110)</span></div>
+            <div class="tcode-item"><span class="tcode">FAGLB03</span><span class="tcode-desc">Display GL Account Balances — used to view bank account transactions filtered by specific bank GL account</span></div>
+            <div class="tcode-item"><span class="tcode">FBCJ</span><span class="tcode-desc">Cash Journal — post and manage petty cash transactions</span></div>
+            <div class="tcode-item"><span class="tcode">FF67</span><span class="tcode-desc">Manual Bank Statement Entry</span></div>
+            <div class="tcode-item"><span class="tcode">FEBA</span><span class="tcode-desc">Post-Process Electronic Bank Statement</span></div>
+            <div class="tcode-item"><span class="tcode">FF_5</span><span class="tcode-desc">Import Electronic Bank Statement</span></div>
+          </div>
+          <div class="hbox info" style="margin-top:14px">💡 <strong>FAGLB03 bank tip from lecture:</strong> Use FAGLB03 with the filter set to your specific bank GL account (e.g. 113100 — Main EGP) to view all transactions on that account by currency period. This is the easiest way to review and reconcile a specific bank account during the month.</div>
+        </div>
+
+        <!-- 5. SETUP PROCESS -->
+        <div class="content-block">
+          <h3>5. End-to-End Bank Setup Process</h3>
+          <div class="key-points">
+            <div class="kp-title">Step-by-Step Configuration</div>
+            <li><strong>Step 1 — Create Bank Key (FI01):</strong> Enter bank country (e.g. EG for Egypt), bank key number, bank name, SWIFT/BIC code, and address. This is the master record for the physical bank.</li>
+            <li><strong>Step 2 — Create House Bank (FBZP or FI12):</strong> Assign the bank key to Company Code BEV1. Give it a short House Bank ID (e.g. <code>CIB</code>, <code>HSBC</code>). This links your company to that bank.</li>
+            <li><strong>Step 3 — Create Bank Account ID (Fiori only):</strong> Open the "Manage Bank Accounts" Fiori app. Under the House Bank, create Account IDs (e.g. <code>EGP_MAIN</code>, <code>EGP_CHK</code>). Enter the physical account number and assign the GL bank account (e.g. 113100).</li>
+            <li><strong>Step 4 — Test:</strong> Run a vendor payment (F-53 or F110) and select the new House Bank + Account ID in the bank data section. Verify the posting hits the correct GL bank account.</li>
+            <li><strong>Step 5 — Verify (FAGLB03):</strong> Display balances for the bank GL account (113100) and confirm the payment document appears with the correct amount and period.</li>
+          </div>
+          <div class="hbox warn" style="margin-top:14px">⚠️ The GL bank account (created in FS00 as Cash Account type) must exist <em>before</em> you create the Bank Account ID in Fiori — you enter this GL account number when setting up the Account ID. Without it, Fiori will not accept the configuration.</div>
+        </div>
+
+        <!-- 6. VENDOR PAYMENT FLOW -->
+        <div class="content-block">
+          <h3>6. Vendor Payment End-to-End Flow</h3>
+          <p>The lecture practised paying a vendor invoice end-to-end, tying together everything from L6 through L9+10:</p>
+          <div class="tcode-grid" style="margin-top:10px">
+            <div class="tcode-item"><span class="tcode">FB60</span><span class="tcode-desc">Enter vendor invoice → creates open item in vendor account (KR document)</span></div>
+            <div class="tcode-item"><span class="tcode">FBL1N</span><span class="tcode-desc">Verify open invoice visible in vendor line items</span></div>
+            <div class="tcode-item"><span class="tcode">F-53</span><span class="tcode-desc">Post outgoing payment → select House Bank + Account ID → clear the open item (KZ document)</span></div>
+            <div class="tcode-item"><span class="tcode">FAGLB03</span><span class="tcode-desc">Display bank GL account → confirm payment posted to correct bank account in correct period</span></div>
+          </div>
+          <div class="key-points" style="margin-top:14px">
+            <li>In F-53 the <strong>House Bank</strong> and <strong>Account ID</strong> fields link to your bank configuration — this is why the setup in Steps 1–3 above is mandatory</li>
+            <li>The posting debits the <strong>Vendor account</strong> (clears the open item) and credits the <strong>Bank GL account</strong> (e.g. 113100)</li>
+            <li>After posting, the invoice moves from <strong>Open</strong> to <strong>Cleared</strong> in FBL1N</li>
+            <li>FAGLB03 filtered to GL 113100 shows the bank outflow with the document number, date, and vendor reference</li>
+          </div>
+        </div>
+
+        <!-- 7. QUICK REF -->
+        <div class="content-block">
+          <h3>🗂️ L9+10 T-Code Quick Reference</h3>
+          <div style="margin-top:10px;font-weight:600;color:var(--gold);font-size:12px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Bank Master Setup</div>
+          <div class="tcode-grid">
+            <div class="tcode-item"><span class="tcode">FI01</span><span class="tcode-desc">Create Bank Key (physical bank master)</span></div>
+            <div class="tcode-item"><span class="tcode">FI12</span><span class="tcode-desc">Define House Banks &amp; Account IDs (link to GL)</span></div>
+            <div class="tcode-item"><span class="tcode">FBZP</span><span class="tcode-desc">Payment Program Config — House Bank assignment</span></div>
+          </div>
+          <div style="margin-top:14px;font-weight:600;color:var(--accent2);font-size:12px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Bank Transactions &amp; Reporting</div>
+          <div class="tcode-grid">
+            <div class="tcode-item"><span class="tcode">FAGLB03</span><span class="tcode-desc">GL Account Balances — filter to bank GL for reconciliation</span></div>
+            <div class="tcode-item"><span class="tcode">FBCJ</span><span class="tcode-desc">Cash Journal — petty cash posting</span></div>
+            <div class="tcode-item"><span class="tcode">FF67</span><span class="tcode-desc">Manual Bank Statement</span></div>
+            <div class="tcode-item"><span class="tcode">FF_5</span><span class="tcode-desc">Import Electronic Bank Statement</span></div>
+            <div class="tcode-item"><span class="tcode">FEBA</span><span class="tcode-desc">Post-Process Bank Statement</span></div>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn btn-outline" onclick="showLecture(7)">← Lecture 8</button>
+          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 11 — Coming Soon</button>
+        </div>
+
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(8,this)" id="lec-done-8" style="padding:10px 28px;border-radius:8px;background:rgba(14,165,233,.1);border:1px solid var(--accent);color:var(--accent);font-weight:600;cursor:pointer;transition:all .2s">✓ Mark Lecture 9+10 Complete</button></div>
+      </div><!-- end lecture-8 -->
+
     </div><!-- end lesson-content -->
   </div><!-- end content-layout -->
 </div><!-- end page-mycourse -->
@@ -2535,130 +2707,221 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
   <div class="content-layout">
     <div class="sidebar">
-      <div class="sidebar-title">T-Codes</div>
-      <div class="ex-group-header" data-group="general" style="padding:12px 20px 4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:0px">General &amp; Navigation</div>
-      <div class="sidebar-item active" onclick="showExercise(0)" data-module="general" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">FIORI</span>
-        <span style="font-size:13px">Upload General Journal Entries</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(1)" data-module="general" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">SU01</span>
-        <span style="font-size:13px">User Maintenance</span>
-      </div>
-      <div class="ex-group-header" data-group="gl" style="padding:12px 20px 4px;font-size:11px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;border-top:1px solid var(--border);margin-top:8px">GL — General Ledger</div>
-      <div class="sidebar-item" onclick="showExercise(2)" data-module="gl" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">FS00</span>
-        <span style="font-size:13px">Create G/L Account Master Data</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(3)" data-module="gl" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB50</span>
-        <span style="font-size:13px">Post G/L Document</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(4)" data-module="gl" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">F-02</span>
-        <span style="font-size:13px">Classic G/L Posting</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(5)" data-module="gl" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB03</span>
-        <span style="font-size:13px">Display & Analyze a Document</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(6)" data-module="gl" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB08</span>
-        <span style="font-size:13px">Reverse a Posted Document</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(7)" data-module="gl" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBV0</span>
-        <span style="font-size:13px">Find & Complete a Parked Document</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(8)" data-module="gl" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBL3N</span>
-        <span style="font-size:13px">Display GL Account Line Items</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(9)" data-module="gl" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FAGLB03</span>
-        <span style="font-size:13px">GL Account Period Balances</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(10)" data-module="gl" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBCJ</span>
-        <span style="font-size:13px">Cash Journal</span>
-      </div>
-      <div class="ex-group-header" data-group="ap" style="padding:12px 20px 4px;font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;border-top:1px solid var(--border);margin-top:8px">AP — Accounts Payable</div>
-      <div class="sidebar-item" onclick="showExercise(11)" data-module="ap" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">BP</span>
-        <span style="font-size:13px">Create Vendor (Business Partner)</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(12)" data-module="ap" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB60</span>
-        <span style="font-size:13px">Enter Vendor Invoice</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(13)" data-module="ap" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">F-48</span>
-        <span style="font-size:13px">Post Vendor Down Payment</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(14)" data-module="ap" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">FBKP</span>
-        <span style="font-size:13px">Special G/L Configuration</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(15)" data-module="ap" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">F-47</span>
-        <span style="font-size:13px">Down Payment Request</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(16)" data-module="ap" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">F-53</span>
-        <span style="font-size:13px">Post Outgoing Payment</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(17)" data-module="ap" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">F-54</span>
-        <span style="font-size:13px">Clear Vendor Down Payment</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(18)" data-module="ap" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBL1N</span>
-        <span style="font-size:13px">Vendor Line Item Display</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(19)" data-module="ap" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">FK10N</span>
-        <span style="font-size:13px">Vendor Balance Display</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(20)" data-module="ap" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">IDCNAP</span>
-        <span style="font-size:13px">AP Aging Report</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(28)" data-module="ap" data-diff="advanced">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--red);min-width:68px;flex-shrink:0">F110</span>
-        <span style="font-size:13px">Automatic Payment Run</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(29)" data-module="ap" data-diff="advanced">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--red);min-width:68px;flex-shrink:0">MIRO</span>
-        <span style="font-size:13px">Invoice Verification (3-Way Match)</span>
-      </div>
-      <div class="ex-group-header" data-group="ar" style="padding:12px 20px 4px;font-size:11px;font-weight:700;color:#06b6d4;text-transform:uppercase;letter-spacing:1px;border-top:1px solid var(--border);margin-top:8px">AR — Accounts Receivable</div>
-      <div class="sidebar-item" onclick="showExercise(21)" data-module="ar" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FB70</span>
-        <span style="font-size:13px">Enter Customer Invoice</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(22)" data-module="ar" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FBL5N</span>
-        <span style="font-size:13px">Customer Line Item Display</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(23)" data-module="ar" data-diff="beginner">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--green);min-width:68px;flex-shrink:0">FD10N</span>
-        <span style="font-size:13px">Customer Balance Display</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(24)" data-module="ar" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">IDCNAR</span>
-        <span style="font-size:13px">AR Aging Report</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(25)" data-module="ar" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">F-28</span>
-        <span style="font-size:13px">Post Incoming Payment</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(26)" data-module="ar" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">F-29</span>
-        <span style="font-size:13px">Post Customer Down Payment</span>
-      </div>
-      <div class="sidebar-item" onclick="showExercise(27)" data-module="ar" data-diff="intermediate">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);min-width:68px;flex-shrink:0">F-39</span>
-        <span style="font-size:13px">Clear Customer Down Payment</span>
+      <div class="sidebar-title">SAP Menu</div>
+      <div class="sap-tree">
+
+        <div class="tree-section-label">Accounting → Financial Accounting</div>
+
+        <!-- GENERAL LEDGER -->
+        <div class="tree-node">
+          <div class="tree-folder open" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📁</span><span>General Ledger</span></div>
+          <div class="tree-children open tree-indent">
+
+            <div class="tree-node">
+              <div class="tree-folder open" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Document Entry</span></div>
+              <div class="tree-children open tree-indent">
+                <div class="tree-tcode" onclick="showExercise(3)" data-ex="3"><span class="tc-code">FB50</span><span class="tc-name">Enter G/L Account Document</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">FB50L</span><span class="tc-name">Enter G/L Account Document for Ledger Group</span></div>
+                <div class="tree-tcode" onclick="showExercise(4)" data-ex="4"><span class="tc-code">F-02</span><span class="tc-name">General Posting</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">FB01L</span><span class="tc-name">Enter General Posting for Ledger Group</span></div>
+                <div class="tree-tcode" onclick="showExercise(7)" data-ex="7"><span class="tc-code">FV50</span><span class="tc-name">Edit or Park G/L Document</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">F-65</span><span class="tc-name">General Document Parking</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">F-04</span><span class="tc-name">Post with Clearing</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">F-06</span><span class="tc-name">Incoming Payments</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">F-07</span><span class="tc-name">Outgoing Payments</span></div>
+                <div class="tree-tcode" onclick="showExercise(10)" data-ex="10"><span class="tc-code">FBCJ</span><span class="tc-name">Cash Journal Posting</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">F-05</span><span class="tc-name">Valuate Foreign Currency</span></div>
+                <div class="tree-tcode" onclick="showExercise(0)" data-ex="0"><span class="tc-code">FIORI</span><span class="tc-name">Upload General Journal Entries</span></div>
+              </div>
+            </div>
+
+            <div class="tree-node">
+              <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Document</span></div>
+              <div class="tree-children tree-indent">
+                <div class="tree-tcode" data-noex><span class="tc-code">FB02</span><span class="tc-name">Change</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">FB09</span><span class="tc-name">Change Line Items</span></div>
+                <div class="tree-tcode" onclick="showExercise(5)" data-ex="5"><span class="tc-code">FB03</span><span class="tc-name">Display</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">FB03L</span><span class="tc-name">Display in General Ledger View</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">FB04</span><span class="tc-name">Display Changes</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">FBRA</span><span class="tc-name">Reset Cleared Items</span></div>
+                <div class="tree-node">
+                  <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Reverse</span></div>
+                  <div class="tree-children tree-indent">
+                    <div class="tree-tcode" onclick="showExercise(6)" data-ex="6"><span class="tc-code">FB08</span><span class="tc-name">Individual Reversal</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tree-node">
+              <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Account</span></div>
+              <div class="tree-children tree-indent">
+                <div class="tree-tcode" onclick="showExercise(9)" data-ex="9"><span class="tc-code">FAGLB03</span><span class="tc-name">Display Balances</span></div>
+                <div class="tree-tcode" onclick="showExercise(8)" data-ex="8"><span class="tc-code">FAGLL03</span><span class="tc-name">Display/Change Line Items</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">FAGLL03H</span><span class="tc-name">Line Item Browser</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">F-03</span><span class="tc-name">Clear</span></div>
+                <div class="tree-tcode" data-noex><span class="tc-code">FB1SL</span><span class="tc-name">Clear – Specific to Ledger Groups</span></div>
+              </div>
+            </div>
+
+            <div class="tree-node">
+              <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Master Records</span></div>
+              <div class="tree-children tree-indent">
+                <div class="tree-node">
+                  <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>G/L Accounts — Individual Processing</span></div>
+                  <div class="tree-children tree-indent">
+                    <div class="tree-tcode" onclick="showExercise(2)" data-ex="2"><span class="tc-code">FS00</span><span class="tc-name">Centrally</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">FSP0</span><span class="tc-name">In Chart of Accounts</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">FSS0</span><span class="tc-name">In Company Code</span></div>
+                  </div>
+                </div>
+                <div class="tree-node">
+                  <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>G/L Accounts — Collective Processing</span></div>
+                  <div class="tree-children tree-indent">
+                    <div class="tree-tcode" data-noex><span class="tc-code">OB_GLACC11</span><span class="tc-name">Chart of Accounts Data</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">OB_GLACC12</span><span class="tc-name">Company Code Data</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">OB_GLACC13</span><span class="tc-name">Descriptions</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">OB_GLACC14</span><span class="tc-name">Controlling Area Data</span></div>
+                  </div>
+                </div>
+                <div class="tree-node">
+                  <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>G/L Accounts — Display Changes</span></div>
+                  <div class="tree-children tree-indent">
+                    <div class="tree-tcode" data-noex><span class="tc-code">FS04</span><span class="tc-name">Centrally</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">FSP4</span><span class="tc-name">In Chart of Accounts</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">FSS4</span><span class="tc-name">In Company Code</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tree-node">
+              <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Periodic Processing</span></div>
+              <div class="tree-children tree-indent">
+                <div class="tree-tcode" data-noex><span class="tc-code">SCMA</span><span class="tc-name">Schedule Manager</span></div>
+                <div class="tree-node">
+                  <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Automatic Clearing</span></div>
+                  <div class="tree-children tree-indent">
+                    <div class="tree-tcode" data-noex><span class="tc-code">F.13</span><span class="tc-name">Without Specification of Clearing Currency</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">F13E</span><span class="tc-name">With Specification of Clearing Currency</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">F13L</span><span class="tc-name">G/L Accounts – Specific to Ledger Groups</span></div>
+                  </div>
+                </div>
+                <div class="tree-node">
+                  <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Interest Calculation</span></div>
+                  <div class="tree-children tree-indent">
+                    <div class="tree-tcode" data-noex><span class="tc-code">F.52</span><span class="tc-name">Balances</span></div>
+                  </div>
+                </div>
+                <div class="tree-node">
+                  <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Recurring Entries</span></div>
+                  <div class="tree-children tree-indent">
+                    <div class="tree-tcode" data-noex><span class="tc-code">F.14</span><span class="tc-name">Execute</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">F.15</span><span class="tc-name">Lists</span></div>
+                  </div>
+                </div>
+                <div class="tree-node">
+                  <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Print Correspondence</span></div>
+                  <div class="tree-children tree-indent">
+                    <div class="tree-tcode" data-noex><span class="tc-code">F.61</span><span class="tc-name">As per Requests</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">F.63</span><span class="tc-name">Delete Requests</span></div>
+                    <div class="tree-tcode" data-noex><span class="tc-code">F.62</span><span class="tc-name">Internal Documents</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tree-node">
+              <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Reporting</span></div>
+              <div class="tree-children tree-indent">
+                <div class="tree-tcode" onclick="showExercise(8)" data-ex="8"><span class="tc-code">FBL3N</span><span class="tc-name">Display GL Account Line Items</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ACCOUNTS PAYABLE -->
+        <div class="tree-module-label">Accounts Payable</div>
+        <div class="tree-node">
+          <div class="tree-folder open" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📁</span><span>Accounts Payable</span></div>
+          <div class="tree-children open tree-indent">
+            <div class="tree-node">
+              <div class="tree-folder open" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Document Entry</span></div>
+              <div class="tree-children open tree-indent">
+                <div class="tree-tcode" onclick="showExercise(11)" data-ex="11"><span class="tc-code">BP</span><span class="tc-name">Create Vendor (Business Partner)</span></div>
+                <div class="tree-tcode" onclick="showExercise(12)" data-ex="12"><span class="tc-code">FB60</span><span class="tc-name">Enter Vendor Invoice</span></div>
+                <div class="tree-tcode" onclick="showExercise(15)" data-ex="15"><span class="tc-code">F-47</span><span class="tc-name">Down Payment Request</span></div>
+                <div class="tree-tcode" onclick="showExercise(13)" data-ex="13"><span class="tc-code">F-48</span><span class="tc-name">Post Vendor Down Payment</span></div>
+                <div class="tree-tcode" onclick="showExercise(17)" data-ex="17"><span class="tc-code">F-54</span><span class="tc-name">Clear Vendor Down Payment</span></div>
+                <div class="tree-tcode" onclick="showExercise(16)" data-ex="16"><span class="tc-code">F-53</span><span class="tc-name">Post Outgoing Payment</span></div>
+                <div class="tree-tcode" onclick="showExercise(29)" data-ex="29"><span class="tc-code">MIRO</span><span class="tc-name">Invoice Verification (3-Way Match)</span></div>
+                <div class="tree-tcode" onclick="showExercise(28)" data-ex="28"><span class="tc-code">F110</span><span class="tc-name">Automatic Payment Run</span></div>
+                <div class="tree-tcode" onclick="showExercise(14)" data-ex="14"><span class="tc-code">FBKP</span><span class="tc-name">Maintain Accounting Config (Special G/L)</span></div>
+              </div>
+            </div>
+            <div class="tree-node">
+              <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Account</span></div>
+              <div class="tree-children tree-indent">
+                <div class="tree-tcode" onclick="showExercise(18)" data-ex="18"><span class="tc-code">FBL1N</span><span class="tc-name">Vendor Line Item Display</span></div>
+                <div class="tree-tcode" onclick="showExercise(19)" data-ex="19"><span class="tc-code">FK10N</span><span class="tc-name">Vendor Balance Display</span></div>
+                <div class="tree-tcode" onclick="showExercise(20)" data-ex="20"><span class="tc-code">IDCNAP</span><span class="tc-name">AP Aging Report</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCOUNTS RECEIVABLE -->
+        <div class="tree-module-label">Accounts Receivable</div>
+        <div class="tree-node">
+          <div class="tree-folder open" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📁</span><span>Accounts Receivable</span></div>
+          <div class="tree-children open tree-indent">
+            <div class="tree-node">
+              <div class="tree-folder open" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Document Entry</span></div>
+              <div class="tree-children open tree-indent">
+                <div class="tree-tcode" onclick="showExercise(11)" data-ex="11"><span class="tc-code">BP</span><span class="tc-name">Create Customer (Business Partner)</span></div>
+                <div class="tree-tcode" onclick="showExercise(21)" data-ex="21"><span class="tc-code">FB70</span><span class="tc-name">Enter Customer Invoice</span></div>
+                <div class="tree-tcode" onclick="showExercise(25)" data-ex="25"><span class="tc-code">F-28</span><span class="tc-name">Post Incoming Payment</span></div>
+                <div class="tree-tcode" onclick="showExercise(26)" data-ex="26"><span class="tc-code">F-29</span><span class="tc-name">Post Customer Down Payment</span></div>
+                <div class="tree-tcode" onclick="showExercise(27)" data-ex="27"><span class="tc-code">F-39</span><span class="tc-name">Clear Customer Down Payment</span></div>
+              </div>
+            </div>
+            <div class="tree-node">
+              <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📂</span><span>Account</span></div>
+              <div class="tree-children tree-indent">
+                <div class="tree-tcode" onclick="showExercise(22)" data-ex="22"><span class="tc-code">FBL5N</span><span class="tc-name">Customer Line Item Display</span></div>
+                <div class="tree-tcode" onclick="showExercise(23)" data-ex="23"><span class="tc-code">FD10N</span><span class="tc-name">Customer Balance Display</span></div>
+                <div class="tree-tcode" onclick="showExercise(24)" data-ex="24"><span class="tc-code">IDCNAR</span><span class="tc-name">AR Aging Report</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BANKS -->
+        <div class="tree-module-label">Banks</div>
+        <div class="tree-node">
+          <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📁</span><span>Banks</span></div>
+          <div class="tree-children tree-indent">
+            <div class="tree-tcode" data-noex><span class="tc-code">FI01</span><span class="tc-name">Create Bank Key</span></div>
+            <div class="tree-tcode" data-noex><span class="tc-code">FI02</span><span class="tc-name">Change Bank Key</span></div>
+            <div class="tree-tcode" data-noex><span class="tc-code">FI03</span><span class="tc-name">Display Bank Key</span></div>
+            <div class="tree-tcode" data-noex><span class="tc-code">FI12</span><span class="tc-name">Define House Banks</span></div>
+            <div class="tree-tcode" data-noex><span class="tc-code">FBZP</span><span class="tc-name">Payment Program Configuration</span></div>
+            <div class="tree-tcode" data-noex><span class="tc-code">FF67</span><span class="tc-name">Manual Bank Statement</span></div>
+            <div class="tree-tcode" data-noex><span class="tc-code">FF_5</span><span class="tc-name">Import Electronic Bank Statement</span></div>
+            <div class="tree-tcode" data-noex><span class="tc-code">FEBA</span><span class="tc-name">Post-Process Bank Statement</span></div>
+          </div>
+        </div>
+
+        <!-- SYSTEM / ADMIN -->
+        <div class="tree-module-label">System &amp; Administration</div>
+        <div class="tree-node">
+          <div class="tree-folder" onclick="toggleTree(this)"><span class="tree-arrow">▶</span><span class="tree-icon">📁</span><span>User Administration</span></div>
+          <div class="tree-children tree-indent">
+            <div class="tree-tcode" onclick="showExercise(1)" data-ex="1"><span class="tc-code">SU01</span><span class="tc-name">User Maintenance</span></div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -2706,13 +2969,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     </div>
 
     <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
-      <div id="ex-filter-bar" style="padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:10;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-      <span style="font-size:12px;color:var(--muted);font-weight:600;margin-right:4px">MODULE:</span>
-      <button onclick="filterEx('all')" id="filt-all" style="padding:4px 14px;border-radius:20px;border:1px solid var(--accent);background:var(--accent);color:white;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">All</button>
-      <button onclick="filterEx('general')" id="filt-general" style="padding:4px 14px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">General</button>
-      <button onclick="filterEx('gl')" id="filt-gl" style="padding:4px 14px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">GL</button>
-      <button onclick="filterEx('ap')" id="filt-ap" style="padding:4px 14px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">AP</button>
-      <button onclick="filterEx('ar')" id="filt-ar" style="padding:4px 14px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">AR</button>
+      <div id="ex-filter-bar" style="padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:60px;z-index:10;display:flex;align-items:center;gap:8px">
+      <span style="font-size:12px;color:var(--muted);font-weight:600">📋 SAP Easy Access — Financial Accounting</span>
       <span id="ex-progress-label" style="margin-left:auto;font-size:12px;color:var(--muted)">Loading...</span>
     </div>
       <!-- ===== FIORI ===== -->
@@ -8143,12 +8401,20 @@ function showQuiz(i){
   if(sel) sel.value=i;
   window.scrollTo(0,0);
 }
+/* ── SAP Tree Toggle ── */
+function toggleTree(folderEl){
+  folderEl.classList.toggle('open');
+  const children=folderEl.nextElementSibling;
+  if(children) children.classList.toggle('open');
+}
 function showExercise(i){
   document.querySelectorAll('.ex-section').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('#page-exercises .sidebar-item').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#page-exercises .tree-tcode').forEach(x=>x.classList.remove('active'));
   const sec=document.getElementById('ex-section-'+i);
   if(sec) sec.classList.add('active');
-  // Find sidebar item by data or by matching onclick attribute
+  // Highlight matching tree-tcode items
+  document.querySelectorAll('#page-exercises .tree-tcode[data-ex="'+i+'"]').forEach(x=>x.classList.add('active'));
+  // Legacy sidebar-item support
   const allItems=document.querySelectorAll('#page-exercises .sidebar-item');
   allItems.forEach(item=>{
     if(item.getAttribute('onclick')==='showExercise('+i+')') item.classList.add('active');
@@ -8160,8 +8426,11 @@ function showExercise(i){
 function showLecture(i){
   document.querySelectorAll('[id^="lecture-"]').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('#page-mycourse .sidebar-item').forEach(x=>x.classList.remove('active'));
-  document.getElementById('lecture-'+i).classList.add('active');
-  document.querySelectorAll('#page-mycourse .sidebar-item')[i].classList.add('active');
+  const sec=document.getElementById('lecture-'+i);
+  if(sec) sec.classList.add('active');
+  document.querySelectorAll('#page-mycourse .sidebar-item').forEach(item=>{
+    if(item.getAttribute('onclick')==='showLecture('+i+')') item.classList.add('active');
+  });
   const sel=document.querySelector('#page-mycourse .mobile-picker select');
   if(sel) sel.value=i;
 }
@@ -8248,7 +8517,29 @@ function resetQuizL(lec,total){
 
   // 3. Register ./sw.js (must be uploaded alongside this file to GitHub)
   if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('./sw.js').catch(()=>{});
+    navigator.serviceWorker.register('./sw.js').then(reg=>{
+      // Auto-update: when a new SW version is found, reload automatically
+      reg.addEventListener('updatefound',()=>{
+        const newWorker=reg.installing;
+        newWorker.addEventListener('statechange',()=>{
+          if(newWorker.state==='installed'&&navigator.serviceWorker.controller){
+            // New version available — show a small toast then reload
+            const toast=document.createElement('div');
+            toast.textContent='🔄 New version available — updating…';
+            toast.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0ea5e9;color:#fff;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.4);';
+            document.body.appendChild(toast);
+            setTimeout(()=>window.location.reload(),1800);
+          }
+        });
+      });
+      // Check for updates every 60 seconds while the app is open
+      setInterval(()=>reg.update(),60000);
+    }).catch(()=>{});
+    // When a new SW takes control, reload to get fresh content
+    let refreshing=false;
+    navigator.serviceWorker.addEventListener('controllerchange',()=>{
+      if(!refreshing){refreshing=true;window.location.reload();}
+    });
   }
 
   // 4. Install prompt
@@ -8323,10 +8614,10 @@ function markLecDone(i,btn){
 }
 function updateLecProgress(){
   let done=0;
-  for(let i=0;i<8;i++) if(localStorage.getItem('lec_done_'+i)==='1') done++;
+  for(let i=0;i<9;i++) if(localStorage.getItem('lec_done_'+i)==='1') done++;
   const lbl=document.getElementById('lec-progress');
-  if(lbl){ lbl.textContent=done+'/8'; lbl.style.color=done===8?'var(--green)':'var(--accent)'; }
-  for(let i=0;i<8;i++){
+  if(lbl){ lbl.textContent=done+'/9'; lbl.style.color=done===9?'var(--green)':'var(--accent)'; }
+  for(let i=0;i<9;i++){
     const btn=document.getElementById('lec-done-'+i);
     if(btn&&localStorage.getItem('lec_done_'+i)==='1'){
       btn.textContent='✅ Lecture '+(i+1)+' Complete';
