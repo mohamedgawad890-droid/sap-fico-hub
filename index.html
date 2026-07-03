@@ -1132,7 +1132,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               </ul>
             </div>
           </div>
+          <div class="content-block" style="margin-top:14px;padding:14px 16px;border:1px solid rgba(139,92,246,.3);border-radius:8px;background:rgba(139,92,246,.04)">
+            <div style="font-weight:700;color:var(--purple);font-size:13px;margin-bottom:8px">CElem Category — What it is and why it matters</div>
+            <p style="font-size:13px;line-height:1.7">When you create a <strong>Primary Cost / Revenue</strong> (Type P) GL account, SAP asks for a <strong>CElem Category</strong> (Cost Element Category) on the Controlling tab. This links the GL account to the CO module and controls what kind of costs or revenues can flow through it.</p>
+            <table style="width:100%;border-collapse:collapse;margin:10px 0;font-size:13px">
+              <thead><tr style="background:rgba(139,92,246,.1)">
+                <th style="padding:6px 10px;text-align:left">Category</th>
+                <th style="padding:6px 10px;text-align:left">Meaning</th>
+                <th style="padding:6px 10px;text-align:left">Typical GL accounts</th>
+              </tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 10px;font-family:monospace;font-weight:700;color:var(--purple)">1</td><td style="padding:6px 10px">Primary Costs</td><td style="padding:6px 10px;color:var(--dim)">All expense accounts — salaries, rent, utilities, cleaning</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:rgba(139,92,246,.03)"><td style="padding:6px 10px;font-family:monospace;font-weight:700;color:var(--purple)">11</td><td style="padding:6px 10px">Revenue</td><td style="padding:6px 10px;color:var(--dim)">Revenue / income accounts that feed CO-PA</td></tr>
+                <tr><td style="padding:6px 10px;font-family:monospace;font-weight:700;color:var(--purple)">12</td><td style="padding:6px 10px">Sales Deductions</td><td style="padding:6px 10px;color:var(--dim)">Discounts and rebates on sales</td></tr>
+              </tbody>
+            </table>
+            <div class="hbox warn" style="margin-top:8px;font-size:12px">⚠️ CElem Category is <strong>mandatory</strong> for Account Type "P". Without it, the GL account cannot be saved. In the FS00 exercise you will see this field on the Control Data tab under "Account Settings in Controlling Area". It is automatically proposed when you enter the Controlling Area.</div>
+          </div>
         </div>
+
 
         <!-- 6. BANK GL ACCOUNTS -->
         <div class="content-block">
@@ -1471,7 +1489,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <tbody>
                 <!-- Customer -->
                 <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">01</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Invoice — enter Customer Code; SAP auto-adds Recon. GL account</td></tr>
-                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">05</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Incoming Payment (Debit customer — used in some system configs)</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">05</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Debit Memo — customer (used to reduce a customer's balance; e.g. a returned goods credit note issued by the customer)</td></tr>
                 <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">09</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--red);font-weight:600">Dr</td><td style="padding:8px 12px;color:var(--dim)">Special G/L — Debit</td></tr>
                 <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">11</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Credit Memo</td></tr>
                 <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.04)"><td style="padding:8px 12px;text-align:center;font-family:monospace;font-weight:700;color:var(--accent)">15</td><td style="padding:8px 12px">Customer</td><td style="padding:8px 12px;text-align:center;color:var(--green);font-weight:600">Cr</td><td style="padding:8px 12px;color:var(--dim)">Incoming Payment</td></tr>
@@ -1492,7 +1510,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
 
-        <!-- 8. PRACTICAL EXERCISE -->
+        <!-- 8. TAX CODES & GROSS/NET POSTING -->
+        <div class="content-block">
+          <div class="lesson-section-title">8. Tax Codes &amp; Gross vs Net Posting</div>
+          <p>Every GL posting that touches a tax-relevant account requires a <strong>Tax Code</strong> — a 2-character key that tells SAP which tax rate applies and how to calculate it. In the BEV1 training environment the two most common codes are:</p>
+          <table style="width:100%;border-collapse:collapse;margin:12px 0">
+            <thead><tr style="background:rgba(14,165,233,.08)">
+              <th style="padding:8px 12px;text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em">Code</th>
+              <th style="padding:8px 12px;text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em">Name</th>
+              <th style="padding:8px 12px;text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em">Rate</th>
+              <th style="padding:8px 12px;text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em">When to use</th>
+            </tr></thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-family:monospace;font-weight:700;color:var(--accent)">V0</td><td style="padding:8px 12px">Input Tax — 0%</td><td style="padding:8px 12px">0%</td><td style="padding:8px 12px;color:var(--dim)">Tax-exempt transactions; also used when the GL account is flagged "Posting without tax allowed"</td></tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(14,165,233,.03)"><td style="padding:8px 12px;font-family:monospace;font-weight:700;color:var(--accent)">V1</td><td style="padding:8px 12px">Input Tax — 14%</td><td style="padding:8px 12px">14%</td><td style="padding:8px 12px;color:var(--dim)">Standard taxable vendor purchases (Egypt VAT rate); SAP auto-calculates and posts to the tax GL account</td></tr>
+            </tbody>
+          </table>
+          <div class="key-points">
+            <div class="kp-title">Gross vs Net Posting</div>
+            <p>When you enter an amount in FB50 or FB60 you must tell SAP whether the amount is <strong>gross</strong> (tax included) or <strong>net</strong> (tax excluded):</p>
+            <ul style="margin:8px 0 0 16px;line-height:1.8">
+              <li><strong>Gross posting (default):</strong> You enter the total invoice amount. SAP calculates the tax portion and splits it automatically — expense line = net amount, tax line = tax amount.</li>
+              <li><strong>Net posting:</strong> You enter only the net amount. SAP adds the tax on top. Less common; requires the "Net Document" checkbox or the relevant field-status setting.</li>
+            </ul>
+            <p style="margin-top:10px">Example: Invoice EGP 11,400 gross (EGP 10,000 net + EGP 1,400 VAT at V1 14%). In gross mode, enter 11,400 — SAP posts: Expense Dr 10,000 / Tax GL Dr 1,400 / Vendor Cr 11,400.</p>
+          </div>
+          <div class="hbox info" style="margin-top:12px">💡 The Tax Category field on the GL master (FS00) controls which tax codes are allowed. An asterisk (*) means all types are permitted. If the field is blank, no tax code can be entered for that account.</div>
+        </div>
+
+        <!-- 9. PRACTICAL EXERCISE -->
 
 
 
@@ -1889,6 +1935,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <li><strong>Post</strong> → SAP assigns Document Number (e.g. 1900000143, Doc Type KR)</li>
             <li><strong>Display</strong> → use FB03 to open and verify the posted invoice document</li>
           </ul>
+          <div class="hbox warn" style="margin-top:10px">⚠️ <strong>FB60 vs MIRO — Know the difference:</strong> <strong>FB60</strong> is a <em>pure FI transaction</em> — used when there is no Purchase Order (PO). It posts the vendor liability and expense directly. <strong>MIRO</strong> (Invoice Verification) is used when the invoice relates to a PO and requires a <strong>3-way match</strong>: PO → Goods Receipt (GR) → Invoice. MIRO checks that the invoiced quantity and price match what was ordered and received. In your training environment you use FB60 because BEV1 exercises have no PO/GR flow. On a real implementation, most vendor invoices go through MIRO; FB60 is reserved for non-PO invoices (services, utilities, manual adjustments).</div>
           <div class="hbox info" style="margin-top:10px">💡 Document Type <strong>KR = Kreditor Rechnung</strong> (German) = Vendor Invoice. The vendor account is automatically credited, and the expense GL account is debited.</div>
         </div>
 
@@ -2142,6 +2189,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           <div class="hbox info" style="margin-top:10px">💡 Quick map — <strong>F-28 ↔ F-53</strong> (payment), <strong>F-29 ↔ F-48</strong> (down payment), <strong>F-39 ↔ F-54</strong> (clear down payment). Same logic, customer side (type <strong>D</strong>) instead of vendor (type <strong>K</strong>).</div>
         </div>
 
+        <!-- 12. DUNNING -->
+        <div class="content-block">
+          <h3>12. Dunning — Automated Customer Payment Reminders (F150)</h3>
+          <p>Dunning is SAP's automated process for chasing overdue customer invoices. Instead of sending manual reminder emails, the finance team runs a <strong>dunning run (F150)</strong> that identifies all overdue open items, assigns escalation levels, and generates dunning notices.</p>
+          <div class="key-points" style="margin-top:10px">
+            <div class="kp-title">How Dunning Works</div>
+            <ul style="margin:8px 0 0 16px;line-height:1.9">
+              <li>A <strong>Dunning Procedure</strong> (configured in FBMP) defines escalation levels — e.g. Level 1 = friendly reminder (5 days overdue), Level 2 = formal notice (15 days), Level 3 = legal warning (30 days)</li>
+              <li>The dunning procedure is assigned to the <strong>customer master</strong> (Company Code data). Without it, the customer is never included in a dunning run</li>
+              <li>Run <strong>F150</strong>: enter a Dunning Date, Company Code BEV1, select the dunning procedure → SAP scans all open items, identifies overdue ones, and proposes the dunning level</li>
+              <li>Review the proposal → <strong>Print/Issue notices</strong> — SAP can output by email, print, or EDI depending on configuration</li>
+              <li>A <strong>Dunning Block</strong> on the customer or on a specific invoice excludes it from the run (e.g. disputed invoice)</li>
+            </ul>
+          </div>
+          <div class="tcode-grid" style="margin-top:12px">
+            <div class="tcode-item"><span class="tcode">F150</span><span class="tcode-desc">Execute Dunning Run — identify overdue items and generate notices</span></div>
+            <div class="tcode-item"><span class="tcode">FBMP</span><span class="tcode-desc">Define Dunning Procedures — configure levels, days overdue, text</span></div>
+          </div>
+          <div class="hbox info" style="margin-top:12px">💡 Common dunning error: a customer receives a dunning notice for an invoice that was already paid — this happens when the payment was posted but not <strong>cleared</strong> against the invoice. Both the invoice and the payment remain as open items in FBL5N. Always run F-28 clearing after posting customer payments.</div>
+        </div>
+
         <!-- L7 T-CODE SUMMARY -->
         <div class="content-block">
           <h3>🗂️ L7 T-Code Quick Reference</h3>
@@ -2163,6 +2231,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="tcode-item"><span class="tcode">F-28</span><span class="tcode-desc">Post Incoming Payment (DZ)</span></div>
             <div class="tcode-item"><span class="tcode">F-29</span><span class="tcode-desc">Post Customer Down Payment</span></div>
             <div class="tcode-item"><span class="tcode">F-39</span><span class="tcode-desc">Clear Customer Down Payment</span></div>
+            <div class="tcode-item"><span class="tcode">F150</span><span class="tcode-desc">Dunning Run — automated overdue customer reminder notices</span></div>
+            <div class="tcode-item"><span class="tcode">FBMP</span><span class="tcode-desc">Define Dunning Procedures (configuration)</span></div>
           </div>
         </div>
 
@@ -2252,7 +2322,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <li>Fiscal Year Variants are configured in <strong style="color:var(--gold)">OB29</strong> (Maintain Fiscal Year Variant).</li>
             <li>Then assigned to each Company Code via <strong style="color:var(--gold)">OB37</strong> (Assign Fiscal Year Variant to Company Code).</li>
             <li>Each fiscal year can have up to <strong style="color:var(--text)">12 regular periods</strong> plus up to <strong style="color:var(--text)">4 special periods</strong> (13–16) for year-end adjustments.</li>
-            <li>All company codes under the same Company must use the same fiscal year variant.</li>
+            <li>All company codes under the same <strong>Controlling Area</strong> must use the same fiscal year variant — this is <em>not</em> a Company-level constraint. Different Company Codes under the same Company can use different fiscal year variants, as long as each Controlling Area remains internally consistent.</li>
           </ul>
         </div>
 
@@ -2387,6 +2457,45 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
           </div>
         </div>
 
+        <!-- HOUSE BANK -->
+        <div class="content-block">
+          <h3>11. House Bank Configuration — FI12</h3>
+          <p>A <strong>House Bank</strong> is the representation of your company's physical bank account inside SAP. Before the payment program (F110) or any manual bank transaction can post, the house bank must be configured. This is done via <strong>T-code FI12</strong> in SPRO.</p>
+          <div class="key-points" style="margin-top:10px">
+            <div class="kp-title">Configuration Steps</div>
+            <ul style="margin:8px 0 0 16px;line-height:1.9">
+              <li><strong>FI12 — Define House Banks:</strong> Navigate to SPRO → Financial Accounting → Bank Accounting → Bank Accounts → Define House Banks. Create a House Bank key (e.g. <code>HSBC</code>), assign it to Company Code <code>BEV1</code>, enter the bank's country, bank key (routing/swift), and bank name</li>
+              <li><strong>Account ID:</strong> Under each House Bank you create one or more Account IDs (e.g. <code>CHECK</code>, <code>USD</code>). Each Account ID maps to a specific bank account number and a <strong>GL bank account</strong> in FS00</li>
+              <li><strong>GL Account linkage:</strong> The G/L account for the bank (e.g. 113100 — Bank Main Account, Cash type) is entered in the Account ID. This is how bank postings flow to the general ledger automatically</li>
+            </ul>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+            <div style="background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.25);border-radius:8px;padding:14px">
+              <div style="font-weight:700;color:var(--accent);font-size:13px;margin-bottom:8px">House Bank Key Structure</div>
+              <ul class="key-points" style="font-size:12px">
+                <li>Company Code: <code>BEV1</code></li>
+                <li>House Bank ID: <code>HSBC</code> (user-defined key)</li>
+                <li>Account ID: <code>CHECK</code> or <code>EGP</code></li>
+                <li>Bank Account No: physical account number</li>
+                <li>G/L Account: <code>113100</code> (Bank Main GL)</li>
+              </ul>
+            </div>
+            <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.25);border-radius:8px;padding:14px">
+              <div style="font-weight:700;color:var(--gold);font-size:13px;margin-bottom:8px">Why it matters in transactions</div>
+              <ul class="key-points" style="font-size:12px">
+                <li><strong>F-48 / F-53:</strong> "House Bank" and "Account ID" fields reference this config</li>
+                <li><strong>F110:</strong> payment program selects bank accounts via house bank</li>
+                <li><strong>FBCJ:</strong> Cash Journal also references a house bank</li>
+                <li>No house bank = payment transactions fail</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tcode-grid" style="margin-top:12px">
+            <div class="tcode-item"><span class="tcode">FI12</span><span class="tcode-desc">Define House Banks — create bank key, account IDs, link to GL account</span></div>
+          </div>
+          <div class="hbox info" style="margin-top:10px">💡 On projects you will often hear "house bank" used loosely to mean both the bank entity and the GL account. Technically FI12 creates the bank master; the GL account is separate (FS00) and just linked here. In BEV1 exercises the house bank is pre-configured — you reference it in F-48 and F-53 using the bank data fields.</div>
+        </div>
+
         <div class="content-block">
           <h3>L8 Configuration T-Code Summary</h3>
           <p style="margin-bottom:14px">All the key configuration T-codes you need to know from this lecture:</p>
@@ -2410,6 +2519,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
             <div class="tcode-item"><span class="tcode">OBA4</span><span class="tcode-desc">Tolerance Groups for Employees</span></div>
             <div class="tcode-item"><span class="tcode">OBA0</span><span class="tcode-desc">Tolerance Groups for GL Accounts</span></div>
             <div class="tcode-item"><span class="tcode">OBD3</span><span class="tcode-desc">Vendor Account Groups</span></div>
+            <div class="tcode-item"><span class="tcode">FI12</span><span class="tcode-desc">Define House Banks — bank accounts &amp; GL linkage</span></div>
             <div class="tcode-item"><span class="tcode">SE09</span><span class="tcode-desc">Transport Organizer (manage transports)</span></div>
           </div>
         </div>
@@ -3841,6 +3951,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <div class="ex-step-body">
                 <div class="ex-step-desc">On the <strong>Basic data</strong> tab, fill in:<br><br>• <strong>Vendor:</strong> <code>580024</code> → press Enter → a vendor address popup appears showing: Company: المتحدة, Cairo, Egypt<br>• <strong>Invoice date:</strong> <code>05/15/2026</code> (today)<br>• <strong>Posting Date:</strong> auto-fills to 05/15/2026<br>• <strong>Amount:</strong> <code>8,000</code> EGP<br><br>The balance indicator changes as you fill the amount. Payment terms show "Due immediately" and Baseline Date auto-fills.</div>
                 <div class="ex-step-note">📌 The vendor popup confirms you selected the correct supplier before proceeding. Check the address to avoid posting to the wrong vendor.</div>
+                <div class="ex-step-note" style="margin-top:8px">💡 <strong>Payment Terms field:</strong> On the Payment tab (next to Basic data), SAP pre-fills the <strong>Payment Terms</strong> from the vendor master — e.g. <code>0001</code> = Pay immediately. This field controls the due date SAP calculates for the open item in FBL1N. You can override it per invoice if agreed terms differ. The due date = Baseline date + Payment Terms days. Always verify payment terms match the invoice before posting.</div>
                 
               </div>
             </div>
@@ -5331,6 +5442,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item" onclick="showQuiz(5)">
         <span class="sidebar-num">L6</span>AP — Accounts Payable
       </div>
+      <div class="sidebar-item" onclick="showQuiz(7)">
+        <span class="sidebar-num">L7</span>AP Down Payments &amp; AR
+      </div>
+      <div class="sidebar-item" onclick="showQuiz(8)">
+        <span class="sidebar-num">L8</span>SAP FI Configuration
+      </div>
       <div class="sidebar-item" onclick="showQuiz(6)">
         <span class="sidebar-num" style="color:var(--gold)">TC</span>T-Code Challenge
       </div>
@@ -5344,6 +5461,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="3">L4 — GL Posting & Document Entry</option>
         <option value="4">L5 — Document Management & Reporting</option>
         <option value="5">L6 — AP — Accounts Payable</option>
+        <option value="7">L7 — AP Down Payments &amp; AR Order-to-Cash</option>
+        <option value="8">L8 — SAP FI Configuration</option>
         <option value="6">TC — T-Code Challenge</option>
       </select>
     </div>
@@ -5352,7 +5471,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Overall Score</span>
       <div style="display:flex;gap:8px;align-items:center">
         <span id="total-score-num" style="font-size:22px;font-weight:700;color:var(--accent)">0</span>
-        <span style="font-size:14px;color:var(--muted)">/ 74 correct</span>
+        <span style="font-size:14px;color:var(--muted)">/ 90 correct</span>
       </div>
       <div style="flex:1;min-width:160px;height:6px;background:var(--surface);border-radius:3px;overflow:hidden">
         <div id="total-score-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:3px;transition:width .4s"></div>
@@ -5869,6 +5988,208 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <div style="height:32px"></div>
         </div>
       </div>
+      <!-- ═══ QUIZ L7 ═══ -->
+      <div class="quiz-section" id="qsec-7">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 14px">Lecture 7</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">AP Down Payments &amp; AR — Order-to-Cash</h2>
+          </div>
+          <div class="content-block">
+          <h3>🧪 Quiz — Lecture 7</h3>
+          <div id="quiz-l7">
+            <div class="question-card">
+              <div class="question-text">1. Transaction F-47 creates a down payment request with special G/L indicator F. What is the accounting effect of this posting?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l7','q1',this,'wrong')">It debits the bank account and credits the vendor</button>
+                <button class="option" onclick="answerQ('l7','q1',this,'correct')">It creates a noted item — statistical only, no G/L balance change</button>
+                <button class="option" onclick="answerQ('l7','q1',this,'wrong')">It posts to a special G/L reconciliation account immediately</button>
+                <button class="option" onclick="answerQ('l7','q1',this,'wrong')">It blocks the vendor account from further posting</button>
+              </div>
+              <div class="explanation" id="exp-l7-q1"><strong>F-47 creates a noted item</strong> — it is purely statistical and does not change any G/L balance. It serves as a reminder/trigger that an advance is expected but no real accounting entry is made until F-48 posts the actual down payment.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">2. In F-48 (Post Vendor Down Payment), what special G/L indicator must you enter, and why?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l7','q2',this,'wrong')">F — to keep it as a noted item only</button>
+                <button class="option" onclick="answerQ('l7','q2',this,'correct')">A — to post to the alternative down-payment reconciliation account, keeping it off the normal AP recon</button>
+                <button class="option" onclick="answerQ('l7','q2',this,'wrong')">Z — to mark it as a zero-balance transaction</button>
+                <button class="option" onclick="answerQ('l7','q2',this,'wrong')">K — to route it to the vendor credit account automatically</button>
+              </div>
+              <div class="explanation" id="exp-l7-q2">Special G/L indicator <strong>A</strong> directs the advance to the <em>alternative reconciliation account</em> (the down-payment account), separating it from normal vendor invoices on the standard recon account. This ensures advances are reported separately in financial statements.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">3. What is the correct sequence for the full AP advance cycle?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l7','q3',this,'wrong')">F-48 → F-47 → F-54 → F-53</button>
+                <button class="option" onclick="answerQ('l7','q3',this,'correct')">F-47 → F-48 → F-54 → F-53</button>
+                <button class="option" onclick="answerQ('l7','q3',this,'wrong')">F-48 → FB60 → F-53 → F-54</button>
+                <button class="option" onclick="answerQ('l7','q3',this,'wrong')">FB60 → F-47 → F-48 → F-53</button>
+              </div>
+              <div class="explanation" id="exp-l7-q3">The correct sequence is: <strong>F-47</strong> (request) → <strong>F-48</strong> (post advance) → <strong>F-54</strong> (clear advance against invoice) → <strong>F-53</strong> (pay the remaining balance). Sequence matters — you cannot clear the advance (F-54) before the invoice arrives (FB60), and you must clear before paying the net balance (F-53).</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">4. Transaction F-54 "clears the vendor down payment." What does this mean in accounting terms?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l7','q4',this,'wrong')">It reverses the advance and refunds the bank account</button>
+                <button class="option" onclick="answerQ('l7','q4',this,'wrong')">It deletes the down payment document from the vendor account</button>
+                <button class="option" onclick="answerQ('l7','q4',this,'correct')">It transfers the advance from the special G/L account back to the normal reconciliation account, netting against the invoice</button>
+                <button class="option" onclick="answerQ('l7','q4',this,'wrong')">It creates a new payment document (KZ) and sends it to the bank</button>
+              </div>
+              <div class="explanation" id="exp-l7-q4"><strong>F-54</strong> is a transfer posting — it moves the advance from the special G/L (down-payment) account back to the normal vendor reconciliation account, effectively offsetting it against the invoice. Only the net amount remains as an open item. The advance is now "cleared" — it no longer shows separately as a receivable from the vendor.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">5. In FBKP, you assign an alternative reconciliation account for special G/L indicator A. What account type do you select for vendor down payments?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l7','q5',this,'wrong')">G — General Ledger</button>
+                <button class="option" onclick="answerQ('l7','q5',this,'wrong')">D — Customer (Debitor)</button>
+                <button class="option" onclick="answerQ('l7','q5',this,'correct')">K — Vendor (Kreditor)</button>
+                <button class="option" onclick="answerQ('l7','q5',this,'wrong')">A — Asset</button>
+              </div>
+              <div class="explanation" id="exp-l7-q5">In FBKP you choose account type <strong>K (Kreditor = Vendor)</strong> to configure the vendor down payment special G/L. Account type D would be for customer down payments, G for GL, and A for assets. Getting the account type wrong means the special G/L won't apply to the right sub-ledger.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">6. Which FI role code is used in BP to add the customer accounting (AR) data for Company Code BEV1?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l7','q6',this,'wrong')">FLVN00 — Supplier (Fin.Accounting)</button>
+                <button class="option" onclick="answerQ('l7','q6',this,'wrong')">FLCU01 — Customer (Sales)</button>
+                <button class="option" onclick="answerQ('l7','q6',this,'correct')">FLCU00 — Customer (Fin.Accounting)</button>
+                <button class="option" onclick="answerQ('l7','q6',this,'wrong')">000000 — Business Partner (Gen.)</button>
+              </div>
+              <div class="explanation" id="exp-l7-q6"><strong>FLCU00</strong> is the FI customer role — it unlocks the Company Code data tab where you enter the Reconciliation Account for receivables. FLCU01 is for the SD/Sales area view. FLVN00 is the vendor equivalent. You must add FLCU00 before any AR posting can be made to the customer.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">7. FB70 enters a customer invoice. What document type and posting does SAP create?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l7','q7',this,'wrong')">KR — Vendor Invoice: Vendor Cr / Expense Dr</button>
+                <button class="option" onclick="answerQ('l7','q7',this,'correct')">DR — Customer Invoice: Customer Dr / Revenue Cr</button>
+                <button class="option" onclick="answerQ('l7','q7',this,'wrong')">DZ — Customer Payment: Bank Dr / Customer Cr</button>
+                <button class="option" onclick="answerQ('l7','q7',this,'wrong')">SA — GL Journal: user-defined Dr and Cr</button>
+              </div>
+              <div class="explanation" id="exp-l7-q7"><strong>FB70</strong> creates document type <strong>DR</strong> (Debitor Rechnung = Customer Invoice). The entry is: Customer account Dr (they owe us) / Revenue account Cr. This is the AR mirror of FB60 (which creates KR for vendor invoices).</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">8. What T-code is used to run the automated dunning process for overdue customer invoices?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l7','q8',this,'wrong')">F110 — Automatic Payment Run</button>
+                <button class="option" onclick="answerQ('l7','q8',this,'wrong')">FBMP — Dunning Procedure Config</button>
+                <button class="option" onclick="answerQ('l7','q8',this,'correct')">F150 — Dunning Run</button>
+                <button class="option" onclick="answerQ('l7','q8',this,'wrong')">FBL5N — Customer Line Item Display</button>
+              </div>
+              <div class="explanation" id="exp-l7-q8"><strong>F150</strong> is the dunning run — it identifies overdue customer open items, assigns escalation levels based on the dunning procedure, and generates dunning notices. FBMP is the configuration T-code (where dunning procedures are defined). F110 is the payment program (vendor side). FBL5N is just a reporting transaction.</div>
+            </div>
+          </div>
+          <div class="q-score" id="score-l7">
+            <div class="snum" id="scorenum-l7">0/8</div>
+            <p id="scoremsg-l7"></p>
+            <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l7',8)">Try Again</button>
+          </div>
+          </div>
+        </div>
+        <div style="height:32px"></div>
+      </div>
+
+      <!-- ═══ QUIZ L8 ═══ -->
+      <div class="quiz-section" id="qsec-8">
+        <div style="padding:40px">
+          <div style="margin-bottom:28px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 14px">Lecture 8</span>
+            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">SAP FI Configuration</h2>
+          </div>
+          <div class="content-block">
+          <h3>🧪 Quiz — Lecture 8</h3>
+          <div id="quiz-l8">
+            <div class="question-card">
+              <div class="question-text">1. What is the correct transport path for SAP configuration changes?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l8','q1',this,'wrong')">QAS → DEV → PRD</button>
+                <button class="option" onclick="answerQ('l8','q1',this,'correct')">DEV → QAS → PRD</button>
+                <button class="option" onclick="answerQ('l8','q1',this,'wrong')">PRD → DEV → QAS</button>
+                <button class="option" onclick="answerQ('l8','q1',this,'wrong')">DEV → PRD → QAS</button>
+              </div>
+              <div class="explanation" id="exp-l8-q1">Changes always flow <strong>DEV → QAS → PRD</strong>. Development is done in DEV, tested in QAS (Quality Assurance), and only then transported to PRD (Production). Never configure directly in PRD — this is one of the most important rules in SAP projects.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">2. Which T-code defines the fiscal year variant and which one assigns it to a Company Code?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l8','q2',this,'wrong')">OB29 assigns; OB37 defines</button>
+                <button class="option" onclick="answerQ('l8','q2',this,'correct')">OB29 defines; OB37 assigns to Company Code</button>
+                <button class="option" onclick="answerQ('l8','q2',this,'wrong')">OB13 defines; OB62 assigns</button>
+                <button class="option" onclick="answerQ('l8','q2',this,'wrong')">OBBO defines; OB52 assigns</button>
+              </div>
+              <div class="explanation" id="exp-l8-q2"><strong>OB29</strong> (Maintain Fiscal Year Variant) is where you create and define the variant (e.g. K4 = Jan–Dec). <strong>OB37</strong> (Assign FY Variant to Company Code) links that variant to a specific Company Code. This is a two-step process — defining the variant alone does nothing until it's assigned.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">3. A posting fails with "Period not open." What T-code do you use to fix this?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l8','q3',this,'wrong')">OB29 — Fiscal Year Variant</button>
+                <button class="option" onclick="answerQ('l8','q3',this,'wrong')">OBBO — Define Posting Period Variant</button>
+                <button class="option" onclick="answerQ('l8','q3',this,'correct')">OB52 — Open and Close Posting Periods</button>
+                <button class="option" onclick="answerQ('l8','q3',this,'wrong')">OB37 — Assign FY Variant</button>
+              </div>
+              <div class="explanation" id="exp-l8-q3"><strong>OB52</strong> is used to open and close individual posting periods. If a period is closed, postings with a date in that period will fail. OBBO only creates the variant key; the actual period control lives in OB52. This is one of the most commonly executed month-end config tasks.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">4. In SAP Field Status, if the posting key has field status "Required" and the GL account has "Suppressed" for the same field, what happens?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l8','q4',this,'wrong')">The GL account setting wins — the field is suppressed</button>
+                <button class="option" onclick="answerQ('l8','q4',this,'wrong')">The posting key setting wins — the field is required</button>
+                <button class="option" onclick="answerQ('l8','q4',this,'correct')">A conflict error occurs — the posting cannot be made; one must be changed</button>
+                <button class="option" onclick="answerQ('l8','q4',this,'wrong')">SAP prompts the user to choose which setting to apply</button>
+              </div>
+              <div class="explanation" id="exp-l8-q4">SAP applies the <em>more restrictive</em> of the two field status settings — but <strong>Required vs Suppressed is a direct conflict</strong> and causes a field status error that prevents posting. The consultant must resolve the conflict by changing one of the settings (usually making the GL account field "Optional" instead of "Suppressed").</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">5. What is the T-code to define House Banks in SAP FI configuration?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l8','q5',this,'wrong')">FBCJ</button>
+                <button class="option" onclick="answerQ('l8','q5',this,'wrong')">F-53</button>
+                <button class="option" onclick="answerQ('l8','q5',this,'correct')">FI12</button>
+                <button class="option" onclick="answerQ('l8','q5',this,'wrong')">OBD3</button>
+              </div>
+              <div class="explanation" id="exp-l8-q5"><strong>FI12</strong> (Define House Banks) is the configuration T-code where you create the house bank key, assign it to the Company Code, and link it to the physical bank account and the GL bank account. Without FI12 configuration, payment transactions (F-48, F-53, F110) cannot reference a bank account.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">6. What does OBD4 configure, and what does it control?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l8','q6',this,'wrong')">Vendor Account Groups — controls vendor master number ranges</button>
+                <button class="option" onclick="answerQ('l8','q6',this,'correct')">GL Account Groups — controls number ranges and field layout for GL master creation in FS00</button>
+                <button class="option" onclick="answerQ('l8','q6',this,'wrong')">Document Types — controls which account types are allowed per document</button>
+                <button class="option" onclick="answerQ('l8','q6',this,'wrong')">Tolerance Groups — controls max posting amounts per user</button>
+              </div>
+              <div class="explanation" id="exp-l8-q6"><strong>OBD4</strong> defines <em>GL Account Groups</em> — these group GL accounts by category (Assets, Liabilities, Revenue, Expenses etc.) and control the number ranges assigned to each group and which fields are required/optional in the FS00 master data screen. OBD3 is for Vendor Account Groups; OBD2 is for Customer Account Groups.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">7. If a user has no Tolerance Group assigned in SU01, what happens when they try to post a document in FI?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l8','q7',this,'wrong')">They can post unlimited amounts with no restriction</button>
+                <button class="option" onclick="answerQ('l8','q7',this,'wrong')">They can only post amounts below 1,000 (default SAP tolerance)</button>
+                <button class="option" onclick="answerQ('l8','q7',this,'correct')">SAP blocks all postings — a tolerance group must always be assigned</button>
+                <button class="option" onclick="answerQ('l8','q7',this,'wrong')">They can post, but SAP flags the document for approval</button>
+              </div>
+              <div class="explanation" id="exp-l8-q7">If a user has <strong>no tolerance group</strong>, SAP blocks all FI postings. There is no "default unlimited" behaviour — this is a common go-live mistake where a new user is created but not assigned a tolerance group. Always assign a tolerance group (OBA4) to every FI user.</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">8. What is the fiscal year variant constraint related to Controlling Areas?</div>
+              <div class="options">
+                <button class="option" onclick="answerQ('l8','q8',this,'wrong')">All Company Codes under the same Company must share the same fiscal year variant</button>
+                <button class="option" onclick="answerQ('l8','q8',this,'correct')">All Company Codes under the same Controlling Area must share the same fiscal year variant</button>
+                <button class="option" onclick="answerQ('l8','q8',this,'wrong')">Each Company Code can have a completely independent fiscal year with no constraints</button>
+                <button class="option" onclick="answerQ('l8','q8',this,'wrong')">The fiscal year variant is set at Client level and applies to all Company Codes globally</button>
+              </div>
+              <div class="explanation" id="exp-l8-q8">The constraint is at the <strong>Controlling Area</strong> level — all Company Codes under the same Controlling Area must use the same fiscal year variant. This is because CO allocations and cost flows must align across the same period. It is <em>not</em> a Company-level constraint — different Company Codes under the same holding Company can use different fiscal year variants as long as they belong to different Controlling Areas.</div>
+            </div>
+          </div>
+          <div class="q-score" id="score-l8">
+            <div class="snum" id="scorenum-l8">0/8</div>
+            <p id="scoremsg-l8"></p>
+            <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l8',8)">Try Again</button>
+          </div>
+          </div>
+        </div>
+        <div style="height:32px"></div>
+      </div>
+
       <div class="quiz-section" id="qsec-6">
         <div style="padding:40px">
           <div style="margin-bottom:28px">
@@ -7813,8 +8134,11 @@ function showConsultant(i){
 function showQuiz(i){
   document.querySelectorAll('.quiz-section').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('#page-quiz .sidebar-item').forEach(x=>x.classList.remove('active'));
-  document.getElementById('qsec-'+i).classList.add('active');
-  document.querySelectorAll('#page-quiz .sidebar-item')[i].classList.add('active');
+  const sec=document.getElementById('qsec-'+i);
+  if(sec) sec.classList.add('active');
+  document.querySelectorAll('#page-quiz .sidebar-item').forEach(item=>{
+    if(item.getAttribute('onclick')==='showQuiz('+i+')') item.classList.add('active');
+  });
   const sel=document.querySelector('#quiz-mobile-picker select');
   if(sel) sel.value=i;
   window.scrollTo(0,0);
@@ -8013,8 +8337,8 @@ function updateLecProgress(){
 
 /* ── Overall quiz score ── */
 function updateTotalScore(){
-  const lecs=['l1','l2','l3','l4','l5','l6','tc'];
-  const totals={l1:8,l2:8,l3:10,l4:10,l5:8,l6:10,tc:20};
+  const lecs=['l1','l2','l3','l4','l5','l6','l7','l8','tc'];
+  const totals={l1:8,l2:8,l3:10,l4:10,l5:8,l6:10,l7:8,l8:8,tc:20};
   let total=0, correct=0;
   lecs.forEach(l=>{
     const t=totals[l];
@@ -8057,7 +8381,7 @@ document.addEventListener('keydown',function(e){
     const active=document.querySelector('.quiz-section.active');
     if(!active) return;
     const id=parseInt(active.id.replace('qsec-',''));
-    if(e.key==='ArrowRight'&&id<6) showQuiz(id+1);
+    if(e.key==='ArrowRight'&&id<8) showQuiz(id+1);
     if(e.key==='ArrowLeft'&&id>0) showQuiz(id-1);
   }
 });
