@@ -214,6 +214,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 .tree-tcode .tc-name{font-size:11px;color:inherit;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .tree-section-label{padding:10px 12px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
 .tree-module-label{padding:8px 12px 2px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent2);border-top:1px solid rgba(30,58,95,.3);margin-top:4px;}
+/* ── Project Build Track ── */
+.mode-toggle{display:inline-flex;gap:6px;margin-top:18px;background:rgba(15,37,64,.6);padding:5px;border-radius:10px;border:1px solid var(--border)}
+.mode-toggle button{padding:8px 20px;border-radius:7px;border:none;background:transparent;color:var(--dim);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.mode-toggle button.active{background:var(--purple);color:#fff}
+.build-step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;margin-bottom:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:all .15s}
+.build-step:hover{border-color:rgba(139,92,246,.4)}
+.build-chk{position:absolute;opacity:0;width:0;height:0}
+.build-check{flex-shrink:0;width:22px;height:22px;border-radius:6px;border:2px solid var(--muted);margin-top:2px;position:relative;transition:all .15s}
+.build-chk:checked ~ .build-check{background:var(--green);border-color:var(--green)}
+.build-chk:checked ~ .build-check::after{content:'✓';position:absolute;top:-2px;left:3px;color:#fff;font-size:15px;font-weight:700}
+.build-chk:checked ~ .build-body .build-title{text-decoration:line-through;color:var(--muted)}
+.build-body{flex:1;min-width:0}
+.build-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:5px}
+.build-title{font-size:15px;font-weight:600;color:var(--text)}
+.build-detail{font-size:13.5px;line-height:1.65;color:var(--dim);display:block}
+.build-detail .tcode{font-size:11px;padding:1px 6px}
 </style>
 </head>
 <body>
@@ -7797,8 +7813,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">🎯 BEV1 · COA 210100 · BE25</div>
       <div style="background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);color:var(--accent2);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">8 Phases · End-to-End</div>
     </div>
+    <div class="mode-toggle">
+      <button id="mode-learn" class="active" onclick="showProjectMode('learn')">📖 Learn</button>
+      <button id="mode-build" onclick="showProjectMode('build')">🔨 Build MG01</button>
+    </div>
   </div>
 
+  <div id="project-learn-view">
   <div class="content-layout">
     <div class="sidebar">
       <div class="sidebar-title">Project Phases</div>
@@ -8046,6 +8067,479 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
     </div>
   </div>
+  </div><!-- end project-learn-view -->
+
+  <div id="project-build-view" style="display:none">
+    <div style="padding:20px 40px;border-bottom:1px solid var(--border);background:rgba(139,92,246,.04)">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div style="font-size:14px;font-weight:600;color:var(--purple)">🔨 Build MG01 — Progress</div>
+        <div style="flex:1;min-width:180px;height:10px;background:rgba(148,163,184,.15);border-radius:6px;overflow:hidden">
+          <div id="build-progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--purple),var(--accent));transition:width .3s"></div>
+        </div>
+        <div id="build-progress-txt" style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;color:var(--dim)">0/45</div>
+        <button onclick="resetBuild()" style="padding:5px 12px;border-radius:6px;background:transparent;border:1px solid var(--border);color:var(--muted);font-size:12px;cursor:pointer">Reset</button>
+      </div>
+    </div>
+    <div class="content-layout">
+      <div class="sidebar">
+      <div class="sidebar-title">Build Phases</div>
+      <div class="sidebar-item active" onclick="showBuildPhase(0)"><span class="sidebar-num" style="color:var(--muted)">1</span>Prepare</div>
+      <div class="sidebar-item" onclick="showBuildPhase(1)"><span class="sidebar-num" style="color:var(--muted)">2</span>Explore</div>
+      <div class="sidebar-item" onclick="showBuildPhase(2)"><span class="sidebar-num" style="color:var(--accent)">3</span>Enterprise Structure</div>
+      <div class="sidebar-item" onclick="showBuildPhase(3)"><span class="sidebar-num" style="color:var(--accent)">4</span>Master Data</div>
+      <div class="sidebar-item" onclick="showBuildPhase(4)"><span class="sidebar-num" style="color:var(--accent)">5</span>Sub-Ledger Config</div>
+      <div class="sidebar-item" onclick="showBuildPhase(5)"><span class="sidebar-num" style="color:var(--accent)">6</span>Test Cycles</div>
+      <div class="sidebar-item" onclick="showBuildPhase(6)"><span class="sidebar-num" style="color:var(--gold)">7</span>Deploy / Cutover</div>
+      <div class="sidebar-item" onclick="showBuildPhase(7)"><span class="sidebar-num" style="color:var(--green)">8</span>Run / First Close</div>
+      </div>
+      <div class="mobile-picker">
+      <select onchange="showBuildPhase(parseInt(this.value)); window.scrollTo(0,120)">
+        <option value="0">1 — Prepare</option>
+        <option value="1">2 — Explore</option>
+        <option value="2">3 — Enterprise Structure</option>
+        <option value="3">4 — Master Data</option>
+        <option value="4">5 — Sub-Ledger Config</option>
+        <option value="5">6 — Test Cycles</option>
+        <option value="6">7 — Deploy / Cutover</option>
+        <option value="7">8 — Run / First Close</option>
+      </select>
+      </div>
+      <div class="lesson-content">
+      <div class="cons-section active" id="pbuild-0">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 16px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">PHASE 1 · PREPARE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 4px">Prepare</h2>
+            <p style="color:var(--dim);font-size:15px">Check off each step as you complete it on the server. Steps are in dependency order — do them top to bottom.</p>
+          </div>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-0-0" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode" style="opacity:.5">—</span><span class="build-title">Confirm your sandbox client</span></span>
+              <span class="build-detail">Ask your instructor which client is safe for configuration — it should be separate from the training client so you don't affect classmates. <b>Result:</b> you know your config client. <b>Needs:</b> nothing.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-0-1" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">SPRO</span><span class="build-title">Confirm config access</span></span>
+              <span class="build-detail">Open <b>SPRO</b> (Customizing). If the IMG tree opens, you have config authorization. <b>Result:</b> SPRO opens. <b>Needs:</b> nothing.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-0-2" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode" style="opacity:.5">—</span><span class="build-title">Lock in your naming</span></span>
+              <span class="build-detail">Company Code <b>MG01</b> · Chart of Accounts <b>MGCA</b> · Controlling Area <b>MG01</b>. Using your own codes avoids clashing with BEV1 or other students. <b>Result:</b> naming decided.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="cons-section" id="pbuild-1">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 16px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">PHASE 2 · EXPLORE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 4px">Explore</h2>
+            <p style="color:var(--dim);font-size:15px">Check off each step as you complete it on the server. Steps are in dependency order — do them top to bottom.</p>
+          </div>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-1-0" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode" style="opacity:.5">—</span><span class="build-title">Choose Fiscal Year Variant</span></span>
+              <span class="build-detail">Use <b>K4</b> — calendar year (Jan–Dec), 12 posting periods + 4 special periods. It's the standard and the safe choice. <b>Result:</b> FYV chosen.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-1-1" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode" style="opacity:.5">—</span><span class="build-title">Choose currency</span></span>
+              <span class="build-detail">Pick the company-code currency (e.g. <b>EGP</b> or <b>USD</b>). This is set when you create MG01. <b>Result:</b> currency chosen.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-1-2" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode" style="opacity:.5">—</span><span class="build-title">Sketch your Chart of Accounts</span></span>
+              <span class="build-detail">Decide account ranges: assets 1xxxxx · liabilities 2xxxxx (vendor recon <b>210100</b>) · equity 3xxxxx · revenue 4xxxxx · expenses 5–8xxxxx. <b>Result:</b> account plan sketched.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="cons-section" id="pbuild-2">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 16px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">PHASE 3 · ENTERPRISE STRUCTURE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 4px">Enterprise Structure</h2>
+            <p style="color:var(--dim);font-size:15px">Check off each step as you complete it on the server. Steps are in dependency order — do them top to bottom.</p>
+          </div>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-0" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OX02</span><span class="build-title">Create Company Code MG01</span></span>
+              <span class="build-detail">Enter company name ("Mohamed Gawad Co"), city, country, currency. <b>S/4 shortcut:</b> <span class='tcode'>EC01</span> copies an existing code (e.g. 1010) with all its config — faster, but building fresh teaches more. <b>Result:</b> MG01 exists. <b>Needs:</b> naming.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-1" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OB13</span><span class="build-title">Create Chart of Accounts MGCA</span></span>
+              <span class="build-detail">Set maintenance language and GL account number length. <b>Result:</b> MGCA exists.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-2" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OB62</span><span class="build-title">Assign COA to Company Code</span></span>
+              <span class="build-detail">Assign <b>MGCA</b> to <b>MG01</b>. <b>Result:</b> link created. <b>Needs:</b> OX02, OB13.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-3" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OB29</span><span class="build-title">Confirm Fiscal Year Variant</span></span>
+              <span class="build-detail">Confirm variant <b>K4</b> exists (it's standard — you rarely create your own). <b>Result:</b> FYV ready.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-4" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OB37</span><span class="build-title">Assign FYV to Company Code</span></span>
+              <span class="build-detail">Assign <b>K4</b> to <b>MG01</b>. <b>Result:</b> assigned. <b>Needs:</b> OX02.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-5" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OBBP</span><span class="build-title">Create Posting Period Variant</span></span>
+              <span class="build-detail">Create variant <b>MG01</b> and assign it to the company code. <b>Result:</b> PPV exists.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-6" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OB52</span><span class="build-title">Open posting periods</span></span>
+              <span class="build-detail">For variant MG01, open the period ranges per account type (+ , A, D, K, S) for your fiscal year. <b>Result:</b> periods open. <b>Needs:</b> PPV. <b>⚠️ Skip this and every posting fails.</b></span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-7" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OBD4</span><span class="build-title">Define Account Groups</span></span>
+              <span class="build-detail">For MGCA create groups (e.g. CASH, RECN, EXPS, REVN) with number ranges and field status. <b>Result:</b> groups exist. <b>Needs:</b> OB13.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-8" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OBA7</span><span class="build-title">Document types & number ranges</span></span>
+              <span class="build-detail">Copy the standard doc types (SA, KR, DR, AB, …) and confirm number ranges for your year. <b>Result:</b> doc types ready.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-9" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OBA4</span><span class="build-title">Tolerance groups</span></span>
+              <span class="build-detail">Define GL/employee tolerance groups (<span class='tcode'>OBA4</span>) and assign users (<span class='tcode'>OB57</span>). <b>Result:</b> tolerances set.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-2-10" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OKKP</span><span class="build-title">Maintain Controlling Area</span></span>
+              <span class="build-detail">Create Controlling Area <b>MG01</b>, assign company code MG01 (1:1), activate components. <b>Result:</b> CO area ready. <b>Needs:</b> OX02.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="cons-section" id="pbuild-3">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 16px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">PHASE 4 · MASTER DATA</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 4px">Master Data</h2>
+            <p style="color:var(--dim);font-size:15px">Check off each step as you complete it on the server. Steps are in dependency order — do them top to bottom.</p>
+          </div>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-3-0" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FS00</span><span class="build-title">Create GL accounts</span></span>
+              <span class="build-detail">Create bank (11xxxx), vendor recon <b>210100</b>, customer recon (12xxxx), expense (5xxxxx), revenue (4xxxxx). Maintain at both COA and company-code level. Flag recon accounts as <b>Reconciliation account = Vendors/Customers</b>. <b>Result:</b> GLs exist. <b>Needs:</b> OBD4.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-3-1" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">BP</span><span class="build-title">Create Vendor</span></span>
+              <span class="build-detail">Transaction <b>BP</b>. Add roles <b>FLVN00</b> (general) + <b>FLVN01</b> (company-code / FI vendor). Assign recon account <b>210100</b>. <b>Result:</b> vendor exists. <b>Needs:</b> FS00 recon. <b>S/4 note:</b> FK01 is replaced by BP.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-3-2" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">BP</span><span class="build-title">Create Customer</span></span>
+              <span class="build-detail">Transaction <b>BP</b>. Add roles <b>FLCU00</b> + <b>FLCU01</b>. Assign the customer recon account. <b>Result:</b> customer exists. <b>S/4 note:</b> FD01 is replaced by BP.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-3-3" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FI01</span><span class="build-title">Create Bank Key</span></span>
+              <span class="build-detail">Enter bank country + bank key/number. <b>Result:</b> bank key exists.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-3-4" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FI12</span><span class="build-title">Create House Bank</span></span>
+              <span class="build-detail">Create house bank <b>MGHB</b> + Account ID, linked to your GL bank account. <b>Result:</b> house bank ready. <b>Needs:</b> FI01, FS00 bank account.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-3-5" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">AS01</span><span class="build-title">Create Asset master</span></span>
+              <span class="build-detail">Create an asset under an asset class. Set description, cost center, depreciation key, useful life. <b>Result:</b> asset exists. <b>Needs:</b> OKKP (cost center).</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="cons-section" id="pbuild-4">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 16px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">PHASE 5 · SUB-LEDGER CONFIG</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 4px">Sub-Ledger Config</h2>
+            <p style="color:var(--dim);font-size:15px">Check off each step as you complete it on the server. Steps are in dependency order — do them top to bottom.</p>
+          </div>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-4-0" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FBZP</span><span class="build-title">Payment program config</span></span>
+              <span class="build-detail">Set paying company code, payment methods per country & company code, and bank determination (house-bank ranking). Drives <span class='tcode'>F110</span>. <b>Result:</b> F110 ready. <b>Needs:</b> FI12.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-4-1" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">AO90</span><span class="build-title">Asset account determination</span></span>
+              <span class="build-detail">Link asset class / depreciation area to GL accounts: acquisition, accumulated depreciation, depreciation expense. <b>Result:</b> asset postings can find their GL accounts. <b>Needs:</b> FS00 asset GLs. <b>⚠️ Without this, F-90 and AFAB fail.</b></span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-4-2" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FTXP</span><span class="build-title">Tax codes</span></span>
+              <span class="build-detail">Create input/output tax codes (e.g. V0 / A0) and link them to tax GL accounts. <b>Result:</b> tax ready.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-4-3" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FBMP</span><span class="build-title">Dunning procedure (optional)</span></span>
+              <span class="build-detail">Define a dunning procedure and levels for overdue customers. Drives <span class='tcode'>F150</span>. <b>Result:</b> dunning ready.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="cons-section" id="pbuild-5">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 16px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">PHASE 6 · TEST CYCLES</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 4px">Test Cycles</h2>
+            <p style="color:var(--dim);font-size:15px">Check off each step as you complete it on the server. Steps are in dependency order — do them top to bottom.</p>
+          </div>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-0" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FB60</span><span class="build-title">P2P — Post vendor invoice</span></span>
+              <span class="build-detail">Post an invoice against MG01 + your vendor + an expense account. <b>Result:</b> open item on the vendor. <b>Needs:</b> vendor, GLs, open period.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-1" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">F-53</span><span class="build-title">P2P — Pay the vendor</span></span>
+              <span class="build-detail">Clear the vendor with a manual outgoing payment (<span class='tcode'>F-53</span>) or a payment run (<span class='tcode'>F110</span>). <b>Result:</b> vendor cleared. <b>Needs:</b> FBZP for F110.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-2" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FBL1N</span><span class="build-title">P2P — Verify</span></span>
+              <span class="build-detail">Display vendor line items and confirm the invoice is cleared. <b>Result:</b> verified.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-3" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FB70</span><span class="build-title">O2C — Post customer invoice</span></span>
+              <span class="build-detail">Post a customer invoice. <b>Result:</b> open item on the customer. <b>Needs:</b> customer.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-4" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">F-28</span><span class="build-title">O2C — Receive payment</span></span>
+              <span class="build-detail">Post the incoming payment and clear the customer. <b>Result:</b> customer cleared.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-5" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FBL5N</span><span class="build-title">O2C — Verify</span></span>
+              <span class="build-detail">Display customer line items and confirm clearing. <b>Result:</b> verified.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-6" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">F-90</span><span class="build-title">Asset — Acquire</span></span>
+              <span class="build-detail">Acquire the asset from your vendor (capitalize). <b>Result:</b> asset capitalized + vendor liability created. <b>Needs:</b> AS01, AO90.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-7" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">AW01N</span><span class="build-title">Asset — Explore</span></span>
+              <span class="build-detail">Open Asset Explorer; check acquisition value and planned depreciation. <b>Result:</b> values visible.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-5-8" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">AFAB</span><span class="build-title">Asset — Depreciate</span></span>
+              <span class="build-detail">Run depreciation in <b>test</b> mode first, then post. <b>Result:</b> depreciation posted. <b>Needs:</b> AO90. <b>S/4 note:</b> AFAB still works; a Fiori "Post Depreciation" app also exists.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="cons-section" id="pbuild-6">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 16px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">PHASE 7 · DEPLOY / CUTOVER</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 4px">Deploy / Cutover</h2>
+            <p style="color:var(--dim);font-size:15px">Check off each step as you complete it on the server. Steps are in dependency order — do them top to bottom.</p>
+          </div>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-6-0" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">F-02</span><span class="build-title">Post opening balances</span></span>
+              <span class="build-detail">In your sandbox, simulate cutover: post opening GL balances (<span class='tcode'>F-02</span> / <span class='tcode'>FB01</span>) so your trial balance ties to an intended starting point. <b>Result:</b> opening balances in.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-6-1" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">AS91</span><span class="build-title">Legacy asset takeover (optional)</span></span>
+              <span class="build-detail">Load legacy assets with their accumulated depreciation as of the transfer date. <b>Result:</b> legacy assets loaded.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-6-2" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FAGLB03</span><span class="build-title">Reconcile</span></span>
+              <span class="build-detail">Display GL balances (<span class='tcode'>FAGLB03</span> / <span class='tcode'>FS10N</span>) and confirm they match your intended opening trial balance <b>before</b> opening postings. <b>Result:</b> balances reconciled.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="cons-section" id="pbuild-7">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 16px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:3px 12px;border-radius:4px">PHASE 8 · RUN / FIRST CLOSE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 4px">Run / First Close</h2>
+            <p style="color:var(--dim);font-size:15px">Check off each step as you complete it on the server. Steps are in dependency order — do them top to bottom.</p>
+          </div>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-7-0" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">AFAB</span><span class="build-title">Month-end depreciation</span></span>
+              <span class="build-detail">Run the periodic depreciation posting for the period. <b>Result:</b> depreciation posted.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-7-1" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">F.13</span><span class="build-title">Automatic clearing</span></span>
+              <span class="build-detail">Auto-clear matching open items (GR/IR, bank clearing). <b>Result:</b> items cleared.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-7-2" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FAGL_FC_VAL</span><span class="build-title">Foreign currency valuation</span></span>
+              <span class="build-detail">If you use multiple currencies, revalue open items / balances at period-end rates. <b>Result:</b> FX valued.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-7-3" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">FINS_RECON</span><span class="build-title">Reconcile ledgers</span></span>
+              <span class="build-detail"><b>S/4 note:</b> the Universal Journal (table ACDOCA) means GL and sub-ledgers share one source, so classic reconciliation is largely automatic — use the comparison/recon reports to confirm. <b>Result:</b> ledgers agree.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-7-4" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">OB52</span><span class="build-title">Roll the period</span></span>
+              <span class="build-detail">Close the current posting period and open the next. <b>Result:</b> period rolled.</span>
+            </span>
+          </label>
+          <label class="build-step">
+            <input type="checkbox" id="bstep-7-5" class="build-chk" onchange="toggleBuildStep(this)">
+            <span class="build-check"></span>
+            <span class="build-body">
+              <span class="build-head"><span class="tcode">S_ALR_87012284</span><span class="build-title">Financial statements 🎉</span></span>
+              <span class="build-detail">Run the Financial Statement report (Balance Sheet & P&L). If it produces a clean statement, you've taken MG01 from empty to first close. <b>Result:</b> statements produced.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div><!-- end project-build-view -->
 </div><!-- end page-project -->
 
 
@@ -8113,7 +8607,7 @@ function showPage(p){
   else if(p==='mycourse')tabs[1].classList.add('active');
   else if(p==='exercises')tabs[2].classList.add('active');
   else if(p==='consultant'){tabs[3].classList.add('active');showConsultant(0);}
-  else if(p==='project'){tabs[4].classList.add('active');showProject(0);}
+  else if(p==='project'){tabs[4].classList.add('active');showProjectMode('learn');}
   window.scrollTo(0,0);
 }
 function showConsultant(i){
@@ -8128,15 +8622,57 @@ function showConsultant(i){
   window.scrollTo(0,0);
 }
 function showProject(i){
-  document.querySelectorAll('#page-project .cons-section').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('#page-project .sidebar-item').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#project-learn-view .cons-section').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#project-learn-view .sidebar-item').forEach(x=>x.classList.remove('active'));
   const sec=document.getElementById('proj-'+i);
   if(sec) sec.classList.add('active');
-  const items=document.querySelectorAll('#page-project .sidebar-item');
+  const items=document.querySelectorAll('#project-learn-view .sidebar-item');
   if(items[i]) items[i].classList.add('active');
-  const sel=document.querySelector('#page-project .mobile-picker select');
+  const sel=document.querySelector('#project-learn-view .mobile-picker select');
   if(sel) sel.value=i;
   window.scrollTo(0,0);
+}
+function showProjectMode(m){
+  document.getElementById('project-learn-view').style.display = m==='build'?'none':'block';
+  document.getElementById('project-build-view').style.display = m==='build'?'block':'none';
+  document.getElementById('mode-learn').classList.toggle('active', m!=='build');
+  document.getElementById('mode-build').classList.toggle('active', m==='build');
+  if(m==='build'){ updateBuildProgress(); } else { showProject(0); }
+  window.scrollTo(0,0);
+}
+function showBuildPhase(i){
+  document.querySelectorAll('#project-build-view .cons-section').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#project-build-view .sidebar-item').forEach(x=>x.classList.remove('active'));
+  const sec=document.getElementById('pbuild-'+i);
+  if(sec) sec.classList.add('active');
+  const items=document.querySelectorAll('#project-build-view .sidebar-item');
+  if(items[i]) items[i].classList.add('active');
+  const sel=document.querySelector('#project-build-view .mobile-picker select');
+  if(sel) sel.value=i;
+  window.scrollTo(0,0);
+}
+function toggleBuildStep(cb){ localStorage.setItem('mg_'+cb.id, cb.checked?'1':'0'); updateBuildProgress(); }
+function updateBuildProgress(){
+  const boxes=document.querySelectorAll('#project-build-view .build-chk');
+  let done=0; boxes.forEach(b=>{ if(b.checked) done++; });
+  const total=boxes.length;
+  const bar=document.getElementById('build-progress-bar');
+  const txt=document.getElementById('build-progress-txt');
+  if(bar) bar.style.width=(total?Math.round(done/total*100):0)+'%';
+  if(txt) txt.textContent=done+'/'+total;
+}
+function restoreBuild(){
+  document.querySelectorAll('#project-build-view .build-chk').forEach(b=>{
+    if(localStorage.getItem('mg_'+b.id)==='1') b.checked=true;
+  });
+  updateBuildProgress();
+}
+function resetBuild(){
+  if(!confirm('Reset all build progress for MG01?')) return;
+  document.querySelectorAll('#project-build-view .build-chk').forEach(b=>{
+    b.checked=false; localStorage.removeItem('mg_'+b.id);
+  });
+  updateBuildProgress();
 }
 /* ── SAP Tree Toggle ── */
 function toggleTree(folderEl){
@@ -8234,7 +8770,7 @@ function toggleEx(id){
 
   // 3. Register ./sw.js (must be uploaded alongside this file to GitHub)
   if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('./sw.js?v=20250708').then(reg=>{
+    navigator.serviceWorker.register('./sw.js?v=20250709').then(reg=>{
       // Auto-update: when a new SW version is found, reload automatically
       reg.addEventListener('updatefound',()=>{
         const newWorker=reg.installing;
@@ -8359,6 +8895,7 @@ document.addEventListener('keydown',function(e){
 window.addEventListener('load',function(){
   updateExProgress();
   updateLecProgress();
+  restoreBuild();
 });
 
 
