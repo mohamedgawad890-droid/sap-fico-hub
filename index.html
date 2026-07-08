@@ -156,7 +156,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 .hbox.ok{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);color:var(--green);}
 
 /* QUIZ */
-.quiz-badge{background:rgba(139,92,246,.15);border:1px solid var(--purple);color:var(--purple);padding:3px 10px;border-radius:4px;font-size:12px;font-weight:600;}
 .question-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;}
 .question-text{font-size:18px;font-weight:600;margin-bottom:16px;line-height:1.6;}
 .options{display:flex;flex-direction:column;gap:8px;}
@@ -225,8 +224,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <button class="nav-tab active" onclick="showPage('overview')">Overview</button>
     <button class="nav-tab" onclick="showPage('mycourse')">My Course</button>
     <button class="nav-tab" onclick="showPage('exercises')">T-Code Exercises</button>
-    <button class="nav-tab" onclick="showPage('quiz')">Quiz</button>
     <button class="nav-tab" onclick="showPage('consultant')" style="color:var(--gold)">🎯 Consultant Track</button>
+    <button class="nav-tab" onclick="showPage('project')" style="color:var(--purple)">🏗️ Comprehensive Project</button>
     <button class="nav-tab soon">CO – Coming Soon</button>
   </div>
   <button class="install-btn" id="installBtn" onclick="installApp()">
@@ -244,9 +243,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
     <p>Your structured guide to mastering SAP Financial Accounting & Controlling — from fundamentals to consultant level</p>
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">30</span><span class="stat-lbl">T-Code Exercises</span></div>
-      <div class="stat"><span class="stat-num">8</span><span class="stat-lbl">Course Lectures</span></div>
-      <div class="stat"><span class="stat-num">74</span><span class="stat-lbl">Quiz Questions</span></div>
+      <div class="stat"><span class="stat-num">10</span><span class="stat-lbl">Course Lectures</span></div>
       <div class="stat"><span class="stat-num">6</span><span class="stat-lbl">Consultant Track Modules</span></div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-lbl">Project Phases</span></div>
     </div>
   </div>
 
@@ -399,7 +398,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
   <div class="content-layout">
     <div class="sidebar">
-      <div class="sidebar-title" style="display:flex;justify-content:space-between;align-items:center">Lectures <span id="lec-progress" style="font-size:11px;color:var(--green);font-weight:700">0/8</span></div>
+      <div class="sidebar-title" style="display:flex;justify-content:space-between;align-items:center">Lectures <span id="lec-progress" style="font-size:11px;color:var(--green);font-weight:700">0/10</span></div>
       <div class="sidebar-item active" onclick="showLecture(0)"><span class="sidebar-num">L1</span>Introduction to SAP</div>
       <div class="sidebar-item" onclick="showLecture(1)"><span class="sidebar-num">L2</span>SAP Landscape & Implementation Methodology</div>
       <div class="sidebar-item" onclick="showLecture(2)"><span class="sidebar-num">L3</span>GL Account Master Data</div>
@@ -409,6 +408,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
       <div class="sidebar-item" onclick="showLecture(6)"><span class="sidebar-num">L7</span>AP Down Payments & AR — Order-to-Cash</div>
       <div class="sidebar-item" onclick="showLecture(7)"><span class="sidebar-num" style="color:var(--gold)">L8</span>SAP FI Configuration</div>
       <div class="sidebar-item" onclick="showLecture(8)"><span class="sidebar-num" style="color:var(--accent2)">L9+10</span>Bank Accounting</div>
+      <div class="sidebar-item" onclick="showLecture(9)"><span class="sidebar-num" style="color:var(--green)">L11</span>Bank Statement &amp; Asset Module</div>
     </div>
 
     <div class="mobile-picker">
@@ -422,6 +422,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
         <option value="6">L7 — AP Down Payments &amp; AR — Order-to-Cash</option>
         <option value="7">L8 — SAP FI Configuration</option>
         <option value="8">L9+10 — Bank Accounting</option>
+        <option value="9">L11 — Bank Statement &amp; Asset Module</option>
       </select>
     </div>
 
@@ -2692,11 +2693,68 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
         <div class="nav-btns">
           <button class="btn btn-outline" onclick="showLecture(7)">← Lecture 8</button>
-          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 11 — Coming Soon</button>
+          <button class="btn btn-primary" onclick="showLecture(9)">Lecture 11 →</button>
         </div>
 
         <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(8,this)" id="lec-done-8" style="padding:10px 28px;border-radius:8px;background:rgba(14,165,233,.1);border:1px solid var(--accent);color:var(--accent);font-weight:600;cursor:pointer;transition:all .2s">✓ Mark Lecture 9+10 Complete</button></div>
       </div><!-- end lecture-8 -->
+
+      <div class="lesson-section" id="lecture-9">
+        <div class="lesson-title"><span class="lesson-num">Lecture 11</span>Bank Statement &amp; Asset Module</div>
+        <div class="lesson-sub">Manage Bank Statements in Fiori · Asset lifecycle end-to-end · Account determination (AO90)</div>
+
+        <!-- 1. OVERVIEW -->
+        <div class="content-block">
+          <h3>1. Overview</h3>
+          <p>Lecture 11 closes out the Bank module with the S/4HANA Fiori <strong>Manage Bank Statements</strong> app, then walks through the full Asset Accounting lifecycle — from creating an asset master, to acquiring it, viewing its values, posting depreciation, and finally wiring up the account determination that tells SAP which GL accounts asset postings should hit.</p>
+          <div class="key-points" style="margin-top:10px">
+            <li>Bank statements can be entered <strong>manually</strong> or <strong>uploaded from a template</strong> in the Fiori <strong>Manage Bank Statements</strong> app</li>
+            <li>The asset lifecycle runs in order: <strong>create → acquire → view → depreciate → configure account determination</strong></li>
+            <li><strong>AO90</strong> is the configuration step that links asset classes and depreciation areas to the GL accounts postings flow into</li>
+          </div>
+        </div>
+
+        <!-- 2. BANK STATEMENT (FIORI) -->
+        <div class="content-block">
+          <h3>2. Bank Statement — Manage Bank Statements (Fiori)</h3>
+          <p>In S/4HANA, bank statement processing is available through the Fiori <strong>Manage Bank Statements</strong> app, which sits alongside the classic FF67 / FF_5 transactions from Lecture 9+10.</p>
+          <div class="key-points">
+            <li>Open <strong>Fiori Launchpad</strong> → search for and open <strong>Manage Bank Statements</strong></li>
+            <li>Choose <strong>Create</strong> to start a new bank statement</li>
+            <li>Add <strong>manual transactions</strong> line by line, <em>or</em> <strong>upload</strong> the statement using the provided template file</li>
+            <li>Once saved and posted, statement items are matched and cleared against open items — the same reconciliation logic as FEBA post-processing</li>
+          </div>
+          <div class="hbox info" style="margin-top:12px">💡 The upload template is the fast path when a statement has many lines; manual entry suits ad-hoc statements or corrections.</div>
+        </div>
+
+        <!-- 3. ASSET MODULE END-TO-END -->
+        <div class="content-block">
+          <h3>3. Asset Module — End-to-End Flow</h3>
+          <p>The Asset Accounting (FI-AA) lifecycle, in the exact order it is executed in the system:</p>
+          <div class="tcode-grid" style="margin-top:12px">
+            <div class="tcode-item"><span class="tcode">AS01</span><span class="tcode-desc">Create the asset master record — define asset class, description, cost center, depreciation key and useful life</span></div>
+            <div class="tcode-item"><span class="tcode">F-90</span><span class="tcode-desc">Purchase / acquire the asset with a vendor — capitalizes the asset and creates the vendor liability in one step</span></div>
+            <div class="tcode-item"><span class="tcode">AW01N</span><span class="tcode-desc">Asset Explorer — view the asset's book value, acquisition cost, and planned vs posted depreciation</span></div>
+            <div class="tcode-item"><span class="tcode">AFAB</span><span class="tcode-desc">Post the depreciation run — calculates and posts periodic depreciation (run a test run first, then the real run)</span></div>
+            <div class="tcode-item"><span class="tcode">AO90</span><span class="tcode-desc">Configure account determination — link the asset class / depreciation area to the GL accounts that acquisition and depreciation postings hit</span></div>
+          </div>
+          <div class="hbox warn" style="margin-top:14px">⚠️ AO90 is <strong>configuration</strong>, not a daily transaction. If account determination is wrong or missing, F-90 and AFAB fail because SAP doesn't know which GL accounts to post to. Set it up before the first acquisition.</div>
+        </div>
+
+        <!-- 4. HOW IT FITS TOGETHER -->
+        <div class="content-block">
+          <h3>4. How It Fits Together</h3>
+          <p>Account determination (AO90) is the bridge between the asset sub-ledger and the general ledger. When you post F-90, SAP reads the asset's class → finds the account determination key → posts the acquisition to the GL asset account defined in AO90. When AFAB runs, it posts depreciation expense and accumulated depreciation to the accounts AO90 specifies. Everything then shows up in AW01N and in the GL via FAGLB03.</p>
+          <div class="hbox ok" style="margin-top:12px">✅ Try it in BEV1: create an asset (AS01), acquire it from a vendor (F-90), open AW01N to confirm the value, run AFAB in test mode, then trace the GL accounts back to your AO90 configuration.</div>
+        </div>
+
+        <div style="text-align:center;padding:16px 0 8px"><button onclick="markLecDone(9,this)" id="lec-done-9" style="padding:10px 28px;border-radius:8px;background:rgba(14,165,233,.1);border:1px solid var(--accent);color:var(--accent);font-weight:600;cursor:pointer;transition:all .2s">✓ Mark Lecture 11 Complete</button></div>
+
+        <div class="nav-btns">
+          <button class="btn btn-outline" onclick="showLecture(8)">← Lecture 9+10</button>
+          <button class="btn btn-primary" style="opacity:.4;cursor:default">Lecture 12 — Coming Soon</button>
+        </div>
+      </div><!-- end lecture-9 -->
 
     </div><!-- end lesson-content -->
   </div><!-- end content-layout -->
@@ -5928,831 +5986,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 
 </div><!-- end page-exercises -->
 
-<!-- ===== PAGE: QUIZ ===== -->
-<div id="page-quiz" class="page">
-  <div class="content-layout">
-    <div class="sidebar">
-      <div class="sidebar-title">Lectures</div>
-      <div class="sidebar-item active" onclick="showQuiz(0)">
-        <span class="sidebar-num">L1</span>Introduction to SAP
-      </div>
-      <div class="sidebar-item" onclick="showQuiz(1)">
-        <span class="sidebar-num">L2</span>SAP Landscape &amp; Implementation Methodology
-      </div>
-      <div class="sidebar-item" onclick="showQuiz(2)">
-        <span class="sidebar-num">L3</span>GL Account Master Data
-      </div>
-      <div class="sidebar-item" onclick="showQuiz(3)">
-        <span class="sidebar-num">L4</span>GL Posting & Document Entry
-      </div>
-      <div class="sidebar-item" onclick="showQuiz(4)">
-        <span class="sidebar-num">L5</span>Document Management & Reporting
-      </div>
-      <div class="sidebar-item" onclick="showQuiz(5)">
-        <span class="sidebar-num">L6</span>AP — Accounts Payable
-      </div>
-      <div class="sidebar-item" onclick="showQuiz(7)">
-        <span class="sidebar-num">L7</span>AP Down Payments &amp; AR
-      </div>
-      <div class="sidebar-item" onclick="showQuiz(8)">
-        <span class="sidebar-num">L8</span>SAP FI Configuration
-      </div>
-      <div class="sidebar-item" onclick="showQuiz(6)">
-        <span class="sidebar-num" style="color:var(--gold)">TC</span>T-Code Challenge
-      </div>
-    </div>
-
-    <div class="mobile-picker" id="quiz-mobile-picker">
-      <select onchange="showQuiz(parseInt(this.value)); window.scrollTo(0,120)">
-        <option value="0">L1 — Introduction to SAP</option>
-        <option value="1">L2 — SAP Landscape &amp; Implementation Methodology</option>
-        <option value="2">L3 — GL Account Master Data</option>
-        <option value="3">L4 — GL Posting & Document Entry</option>
-        <option value="4">L5 — Document Management & Reporting</option>
-        <option value="5">L6 — AP — Accounts Payable</option>
-        <option value="7">L7 — AP Down Payments &amp; AR Order-to-Cash</option>
-        <option value="8">L8 — SAP FI Configuration</option>
-        <option value="6">TC — T-Code Challenge</option>
-      </select>
-    </div>
-    <div class="lesson-content" style="padding:0;min-height:calc(100vh - 60px)">
-      <div id="quiz-scoreboard" style="background:var(--surface2);border-bottom:1px solid var(--border);padding:12px 24px;position:sticky;top:60px;z-index:10;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-      <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px">Overall Score</span>
-      <div style="display:flex;gap:8px;align-items:center">
-        <span id="total-score-num" style="font-size:22px;font-weight:700;color:var(--accent)">0</span>
-        <span style="font-size:14px;color:var(--muted)">/ 90 correct</span>
-      </div>
-      <div style="flex:1;min-width:160px;height:6px;background:var(--surface);border-radius:3px;overflow:hidden">
-        <div id="total-score-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:3px;transition:width .4s"></div>
-      </div>
-      <span id="total-score-pct" style="font-size:13px;color:var(--muted);font-weight:600">0%</span>
-    </div>
-      <div class="quiz-section active" id="qsec-0">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L1</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">Introduction to SAP</h2>
-          </div>
-          <div class="content-block" >
-          <h3>🧪 Quiz — Lecture 1</h3>
-          <div id="quiz-l1">
-            <div class="question-card">
-              <div class="question-text">1. What does ERP stand for?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l1','q1',this,'wrong')">Enterprise Reporting Program</button>
-                <button class="option" onclick="answerQ('l1','q1',this,'correct')">Enterprise Resource Planning</button>
-                <button class="option" onclick="answerQ('l1','q1',this,'wrong')">Electronic Resource Processing</button>
-                <button class="option" onclick="answerQ('l1','q1',this,'wrong')">Extended Resource Program</button>
-              </div>
-              <div class="explanation" id="exp-l1-q1">ERP = Enterprise Resource Planning — a system that integrates all core business processes (finance, procurement, HR, sales) into one unified platform with shared data.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">2. In what year was SAP founded, and in which country?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l1','q2',this,'wrong')">1982 — USA</button>
-                <button class="option" onclick="answerQ('l1','q2',this,'wrong')">1969 — Switzerland</button>
-                <button class="option" onclick="answerQ('l1','q2',this,'correct')">1972 — Germany</button>
-                <button class="option" onclick="answerQ('l1','q2',this,'wrong')">1975 — Germany</button>
-              </div>
-              <div class="explanation" id="exp-l1-q2">SAP was founded in 1972 in Walldorf, Germany by five former IBM engineers. SAP stands for Systems, Applications & Products in Data Processing.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">3. What percentage of Fortune 500 companies use SAP?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l1','q3',this,'wrong')">50%</button>
-                <button class="option" onclick="answerQ('l1','q3',this,'wrong')">65%</button>
-                <button class="option" onclick="answerQ('l1','q3',this,'correct')">77%</button>
-                <button class="option" onclick="answerQ('l1','q3',this,'wrong')">90%</button>
-              </div>
-              <div class="explanation" id="exp-l1-q3">SAP runs in 77% of Fortune 500 companies, making it the dominant ERP platform globally with over 440,000 customers in more than 180 countries.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">4. What is the role of a Key User in an SAP project?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l1','q4',this,'wrong')">Configures the SAP system using SPRO</button>
-                <button class="option" onclick="answerQ('l1','q4',this,'correct')">Acts as the bridge between consultants and end users within the client's organization</button>
-                <button class="option" onclick="answerQ('l1','q4',this,'wrong')">Only uses SAP to enter daily transactions</button>
-                <button class="option" onclick="answerQ('l1','q4',this,'wrong')">Manages the SAP server infrastructure</button>
-              </div>
-              <div class="explanation" id="exp-l1-q4">Key Users are experienced client employees who know both the business process and SAP. They train colleagues, handle basic issues, and communicate change requests to the consultant team.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">5. Which SAP version introduced the client-server architecture and became a global success?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l1','q5',this,'wrong')">SAP R/1</button>
-                <button class="option" onclick="answerQ('l1','q5',this,'wrong')">SAP R/2</button>
-                <button class="option" onclick="answerQ('l1','q5',this,'correct')">SAP R/3</button>
-                <button class="option" onclick="answerQ('l1','q5',this,'wrong')">SAP ECC 6.0</button>
-              </div>
-              <div class="explanation" id="exp-l1-q5">SAP R/3 (1992) introduced the three-tier client-server architecture and became SAP's first global success. R/1 (1972) covered only finance, R/2 (1979) was mainframe-based.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">6. What does the abbreviation "FICO" stand for in SAP?</div>
-              <div class="options"><button class="option" onclick="answerQ('l1','q6',this,'wrong')">Financial Intelligence &amp; Cost Operations</button><button class="option" onclick="answerQ('l1','q6',this,'correct')">Financial Accounting &amp; Controlling</button><button class="option" onclick="answerQ('l1','q6',this,'wrong')">Financial Information &amp; Cost Overview</button><button class="option" onclick="answerQ('l1','q6',this,'wrong')">Fiscal Integration &amp; Controlling Objects</button></div>
-              <div class="explanation" id="exp-l1-q6">FICO = Financial Accounting (FI) + Controlling (CO). FI handles external financial reporting; CO handles internal management accounting. Together they form the financial backbone of every SAP implementation.</div>
-            </div><div class="question-card">
-              <div class="question-text">7. Which SAP product is designed for small businesses with up to approximately 100 employees?</div>
-              <div class="options"><button class="option" onclick="answerQ('l1','q7',this,'wrong')">SAP S/4HANA</button><button class="option" onclick="answerQ('l1','q7',this,'wrong')">SAP Business ByDesign</button><button class="option" onclick="answerQ('l1','q7',this,'correct')">SAP Business One</button><button class="option" onclick="answerQ('l1','q7',this,'wrong')">SAP ECC 6.0</button></div>
-              <div class="explanation" id="exp-l1-q7">SAP Business One targets small businesses (up to ~100 employees). SAP Business ByDesign targets mid-size companies. SAP S/4HANA and ECC target large enterprises.</div>
-            </div><div class="question-card">
-              <div class="question-text">8. In an SAP project, who is responsible for the day-to-day operation of the system after go-live?</div>
-              <div class="options"><button class="option" onclick="answerQ('l1','q8',this,'wrong')">The SAP partner's consulting team</button><button class="option" onclick="answerQ('l1','q8',this,'wrong')">The SAP AG support center</button><button class="option" onclick="answerQ('l1','q8',this,'correct')">The customer's internal team</button><button class="option" onclick="answerQ('l1','q8',this,'wrong')">The Basis administrator only</button></div>
-              <div class="explanation" id="exp-l1-q8">After go-live, the customer's internal team manages daily operations. The consulting partner provides hyper-care support for 4–8 weeks, then transitions to a support contract or the customer's own support team.</div>
-            </div><div class="q-score" id="score-l1">
-              <div class="snum" id="scorenum-l1">0/8</div>
-              <p id="scoremsg-l1"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l1',8)">Try Again</button>
-            </div>
-          </div>
-        </div>
-        <div style="height:32px"></div>
-        </div>
-      </div>
-      <div class="quiz-section" id="qsec-1">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L2</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">SAP Landscape &amp; Implementation Methodology</h2>
-          </div>
-          <div class="content-block" >
-          <h3>🧪 Quiz — Lecture 2</h3>
-          <div id="quiz-l2">
-            <div class="question-card">
-              <div class="question-text">1. What is the correct order of the SAP System Landscape for transporting changes?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l2','q1',this,'wrong')">PRD → QAS → DEV</button>
-                <button class="option" onclick="answerQ('l2','q1',this,'wrong')">QAS → DEV → PRD</button>
-                <button class="option" onclick="answerQ('l2','q1',this,'correct')">DEV → QAS → PRD</button>
-                <button class="option" onclick="answerQ('l2','q1',this,'wrong')">DEV → PRD → QAS</button>
-              </div>
-              <div class="explanation" id="exp-l2-q1">Changes always flow: DEV (Development) → QAS (Quality Assurance / Testing) → PRD (Production). You never make direct changes in the live PRD system.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">2. In SAP Activate methodology, during which phase is the Blueprint document created?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l2','q2',this,'wrong')">Prepare</button>
-                <button class="option" onclick="answerQ('l2','q2',this,'correct')">Explore</button>
-                <button class="option" onclick="answerQ('l2','q2',this,'wrong')">Realize</button>
-                <button class="option" onclick="answerQ('l2','q2',this,'wrong')">Deploy</button>
-              </div>
-              <div class="explanation" id="exp-l2-q2">The Blueprint is created during the Explore phase (Phase 3). Consultants hold workshops with the client to gather all requirements and document them. The client must sign off before the Realize phase begins.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">3. What does WRICEF stand for in SAP projects?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l2','q3',this,'wrong')">Workflow, Reports, Integration, Conversion, Extensions, Functions</button>
-                <button class="option" onclick="answerQ('l2','q3',this,'correct')">Workflow, Reports, Interfaces, Conversion, Enhancements, Forms</button>
-                <button class="option" onclick="answerQ('l2','q3',this,'wrong')">Workflow, Releases, Interfaces, Cutover, Enhancements, Forms</button>
-                <button class="option" onclick="answerQ('l2','q3',this,'wrong')">Workflow, Reports, Interfaces, Configuration, Enhancements, Forms</button>
-              </div>
-              <div class="explanation" id="exp-l2-q3">WRICEF = Workflow, Reports, Interfaces, Conversion, Enhancements, Forms. These are all custom development objects built during the Realize phase to extend standard SAP functionality.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">4. What is the purpose of the Controlling Area in SAP organizational structure?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l2','q4',this,'wrong')">It produces independent financial statements for each legal entity</button>
-                <button class="option" onclick="answerQ('l2','q4',this,'wrong')">It manages the SAP system server configuration</button>
-                <button class="option" onclick="answerQ('l2','q4',this,'correct')">It is the CO management unit that groups Company Codes and contains all cost and profit centers</button>
-                <button class="option" onclick="answerQ('l2','q4',this,'wrong')">It controls which posting periods are open or closed</button>
-              </div>
-              <div class="explanation" id="exp-l2-q4">The Controlling Area is the highest organizational unit in CO. It can contain one or multiple Company Codes and is the umbrella for all cost centers, profit centers, and internal orders.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">5. What is the difference between FI and CO in terms of reporting purpose?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l2','q5',this,'wrong')">FI is for internal reporting, CO is for external reporting</button>
-                <button class="option" onclick="answerQ('l2','q5',this,'correct')">FI is for external reporting (balance sheet, P&L), CO is for internal management reporting</button>
-                <button class="option" onclick="answerQ('l2','q5',this,'wrong')">Both FI and CO produce the same reports</button>
-                <button class="option" onclick="answerQ('l2','q5',this,'wrong')">FI is only used by auditors, CO is used by accountants</button>
-              </div>
-              <div class="explanation" id="exp-l2-q5">FI produces external reports for shareholders, tax authorities, and regulators (balance sheet, P&L). CO produces internal reports for management decisions — cost centers, profit centers, budgets vs actuals.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">6. In SAP Activate, what is the main deliverable of the Prepare phase?</div>
-              <div class="options"><button class="option" onclick="answerQ('l2','q6',this,'wrong')">The signed Blueprint document</button><button class="option" onclick="answerQ('l2','q6',this,'wrong')">The configured DEV system</button><button class="option" onclick="answerQ('l2','q6',this,'correct')">Project charter, scope, and system setup</button><button class="option" onclick="answerQ('l2','q6',this,'wrong')">The go-live cutover plan</button></div>
-              <div class="explanation" id="exp-l2-q6">The Prepare phase delivers: project charter, team assignments, system landscape setup (DEV/QAS/PRD provisioning), and initial project planning. The Blueprint is created in the Explore phase.</div>
-            </div><div class="question-card">
-              <div class="question-text">7. What is a Transport Request in SAP?</div>
-              <div class="options"><button class="option" onclick="answerQ('l2','q7',this,'wrong')">A request to move physical servers between data centers</button><button class="option" onclick="answerQ('l2','q7',this,'correct')">A package that carries configuration and development changes from DEV to QAS to PRD</button><button class="option" onclick="answerQ('l2','q7',this,'wrong')">An approval form signed by the customer before go-live</button><button class="option" onclick="answerQ('l2','q7',this,'wrong')">A log of all financial documents posted in one day</button></div>
-              <div class="explanation" id="exp-l2-q7">A Transport Request (TR) packages all configuration changes made in DEV and moves them through the landscape: DEV → QAS → PRD. Without releasing a TR, changes stay in DEV and never reach production.</div>
-            </div><div class="question-card">
-              <div class="question-text">8. Which organizational unit in SAP represents a legal entity that produces its own financial statements?</div>
-              <div class="options"><button class="option" onclick="answerQ('l2','q8',this,'wrong')">Controlling Area</button><button class="option" onclick="answerQ('l2','q8',this,'wrong')">Business Area</button><button class="option" onclick="answerQ('l2','q8',this,'wrong')">Plant</button><button class="option" onclick="answerQ('l2','q8',this,'correct')">Company Code</button></div>
-              <div class="explanation" id="exp-l2-q8">The Company Code is the central FI organizational unit — it represents an independent legal entity with its own balance sheet and P&amp;L. A Client can have multiple Company Codes (e.g. one per country).</div>
-            </div><div class="q-score" id="score-l2">
-              <div class="snum" id="scorenum-l2">0/8</div>
-              <p id="scoremsg-l2"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l2',8)">Try Again</button>
-            </div>
-          </div>
-        </div>
-        <div style="height:32px"></div>
-        </div>
-      </div>
-      <div class="quiz-section" id="qsec-2">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L3</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">GL Account Master Data</h2>
-          </div>
-          <div class="content-block" >
-          <h3>🧪 Quiz — Lecture 3</h3>
-          <div id="quiz-l3">
-            <div class="question-card">
-              <div class="question-text">1. Which Chart of Accounts type is used for all daily postings and is mandatory for every Company Code?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l3','q1',this,'wrong')">Group CoA</button>
-                <button class="option" onclick="answerQ('l3','q1',this,'wrong')">Country CoA</button>
-                <button class="option" onclick="answerQ('l3','q1',this,'correct')">Operating CoA</button>
-                <button class="option" onclick="answerQ('l3','q1',this,'wrong')">Secondary CoA</button>
-              </div>
-              <div class="explanation" id="exp-l3-q1">The Operating CoA is mandatory — it is the main chart used for all daily postings. Country CoA maps to local legal requirements (optional). Group CoA is for consolidated reporting (optional).</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">2. In SAP's GL account number ranges, which range is typically used for Revenue accounts?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l3','q2',this,'wrong')">100000 – 199999</button>
-                <button class="option" onclick="answerQ('l3','q2',this,'wrong')">200000 – 299999</button>
-                <button class="option" onclick="answerQ('l3','q2',this,'wrong')">300000 – 399999</button>
-                <button class="option" onclick="answerQ('l3','q2',this,'correct')">400000 – 499999</button>
-              </div>
-              <div class="explanation" id="exp-l3-q2">In a standard SAP CoA: 100000–199999 = Assets, 200000–299999 = Liabilities, 300000–399999 = Equity, 400000–499999 = Revenue / P&L accounts.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">3. What happens when a GL account is set as a Reconciliation Account?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l3','q3',this,'wrong')">You can post directly to it using any T-Code</button>
-                <button class="option" onclick="answerQ('l3','q3',this,'correct')">You cannot post directly to it — you must post through the sub-ledger (e.g. vendor or customer)</button>
-                <button class="option" onclick="answerQ('l3','q3',this,'wrong')">It is automatically deleted after each posting period</button>
-                <button class="option" onclick="answerQ('l3','q3',this,'wrong')">It can only be used for asset accounts</button>
-              </div>
-              <div class="explanation" id="exp-l3-q3">A Reconciliation Account is linked to a sub-ledger (AR, AP, AA). Direct manual journal entries are blocked. You must post via the sub-ledger transaction (e.g. FB60 for vendors), and SAP automatically updates the Recon. Account.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">4. What is the T-Code used to create or edit a GL Account Master Data?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l3','q4',this,'wrong')">FB50</button>
-                <button class="option" onclick="answerQ('l3','q4',this,'wrong')">SPRO</button>
-                <button class="option" onclick="answerQ('l3','q4',this,'correct')">FS00</button>
-                <button class="option" onclick="answerQ('l3','q4',this,'wrong')">FB03</button>
-              </div>
-              <div class="explanation" id="exp-l3-q4">FS00 is the main transaction for GL Account Master Data — Create, Change, and Display. FB50 is for posting journal entries. SPRO is for configuration. FB03 is for displaying documents.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">5. In the GL Account Master Data, what does the Field Status Group control?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l3','q5',this,'wrong')">Which users are allowed to post to this account</button>
-                <button class="option" onclick="answerQ('l3','q5',this,'wrong')">The currency of the account</button>
-                <button class="option" onclick="answerQ('l3','q5',this,'correct')">Which fields are mandatory, optional, or hidden when posting to this account</button>
-                <button class="option" onclick="answerQ('l3','q5',this,'wrong')">The account number range for this group</button>
-              </div>
-              <div class="explanation" id="exp-l3-q5">The Field Status Group defines the field layout during posting. For example, G001 (General) makes certain fields like Text and Cost Center optional or mandatory. This controls what the accountant must fill in when posting to this GL account.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">6. In FS00, what does setting "Account Currency" to the company code currency mean?</div>
-              <div class="options"><button class="option" onclick="answerQ('l3','q6',this,'wrong')">The account can only receive foreign currency postings</button><button class="option" onclick="answerQ('l3','q6',this,'correct')">All postings to this account must be in the local company currency</button><button class="option" onclick="answerQ('l3','q6',this,'wrong')">The account is exempt from currency revaluation</button><button class="option" onclick="answerQ('l3','q6',this,'wrong')">The account automatically converts all currencies to USD</button></div>
-              <div class="explanation" id="exp-l3-q6">Setting Account Currency = Company Code currency (e.g. EGP) means only postings in that currency are allowed. Set it to a foreign currency (e.g. USD) to accept only USD postings. Leave it blank to allow all currencies.</div>
-            </div><div class="question-card">
-              <div class="question-text">7. What is the purpose of the Account Group in GL Account Master Data?</div>
-              <div class="options"><button class="option" onclick="answerQ('l3','q7',this,'wrong')">It defines which users can post to the account</button><button class="option" onclick="answerQ('l3','q7',this,'correct')">It groups accounts by type and controls the number range and field layout in FS00</button><button class="option" onclick="answerQ('l3','q7',this,'wrong')">It determines the tax code applied automatically</button><button class="option" onclick="answerQ('l3','q7',this,'wrong')">It links the account to a specific cost center</button></div>
-              <div class="explanation" id="exp-l3-q7">The Account Group (e.g. Fixed Asset, Revenue, Liability) controls: (1) the number range for the account, (2) which fields are displayed, required, or hidden in FS00. Every GL account must belong to an Account Group.</div>
-            </div><div class="question-card">
-              <div class="question-text">8. You are creating a vendor reconciliation GL account in FS00. Which Reconciliation Account type do you select?</div>
-              <div class="options"><button class="option" onclick="answerQ('l3','q8',this,'wrong')">B — Balance Sheet Account</button><button class="option" onclick="answerQ('l3','q8',this,'wrong')">P — Primary Costs or Revenue</button><button class="option" onclick="answerQ('l3','q8',this,'correct')">K — Vendors</button><button class="option" onclick="answerQ('l3','q8',this,'wrong')">D — Customers</button></div>
-              <div class="explanation" id="exp-l3-q8">Setting Reconciliation Account type to K (Vendors) links the GL account to the AP sub-ledger. All vendor postings (FB60, payments) automatically update this account. Direct manual posting to it is blocked by design.</div>
-            </div><div class="question-card">
-              <div class="question-text">9. What happens to P&amp;L account balances when you run FAGLGVTR at year-end?</div>
-              <div class="options"><button class="option" onclick="answerQ('l3','q9',this,'wrong')">All balances carry forward to the new fiscal year unchanged</button><button class="option" onclick="answerQ('l3','q9',this,'correct')">P&amp;L balances are zeroed out and their net is transferred to the Retained Earnings account</button><button class="option" onclick="answerQ('l3','q9',this,'wrong')">P&amp;L balances are deleted permanently</button><button class="option" onclick="answerQ('l3','q9',this,'wrong')">Nothing changes — FAGLGVTR only produces a simulation report</button></div>
-              <div class="explanation" id="exp-l3-q9">FAGLGVTR closes P&amp;L accounts: their net balance is transferred to the Retained Earnings GL account, and they start the new year at zero. Balance Sheet accounts (Assets, Liabilities, Equity) carry their closing balance forward as the new opening balance.</div>
-            </div><div class="question-card">
-              <div class="question-text">10. In FS00, what is the difference between "Short Text" and "Long Text"?</div>
-              <div class="options"><button class="option" onclick="answerQ('l3','q10',this,'wrong')">Short Text is for internal use only; Long Text appears in reports</button><button class="option" onclick="answerQ('l3','q10',this,'correct')">Short Text (max 20 chars) appears in search lists and line item displays; Long Text is the full account name used in financial statements</button><button class="option" onclick="answerQ('l3','q10',this,'wrong')">They are identical — SAP copies one to the other automatically</button><button class="option" onclick="answerQ('l3','q10',this,'wrong')">Long Text is mandatory; Short Text is optional</button></div>
-              <div class="explanation" id="exp-l3-q10">Short Text (max 20 characters) appears in dropdown searches, line item displays, and compact reports. Long Text is the full descriptive name used in financial statements and printouts. Both should be meaningful and consistent.</div>
-            </div><div class="q-score" id="score-l3">
-              <div class="snum" id="scorenum-l3">0/10</div>
-              <p id="scoremsg-l3"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l3',10)">Try Again</button>
-            </div>
-          </div>
-        </div>
-        <div style="height:32px"></div>
-        </div>
-      </div>
-      <div class="quiz-section" id="qsec-3">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L4</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">GL Posting & Document Entry</h2>
-          </div>
-          <div class="content-block" >
-          <h3>🧪 Quiz — Lecture 4</h3>
-          <div id="quiz-l4">
-            <div class="question-card">
-              <div class="question-text">1. What is the Posting Key used for a GL Credit entry (e.g. crediting a revenue account)?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l4','q1',this,'wrong')">40</button>
-                <button class="option" onclick="answerQ('l4','q1',this,'correct')">50</button>
-                <button class="option" onclick="answerQ('l4','q1',this,'wrong')">31</button>
-                <button class="option" onclick="answerQ('l4','q1',this,'wrong')">01</button>
-              </div>
-              <div class="explanation" id="exp-l4-q1">Posting Key 50 = GL Account Credit entry. Posting Key 40 = GL Account Debit entry. PstKy 31 = Vendor Invoice (Credit). PstKy 01 = Customer Invoice (Debit).</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">2. What is the difference between Hold and Park in FB50?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l4','q2',this,'wrong')">Hold posts the document, Park saves it as a draft</button>
-                <button class="option" onclick="answerQ('l4','q2',this,'wrong')">Both Hold and Park update the GL balances immediately</button>
-                <button class="option" onclick="answerQ('l4','q2',this,'correct')">Hold is a private draft (same user only), Park is a shared draft (any authorized user can complete it)</button>
-                <button class="option" onclick="answerQ('l4','q2',this,'wrong')">Park is only used for asset accounts</button>
-              </div>
-              <div class="explanation" id="exp-l4-q2">Hold = private draft, only retrievable by the same user. Park = shared draft, visible and editable by other authorized users. Neither updates GL balances — only Post creates the final accounting entry.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">3. When creating a GL account in FS00, you activate both "Post Automatically Only" and "Reconciliation Account". What happens?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l4','q3',this,'wrong')">The account is created successfully with both features active</button>
-                <button class="option" onclick="answerQ('l4','q3',this,'wrong')">SAP automatically removes the Reconciliation Account flag</button>
-                <button class="option" onclick="answerQ('l4','q3',this,'correct')">SAP issues an error because both settings block direct posting — they are contradictory and cannot be used together</button>
-                <button class="option" onclick="answerQ('l4','q3',this,'wrong')">The account becomes a bank clearing account automatically</button>
-              </div>
-              <div class="explanation" id="exp-l4-q3">Both settings block direct manual posting, making them redundant and contradictory. Fix: if you want a Recon. Account, remove "Post Auto Only". If you want system-only posting (e.g. clearing account), use only "Post Auto Only".</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">4. Which T-Code allows you to copy an existing GL Account Master Data to create a new account?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l4','q4',this,'wrong')">FS00</button>
-                <button class="option" onclick="answerQ('l4','q4',this,'correct')">FS15</button>
-                <button class="option" onclick="answerQ('l4','q4',this,'wrong')">FB50</button>
-                <button class="option" onclick="answerQ('l4','q4',this,'wrong')">F-02</button>
-              </div>
-              <div class="explanation" id="exp-l4-q4">FS15 = Copy GL Account Master Data. It copies all settings from an existing account to a new account number, saving time and ensuring consistency. FS00 is for creating/editing from scratch.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">5. What Posting Key would you use when posting a Vendor Invoice line item?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l4','q5',this,'wrong')">01</button>
-                <button class="option" onclick="answerQ('l4','q5',this,'wrong')">40</button>
-                <button class="option" onclick="answerQ('l4','q5',this,'wrong')">50</button>
-                <button class="option" onclick="answerQ('l4','q5',this,'correct')">31</button>
-              </div>
-              <div class="explanation" id="exp-l4-q5">PstKy 31 = Vendor Credit Invoice. When posting a vendor invoice, the vendor account is credited (liability increases). PstKy 01 = Customer Debit Invoice. PstKy 40/50 = GL Debit/Credit entries.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">6. In FB50, what is the key difference between "Document Date" and "Posting Date"?</div>
-              <div class="options"><button class="option" onclick="answerQ('l4','q6',this,'wrong')">They must always be the same date in SAP</button><button class="option" onclick="answerQ('l4','q6',this,'correct')">Document Date is the date on the original source document; Posting Date determines which accounting period is affected</button><button class="option" onclick="answerQ('l4','q6',this,'wrong')">Posting Date is when the accountant saves the entry; Document Date is when it is approved</button><button class="option" onclick="answerQ('l4','q6',this,'wrong')">Document Date is mandatory; Posting Date is optional</button></div>
-              <div class="explanation" id="exp-l4-q6">Document Date = date on the physical document (e.g. invoice date: 28 April). Posting Date = determines which fiscal period the entry hits (e.g. 30 April = Period 4). They can differ — a March invoice can be posted in April if the period is still open.</div>
-            </div><div class="question-card">
-              <div class="question-text">7. A vendor invoice was posted with the wrong amount and needs to be corrected. What is the correct SAP process?</div>
-              <div class="options"><button class="option" onclick="answerQ('l4','q7',this,'wrong')">Open the document in FB03 and change the amount</button><button class="option" onclick="answerQ('l4','q7',this,'correct')">Use FB08 to reverse the document, then re-post with the correct amount</button><button class="option" onclick="answerQ('l4','q7',this,'wrong')">Delete the document from the database</button><button class="option" onclick="answerQ('l4','q7',this,'wrong')">Call SAP support to edit the database directly</button></div>
-              <div class="explanation" id="exp-l4-q7">Posted documents cannot be edited or deleted in SAP — this is a core audit principle. Correct process: (1) Reverse the wrong document with FB08 (creates a mirror-image reversal entry), (2) Post a new correct document. This leaves a complete, tamper-proof audit trail.</div>
-            </div><div class="question-card">
-              <div class="question-text">8. What does Posting Key 31 tell SAP when entered in F-02?</div>
-              <div class="options"><button class="option" onclick="answerQ('l4','q8',this,'wrong')">Post a debit to a GL account</button><button class="option" onclick="answerQ('l4','q8',this,'correct')">Post a credit to a vendor account — the vendor invoice line</button><button class="option" onclick="answerQ('l4','q8',this,'wrong')">Post a debit to a customer account</button><button class="option" onclick="answerQ('l4','q8',this,'wrong')">Post a credit to an asset account</button></div>
-              <div class="explanation" id="exp-l4-q8">PstKy 31 = Vendor / Credit. When you enter 31 as the posting key in F-02, SAP knows: (1) this line posts to a Vendor account, (2) it is a Credit entry (increasing the liability). This is the standard posting key for a vendor invoice credit line.</div>
-            </div><div class="question-card">
-              <div class="question-text">9. When would you use "Park" instead of posting directly in FB50?</div>
-              <div class="options"><button class="option" onclick="answerQ('l4','q9',this,'wrong')">When the document is fully correct and ready for the GL</button><button class="option" onclick="answerQ('l4','q9',this,'wrong')">When you want to save a private draft only you can retrieve</button><button class="option" onclick="answerQ('l4','q9',this,'correct')">When the document needs a second person to review and approve before it updates the GL</button><button class="option" onclick="answerQ('l4','q9',this,'wrong')">When posting to a prior fiscal year</button></div>
-              <div class="explanation" id="exp-l4-q9">Park = shared draft that does NOT update GL balances. It enters an approval workflow — another authorized user (e.g. supervisor) can open it in FBV0, review it, and post it. Use Park whenever a document requires dual control before posting.</div>
-            </div><div class="question-card">
-              <div class="question-text">10. What controls the automatic assignment of a document number when you post in FB50?</div>
-              <div class="options"><button class="option" onclick="answerQ('l4','q10',this,'wrong')">The Posting Date determines the document number</button><button class="option" onclick="answerQ('l4','q10',this,'correct')">The Document Type — each document type has a number range configured in FBN1</button><button class="option" onclick="answerQ('l4','q10',this,'wrong')">The Company Code — each company code uses one number range for all documents</button><button class="option" onclick="answerQ('l4','q10',this,'wrong')">The user ID of the person posting the document</button></div>
-              <div class="explanation" id="exp-l4-q10">Each Document Type (SA, KR, DR, etc.) is assigned a Number Range in FBN1. SAP automatically picks the next available number from that range when you post. This is why GL documents get 10xxxxxxx numbers and vendor invoices get 19xxxxxxx numbers.</div>
-            </div><div class="q-score" id="score-l4">
-              <div class="snum" id="scorenum-l4">0/10</div>
-              <p id="scoremsg-l4"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l4',10)">Try Again</button>
-            </div>
-          </div>
-        </div>
-        <div style="height:32px"></div>
-        </div>
-      </div>
-      <div class="quiz-section" id="qsec-4">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L5</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">Document Management & Reporting</h2>
-          </div>
-          <div class="content-block" style="border-color:var(--purple)">
-          <h3 style="display:flex;align-items:center;gap:10px">📝 Lecture 5 Quiz <span class="quiz-badge">5 Questions</span></h3>
-          <div id="quiz-l5">
-            <div class="question-card">
-              <div class="question-text">1. You are working in T-code FB01 and want to open F-03 without closing your current screen. What do you type in the command field?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l5','q1',this,'wrong')">/nf-03</button>
-                <button class="option" onclick="answerQ('l5','q1',this,'correct')">/of-03</button>
-                <button class="option" onclick="answerQ('l5','q1',this,'wrong')">/nex</button>
-                <button class="option" onclick="answerQ('l5','q1',this,'wrong')">f-03</button>
-              </div>
-              <div class="explanation" id="exp-l5-q1"><strong>/o + T-code</strong> opens the transaction in a new session window without closing the current one. /n + T-code would close FB01 first. /nex exits SAP entirely. Typing the T-code alone replaces the current screen.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">2. In FB03 Document List, the standard search screen does not show a User Name field. How do you add it?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l5','q2',this,'wrong')">Click the Filter button in the toolbar</button>
-                <button class="option" onclick="answerQ('l5','q2',this,'correct')">Click Dynamic Selection to expand the search fields panel</button>
-                <button class="option" onclick="answerQ('l5','q2',this,'wrong')">Click General Ledger View</button>
-                <button class="option" onclick="answerQ('l5','q2',this,'wrong')">Go to Environment → Document Environment</button>
-              </div>
-              <div class="explanation" id="exp-l5-q2">The <strong>Dynamic Selection</strong> button opens an additional panel on the left side of the screen with extra filterable fields — including User Name, Transaction Code, Changed On, and more. This allows searching by user or other fields not shown by default.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">3. A user posted a wrong journal entry in SAP. What is the correct way to fix it?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l5','q3',this,'wrong')">Delete the document using SE16 table editor</button>
-                <button class="option" onclick="answerQ('l5','q3',this,'wrong')">Edit the document directly in FB03</button>
-                <button class="option" onclick="answerQ('l5','q3',this,'correct')">Use FB08 to reverse the wrong document, then post a new correct one</button>
-                <button class="option" onclick="answerQ('l5','q3',this,'wrong')">Park the document using FBV0 to hide it from reports</button>
-              </div>
-              <div class="explanation" id="exp-l5-q3">SAP never allows deletion of posted documents. The correct approach is to use <strong>FB08 (Reverse Document)</strong> — enter the document number and a reversal reason, which creates a mirror-image entry that cancels the original. Then post a new, correct document.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">4. What does FAGLB03 display, and how is it different from FBL3N?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l5','q4',this,'wrong')">FAGLB03 shows individual line items; FBL3N shows period balances</button>
-                <button class="option" onclick="answerQ('l5','q4',this,'correct')">FAGLB03 shows period-by-period balances (aggregated); FBL3N shows individual line items per document</button>
-                <button class="option" onclick="answerQ('l5','q4',this,'wrong')">Both show the same data in the same format</button>
-                <button class="option" onclick="answerQ('l5','q4',this,'wrong')">FAGLB03 is for vendors; FBL3N is for GL accounts</button>
-              </div>
-              <div class="explanation" id="exp-l5-q4"><strong>FAGLB03</strong> shows the GL account balance aggregated by fiscal period — Debit, Credit, Balance, and Cumulative Balance for each period. <strong>FBL3N</strong> shows individual transaction line items (every document that hit the account). Use FAGLB03 for a monthly summary, FBL3N for a detailed transaction list.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">5. What is the correct process for uploading multiple journal entries at once using SAP Fiori?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l5','q5',this,'wrong')">Post each entry manually in FB01 one by one</button>
-                <button class="option" onclick="answerQ('l5','q5',this,'wrong')">Import directly from any Excel file format</button>
-                <button class="option" onclick="answerQ('l5','q5',this,'correct')">Open "Upload General Journal Entries" → Download Template → Fill data → Upload → Post</button>
-                <button class="option" onclick="answerQ('l5','q5',this,'wrong')">Use SU01 to assign batch upload permissions first, then use FB50</button>
-              </div>
-              <div class="explanation" id="exp-l5-q5">The correct process in Fiori: search for <strong>"Upload General Journal Entries"</strong> → click Download Template (choose .xlsx) → fill in header and line item data in the template → click Browse to upload the file → click <strong>Post</strong>. Use Show Log to verify results and catch any errors.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">6. In FB08, what is the impact of using a prior-period reversal reason compared to Reason 01?</div>
-              <div class="options"><button class="option" onclick="answerQ('l5','q6',this,'wrong')">No difference — all reversal reasons produce the same financial result</button><button class="option" onclick="answerQ('l5','q6',this,'correct')">Reason 01 reverses in the current period; prior-period reasons allow the reversal to post back into the original period, correcting that period's P&amp;L</button><button class="option" onclick="answerQ('l5','q6',this,'wrong')">Reason 01 is only for vendor documents; prior-period reasons are for GL documents</button><button class="option" onclick="answerQ('l5','q6',this,'wrong')">Prior-period reversal reasons automatically reopen the closed period</button></div>
-              <div class="explanation" id="exp-l5-q6">Reversal Reason 01 posts the reversal with today's date (current period). Prior-period reasons (e.g. 02) allow you to set a Reversal Date in the original period — so the correction appears in the month the error occurred, not in the current month. Important for accurate monthly P&L.</div>
-            </div><div class="question-card">
-              <div class="question-text">7. You want to see all GL postings on account 500005 for Q1 2026 including both paid and unpaid items. Which T-code and selection do you use?</div>
-              <div class="options"><button class="option" onclick="answerQ('l5','q7',this,'wrong')">FB03 — enter the account number and fiscal year</button><button class="option" onclick="answerQ('l5','q7',this,'correct')">FBL3N — select All Items with a posting date range 01.01.2026 to 31.03.2026</button><button class="option" onclick="answerQ('l5','q7',this,'wrong')">FAGLB03 — it shows individual line items by date range</button><button class="option" onclick="answerQ('l5','q7',this,'wrong')">FBV0 — it lists all items pending approval</button></div>
-              <div class="explanation" id="exp-l5-q7">FBL3N = GL Account Line Item Display. Select "All Items" to include both open and cleared items. Use the Posting Date range to filter Q1. FAGLB03 shows period totals (summary), not individual line items.</div>
-            </div><div class="question-card">
-              <div class="question-text">8. What is the primary purpose of T-code FAGLB03?</div>
-              <div class="options"><button class="option" onclick="answerQ('l5','q8',this,'wrong')">To display individual line items for a GL account</button><button class="option" onclick="answerQ('l5','q8',this,'correct')">To display the period-by-period opening balance, postings, and closing balance of a GL account</button><button class="option" onclick="answerQ('l5','q8',this,'wrong')">To reverse a GL document</button><button class="option" onclick="answerQ('l5','q8',this,'wrong')">To list all parked documents for a GL account</button></div>
-              <div class="explanation" id="exp-l5-q8">FAGLB03 = GL Account Balance Display. It shows, per accounting period: opening balance, total debits, total credits, and closing balance. It is the standard tool for reconciliation, trend analysis, and verifying that a GL account balance is correct at month-end.</div>
-            </div><div class="q-score" id="score-l5">
-              <div class="snum" id="scorenum-l5">0/8</div>
-              <p id="scoremsg-l5"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l5',8)">Try Again</button>
-            </div>
-          </div>
-        </div>
-        <div style="height:32px"></div>
-        </div>
-      </div>
-      <div class="quiz-section" id="qsec-5">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">L6</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">AP — Accounts Payable</h2>
-          </div>
-          <div class="content-block">
-          <h3>🧪 Quiz — Lecture 6</h3>
-          <div id="quiz-l6">
-            <div class="question-card">
-              <div class="question-text">1. In SAP S/4HANA, what transaction is used to create a new vendor (Business Partner)?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l6','q1',this,'wrong')">FK01</button>
-                <button class="option" onclick="answerQ('l6','q1',this,'correct')">BP</button>
-                <button class="option" onclick="answerQ('l6','q1',this,'wrong')">XK01</button>
-                <button class="option" onclick="answerQ('l6','q1',this,'wrong')">FB60</button>
-              </div>
-              <div class="explanation" id="exp-l6-q1">In SAP S/4HANA, <strong>BP (Maintain Business Partner)</strong> is the unified T-code for creating vendors, customers, and general business partners. The older transactions XK01/FK01 (for vendors) and XD01/FD01 (for customers) still work but BP is the S/4HANA standard.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">2. What is the FI Supplier role code used when adding vendor accounting data in the BP transaction?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l6','q2',this,'wrong')">FLVN01 Supplier (New)</button>
-                <button class="option" onclick="answerQ('l6','q2',this,'correct')">FLVN00 Supplier (Fin.Accounting)</button>
-                <button class="option" onclick="answerQ('l6','q2',this,'wrong')">000000 Business Partner (Gen.)</button>
-                <button class="option" onclick="answerQ('l6','q2',this,'wrong')">FLKU00 Customer (Fin.Accounting)</button>
-              </div>
-              <div class="explanation" id="exp-l6-q2"><strong>FLVN00 Supplier (Fin.Accounting)</strong> is the FI role — it unlocks the Company Code tab and Vendor: Account Management tab where you set the Reconciliation Account (210100). <strong>FLVN01 Supplier (New)</strong> is the Purchasing role where you add the Purchasing Organization data.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">3. What document type does SAP assign when you post a vendor invoice via FB60?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l6','q3',this,'wrong')">SA — General GL Document</button>
-                <button class="option" onclick="answerQ('l6','q3',this,'wrong')">KZ — Vendor Payment</button>
-                <button class="option" onclick="answerQ('l6','q3',this,'correct')">KR — Vendor Invoice</button>
-                <button class="option" onclick="answerQ('l6','q3',this,'wrong')">DR — Customer Invoice</button>
-              </div>
-              <div class="explanation" id="exp-l6-q3">FB60 posts a <strong>KR document</strong> — KR stands for "Kreditor Rechnung" (German for Vendor Invoice). KZ = Vendor Payment. SA = General GL. DR = Customer Invoice. The document type controls number ranges, reversal rules, and what accounts can be posted to.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">4. In FBL1N, what does a red circle with a lightning bolt icon (⚡) in the DD column indicate?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l6','q4',this,'wrong')">The invoice has been paid and cleared</button>
-                <button class="option" onclick="answerQ('l6','q4',this,'wrong')">The document is parked and not yet posted</button>
-                <button class="option" onclick="answerQ('l6','q4',this,'correct')">The item is overdue — past its net due date</button>
-                <button class="option" onclick="answerQ('l6','q4',this,'wrong')">The vendor account is blocked for payment</button>
-              </div>
-              <div class="explanation" id="exp-l6-q4">In FBL1N, the <strong>⚡ lightning bolt in the DD (Due Date) column</strong> means the item is <strong>overdue</strong> — the net due date has passed and the invoice has not been paid. A plain red circle (no lightning) means open but not yet overdue. A green square means cleared/paid.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">5. What is the purpose of the IDCNAP report and what key parameter defines its aging buckets?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l6','q5',this,'wrong')">It shows vendor master data; the bucket is defined by the Reconciliation Account</button>
-                <button class="option" onclick="answerQ('l6','q5',this,'wrong')">It shows paid invoices; buckets are defined by Document Type</button>
-                <button class="option" onclick="answerQ('l6','q5',this,'correct')">It is the AP Aging Report — outstanding invoices grouped by overdue period; buckets defined in Output Control → Due Date Sorted List</button>
-                <button class="option" onclick="answerQ('l6','q5',this,'wrong')">It is the vendor balance display; buckets are defined by Company Code</button>
-              </div>
-              <div class="explanation" id="exp-l6-q5"><strong>IDCNAP</strong> = AP Aging Report. It shows all open (unpaid) vendor invoices as of a key date, distributed across aging buckets. The aging buckets are configured in <strong>Output Control → Due Date Sorted List</strong> (default: 10, 20, 30, 60, 90, 180, 360, 720 days). This report is essential for cash flow planning and payment prioritization.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">6. What is the role of the Reconciliation Account assigned in the vendor master (BP)?</div>
-              <div class="options"><button class="option" onclick="answerQ('l6','q6',this,'wrong')">It stores the vendor bank account details for payment runs</button><button class="option" onclick="answerQ('l6','q6',this,'correct')">It is a GL account that automatically receives the credit posting when a vendor invoice is posted in FB60</button><button class="option" onclick="answerQ('l6','q6',this,'wrong')">It tracks vendor payment terms and calculates due dates</button><button class="option" onclick="answerQ('l6','q6',this,'wrong')">It is used only for reporting and has no direct effect on GL postings</button></div>
-              <div class="explanation" id="exp-l6-q6">The Reconciliation Account (e.g. 210100 — AP) in the vendor master is automatically credited every time you post a vendor invoice via FB60. You never enter it manually — SAP pulls it from the vendor master. This links the AP sub-ledger to the GL balance sheet simultaneously.</div>
-            </div><div class="question-card">
-              <div class="question-text">7. In FBL1N, you want to see only unpaid vendor invoices as of today. Which selection do you choose?</div>
-              <div class="options"><button class="option" onclick="answerQ('l6','q7',this,'wrong')">All Items with a posting date of today</button><button class="option" onclick="answerQ('l6','q7',this,'wrong')">Cleared Items with fiscal year filter</button><button class="option" onclick="answerQ('l6','q7',this,'correct')">Open Items at Key Date = today</button><button class="option" onclick="answerQ('l6','q7',this,'wrong')">Special G/L Transactions only</button></div>
-              <div class="explanation" id="exp-l6-q7">Open Items = invoices not yet paid. Key Date = today means SAP shows all items open as of that date. "Cleared Items" shows already-paid invoices. "All Items" shows both — useful for full history but not filtered to just outstanding payables.</div>
-            </div><div class="question-card">
-              <div class="question-text">8. A vendor invoice posted in FB60 used the wrong GL expense account and is still unpaid. What is the correct correction process?</div>
-              <div class="options"><button class="option" onclick="answerQ('l6','q8',this,'wrong')">Open FB60 and change the GL account directly</button><button class="option" onclick="answerQ('l6','q8',this,'correct')">Use FB08 to reverse the original invoice, then post a new FB60 with the correct GL account</button><button class="option" onclick="answerQ('l6','q8',this,'wrong')">Delete the document and repost from scratch</button><button class="option" onclick="answerQ('l6','q8',this,'wrong')">Change only the GL account in FB03</button></div>
-              <div class="explanation" id="exp-l6-q8">Posted documents are immutable in SAP. Correct process: (1) FB08 to reverse the wrong invoice (creates a mirror reversal, cancels the wrong GL posting), (2) Post a new FB60 with the correct GL expense account. This leaves a complete audit trail of the error and the correction.</div>
-            </div><div class="question-card">
-              <div class="question-text">9. What does a negative cumulative balance in FK10N indicate for a vendor account?</div>
-              <div class="options"><button class="option" onclick="answerQ('l6','q9',this,'wrong')">A data error — vendor balances should always be positive</button><button class="option" onclick="answerQ('l6','q9',this,'wrong')">The vendor owes your company money from a credit memo</button><button class="option" onclick="answerQ('l6','q9',this,'correct')">Your company has a normal outstanding liability to this vendor</button><button class="option" onclick="answerQ('l6','q9',this,'wrong')">The vendor account has been blocked for payment</button></div>
-              <div class="explanation" id="exp-l6-q9">Vendor accounts in SAP AP carry a Credit balance = normal liability (you owe them). A negative cumulative balance in FK10N = your company owes that vendor money. This is the expected state for an active supplier. A positive balance (unusual) would mean the vendor owes you, e.g. from an overpayment.</div>
-            </div><div class="question-card">
-              <div class="question-text">10. In FBCJ Cash Journal, what is the difference between "Save" and "Post Selected"?</div>
-              <div class="options"><button class="option" onclick="answerQ('l6','q10',this,'wrong')">They are the same — both update GL balances immediately</button><button class="option" onclick="answerQ('l6','q10',this,'correct')">Save stores the entry as a draft without updating GL; Post Selected creates the follow-on accounting document that actually updates GL balances</button><button class="option" onclick="answerQ('l6','q10',this,'wrong')">Post Selected saves the entry privately; Save shares it with the team</button><button class="option" onclick="answerQ('l6','q10',this,'wrong')">Save requires supervisor approval; Post Selected posts without approval</button></div>
-              <div class="explanation" id="exp-l6-q10">FBCJ is a two-step process: (1) Save = stores the cash entry as a draft in the journal — GL is NOT yet updated. (2) Post Selected = creates the actual Follow-On FI document that posts to all relevant GL accounts. Both steps are required to complete a cash transaction.</div>
-            </div><div class="q-score" id="score-l6">
-              <div class="snum" id="scorenum-l6">0/10</div>
-              <p id="scoremsg-l6"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l6',10)">Try Again</button>
-            </div>
-          </div>
-        </div>
-        <div style="height:32px"></div>
-        </div>
-      </div>
-      <!-- ═══ QUIZ L7 ═══ -->
-      <div class="quiz-section" id="qsec-7">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 14px">Lecture 7</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">AP Down Payments &amp; AR — Order-to-Cash</h2>
-          </div>
-          <div class="content-block">
-          <h3>🧪 Quiz — Lecture 7</h3>
-          <div id="quiz-l7">
-            <div class="question-card">
-              <div class="question-text">1. Transaction F-47 creates a down payment request with special G/L indicator F. What is the accounting effect of this posting?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l7','q1',this,'wrong')">It debits the bank account and credits the vendor</button>
-                <button class="option" onclick="answerQ('l7','q1',this,'correct')">It creates a noted item — statistical only, no G/L balance change</button>
-                <button class="option" onclick="answerQ('l7','q1',this,'wrong')">It posts to a special G/L reconciliation account immediately</button>
-                <button class="option" onclick="answerQ('l7','q1',this,'wrong')">It blocks the vendor account from further posting</button>
-              </div>
-              <div class="explanation" id="exp-l7-q1"><strong>F-47 creates a noted item</strong> — it is purely statistical and does not change any G/L balance. It serves as a reminder/trigger that an advance is expected but no real accounting entry is made until F-48 posts the actual down payment.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">2. In F-48 (Post Vendor Down Payment), what special G/L indicator must you enter, and why?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l7','q2',this,'wrong')">F — to keep it as a noted item only</button>
-                <button class="option" onclick="answerQ('l7','q2',this,'correct')">A — to post to the alternative down-payment reconciliation account, keeping it off the normal AP recon</button>
-                <button class="option" onclick="answerQ('l7','q2',this,'wrong')">Z — to mark it as a zero-balance transaction</button>
-                <button class="option" onclick="answerQ('l7','q2',this,'wrong')">K — to route it to the vendor credit account automatically</button>
-              </div>
-              <div class="explanation" id="exp-l7-q2">Special G/L indicator <strong>A</strong> directs the advance to the <em>alternative reconciliation account</em> (the down-payment account), separating it from normal vendor invoices on the standard recon account. This ensures advances are reported separately in financial statements.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">3. What is the correct sequence for the full AP advance cycle?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l7','q3',this,'wrong')">F-48 → F-47 → F-54 → F-53</button>
-                <button class="option" onclick="answerQ('l7','q3',this,'correct')">F-47 → F-48 → F-54 → F-53</button>
-                <button class="option" onclick="answerQ('l7','q3',this,'wrong')">F-48 → FB60 → F-53 → F-54</button>
-                <button class="option" onclick="answerQ('l7','q3',this,'wrong')">FB60 → F-47 → F-48 → F-53</button>
-              </div>
-              <div class="explanation" id="exp-l7-q3">The correct sequence is: <strong>F-47</strong> (request) → <strong>F-48</strong> (post advance) → <strong>F-54</strong> (clear advance against invoice) → <strong>F-53</strong> (pay the remaining balance). Sequence matters — you cannot clear the advance (F-54) before the invoice arrives (FB60), and you must clear before paying the net balance (F-53).</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">4. Transaction F-54 "clears the vendor down payment." What does this mean in accounting terms?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l7','q4',this,'wrong')">It reverses the advance and refunds the bank account</button>
-                <button class="option" onclick="answerQ('l7','q4',this,'wrong')">It deletes the down payment document from the vendor account</button>
-                <button class="option" onclick="answerQ('l7','q4',this,'correct')">It transfers the advance from the special G/L account back to the normal reconciliation account, netting against the invoice</button>
-                <button class="option" onclick="answerQ('l7','q4',this,'wrong')">It creates a new payment document (KZ) and sends it to the bank</button>
-              </div>
-              <div class="explanation" id="exp-l7-q4"><strong>F-54</strong> is a transfer posting — it moves the advance from the special G/L (down-payment) account back to the normal vendor reconciliation account, effectively offsetting it against the invoice. Only the net amount remains as an open item. The advance is now "cleared" — it no longer shows separately as a receivable from the vendor.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">5. In FBKP, you assign an alternative reconciliation account for special G/L indicator A. What account type do you select for vendor down payments?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l7','q5',this,'wrong')">G — General Ledger</button>
-                <button class="option" onclick="answerQ('l7','q5',this,'wrong')">D — Customer (Debitor)</button>
-                <button class="option" onclick="answerQ('l7','q5',this,'correct')">K — Vendor (Kreditor)</button>
-                <button class="option" onclick="answerQ('l7','q5',this,'wrong')">A — Asset</button>
-              </div>
-              <div class="explanation" id="exp-l7-q5">In FBKP you choose account type <strong>K (Kreditor = Vendor)</strong> to configure the vendor down payment special G/L. Account type D would be for customer down payments, G for GL, and A for assets. Getting the account type wrong means the special G/L won't apply to the right sub-ledger.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">6. Which FI role code is used in BP to add the customer accounting (AR) data for Company Code BEV1?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l7','q6',this,'wrong')">FLVN00 — Supplier (Fin.Accounting)</button>
-                <button class="option" onclick="answerQ('l7','q6',this,'wrong')">FLCU01 — Customer (Sales)</button>
-                <button class="option" onclick="answerQ('l7','q6',this,'correct')">FLCU00 — Customer (Fin.Accounting)</button>
-                <button class="option" onclick="answerQ('l7','q6',this,'wrong')">000000 — Business Partner (Gen.)</button>
-              </div>
-              <div class="explanation" id="exp-l7-q6"><strong>FLCU00</strong> is the FI customer role — it unlocks the Company Code data tab where you enter the Reconciliation Account for receivables. FLCU01 is for the SD/Sales area view. FLVN00 is the vendor equivalent. You must add FLCU00 before any AR posting can be made to the customer.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">7. FB70 enters a customer invoice. What document type and posting does SAP create?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l7','q7',this,'wrong')">KR — Vendor Invoice: Vendor Cr / Expense Dr</button>
-                <button class="option" onclick="answerQ('l7','q7',this,'correct')">DR — Customer Invoice: Customer Dr / Revenue Cr</button>
-                <button class="option" onclick="answerQ('l7','q7',this,'wrong')">DZ — Customer Payment: Bank Dr / Customer Cr</button>
-                <button class="option" onclick="answerQ('l7','q7',this,'wrong')">SA — GL Journal: user-defined Dr and Cr</button>
-              </div>
-              <div class="explanation" id="exp-l7-q7"><strong>FB70</strong> creates document type <strong>DR</strong> (Debitor Rechnung = Customer Invoice). The entry is: Customer account Dr (they owe us) / Revenue account Cr. This is the AR mirror of FB60 (which creates KR for vendor invoices).</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">8. What T-code is used to run the automated dunning process for overdue customer invoices?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l7','q8',this,'wrong')">F110 — Automatic Payment Run</button>
-                <button class="option" onclick="answerQ('l7','q8',this,'wrong')">FBMP — Dunning Procedure Config</button>
-                <button class="option" onclick="answerQ('l7','q8',this,'correct')">F150 — Dunning Run</button>
-                <button class="option" onclick="answerQ('l7','q8',this,'wrong')">FBL5N — Customer Line Item Display</button>
-              </div>
-              <div class="explanation" id="exp-l7-q8"><strong>F150</strong> is the dunning run — it identifies overdue customer open items, assigns escalation levels based on the dunning procedure, and generates dunning notices. FBMP is the configuration T-code (where dunning procedures are defined). F110 is the payment program (vendor side). FBL5N is just a reporting transaction.</div>
-            </div>
-          </div>
-          <div class="q-score" id="score-l7">
-            <div class="snum" id="scorenum-l7">0/8</div>
-            <p id="scoremsg-l7"></p>
-            <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l7',8)">Try Again</button>
-          </div>
-          </div>
-        </div>
-        <div style="height:32px"></div>
-      </div>
-
-      <!-- ═══ QUIZ L8 ═══ -->
-      <div class="quiz-section" id="qsec-8">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 14px">Lecture 8</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:0">SAP FI Configuration</h2>
-          </div>
-          <div class="content-block">
-          <h3>🧪 Quiz — Lecture 8</h3>
-          <div id="quiz-l8">
-            <div class="question-card">
-              <div class="question-text">1. What is the correct transport path for SAP configuration changes?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l8','q1',this,'wrong')">QAS → DEV → PRD</button>
-                <button class="option" onclick="answerQ('l8','q1',this,'correct')">DEV → QAS → PRD</button>
-                <button class="option" onclick="answerQ('l8','q1',this,'wrong')">PRD → DEV → QAS</button>
-                <button class="option" onclick="answerQ('l8','q1',this,'wrong')">DEV → PRD → QAS</button>
-              </div>
-              <div class="explanation" id="exp-l8-q1">Changes always flow <strong>DEV → QAS → PRD</strong>. Development is done in DEV, tested in QAS (Quality Assurance), and only then transported to PRD (Production). Never configure directly in PRD — this is one of the most important rules in SAP projects.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">2. Which T-code defines the fiscal year variant and which one assigns it to a Company Code?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l8','q2',this,'wrong')">OB29 assigns; OB37 defines</button>
-                <button class="option" onclick="answerQ('l8','q2',this,'correct')">OB29 defines; OB37 assigns to Company Code</button>
-                <button class="option" onclick="answerQ('l8','q2',this,'wrong')">OB13 defines; OB62 assigns</button>
-                <button class="option" onclick="answerQ('l8','q2',this,'wrong')">OBBO defines; OB52 assigns</button>
-              </div>
-              <div class="explanation" id="exp-l8-q2"><strong>OB29</strong> (Maintain Fiscal Year Variant) is where you create and define the variant (e.g. K4 = Jan–Dec). <strong>OB37</strong> (Assign FY Variant to Company Code) links that variant to a specific Company Code. This is a two-step process — defining the variant alone does nothing until it's assigned.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">3. A posting fails with "Period not open." What T-code do you use to fix this?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l8','q3',this,'wrong')">OB29 — Fiscal Year Variant</button>
-                <button class="option" onclick="answerQ('l8','q3',this,'wrong')">OBBO — Define Posting Period Variant</button>
-                <button class="option" onclick="answerQ('l8','q3',this,'correct')">OB52 — Open and Close Posting Periods</button>
-                <button class="option" onclick="answerQ('l8','q3',this,'wrong')">OB37 — Assign FY Variant</button>
-              </div>
-              <div class="explanation" id="exp-l8-q3"><strong>OB52</strong> is used to open and close individual posting periods. If a period is closed, postings with a date in that period will fail. OBBO only creates the variant key; the actual period control lives in OB52. This is one of the most commonly executed month-end config tasks.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">4. In SAP Field Status, if the posting key has field status "Required" and the GL account has "Suppressed" for the same field, what happens?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l8','q4',this,'wrong')">The GL account setting wins — the field is suppressed</button>
-                <button class="option" onclick="answerQ('l8','q4',this,'wrong')">The posting key setting wins — the field is required</button>
-                <button class="option" onclick="answerQ('l8','q4',this,'correct')">A conflict error occurs — the posting cannot be made; one must be changed</button>
-                <button class="option" onclick="answerQ('l8','q4',this,'wrong')">SAP prompts the user to choose which setting to apply</button>
-              </div>
-              <div class="explanation" id="exp-l8-q4">SAP applies the <em>more restrictive</em> of the two field status settings — but <strong>Required vs Suppressed is a direct conflict</strong> and causes a field status error that prevents posting. The consultant must resolve the conflict by changing one of the settings (usually making the GL account field "Optional" instead of "Suppressed").</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">5. What is the T-code to define House Banks in SAP FI configuration?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l8','q5',this,'wrong')">FBCJ</button>
-                <button class="option" onclick="answerQ('l8','q5',this,'wrong')">F-53</button>
-                <button class="option" onclick="answerQ('l8','q5',this,'correct')">FI12</button>
-                <button class="option" onclick="answerQ('l8','q5',this,'wrong')">OBD3</button>
-              </div>
-              <div class="explanation" id="exp-l8-q5"><strong>FI12</strong> (Define House Banks) is the configuration T-code where you create the house bank key, assign it to the Company Code, and link it to the physical bank account and the GL bank account. Without FI12 configuration, payment transactions (F-48, F-53, F110) cannot reference a bank account.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">6. What does OBD4 configure, and what does it control?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l8','q6',this,'wrong')">Vendor Account Groups — controls vendor master number ranges</button>
-                <button class="option" onclick="answerQ('l8','q6',this,'correct')">GL Account Groups — controls number ranges and field layout for GL master creation in FS00</button>
-                <button class="option" onclick="answerQ('l8','q6',this,'wrong')">Document Types — controls which account types are allowed per document</button>
-                <button class="option" onclick="answerQ('l8','q6',this,'wrong')">Tolerance Groups — controls max posting amounts per user</button>
-              </div>
-              <div class="explanation" id="exp-l8-q6"><strong>OBD4</strong> defines <em>GL Account Groups</em> — these group GL accounts by category (Assets, Liabilities, Revenue, Expenses etc.) and control the number ranges assigned to each group and which fields are required/optional in the FS00 master data screen. OBD3 is for Vendor Account Groups; OBD2 is for Customer Account Groups.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">7. If a user has no Tolerance Group assigned in SU01, what happens when they try to post a document in FI?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l8','q7',this,'wrong')">They can post unlimited amounts with no restriction</button>
-                <button class="option" onclick="answerQ('l8','q7',this,'wrong')">They can only post amounts below 1,000 (default SAP tolerance)</button>
-                <button class="option" onclick="answerQ('l8','q7',this,'correct')">SAP blocks all postings — a tolerance group must always be assigned</button>
-                <button class="option" onclick="answerQ('l8','q7',this,'wrong')">They can post, but SAP flags the document for approval</button>
-              </div>
-              <div class="explanation" id="exp-l8-q7">If a user has <strong>no tolerance group</strong>, SAP blocks all FI postings. There is no "default unlimited" behaviour — this is a common go-live mistake where a new user is created but not assigned a tolerance group. Always assign a tolerance group (OBA4) to every FI user.</div>
-            </div>
-            <div class="question-card">
-              <div class="question-text">8. What is the fiscal year variant constraint related to Controlling Areas?</div>
-              <div class="options">
-                <button class="option" onclick="answerQ('l8','q8',this,'wrong')">All Company Codes under the same Company must share the same fiscal year variant</button>
-                <button class="option" onclick="answerQ('l8','q8',this,'correct')">All Company Codes under the same Controlling Area must share the same fiscal year variant</button>
-                <button class="option" onclick="answerQ('l8','q8',this,'wrong')">Each Company Code can have a completely independent fiscal year with no constraints</button>
-                <button class="option" onclick="answerQ('l8','q8',this,'wrong')">The fiscal year variant is set at Client level and applies to all Company Codes globally</button>
-              </div>
-              <div class="explanation" id="exp-l8-q8">The constraint is at the <strong>Controlling Area</strong> level — all Company Codes under the same Controlling Area must use the same fiscal year variant. This is because CO allocations and cost flows must align across the same period. It is <em>not</em> a Company-level constraint — different Company Codes under the same holding Company can use different fiscal year variants as long as they belong to different Controlling Areas.</div>
-            </div>
-          </div>
-          <div class="q-score" id="score-l8">
-            <div class="snum" id="scorenum-l8">0/8</div>
-            <p id="scoremsg-l8"></p>
-            <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizL('l8',8)">Try Again</button>
-          </div>
-          </div>
-        </div>
-        <div style="height:32px"></div>
-      </div>
-
-      <div class="quiz-section" id="qsec-6">
-        <div style="padding:40px">
-          <div style="margin-bottom:28px">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:4px">TC</span>
-            <h2 style="font-size:26px;font-weight:700;margin-top:10px;margin-bottom:4px">T-Code Challenge</h2>
-            <p style="font-size:14px;color:var(--muted)">One question per T-code — 20 questions total</p>
-          </div>
-          <div class="content-block" style="border-color:var(--gold)">
-          <h3 style="display:flex;align-items:center;gap:10px">🎯 T-Code Quiz <span class="quiz-badge" style="background:rgba(245,158,11,.15);border-color:var(--gold);color:var(--gold)">20 Questions</span></h3>
-          <div id="quiz-tc">
-            <div class="question-card"><div class="question-text">1. (FB03) — In FB03, which view replaces posting keys with actual GL account numbers?</div><div class="options"><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Data Entry View</button><button class="option" onclick="answerQ('tc','q1',this,'correct')">General Ledger View</button><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Document Header View</button><button class="option" onclick="answerQ('tc','q1',this,'wrong')">Line Item Display</button></div><div class="explanation" id="exp-tc-q1">GL View replaces customer/vendor codes with actual account numbers. S = Soll (Debit) and H = Haben (Credit) in German accounting notation.</div></div>
-            <div class="question-card"><div class="question-text">2. (FB08) — Reversal Reason "01" in FB08 is used for which type of reversal?</div><div class="options"><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Prior-period reversal</button><button class="option" onclick="answerQ('tc','q2',this,'correct')">Reversal in the current period</button><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Mass reversal of multiple documents</button><button class="option" onclick="answerQ('tc','q2',this,'wrong')">Reversal due to a system error</button></div><div class="explanation" id="exp-tc-q2">Reason 01 = Reversal in current period — the most common code. Other codes exist specifically for prior-period reversals and different correction scenarios.</div></div>
-            <div class="question-card"><div class="question-text">3. (FBV0) — What is the key difference between a Parked document and a Held document?</div><div class="options"><button class="option" onclick="answerQ('tc','q3',this,'wrong')">Both are the same in SAP S/4HANA</button><button class="option" onclick="answerQ('tc','q3',this,'wrong')">Held documents are visible to all users; Parked are private</button><button class="option" onclick="answerQ('tc','q3',this,'correct')">Parked is accessible to any authorized user; Held can only be retrieved by the original creator</button><button class="option" onclick="answerQ('tc','q3',this,'wrong')">Parked updates AP balances; Held updates GL balances</button></div><div class="explanation" id="exp-tc-q3">Held = private draft (only the creator can open it). Parked = shared draft accessible to any authorized user and can enter an approval workflow via FBV0.</div></div>
-            <div class="question-card"><div class="question-text">4. (FBL3N) — When selecting "Open Items" in FBL3N, which field is essential for accurate results?</div><div class="options"><button class="option" onclick="answerQ('tc','q4',this,'wrong')">Document Type filter</button><button class="option" onclick="answerQ('tc','q4',this,'wrong')">Posting Period range</button><button class="option" onclick="answerQ('tc','q4',this,'correct')">Open at Key Date</button><button class="option" onclick="answerQ('tc','q4',this,'wrong')">Fiscal Year</button></div><div class="explanation" id="exp-tc-q4">The Key Date tells SAP which items were still open as of that specific date. Without it, results may be inaccurate or show no data — especially when analysing prior periods.</div></div>
-            <div class="question-card"><div class="question-text">5. (FAGLB03) — In FAGLB03, Ledger "0L" refers to what?</div><div class="options"><button class="option" onclick="answerQ('tc','q5',this,'wrong')">A test ledger for training purposes only</button><button class="option" onclick="answerQ('tc','q5',this,'wrong')">The local GAAP parallel ledger</button><button class="option" onclick="answerQ('tc','q5',this,'correct')">The Leading Ledger — the main financial accounting ledger</button><button class="option" onclick="answerQ('tc','q5',this,'wrong')">The CO (Controlling) ledger</button></div><div class="explanation" id="exp-tc-q5">0L = Leading Ledger — the primary ledger used for official financial statements. Other ledgers (e.g. 2L, 3L) may exist for IFRS or local GAAP parallel accounting.</div></div>
-            <div class="question-card"><div class="question-text">6. (SU01) — Which T-code reveals exactly which authorization object is missing when a user gets an access error?</div><div class="options"><button class="option" onclick="answerQ('tc','q6',this,'wrong')">SU01</button><button class="option" onclick="answerQ('tc','q6',this,'correct')">SU53</button><button class="option" onclick="answerQ('tc','q6',this,'wrong')">SU10</button><button class="option" onclick="answerQ('tc','q6',this,'wrong')">SUIM</button></div><div class="explanation" id="exp-tc-q6">SU53 stores the last failed authorization check for a user — showing exactly which object, field, and value caused the error. Far more useful than calling the helpdesk.</div></div>
-            <div class="question-card"><div class="question-text">7. (FBCJ) — After saving a cash entry in FBCJ, what must you do to update GL balances?</div><div class="options"><button class="option" onclick="answerQ('tc','q7',this,'wrong')">Nothing — saving automatically updates the GL</button><button class="option" onclick="answerQ('tc','q7',this,'wrong')">Click Save again with a posting date</button><button class="option" onclick="answerQ('tc','q7',this,'correct')">Click Post Selected</button><button class="option" onclick="answerQ('tc','q7',this,'wrong')">Close and reopen the Cash Journal</button></div><div class="explanation" id="exp-tc-q7">Save stores the entry as a draft. Post Selected creates the Follow-On accounting document that actually updates GL balances. Both steps are required.</div></div>
-            <div class="question-card"><div class="question-text">8. (FIORI Upload) — In the Fiori GL Journal upload, what happens if one entry in the Excel template is unbalanced?</div><div class="options"><button class="option" onclick="answerQ('tc','q8',this,'wrong')">SAP rounds the difference automatically</button><button class="option" onclick="answerQ('tc','q8',this,'wrong')">SAP posts it with a warning message</button><button class="option" onclick="answerQ('tc','q8',this,'correct')">SAP rejects only that specific entry; others can still post</button><button class="option" onclick="answerQ('tc','q8',this,'wrong')">SAP rejects the entire upload file</button></div><div class="explanation" id="exp-tc-q8">SAP validates each entry individually. An unbalanced entry (Dr ≠ Cr) is rejected and shown in the error log, while other balanced entries in the same file post successfully.</div></div>
-            <div class="question-card"><div class="question-text">9. (FS00) — When creating a P-type (P&L) account in FS00, which field in the Control Data tab is mandatory?</div><div class="options"><button class="option" onclick="answerQ('tc','q9',this,'wrong')">Tax Category</button><button class="option" onclick="answerQ('tc','q9',this,'correct')">CElem Category</button><button class="option" onclick="answerQ('tc','q9',this,'wrong')">Field Status Group</button><button class="option" onclick="answerQ('tc','q9',this,'wrong')">Sort Key</button></div><div class="explanation" id="exp-tc-q9">CElem Category connects the GL account to SAP CO (Controlling). Without it, postings will fail with a CO error. Values: 1=Primary Costs, 11=Revenue, 12=Sales Deductions.</div></div>
-            <div class="question-card"><div class="question-text">10. (FB50) — In FB50's D/C column, what does the indicator "S" stand for?</div><div class="options"><button class="option" onclick="answerQ('tc','q10',this,'wrong')">Standard posting</button><button class="option" onclick="answerQ('tc','q10',this,'wrong')">Special GL indicator</button><button class="option" onclick="answerQ('tc','q10',this,'correct')">Soll — Debit in German</button><button class="option" onclick="answerQ('tc','q10',this,'wrong')">System-generated line</button></div><div class="explanation" id="exp-tc-q10">SAP uses German accounting notation. S = Soll (Debit), H = Haben (Credit). This appears in FB50 and in all posted documents displayed via FB03.</div></div>
-            <div class="question-card"><div class="question-text">11. (F-02) — In F-02, which Posting Key is used for a GL Credit line?</div><div class="options"><button class="option" onclick="answerQ('tc','q11',this,'wrong')">40</button><button class="option" onclick="answerQ('tc','q11',this,'correct')">50</button><button class="option" onclick="answerQ('tc','q11',this,'wrong')">31</button><button class="option" onclick="answerQ('tc','q11',this,'wrong')">01</button></div><div class="explanation" id="exp-tc-q11">PK 40 = GL Debit, PK 50 = GL Credit. For vendor lines: PK 31 = Vendor Credit (Invoice), PK 25 = Vendor Debit (Payment). Wrong posting key reverses your entry silently.</div></div>
-            <div class="question-card"><div class="question-text">12. (BP) — In SAP S/4HANA, transaction BP replaces which two legacy T-codes?</div><div class="options"><button class="option" onclick="answerQ('tc','q12',this,'wrong')">FK01 and FD01</button><button class="option" onclick="answerQ('tc','q12',this,'correct')">XK01 and XD01</button><button class="option" onclick="answerQ('tc','q12',this,'wrong')">ME23N and FB60</button><button class="option" onclick="answerQ('tc','q12',this,'wrong')">XK01 and FK10N</button></div><div class="explanation" id="exp-tc-q12">XK01 = Create Vendor (ECC), XD01 = Create Customer (ECC). In S/4HANA both are unified under BP — one master record can have Vendor, Customer, and General roles simultaneously.</div></div>
-            <div class="question-card"><div class="question-text">13. (FB60) — When you post a vendor invoice in FB60, which account is automatically credited by SAP?</div><div class="options"><button class="option" onclick="answerQ('tc','q13',this,'wrong')">The GL expense account you entered</button><button class="option" onclick="answerQ('tc','q13',this,'wrong')">The bank account</button><button class="option" onclick="answerQ('tc','q13',this,'correct')">The AP Reconciliation Account from the vendor master</button><button class="option" onclick="answerQ('tc','q13',this,'wrong')">The vendor clearing account</button></div><div class="explanation" id="exp-tc-q13">FB60 posts: Dr = GL Expense account (what you specify) / Cr = AP Reconciliation Account (pulled automatically from vendor master). This links the vendor sub-ledger to the GL balance sheet.</div></div>
-            <div class="question-card"><div class="question-text">14. (FBL1N) — In FBL1N results, what does a ⚡ lightning bolt indicator mean?</div><div class="options"><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Document was posted via Fiori app</button><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Special G/L transaction such as a down payment</button><button class="option" onclick="answerQ('tc','q14',this,'correct')">Item is overdue — net due date has passed and it is unpaid</button><button class="option" onclick="answerQ('tc','q14',this,'wrong')">Vendor account is blocked for payment</button></div><div class="explanation" id="exp-tc-q14">Lightning bolt = overdue (due date passed, not yet paid). Plain red circle = open but not yet due. Green square = cleared and matched. Key indicators to prioritize payment runs.</div></div>
-            <div class="question-card"><div class="question-text">15. (FK10N) — In FK10N, vendor 580024 shows a cumulative balance of 9,443−. What does this mean?</div><div class="options"><button class="option" onclick="answerQ('tc','q15',this,'wrong')">The vendor owes your company 9,443</button><button class="option" onclick="answerQ('tc','q15',this,'wrong')">This is a data error — AP balances should be positive</button><button class="option" onclick="answerQ('tc','q15',this,'correct')">Your company owes this vendor 9,443 — a normal AP credit balance</button><button class="option" onclick="answerQ('tc','q15',this,'wrong')">The vendor account has been blocked</button></div><div class="explanation" id="exp-tc-q15">In AP, a negative cumulative balance is completely normal — it means your company has a liability to this vendor. Negative = you owe them. Positive = they owe you (unusual, may indicate overpayment).</div></div>
-            <div class="question-card"><div class="question-text">16. (IDCNAP) — In IDCNAP, where do you configure the aging buckets (10, 20, 30 days etc.)?</div><div class="options"><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Supplier Selection section</button><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Line Item Selection section</button><button class="option" onclick="answerQ('tc','q16',this,'correct')">Output Control → Due Date Sorted List</button><button class="option" onclick="answerQ('tc','q16',this,'wrong')">Further Selections → Posting Date Range</button></div><div class="explanation" id="exp-tc-q16">Output Control → Due Date Sorted List defines the aging buckets. Default: 10, 20, 30, 60, 90, 180, 360, 720 days. Customize to match your company's payment terms (e.g. Net 30, Net 45).</div></div>
-            <div class="question-card">
-              <div class="question-text">17. (FB03 / FB08) — After reversing a document with FB08, can the original document still be found in FB03?</div>
-              <div class="options"><button class="option" onclick="answerQ('tc','q17',this,'wrong')">No — reversed documents are deleted from the system</button><button class="option" onclick="answerQ('tc','q17',this,'correct')">Yes — the original document remains and shows a Reversed indicator with the reversal document number</button><button class="option" onclick="answerQ('tc','q17',this,'wrong')">Only for 90 days, then it is archived and hidden</button><button class="option" onclick="answerQ('tc','q17',this,'wrong')">Only if the fiscal year is still open</button></div>
-              <div class="explanation" id="exp-tc-q17">SAP never deletes posted documents — this is a fundamental audit principle. Both the original document and the reversal document remain permanently visible in FB03. The original shows "Reversed" status and the reversal document number; the reversal shows the original document number.</div>
-            </div><div class="question-card">
-              <div class="question-text">18. (FS00 / FBL3N) — Postings to GL account 501999 keep failing with a CO error. What is most likely missing?</div>
-              <div class="options"><button class="option" onclick="answerQ('tc','q18',this,'wrong')">The account has no Short Text defined</button><button class="option" onclick="answerQ('tc','q18',this,'wrong')">The Field Status Group is not assigned</button><button class="option" onclick="answerQ('tc','q18',this,'correct')">The CElem Category was not set in the Control Data tab of FS00</button><button class="option" onclick="answerQ('tc','q18',this,'wrong')">The account number is outside the valid number range</button></div>
-              <div class="explanation" id="exp-tc-q18">P-type (P&amp;L) accounts must have a CElem Category to integrate with SAP CO. Without it, every posting requiring a cost object (cost center, internal order) fails with a CO error. Fix: FS00 → Control Data tab → set CElem Category (1=Primary Costs, 11=Revenue, 12=Sales Deductions).</div>
-            </div><div class="question-card">
-              <div class="question-text">19. (FBL1N / FK10N) — What is the key operational difference between FBL1N and FK10N?</div>
-              <div class="options"><button class="option" onclick="answerQ('tc','q19',this,'wrong')">FBL1N is for customers only; FK10N is for vendors only</button><button class="option" onclick="answerQ('tc','q19',this,'correct')">FBL1N shows every individual document line item; FK10N shows period-by-period summary totals</button><button class="option" onclick="answerQ('tc','q19',this,'wrong')">FK10N shows open items; FBL1N shows only cleared items</button><button class="option" onclick="answerQ('tc','q19',this,'wrong')">They show identical data in different visual layouts</button></div>
-              <div class="explanation" id="exp-tc-q19">FBL1N = line item level — every individual document (each invoice, each payment) as a separate row with its own date, amount, and status. FK10N = period summary — total debits, credits, and balance per month. Use FBL1N to investigate specific transactions; FK10N for reconciliation and trend analysis.</div>
-            </div><div class="question-card">
-              <div class="question-text">20. (FB60 / FBL1N) — After posting a vendor invoice in FB60, where does the automatic offsetting credit post?</div>
-              <div class="options"><button class="option" onclick="answerQ('tc','q20',this,'wrong')">To the bank account you specify in the header</button><button class="option" onclick="answerQ('tc','q20',this,'wrong')">To a suspense clearing account for later allocation</button><button class="option" onclick="answerQ('tc','q20',this,'correct')">To the AP Reconciliation Account linked in the vendor master</button><button class="option" onclick="answerQ('tc','q20',this,'wrong')">To the GR/IR clearing account from Materials Management</button></div>
-              <div class="explanation" id="exp-tc-q20">FB60 posts: Dr = GL expense account (you enter this) / Cr = AP Reconciliation Account (SAP pulls this automatically from the vendor master — you never type it). This is the core FI/AP integration: the vendor sub-ledger and the GL balance sheet are updated simultaneously in one document.</div>
-            </div><div class="q-score" id="score-tc">
-              <div class="snum" id="scorenum-tc">0/20</div>
-              <p id="scoremsg-tc"></p>
-              <button class="btn btn-primary" style="margin-top:16px" onclick="resetQuizTC()">Try Again</button>
-            </div>
-          </div></div>
-        <div style="height:32px"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div><!-- end page-quiz -->
 <!-- ===== PAGE: CONSULTANT TRACK ===== -->
 <div id="page-consultant" class="page">
 
@@ -8553,6 +7786,269 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
   </div><!-- end content-layout -->
 </div><!-- end page-consultant -->
 
+<!-- ===== PAGE: COMPREHENSIVE PROJECT ===== -->
+<div id="page-project" class="page">
+
+  <div style="background:linear-gradient(135deg,#0a1628 0%,#0f2540 100%);padding:40px;border-bottom:1px solid var(--border);">
+    <div style="display:inline-block;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:16px">COMPREHENSIVE PROJECT</div>
+    <h1 style="font-size:28px;font-weight:700;margin-bottom:8px">From Blank System to Go-Live</h1>
+    <p style="font-size:16px;color:var(--dim);max-width:720px;line-height:1.7">A single end-to-end implementation you can run from scratch in your BEV1 sandbox. It follows the <strong>SAP Activate</strong> methodology through 8 phases — Prepare, Explore, four Realize stages, Deploy, and Run — so you build the whole FI landscape the way a real project team would, and can defend every decision in an interview.</p>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
+      <div style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.3);color:var(--purple);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">🎯 BEV1 · COA 210100 · BE25</div>
+      <div style="background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);color:var(--accent2);padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600">8 Phases · End-to-End</div>
+    </div>
+  </div>
+
+  <div class="content-layout">
+    <div class="sidebar">
+      <div class="sidebar-title">Project Phases</div>
+      <div class="sidebar-item active" onclick="showProject(0)"><span class="sidebar-num" style="color:var(--muted)">1</span>Prepare</div>
+      <div class="sidebar-item" onclick="showProject(1)"><span class="sidebar-num" style="color:var(--muted)">2</span>Explore</div>
+      <div class="sidebar-item" onclick="showProject(2)"><span class="sidebar-num" style="color:var(--accent)">3</span>Realize — Enterprise Structure</div>
+      <div class="sidebar-item" onclick="showProject(3)"><span class="sidebar-num" style="color:var(--accent)">4</span>Realize — Master Data</div>
+      <div class="sidebar-item" onclick="showProject(4)"><span class="sidebar-num" style="color:var(--accent)">5</span>Realize — Sub-Ledger Config</div>
+      <div class="sidebar-item" onclick="showProject(5)"><span class="sidebar-num" style="color:var(--accent)">6</span>Realize — Test Cycles</div>
+      <div class="sidebar-item" onclick="showProject(6)"><span class="sidebar-num" style="color:var(--gold)">7</span>Deploy — Cutover &amp; Go-Live</div>
+      <div class="sidebar-item" onclick="showProject(7)"><span class="sidebar-num" style="color:var(--green)">8</span>Run — Post Go-Live</div>
+    </div>
+
+    <div class="mobile-picker">
+      <select onchange="showProject(parseInt(this.value)); window.scrollTo(0,120)">
+        <option value="0">1 — Prepare</option>
+        <option value="1">2 — Explore</option>
+        <option value="2">3 — Realize: Enterprise Structure</option>
+        <option value="3">4 — Realize: Master Data</option>
+        <option value="4">5 — Realize: Sub-Ledger Config</option>
+        <option value="5">6 — Realize: Test Cycles</option>
+        <option value="6">7 — Deploy: Cutover &amp; Go-Live</option>
+        <option value="7">8 — Run: Post Go-Live</option>
+      </select>
+    </div>
+
+    <div class="lesson-content">
+
+      <!-- PHASE 1 — PREPARE -->
+      <div class="cons-section active" id="proj-0">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(100,116,139,.15);border:1px solid rgba(100,116,139,.3);color:var(--muted);padding:3px 12px;border-radius:4px">PHASE 1 · PREPARE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 6px">Prepare — Set Up the Project</h2>
+            <p style="color:var(--dim);font-size:16px;line-height:1.7">Before any configuration, the project is scoped and the ground rules are set. In a real engagement this is where the SOW, team, and system landscape are locked.</p>
+          </div>
+          <div class="content-block">
+            <h3>Goal</h3>
+            <p>Define <strong>what</strong> you're implementing (FI scope: GL, AP, AR, Bank, Assets), <strong>where</strong> (system landscape: DEV → QAS → PRD), and <strong>who</strong> owns each stream.</p>
+            <div class="key-points" style="margin-top:10px">
+              <li><strong>Scope:</strong> General Ledger, Accounts Payable, Accounts Receivable, Bank Accounting, Asset Accounting</li>
+              <li><strong>Landscape:</strong> three-system transport path — Development, Quality Assurance, Production</li>
+              <li><strong>Methodology:</strong> SAP Activate — Prepare → Explore → Realize → Deploy → Run</li>
+              <li><strong>Your sandbox:</strong> Company Code <strong>BEV1</strong>, testing all config and postings here first</li>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Consultant Checkpoint</h3>
+            <div class="hbox info">💡 Interview framing: "In Prepare we confirmed scope, the DEV→QAS→PRD landscape, and the project plan. Nothing is configured yet — this phase is about alignment and access."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 — EXPLORE -->
+      <div class="cons-section" id="proj-1">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(100,116,139,.15);border:1px solid rgba(100,116,139,.3);color:var(--muted);padding:3px 12px;border-radius:4px">PHASE 2 · EXPLORE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 6px">Explore — Fit-to-Standard &amp; Design</h2>
+            <p style="color:var(--dim);font-size:16px;line-height:1.7">Run fit-to-standard workshops: show the business the SAP standard process, capture gaps, and make the enterprise-structure decisions that everything else depends on.</p>
+          </div>
+          <div class="content-block">
+            <h3>Key Design Decisions</h3>
+            <div class="key-points">
+              <li><strong>Chart of Accounts</strong> — operating COA structure and account ranges</li>
+              <li><strong>Fiscal Year Variant</strong> — calendar vs non-calendar year, number of periods</li>
+              <li><strong>Currency</strong> — company code currency and any parallel/group currencies</li>
+              <li><strong>Ledger approach</strong> — leading ledger only, or parallel ledgers for IFRS vs local GAAP</li>
+              <li><strong>Document number ranges &amp; document types</strong> per transaction category</li>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Consultant Checkpoint</h3>
+            <div class="hbox warn">⚠️ These decisions are hard to reverse after go-live. A wrong Fiscal Year Variant or COA design means rework across every downstream config object.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 — REALIZE: ENTERPRISE STRUCTURE -->
+      <div class="cons-section" id="proj-2">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.3);color:var(--accent);padding:3px 12px;border-radius:4px">PHASE 3 · REALIZE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 6px">Realize — Enterprise Structure &amp; Global Settings</h2>
+            <p style="color:var(--dim);font-size:16px;line-height:1.7">Build the organizational skeleton and global FI settings in the exact dependency order. Each object must exist before the next can reference it.</p>
+          </div>
+          <div class="content-block">
+            <h3>Build Order (with T-Codes)</h3>
+            <div class="tcode-grid" style="margin-top:6px">
+              <div class="tcode-item"><span class="tcode">OX02</span><span class="tcode-desc">Define Company Code — create BEV1</span></div>
+              <div class="tcode-item"><span class="tcode">OB13</span><span class="tcode-desc">Define / edit Chart of Accounts</span></div>
+              <div class="tcode-item"><span class="tcode">OB62</span><span class="tcode-desc">Assign COA to Company Code</span></div>
+              <div class="tcode-item"><span class="tcode">OB29</span><span class="tcode-desc">Fiscal Year Variant</span></div>
+              <div class="tcode-item"><span class="tcode">OB37</span><span class="tcode-desc">Assign Fiscal Year Variant to CC</span></div>
+              <div class="tcode-item"><span class="tcode">OBBP</span><span class="tcode-desc">Posting Period Variant</span></div>
+              <div class="tcode-item"><span class="tcode">OB52</span><span class="tcode-desc">Open / close posting periods</span></div>
+              <div class="tcode-item"><span class="tcode">OBD4</span><span class="tcode-desc">Account Groups &amp; field status</span></div>
+              <div class="tcode-item"><span class="tcode">OBA7</span><span class="tcode-desc">Document types &amp; number ranges</span></div>
+              <div class="tcode-item"><span class="tcode">OBA4 / OBA0</span><span class="tcode-desc">Tolerance groups</span></div>
+              <div class="tcode-item"><span class="tcode">OKKP</span><span class="tcode-desc">Maintain Controlling Area</span></div>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Consultant Checkpoint</h3>
+            <div class="hbox info">💡 Dependency rule: Company Code → COA → assignment → Fiscal Year Variant → posting periods → account groups → document types. Note the Fiscal Year Variant constraint applies at the <strong>Controlling Area</strong> level, not per company under the same controlling area.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 — REALIZE: MASTER DATA -->
+      <div class="cons-section" id="proj-3">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.3);color:var(--accent);padding:3px 12px;border-radius:4px">PHASE 4 · REALIZE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 6px">Realize — Master Data</h2>
+            <p style="color:var(--dim);font-size:16px;line-height:1.7">With the structure in place, create the master records every posting relies on: GL accounts, vendors, customers, assets, and bank data.</p>
+          </div>
+          <div class="content-block">
+            <h3>Master Records to Create</h3>
+            <div class="tcode-grid" style="margin-top:6px">
+              <div class="tcode-item"><span class="tcode">FS00</span><span class="tcode-desc">GL account master — incl. Vendor Recon acct 210100</span></div>
+              <div class="tcode-item"><span class="tcode">FK01 / BP</span><span class="tcode-desc">Create vendor master (Business Partner in S/4)</span></div>
+              <div class="tcode-item"><span class="tcode">FD01 / BP</span><span class="tcode-desc">Create customer master (Business Partner in S/4)</span></div>
+              <div class="tcode-item"><span class="tcode">AS01</span><span class="tcode-desc">Create asset master records</span></div>
+              <div class="tcode-item"><span class="tcode">FI01</span><span class="tcode-desc">Create Bank Key</span></div>
+              <div class="tcode-item"><span class="tcode">FI12</span><span class="tcode-desc">Define House Bank + Account ID → GL bank account</span></div>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Consultant Checkpoint</h3>
+            <div class="hbox warn">⚠️ Reconciliation accounts (like 210100 for vendors) must be flagged as recon accounts on the GL master, and the vendor/customer master must point back to them. Miss this and sub-ledger postings won't roll up to the GL.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5 — REALIZE: SUB-LEDGER CONFIG -->
+      <div class="cons-section" id="proj-4">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.3);color:var(--accent);padding:3px 12px;border-radius:4px">PHASE 5 · REALIZE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 6px">Realize — Sub-Ledger Configuration</h2>
+            <p style="color:var(--dim);font-size:16px;line-height:1.7">Configure the automation that makes AP, AR, Assets, and Bank work end-to-end: payment program, dunning, asset account determination, and electronic bank statement.</p>
+          </div>
+          <div class="content-block">
+            <h3>Config by Sub-Module</h3>
+            <div class="key-points">
+              <li><strong>AP — Payment Program:</strong> <span class="tcode">FBZP</span> (house banks, payment methods, bank ranking) → drives <span class="tcode">F110</span></li>
+              <li><strong>AR — Dunning:</strong> dunning procedure &amp; levels → drives <span class="tcode">F150</span></li>
+              <li><strong>Assets — Account Determination:</strong> <span class="tcode">AO90</span> links asset classes / depreciation areas to GL accounts</li>
+              <li><strong>Bank — Electronic Bank Statement:</strong> EBS config + posting rules → drives <span class="tcode">FF_5</span> / Manage Bank Statements</li>
+              <li><strong>Tax:</strong> tax codes &amp; accounts (<span class="tcode">FTXP</span>) for input/output VAT</li>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Consultant Checkpoint</h3>
+            <div class="hbox info">💡 This is where "it works in my sandbox" becomes real. Each config object has a downstream transaction that fails loudly if the config is wrong — FBZP→F110, AO90→F-90/AFAB, EBS→bank posting.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 6 — REALIZE: TEST CYCLES -->
+      <div class="cons-section" id="proj-5">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.3);color:var(--accent);padding:3px 12px;border-radius:4px">PHASE 6 · REALIZE</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 6px">Realize — End-to-End Test Cycles</h2>
+            <p style="color:var(--dim);font-size:16px;line-height:1.7">Run the core business processes from start to finish and confirm the accounting is correct at every step. These are your BEV1 rehearsal scripts.</p>
+          </div>
+          <div class="content-block">
+            <h3>Procure-to-Pay (P2P)</h3>
+            <div class="key-points">
+              <li>Post vendor invoice <span class="tcode">FB60</span> → outgoing payment <span class="tcode">F-53</span> or payment run <span class="tcode">F110</span> → verify vendor cleared <span class="tcode">FBL1N</span></li>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Order-to-Cash (O2C)</h3>
+            <div class="key-points">
+              <li>Post customer invoice <span class="tcode">FB70</span> → incoming payment <span class="tcode">F-28</span> → verify customer cleared <span class="tcode">FBL5N</span> → dunning <span class="tcode">F150</span> if overdue</li>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Asset Lifecycle &amp; Bank Reconciliation</h3>
+            <div class="key-points">
+              <li><strong>Asset:</strong> <span class="tcode">AS01</span> → <span class="tcode">F-90</span> → <span class="tcode">AW01N</span> → <span class="tcode">AFAB</span> → retire <span class="tcode">F-92</span></li>
+              <li><strong>Bank:</strong> import statement <span class="tcode">FF_5</span> / Manage Bank Statements → post &amp; match <span class="tcode">FEBA</span> → clear GL bank clearing account</li>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Consultant Checkpoint</h3>
+            <div class="hbox ok">✅ Each cycle proves an integration point: P2P proves AP↔GL, O2C proves AR↔GL, the asset flow proves FI-AA↔GL via AO90, and bank recon proves Bank↔GL clearing.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 7 — DEPLOY -->
+      <div class="cons-section" id="proj-6">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:var(--gold);padding:3px 12px;border-radius:4px">PHASE 7 · DEPLOY</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 6px">Deploy — Cutover &amp; Go-Live</h2>
+            <p style="color:var(--dim);font-size:16px;line-height:1.7">Move config to production, migrate opening balances and open items, and switch the business onto SAP. This is the highest-risk window of the project.</p>
+          </div>
+          <div class="content-block">
+            <h3>Cutover Activities</h3>
+            <div class="key-points">
+              <li><strong>Transport</strong> all config from DEV → QAS → PRD</li>
+              <li><strong>Legacy asset load:</strong> <span class="tcode">AS91</span> — assets with accumulated depreciation as of transfer date</li>
+              <li><strong>Open items:</strong> upload open vendor/customer items and GL balances as of cutover</li>
+              <li><strong>Balance upload:</strong> post opening balances so the GL ties to the legacy trial balance</li>
+              <li><strong>Reconcile</strong> migrated balances against the legacy system before opening postings</li>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Consultant Checkpoint</h3>
+            <div class="hbox warn">⚠️ Golden rule: the migrated opening trial balance in SAP must equal the legacy closing trial balance to the cent before you let users post. A cutover checklist with sign-offs per stream is mandatory.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 8 — RUN -->
+      <div class="cons-section" id="proj-7">
+        <div style="padding:0 40px 60px">
+          <div style="padding:32px 0 20px">
+            <span style="font-family:IBM Plex Mono,monospace;font-size:13px;font-weight:700;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--green);padding:3px 12px;border-radius:4px">PHASE 8 · RUN</span>
+            <h2 style="font-size:24px;font-weight:700;margin:14px 0 6px">Run — Hypercare &amp; First Close</h2>
+            <p style="color:var(--dim);font-size:16px;line-height:1.7">After go-live, stabilize the system through hypercare and prove the design by completing the first real month-end close.</p>
+          </div>
+          <div class="content-block">
+            <h3>First Month-End Close</h3>
+            <div class="tcode-grid" style="margin-top:6px">
+              <div class="tcode-item"><span class="tcode">AFAB</span><span class="tcode-desc">Depreciation run</span></div>
+              <div class="tcode-item"><span class="tcode">FAGL_FCV</span><span class="tcode-desc">Foreign currency valuation</span></div>
+              <div class="tcode-item"><span class="tcode">F.13</span><span class="tcode-desc">Automatic clearing</span></div>
+              <div class="tcode-item"><span class="tcode">FINS_REC</span><span class="tcode-desc">Universal Journal reconciliation (S/4)</span></div>
+              <div class="tcode-item"><span class="tcode">OB52</span><span class="tcode-desc">Close prior period / open next</span></div>
+              <div class="tcode-item"><span class="tcode">S_ALR_87012284</span><span class="tcode-desc">Financial statement (BS &amp; P&amp;L)</span></div>
+            </div>
+          </div>
+          <div class="content-block">
+            <h3>Consultant Checkpoint</h3>
+            <div class="hbox ok">✅ You've now taken a company code from an empty system to a clean first close. That full arc — Prepare through Run — is exactly the story to tell in an FI consultant interview.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- end page-project -->
+
+
 
 
 
@@ -8592,15 +8088,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 .ex-step-desc code{background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.2);padding:1px 6px;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent2);}
 
 
-/* ── Quiz Page ── */
-.quiz-section{display:none;}
-.quiz-section.active{display:block;}
-.quiz-section .content-block{margin-bottom:28px;}
-.quiz-section .question-text{font-size:18px;font-weight:600;line-height:1.6;margin-bottom:18px;}
-.quiz-section .option{font-size:16px;padding:14px 18px;}
-.quiz-section .explanation{font-size:15px;line-height:1.7;padding:14px 18px;}
-.quiz-section .q-score .snum{font-size:56px;}
-.quiz-section .q-score p{font-size:17px;}
 
 /* ── Exercise Sections ── */
 .ex-section{display:none;}
@@ -8625,8 +8112,8 @@ function showPage(p){
   if(p==='overview')tabs[0].classList.add('active');
   else if(p==='mycourse')tabs[1].classList.add('active');
   else if(p==='exercises')tabs[2].classList.add('active');
-  else if(p==='quiz')tabs[3].classList.add('active');
-  else if(p==='consultant'){tabs[4].classList.add('active');showConsultant(0);}
+  else if(p==='consultant'){tabs[3].classList.add('active');showConsultant(0);}
+  else if(p==='project'){tabs[4].classList.add('active');showProject(0);}
   window.scrollTo(0,0);
 }
 function showConsultant(i){
@@ -8640,15 +8127,14 @@ function showConsultant(i){
   if(sel) sel.value=i;
   window.scrollTo(0,0);
 }
-function showQuiz(i){
-  document.querySelectorAll('.quiz-section').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('#page-quiz .sidebar-item').forEach(x=>x.classList.remove('active'));
-  const sec=document.getElementById('qsec-'+i);
+function showProject(i){
+  document.querySelectorAll('#page-project .cons-section').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('#page-project .sidebar-item').forEach(x=>x.classList.remove('active'));
+  const sec=document.getElementById('proj-'+i);
   if(sec) sec.classList.add('active');
-  document.querySelectorAll('#page-quiz .sidebar-item').forEach(item=>{
-    if(item.getAttribute('onclick')==='showQuiz('+i+')') item.classList.add('active');
-  });
-  const sel=document.querySelector('#quiz-mobile-picker select');
+  const items=document.querySelectorAll('#page-project .sidebar-item');
+  if(items[i]) items[i].classList.add('active');
+  const sel=document.querySelector('#page-project .mobile-picker select');
   if(sel) sel.value=i;
   window.scrollTo(0,0);
 }
@@ -8697,30 +8183,6 @@ function showLecture(i){
   const sel=document.querySelector('#page-mycourse .mobile-picker select');
   if(sel) sel.value=i;
 }
-/* ── Quiz System (multi-lecture) ── */
-let quizState={};
-function answerQ(lec,q,btn,result){
-  const key=lec+'_'+q;
-  if(quizState[key])return;
-  quizState[key]=result;
-  btn.parentElement.querySelectorAll('.option').forEach(o=>o.disabled=true);
-  btn.classList.add(result);
-  document.getElementById('exp-'+lec+'-'+q).style.display='block';
-  const totals={l1:8,l2:8,l3:10,l4:10,l5:8,l6:10,tc:20};
-  const total=totals[lec]||8;
-  const done=Object.keys(quizState).filter(k=>k.startsWith(lec+'_')).length;
-  if(done===total){
-    const correct=Object.entries(quizState).filter(([k,v])=>k.startsWith(lec+'_')&&v==='correct').length;
-    const scoreEl=document.getElementById('score-'+lec);
-    scoreEl.style.display='block';
-    document.getElementById('scorenum-'+lec).textContent=correct+'/'+total;
-    document.getElementById('scorenum-'+lec).style.color=correct>=Math.ceil(total*.8)?'var(--green)':correct>=Math.ceil(total*.6)?'var(--gold)':'var(--red)';
-    const pct=Math.round(correct/total*100);
-    const msgs=pct<50?'Keep reviewing — go back through the exercises 📚':pct<70?'Good effort! Review the topics you missed':pct<80?'Solid progress! Almost there 🎯':pct<100?'Great work! 🌟':'Perfect score! Excellent! ✨';
-    document.getElementById('scoremsg-'+lec).textContent=msgs;
-  }
-  updateTotalScore();
-}
 function toggleEx(id){
   const body=document.getElementById('body-'+id);
   const chev=document.getElementById('chev-'+id);
@@ -8729,14 +8191,6 @@ function toggleEx(id){
   if(chev) chev.classList.toggle('open',!isOpen);
 }
 // Exercise sections use showExercise() — no accordion needed
-function resetQuizL(lec,total){
-  for(let i=1;i<=total;i++) delete quizState[lec+'_q'+i];
-  const quiz=document.getElementById('quiz-'+lec);
-  quiz.querySelectorAll('.option').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong');});
-  quiz.querySelectorAll('.explanation').forEach(e=>e.style.display='none');
-  document.getElementById('score-'+lec).style.display='none';
-  updateTotalScore();
-}
 
 /* ── PWA ── */
 (function(){
@@ -8780,7 +8234,7 @@ function resetQuizL(lec,total){
 
   // 3. Register ./sw.js (must be uploaded alongside this file to GitHub)
   if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('./sw.js?v=20250703').then(reg=>{
+    navigator.serviceWorker.register('./sw.js?v=20250708').then(reg=>{
       // Auto-update: when a new SW version is found, reload automatically
       reg.addEventListener('updatefound',()=>{
         const newWorker=reg.installing;
@@ -8877,10 +8331,10 @@ function markLecDone(i,btn){
 }
 function updateLecProgress(){
   let done=0;
-  for(let i=0;i<9;i++) if(localStorage.getItem('lec_done_'+i)==='1') done++;
+  for(let i=0;i<10;i++) if(localStorage.getItem('lec_done_'+i)==='1') done++;
   const lbl=document.getElementById('lec-progress');
-  if(lbl){ lbl.textContent=done+'/9'; lbl.style.color=done===9?'var(--green)':'var(--accent)'; }
-  for(let i=0;i<9;i++){
+  if(lbl){ lbl.textContent=done+'/10'; lbl.style.color=done===10?'var(--green)':'var(--accent)'; }
+  for(let i=0;i<10;i++){
     const btn=document.getElementById('lec-done-'+i);
     if(btn&&localStorage.getItem('lec_done_'+i)==='1'){
       btn.textContent='✅ Lecture '+(i+1)+' Complete';
@@ -8889,41 +8343,9 @@ function updateLecProgress(){
   }
 }
 
-/* ── Overall quiz score ── */
-function updateTotalScore(){
-  const lecs=['l1','l2','l3','l4','l5','l6','l7','l8','tc'];
-  const totals={l1:8,l2:8,l3:10,l4:10,l5:8,l6:10,l7:8,l8:8,tc:20};
-  let total=0, correct=0;
-  lecs.forEach(l=>{
-    const t=totals[l];
-    total+=t;
-    for(let q=1;q<=t;q++){
-      if(quizState[l+'_q'+q]==='correct') correct++;
-    }
-  });
-  const pct=total>0?Math.round(correct/total*100):0;
-  const el=document.getElementById('total-score-num');
-  const bar=document.getElementById('total-score-bar');
-  const pctEl=document.getElementById('total-score-pct');
-  if(el) el.textContent=correct;
-  if(bar) bar.style.width=pct+'%';
-  if(pctEl) pctEl.textContent=pct+'%';
-}
-
-/* ── Reset TC quiz ── */
-function resetQuizTC(){
-  for(let i=1;i<=20;i++) delete quizState['tc_q'+i];
-  const quiz=document.getElementById('quiz-tc');
-  quiz.querySelectorAll('.option').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong');});
-  quiz.querySelectorAll('.explanation').forEach(e=>e.style.display='none');
-  document.getElementById('score-tc').style.display='none';
-  updateTotalScore();
-}
-
 /* ── Keyboard navigation ── */
 document.addEventListener('keydown',function(e){
   const exPage=document.getElementById('page-exercises');
-  const quizPage=document.getElementById('page-quiz');
   if(exPage&&exPage.classList.contains('active')){
     const active=document.querySelector('.ex-section.active');
     if(!active) return;
@@ -8931,20 +8353,12 @@ document.addEventListener('keydown',function(e){
     if(e.key==='ArrowRight'&&id<29) showExercise(id+1);
     if(e.key==='ArrowLeft'&&id>0) showExercise(id-1);
   }
-  if(quizPage&&quizPage.classList.contains('active')){
-    const active=document.querySelector('.quiz-section.active');
-    if(!active) return;
-    const id=parseInt(active.id.replace('qsec-',''));
-    if(e.key==='ArrowRight'&&id<8) showQuiz(id+1);
-    if(e.key==='ArrowLeft'&&id>0) showQuiz(id-1);
-  }
 });
 
 /* ── Init on load ── */
 window.addEventListener('load',function(){
   updateExProgress();
   updateLecProgress();
-  updateTotalScore();
 });
 
 
