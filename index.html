@@ -230,6 +230,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
 .build-title{font-size:15px;font-weight:600;color:var(--text)}
 .build-detail{font-size:13.5px;line-height:1.65;color:var(--dim);display:block}
 .build-detail .tcode{font-size:11px;padding:1px 6px}
+.build-doc{margin:-2px 0 14px 36px;padding:14px 16px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.25);border-left:3px solid var(--green);border-radius:8px}
+.build-doc-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green);margin-bottom:8px}
+.build-doc-body{font-size:13.5px;line-height:1.7;color:var(--dim)}
+.build-doc-body b{color:var(--text)}
+.build-doc-body table{border-collapse:collapse;margin:8px 0;font-size:13px}
+.build-doc-body td{border:1px solid var(--border);padding:4px 10px}
+.build-doc-body td:first-child{color:var(--muted);font-family:IBM Plex Mono,monospace;font-size:12px}
+.build-doc-shots{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.build-doc-shots figure{margin:0;flex:1 1 300px;max-width:440px}
+.build-doc-shots img{width:100%;border:1px solid var(--border);border-radius:6px;display:block;cursor:zoom-in}
+.build-doc-shots figcaption{font-size:11px;color:var(--muted);margin-top:5px;text-align:center}
+.build-chk:checked ~ .build-check{background:var(--green);border-color:var(--green)}
+
 </style>
 </head>
 <body>
@@ -8120,6 +8133,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <span class="build-detail">Ask your instructor which client is safe for configuration — it should be separate from the training client so you don't affect classmates. <b>Result:</b> you know your config client. <b>Needs:</b> nothing.</span>
             </span>
           </label>
+          <div class="build-doc">
+            <div class="build-doc-tag">✓ Documented — my build</div>
+            <div class="build-doc-body"><b>Entered:</b> Ran SCC4 → selected client <b>710</b> "Copy 050".<br>
+<b>Result:</b> Role = <b>Demo</b> (not Production ✓) · Currency EGP · Logical system S4HCLNT909.
+Change setting = <b>"Automatic recording of changes"</b> and <b>cross-client customizing allowed</b> → configuration is permitted. Safe to build.<br>
+<b>Note:</b> Because changes are auto-recorded, the first save prompts for a Customizing transport request — create one named <b>"MG01 FI Build"</b> and reuse it for every step.</div>
+            <div class="build-doc-shots"><figure><img src="./images/mg01-p1-scc4-01.png" alt="SCC4 — client overview" loading="lazy" onclick="window.open(this.src)"><figcaption>SCC4 — client overview</figcaption></figure><figure><img src="./images/mg01-p1-scc4-02.png" alt="Client 710 — details & change settings" loading="lazy" onclick="window.open(this.src)"><figcaption>Client 710 — details & change settings</figcaption></figure></div>
+          </div>
           <label class="build-step">
             <input type="checkbox" id="bstep-0-1" class="build-chk" onchange="toggleBuildStep(this)">
             <span class="build-check"></span>
@@ -8128,6 +8149,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <span class="build-detail">Open <b>SPRO</b> (Customizing). If the IMG tree opens, you have config authorization. <b>Result:</b> SPRO opens. <b>Needs:</b> nothing.</span>
             </span>
           </label>
+          <div class="build-doc">
+            <div class="build-doc-tag">✓ Documented — my build</div>
+            <div class="build-doc-body"><b>Entered:</b> Ran SPRO → clicked <b>SAP Reference IMG</b>.<br>
+<b>Result:</b> "Customizing: Execute Project" opened, then the full <b>Display IMG</b> tree loaded → customizing authorization confirmed. Key nodes for this build: <b>Enterprise Structure</b> (Company Code, CoA, Controlling Area) and <b>Financial Accounting</b> (GL, AP, AR, Asset, Bank).</div>
+            <div class="build-doc-shots"><figure><img src="./images/mg01-p1-spro-01.png" alt="SPRO — Execute Project" loading="lazy" onclick="window.open(this.src)"><figcaption>SPRO — Execute Project</figcaption></figure><figure><img src="./images/mg01-p1-spro-02.png" alt="SAP Reference IMG tree" loading="lazy" onclick="window.open(this.src)"><figcaption>SAP Reference IMG tree</figcaption></figure></div>
+          </div>
           <label class="build-step">
             <input type="checkbox" id="bstep-0-2" class="build-chk" onchange="toggleBuildStep(this)">
             <span class="build-check"></span>
@@ -8136,6 +8163,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <span class="build-detail">Company Code <b>MG01</b> · Chart of Accounts <b>MGCA</b> · Controlling Area <b>MG01</b>. Using your own codes avoids clashing with BEV1 or other students. <b>Result:</b> naming decided.</span>
             </span>
           </label>
+          <div class="build-doc">
+            <div class="build-doc-tag">✓ Documented — my build</div>
+            <div class="build-doc-body"><b>Committed naming:</b>
+<table>
+<tr><td>Company Code</td><td>MG01</td></tr>
+<tr><td>Chart of Accounts</td><td>MGCA</td></tr>
+<tr><td>Controlling Area</td><td>MG01</td></tr>
+<tr><td>Vendor recon acct</td><td>210100</td></tr>
+<tr><td>House Bank</td><td>MGHB</td></tr>
+</table>
+Every later step references these. Codes chosen to avoid collision with the shared client's existing content.</div>
+            
+          </div>
         </div>
       </div>
       <div class="cons-section" id="pbuild-1">
@@ -8153,6 +8193,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <span class="build-detail">Use <b>K4</b> — calendar year (Jan–Dec), 12 posting periods + 4 special periods. It's the standard and the safe choice. <b>Result:</b> FYV chosen.</span>
             </span>
           </label>
+          <div class="build-doc">
+            <div class="build-doc-tag">✓ Documented — my build</div>
+            <div class="build-doc-body"><b>Decision:</b> Fiscal Year Variant = <b>K4</b> — calendar year (Jan–Dec), 12 posting periods + 4 special periods.<br>
+<b>Why:</b> SAP standard, year-independent, and matches Egypt's calendar-based fiscal year — no custom variant needed.</div>
+            
+          </div>
           <label class="build-step">
             <input type="checkbox" id="bstep-1-1" class="build-chk" onchange="toggleBuildStep(this)">
             <span class="build-check"></span>
@@ -8161,6 +8207,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <span class="build-detail">Pick the company-code currency (e.g. <b>EGP</b> or <b>USD</b>). This is set when you create MG01. <b>Result:</b> currency chosen.</span>
             </span>
           </label>
+          <div class="build-doc">
+            <div class="build-doc-tag">✓ Documented — my build</div>
+            <div class="build-doc-body"><b>Decision:</b> Company-code currency = <b>EGP</b>.<br>
+<b>Why:</b> Matches client 710 and local context. Entered when MG01 is created in OX02.</div>
+            
+          </div>
           <label class="build-step">
             <input type="checkbox" id="bstep-1-2" class="build-chk" onchange="toggleBuildStep(this)">
             <span class="build-check"></span>
@@ -8169,6 +8221,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.9
               <span class="build-detail">Decide account ranges: assets 1xxxxx · liabilities 2xxxxx (vendor recon <b>210100</b>) · equity 3xxxxx · revenue 4xxxxx · expenses 5–8xxxxx. <b>Result:</b> account plan sketched.</span>
             </span>
           </label>
+          <div class="build-doc">
+            <div class="build-doc-tag">✓ Documented — my build</div>
+            <div class="build-doc-body"><b>Decision:</b> Chart of Accounts number ranges:
+<table>
+<tr><td>1xxxxx</td><td>Assets (bank, customer recon)</td></tr>
+<tr><td>2xxxxx</td><td>Liabilities (vendor recon 210100)</td></tr>
+<tr><td>3xxxxx</td><td>Equity</td></tr>
+<tr><td>4xxxxx</td><td>Revenue</td></tr>
+<tr><td>5xxxxx–8xxxxx</td><td>Expenses</td></tr>
+</table>
+Mirrors the BEV1 convention (210100 = vendor recon) for familiarity.</div>
+            
+          </div>
         </div>
       </div>
       <div class="cons-section" id="pbuild-2">
@@ -8770,7 +8835,7 @@ function toggleEx(id){
 
   // 3. Register ./sw.js (must be uploaded alongside this file to GitHub)
   if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('./sw.js?v=20250709').then(reg=>{
+    navigator.serviceWorker.register('./sw.js?v=20250709b').then(reg=>{
       // Auto-update: when a new SW version is found, reload automatically
       reg.addEventListener('updatefound',()=>{
         const newWorker=reg.installing;
