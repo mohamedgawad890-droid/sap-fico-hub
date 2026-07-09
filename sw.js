@@ -1,5 +1,5 @@
 /* ── SAP FICO Hub Service Worker ── */
-const CACHE_NAME = 'sap-fico-hub-v8';
+const CACHE_NAME = 'sap-fico-hub-v9';
 const ASSETS = ['./index.html', './manifest.json'];
 
 /* Install: cache app shell */
